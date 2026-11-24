@@ -1120,6 +1120,84 @@ svg[data-zl="1"] .nxsub.lv3:not(.keep),svg[data-zl="1"] .nxsub.lv4:not(.keep),sv
 .fb-count b{color:var(--ink)}
 @media (max-width:720px){ .fb-count{margin-left:0;flex-basis:100%} .fb-pop{position:fixed;left:12px;right:12px;top:auto;bottom:12px;max-width:none;max-height:60vh} }
 
+
+.rm-f{display:grid;grid-template-columns:170px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--rule-2)}
+.rm-f:first-of-type{border-top:0}
+.rm-fl{font-weight:700;font-size:13.5px;padding-top:4px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--paper)}
+.seg button{border:0;background:none;padding:7px 14px;font-size:13.5px;color:var(--ink-2);border-right:1px solid var(--rule)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--ink);color:var(--paper);font-weight:600}
+.tierpill{display:inline-block;font-size:10.5px;font-weight:800;color:var(--c);border:1.5px solid var(--c);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.rm-ov .card{margin-top:12px}
+.rm-kr{padding:9px 0;border-bottom:1px solid var(--rule-2)}
+.rm-kr:last-child{border-bottom:0}
+.rm-as{border-left:3px solid var(--rule);padding:6px 10px;margin:6px 0;background:var(--canvas);border-radius:0 6px 6px 0}
+.rm-ref{background:var(--canvas);border-radius:6px;padding:8px 10px;margin-bottom:8px;display:block}
+.rm-refine{display:grid;gap:6px}
+.rm-refine .btn{justify-self:start}
+.nx-kr.on{border-color:var(--red);background:var(--red-tint)}
+.nxe.tier-supporting > path:nth-of-type(2){stroke-opacity:.55}
+.nxe.tier-other > path:nth-of-type(2){stroke:#A0A0A0;stroke-opacity:.6}
+.nxe.tunk > path:nth-of-type(2){stroke-dasharray:2 4}
+@media (max-width:720px){ .rm-f{grid-template-columns:1fr} }
+
+
+.rm-form{max-width:880px;margin:0 auto}
+.rm-sec{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.rm-sh{font-weight:800;font-size:14px;margin-bottom:10px}
+.rm-ent{display:flex;align-items:center;gap:12px}
+.rm-ava{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-size:20px;flex:none;color:#fff}
+.rm-pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rm-popt{display:flex;gap:10px;text-align:left;border:1.5px solid var(--rule);border-radius:10px;background:var(--paper);padding:12px}
+.rm-popt.wide{grid-column:1/-1}
+.rm-popt:hover{border-color:var(--ink-2)}
+.rm-popt.on{border-color:var(--red);background:var(--red-tint)}
+.rm-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--faint);display:grid;place-items:center;font-size:10px;color:var(--red);flex:none;margin-top:2px}
+.rm-popt.on .rm-radio{border-color:var(--red)}
+.rm-pbody{min-width:0}
+.rm-chips{display:flex;flex-wrap:wrap;gap:4px}
+.rm-chip{font-size:11px;background:var(--canvas);border:1px solid var(--rule-2);border-radius:999px;padding:1px 8px;color:var(--ink-2)}
+.rm-scope{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rm-lab{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.rm-foot{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;box-shadow:0 -6px 18px rgba(0,0,0,.06)}
+@media (max-width:760px){ .rm-pgrid,.rm-scope{grid-template-columns:1fr} .rm-foot{padding:10px 12px} .rm-foot > .small{display:none} .rm-foot .row{flex:1;justify-content:flex-end} .rm-ent{flex-wrap:wrap} .rm-ent > div{flex:1 1 calc(100% - 60px)!important} .rm-ent .btn{margin-left:54px} }
+
+
+.rm-sec.rm-ent{display:flex;align-items:center;gap:12px}
+.rm-plist{display:grid;gap:6px}
+.rm-prow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--rule);border-radius:8px;background:var(--paper);padding:10px 12px}
+.rm-prow > span:last-child{display:flex;flex-direction:column;gap:1px;min-width:0}
+.rm-prow b{font-size:14.5px}
+.rm-prow:hover{border-color:var(--ink-2)}
+.rm-prow.on{border-color:var(--red);background:var(--red-tint)}
+.rm-prow.on .rm-radio{border-color:var(--red)}
+.rm-foot{justify-content:flex-end!important}
+
+
+.jb-track{height:6px;background:var(--rule-2);border-radius:999px;overflow:hidden;margin-top:14px}
+.jb-track.sm{height:4px;margin:6px 0 3px;max-width:160px}
+.jb-bar{display:block;height:100%;background:var(--red);border-radius:999px;transition:width .5s linear}
+.rm-bg{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding:14px 16px;background:var(--paper);border:1px solid var(--rule);border-radius:10px}
+.jb-tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.spin{display:inline-block;width:11px;height:11px;border:2px solid var(--rule);border-top-color:var(--red);border-radius:50%;animation:jbspin .8s linear infinite;vertical-align:middle}
+@keyframes jbspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){ .spin{animation:none;border-top-color:var(--red)} .jb-bar{transition:none} }
+@media (max-width:720px){ .rm-bg{flex-direction:column;align-items:stretch} }
+
+
+.tierbar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.tb-l{font-size:12.5px;font-weight:700;color:var(--muted);margin-right:2px}
+.tb-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:5px 12px;font-size:13px;color:var(--muted)}
+.tb-btn i{width:9px;height:9px;border-radius:50%}
+.tb-btn.on{border-color:var(--ink);color:var(--ink);font-weight:600}
+.tb-n{font-size:11.5px;color:var(--muted);font-weight:500}
+.tb-hint{font-size:12px;color:var(--muted);margin-left:auto}
+#rm-svg .nxe.unfoc,#rm-svg .nxn.unfoc{filter:grayscale(1);opacity:.42}
+#rm-svg .nxn.unfoc .nxl{fill:var(--muted)}
+#rm-svg .nxe.foc > path:nth-of-type(2){stroke-opacity:1}
+@media (max-width:720px){ .tb-hint{margin-left:0;flex-basis:100%} }
+
 </style>
 </head>
 <body>
@@ -1239,11 +1317,8 @@ const S = {
    NAV
    ========================================================= */
 const NAV = [
-  {group:null, items:[['dashboard','Dashboard','home']]},
-  {group:'Discover', n:1, sub:'Kesadaran isu', tip:'Temukan isu yang muncul, percakapan publik, dan potensi risiko bisnis yang perlu diperhatikan.', items:[['listening','News & Social Listening','wave']]},
-  {group:'Understand', n:2, sub:'Kesadaran konteks', tip:'Pelajari pemangku kepentingan, pernyataan dan sikap mereka, hubungan antarentitas, serta konteks di balik suatu isu.', items:[['ask','Ask Tempo','ask'],['network','Network Explorer','net'],['quotes','Quotes & Positions','quote']]},
-  {group:'Investigate', n:3, sub:'Kesadaran risiko', tip:'Lakukan investigasi terarah atas isu, risiko, dan perkembangannya, atau atas perusahaan dan individu tertentu.', items:[['signal','Issue Analysis','radar'],['bgcheck','Background Check','shield']]},
-  {group:'My Workspace', util:true, items:[['watchlist','Watchlist & Alerts','star']]},
+  {group:null, items:[['dashboard','Dashboard','home'],['listening','News & Social Listening','wave'],['ask','Ask Tempo','ask'],['network','Network Explorer','net'],['quotes','Quotes & Positions','quote'],['signal','Issue Analysis','radar'],['bgcheck','Background Check','shield']]},
+  {group:null, util:true, items:[['watchlist','Watchlist & Alerts','star']]},
 ];
 const TITLES = {dashboard:'Dashboard',ask:'Ask Tempo',quotes:'Quotes & Positions',network:'Network Explorer',listening:'News & Social Listening',signal:'Issue Analysis',bgcheck:'Background Check',watchlist:'Watchlist & Alerts'};
 const SECTION = {listening:'Discover',ask:'Understand',quotes:'Understand',network:'Understand',signal:'Investigate',bgcheck:'Investigate',watchlist:'My Workspace',dashboard:'Beranda'};
@@ -1261,7 +1336,7 @@ function renderSide(){
       <div class="who"><span class="avatar">DA</span><div>Dewi Anggraini<div class="xs" style="color:var(--muted)">Strategi &amp; Risiko</div></div></div>
       <div class="demo-flag"><i></i><span>Prototipe dengan data ilustratif. Entitas, kutipan, dan angka bukan data nyata.</span></div>
     </div>`;
-  $('#crumb').innerHTML = S.view==='dashboard' ? '<b class="tc-cur">Dashboard</b>' : `<span class="tc-sec">${SECTION[S.view]}</span><span class="tc-sep">/</span><b class="tc-cur">${TITLES[S.view]}</b>`;
+  $('#crumb').innerHTML = `<b class="tc-cur">${TITLES[S.view]}</b>`;
 }
 
 /* ---------- save / follow control ---------- */
@@ -1676,7 +1751,7 @@ function qChipsBar(){
 function vQuotes(){
   const Q=S.quotes;
   const searchBox = `<form class="askbox" data-form="quotes" style="margin-top:14px">${ic('search',19)}<input name="q" value="${esc(Q.q)}" placeholder="Cari tokoh, organisasi, isu, atau kata kunci — atau gabungkan semuanya" aria-label="Cari kutipan" autocomplete="off"><button class="btn primary">Cari</button></form>`;
-  const head = `<div class="layer-tag">Understand · Kesadaran konteks</div><h1>Quotes &amp; Positions</h1><p class="lede">Temukan apa yang dikatakan tokoh secara resmi, beserta konteksnya, dan lacak bagaimana sikap mereka terhadap suatu isu berubah dari waktu ke waktu.</p>`;
+  const head = `<h1>Quotes &amp; Positions</h1><p class="lede">Temukan apa yang dikatakan tokoh secara resmi, beserta konteksnya, dan lacak bagaimana sikap mereka terhadap suatu isu berubah dari waktu ke waktu.</p>`;
   if(Q.stage==='search') return `<div class="wrap" style="max-width:860px">${head}${searchBox}
     <div class="sub-h">Coba</div><div class="prompts" style="margin-top:0">${['Hendra Wiratama limbah','Nusantara Energi','Koperasi nelayan gugatan','hilirisasi nikel','DPRD audit'].map(p=>`<button class="chip" data-a="q-try" data-q="${p}">${p}</button>`).join('')}</div>
     <div class="grid g3" style="gap:10px;margin-top:22px">
@@ -2206,7 +2281,7 @@ function vNetwork(){
   if(st==='setup') body=nxSetupPage(m);
   else if(st==='result') body = m==='explore'?exView():m==='connect'?cnView():isView();
   else body=nxList(m);
-  return `<div class="wrap" style="max-width:1240px"><div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Understand · Kesadaran konteks</div><h1>Network Explorer</h1><p class="lede">Telusuri hubungan terdokumentasi antara tokoh, organisasi, tempat, dan peristiwa dalam pemberitaan Tempo. Setiap koneksi tertaut ke artikel di baliknya.</p></div></div>
+  return `<div class="wrap" style="max-width:1240px"><div class="page-head" style="margin-bottom:14px"><div><h1>Network Explorer</h1><p class="lede">Telusuri hubungan terdokumentasi antara tokoh, organisasi, tempat, dan peristiwa dalam pemberitaan Tempo. Setiap koneksi tertaut ke artikel di baliknya.</p></div></div>
     ${subnav}${body}</div>`;
 }
 BIND['nx-hf'] = v=>{ S.nx.hf[S.nx.mode]=v; rerender(); const i=document.querySelector('[data-bind="nx-hf"]'); if(i){ i.focus(); i.setSelectionRange(v.length,v.length); } };
@@ -2766,7 +2841,7 @@ NOT (${D.excl.length} exclusion rules)</pre></div></details>
       <div class="health"><div><div class="l">Cakupan historis</div><div class="v">Tinggi</div></div><div><div class="l">Data lokasi</div><div class="v" style="color:var(--ev-unverified)">Sebagian</div></div><div><div class="l">Tingkat noise</div><div class="v" style="color:var(--ev-unverified)">Sedang</div></div><div><div class="l">Perkiraan hasil pertama</div><div class="v">2–4 min</div></div></div>
       <div class="wz-foot"><button class="btn" data-a="lis-step" data-s="5">Kembali untuk mengubah</button><div class="row"><button class="btn" data-a="toast" data-m="Draf tersimpan.">Simpan sebagai draf</button><button class="btn primary" data-a="lis-run">▶ Mulai memantau</button></div></div>`;
   }
-  return `<div class="wz"><div class="wz-head"><div><div class="layer-tag">Discover · Kesadaran isu</div><h1>Buat monitor</h1></div><button class="btn" data-a="lis-home">✕ Batal</button></div>${wizProgress(LIS_STEPS, L.step, 'lis-step')}<div class="wz-card">${b}</div></div>`;
+  return `<div class="wz"><div class="wz-head"><div><h1>Buat monitor</h1></div><button class="btn" data-a="lis-home">✕ Batal</button></div>${wizProgress(LIS_STEPS, L.step, 'lis-step')}<div class="wz-card">${b}</div></div>`;
 }
 
 /* ---------- insight ---------- */
@@ -2878,7 +2953,7 @@ function lisInsight(){
   }
   return `<div class="wrap">
     <div class="row small pcrumb" style="margin-bottom:10px"><button class="btn sm ghost" data-a="lis-home">Semua monitor</button><span class="muted">/</span><b>${m.n}</b></div>
-    <div class="ins-hero"><div class="row between" style="align-items:flex-start;gap:14px"><div><div class="layer-tag">Discover · Kesadaran isu</div><h1>${m.n}</h1><p class="small muted" style="margin:6px 0 0;max-width:70ch">Volume, sentimen, dan penyebaran percakapan publik tentang dugaan limbah smelter di Teluk Buli dan PT Nusantara Energi Raya.</p></div>
+    <div class="ins-hero"><div class="row between" style="align-items:flex-start;gap:14px"><div><h1>${m.n}</h1><p class="small muted" style="margin:6px 0 0;max-width:70ch">Volume, sentimen, dan penyebaran percakapan publik tentang dugaan limbah smelter di Teluk Buli dan PT Nusantara Energi Raya.</p></div>
       <div class="row">${sf('m:nikel',true)}<button class="btn sm" data-a="lis-edit">✎ Ubah pengaturan</button><button class="btn sm" data-a="toast" data-m="Export prepared (prototype).">⬇ Ekspor</button></div></div>
       <div class="ins-meta"><span>📅 14 Sep – 13 Okt 2026</span><span>🗂️ 6 klaster · 38 istilah · 5 pengecualian</span><span>📡 Berita + X, TikTok, Instagram, Facebook, YouTube, Threads</span><span class="status-pill sp-esc">Naik cepat</span>
         <span style="margin-left:auto" class="row"><span>🔄 ${L.mode==='always'?'Selalu memantau · '+L.interval.toLowerCase():'Sesuai permintaan'} · terakhir dijalankan 07:30 WIB</span><button class="btn sm primary" data-a="lis-update">↻ Perbarui sekarang</button></span></div></div>
@@ -2903,7 +2978,7 @@ function vListening(){
   if(L.stage==='wizard') return lisWizard();
   if(L.stage==='loading') return `<div class="wz" style="max-width:640px;padding-top:30px"><h2>Memulai “${esc(L.draft.name)}”</h2><p class="small muted">Anda bisa meninggalkan halaman ini; kami akan memberi tahu saat hasil pertama siap.</p>${procList(['Memperluas kata kunci dan alias','Menerapkan pengecualian','Mengumpulkan artikel berita','Mengumpulkan post media sosial per platform','Menghapus duplikat dan spam','Mengklasifikasi sentimen dan emosi','Menentukan lokasi','Membangun jaringan interaksi'],'lis-proc')}<div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn" data-a="lis-home">Lanjutkan di latar belakang</button></div></div>`;
   if(L.stage==='insight') return lisInsight();
-  return `<div class="wrap"><div class="page-head"><div><div class="layer-tag">Discover · Kesadaran isu</div><h1>News &amp; Social Listening</h1><p class="lede">Pantau kata kunci, merek, dan topik yang penting bagi Anda. Lihat seberapa banyak dibicarakan, bagaimana sentimen berubah, siapa pendorongnya, dan di mana.</p></div><button class="btn primary" data-a="new-monitor">${ic('plus',14)}Buat monitor</button></div>
+  return `<div class="wrap"><div class="page-head"><div><h1>News &amp; Social Listening</h1><p class="lede">Pantau kata kunci, merek, dan topik yang penting bagi Anda. Lihat seberapa banyak dibicarakan, bagaimana sentimen berubah, siapa pendorongnya, dan di mana.</p></div><button class="btn primary" data-a="new-monitor">${ic('plus',14)}Buat monitor</button></div>
     <div class="panel scroll-x"><table class="t"><thead><tr><th>Monitor</th><th>Pengaturan</th><th>Sumber</th><th>Mention (30 hr)</th><th>Ubah</th><th>Pembaruan</th></tr></thead><tbody>
     ${L.monitors.map(m=>`<tr class="clickrow" data-a="open-listening" data-ws="${m.id}"><td><b>${m.n}</b>${S.followed.has('m:'+m.id)?' <span class="xs" style="color:var(--red);font-weight:600">· Diikuti</span>':''}<div class="xs muted">${m.period}</div></td><td class="small">${m.inc}</td><td class="small">${m.src}</td><td style="font-variant-numeric:tabular-nums">${m.vol}</td><td class="delta ${m.chg.startsWith('+')?'up':m.chg==='New'?'flat':'down'}">${m.chg}</td><td class="small">${m.mode}</td></tr>`).join('')}
     </tbody></table></div>
@@ -3149,7 +3224,7 @@ function smWizard(){
       <div class="health" style="margin-top:14px"><div><div class="l">Cakupan historis</div><div class="v">Tinggi</div></div><div><div class="l">Sinyal saat ini</div><div class="v">Tinggi</div></div><div><div class="l">Tingkat noise</div><div class="v" style="color:var(--ev-unverified)">Sedang</div></div><div><div class="l">Perkiraan proses</div><div class="v">1–3 min</div></div></div>
       <div class="wz-foot"><button class="btn" data-a="sm-step" data-s="4">← Kembali untuk mengubah</button><div class="row"><button class="btn" data-a="toast" data-m="Draf tersimpan.">Simpan sebagai draf</button><button class="btn primary" data-a="sm-run">▶ Jalankan analisis awal</button></div></div>`;
   }
-  return `<div class="wz"><div class="wz-head"><div><div class="layer-tag">Investigate · Kesadaran risiko</div><h1>Buat sinyal kustom</h1></div><button class="btn" data-a="sm-index">✕ Batal</button></div>
+  return `<div class="wz"><div class="wz-head"><div><h1>Buat sinyal kustom</h1></div><button class="btn" data-a="sm-index">✕ Batal</button></div>
     ${M.from?`<div class="inherit">${ic('wave',18)}<div><b>Dibawa dari Listening: “Hilirisasi Nikel & Teluk Buli”</b><div class="small">Deskripsi, kata kunci, dan sumber sudah terisi. Anda bisa mengubah semuanya.</div></div></div>`:''}
     ${wizProgress(SM_STEPS, M.step, 'sm-step')}<div class="wz-card">${b}</div></div>`;
 }
@@ -3164,7 +3239,7 @@ function vSignal(){
     ['Rantai Pasok Baterai EV','Manufaktur baterai, kandungan lokal, dan langkah investor dalam rantai pasok kendaraan listrik.','sp-stable','Stabil','1 hari lalu','3 baru',false],
     ['Pembiayaan Hijau Sektor Tambang','Kebijakan ESG pemberi pinjaman, pembiayaan hijau, dan sengketa covenant di sektor tambang.','sp-rise','Naik','4 jam lalu','6 baru',false],
   ];
-  return `<div class="wrap"><div class="page-head"><div><div class="layer-tag">Investigate · Kesadaran risiko</div><h1>Issue Analysis</h1><p class="lede">Pahami bagaimana isu strategis berkembang, kenali titik baliknya, dan ketahui apa yang perlu diperhatikan sekarang.</p></div><button class="btn primary" data-a="sm-new">${ic('plus',14)}Buat sinyal kustom</button></div>
+  return `<div class="wrap"><div class="page-head"><div><h1>Issue Analysis</h1><p class="lede">Pahami bagaimana isu strategis berkembang, kenali titik baliknya, dan ketahui apa yang perlu diperhatikan sekarang.</p></div><button class="btn primary" data-a="sm-new">${ic('plus',14)}Buat sinyal kustom</button></div>
     <h3 style="margin:6px 0 10px">Sinyal Anda</h3>
     <button class="sig-card" data-a="sm-open" style="width:100%;margin-bottom:22px"><div class="row between"><span class="nm">Limbah Teluk Buli</span><span class="badge-custom">◆ Sinyal kustom</span></div><span class="small muted">Dugaan pencemaran air limbah di smelter PT Nusantara Energi Raya: perkembangan, aktor, dan risiko.</span><span class="sig-meta"><span>⛏ Pertambangan &amp; logam</span><span>📍 Maluku Utara</span><span class="status-pill sp-esc">Meningkat</span><span>🕐 Diperbarui 07:30</span><span>🆕 3 perkembangan baru</span>${S.followed.has('i:telukbuli')?'<span style="color:var(--red);font-weight:700">Diikuti</span>':''}</span></button>
     <h3 style="margin:0 0 10px">Dikurasi Tempo untuk Pertambangan &amp; logam</h3>
@@ -3347,7 +3422,7 @@ function vBg(){
       <div class="row between"><button class="btn ghost" data-a="bc-step" data-s="4">Kembali</button><button class="btn primary" data-a="bc-run">Buat laporan</button></div></div>`;
   }
   return `<div class="wrap" style="max-width:900px">
-    <div class="page-head"><div><div class="layer-tag">Investigate · Kesadaran risiko</div><h1>Background Check</h1><p class="lede">Sebelum berurusan dengan perusahaan atau individu, lihat latar belakang, relasi, rekam jejak, dan potensi tanda bahaya mereka, dengan setiap temuan tertaut ke sumbernya.</p></div><button class="btn" data-a="bc-sample">Lihat contoh laporan</button></div>
+    <div class="page-head"><div><h1>Background Check</h1><p class="lede">Sebelum berurusan dengan perusahaan atau individu, lihat latar belakang, relasi, rekam jejak, dan potensi tanda bahaya mereka, dengan setiap temuan tertaut ke sumbernya.</p></div><button class="btn" data-a="bc-sample">Lihat contoh laporan</button></div>
     ${bcStepper()}${body}</div>`;
 }
 function bcPartial(){
@@ -3564,7 +3639,7 @@ function vWatch(){
     b = keys.length ? `<div class="panel scroll-x"><table class="t"><thead><tr><th>Item</th><th>Tipe</th><th>Dari</th><th>${W.tab==='following'?'Alerts':''}</th><th></th></tr></thead><tbody>${keys.map(k=>`<tr><td><b>${ITEMS[k].n}</b></td><td class="small">${ITEMS[k].k}</td><td class="small muted">${ITEMS[k].from}</td><td>${W.tab==='following'?`<select class="select" style="width:auto;padding:4px 8px;font-size:13px" data-a="wl-freq" aria-label="Frekuensi notifikasi"><option>Seketika</option><option selected>Ringkasan harian</option><option>Ringkasan mingguan</option><option>Dibisukan</option></select>`:''}</td><td style="text-align:right">${sf(k,true)}</td></tr>`).join('')}</tbody></table></div>`
       : `<div class="panel"><div class="empty"><h3>${W.tab==='following'?'Belum mengikuti apa pun':'Belum ada yang disimpan'}</h3><p class="small muted">${W.tab==='following'?'Ikuti entitas, isu, atau monitor untuk mendapat pembaruan saat ada perubahan material.':'Simpan jawaban, kutipan, graph, dan laporan agar bisa ditemukan di sini nanti.'}</p></div></div>`;
   }
-  return `<div class="wrap"><div class="page-head"><div><div class="layer-tag">My Workspace</div><h1>Watchlist &amp; Alerts</h1><p class="lede">Semua yang Anda simpan atau ikuti di Tempo Signal. <b>Simpan</b> menyimpan salinan untuk nanti. <b>Ikuti</b> memberi tahu Anda saat ada perubahan material.</p></div></div>
+  return `<div class="wrap"><div class="page-head"><div><h1>Watchlist &amp; Alerts</h1><p class="lede">Semua yang Anda simpan atau ikuti di Tempo Signal. <b>Simpan</b> menyimpan salinan untuk nanti. <b>Ikuti</b> memberi tahu Anda saat ada perubahan material.</p></div></div>
     ${W.sel?'':`<div class="tabs">${tabs.map(([k,l])=>`<button class="tab ${W.tab===k?'on':''}" data-a="wl-tab" data-t="${k}">${l} <span class="xs muted">${k==='updates'?UPDATES.filter(u=>S.followed.has(u.item)).length:k==='following'?S.followed.size:S.saved.size}</span></button>`).join('')}</div>`}
     ${b}</div>`;
 }
@@ -3657,6 +3732,8 @@ document.addEventListener('submit', e => {
   if(f==='hero-ask'){ const q=fd.get('q')||'Apa kontroversi PT Nusantara Energi Raya?'; askNew(); askSubmit(q); }
   if(f==='ask'){ askSubmit(fd.get('q')||''); }
   if(f==='quotes'){ qSearch(fd.get('q')); }
+  if(f==='rm2-search'){ const F=S.rm.form; F.q=(fd.get('q')||'').trim(); F.searched=!!F.q; F.pick=null; rerender(); }
+  if(f==='rm2-refine'){ const ctx=(fd.get('ctx')||'').trim(); const key=e.target.dataset.key; if(!ctx){ toast('Tuliskan konteks atau pertanyaan terlebih dahulu.'); return; } S.rm.refine[key]={ctx, text:rmRefineText(key,ctx)}; rerender(); }
   if(f==='rm-search'){ S.rm.q=(fd.get('q')||'').trim(); S.rm.searched=!!S.rm.q; S.rm.pick=null; rerender(); }
   if(f==='cp-search'){ const k=e.target.dataset.k, X=S.cp.form[k]; X.q=(fd.get('q')||'').trim(); X.searched=!!X.q; X.id=null; rerender(); }
   if(f==='sk-search'){ const q=(fd.get('q')||'').trim(); if(!q) return; S.sk.q=q; S.sk.pick=null; const h=skSearch(q,S.sk.type).hits; if(h.length===1) S.sk.pick=h[0].id; S.sk.stage='confirm'; S.nx.mode='issue'; go('network'); }
@@ -4909,7 +4986,7 @@ function vNetwork2(){
   else if(st==='result') body = m==='explore'?exView():cnView();
   else body=nxList(m).replace(/<div class="nxl-head">[\s\S]*?<\/div><button/, '<div class="nxl-head"><div></div><button');
   const atHome = m==='issue' ? S.sk.stage==='list' : m==='connect' ? S.cp.stage==='list' : st==='list';
-  return `<div class="wrap" style="max-width:1240px">${atHome?`<div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Understand · Network Explorer</div><h1>${NXSUB[m].n}</h1><p class="lede">${NXSUB[m].d}</p></div></div>`:''}${body}</div>`;
+  return `<div class="wrap" style="max-width:1240px">${atHome?`<div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Network Explorer</div><h1>${NXSUB[m].n}</h1><p class="lede">${NXSUB[m].d}</p></div></div>`:''}${body}</div>`;
 }
 const NXMENU = [['explore','Relationship Map'],['connect','Connection Paths'],['issue','Topic Network']];
 const _renderSide0 = renderSide;
@@ -4920,7 +4997,7 @@ renderSide = function(){
   parent.classList.remove('on'); parent.classList.toggle('parent-on', inNx); parent.removeAttribute('aria-current');
   parent.setAttribute('aria-expanded','true');
   parent.insertAdjacentHTML('afterend', `<div class="nav-sub" role="group" aria-label="Network Explorer">${NXMENU.map(([m,l])=>{ const on=inNx&&S.nx.mode===m; return `<button class="nav-subitem ${on?'on':''}" data-a="go-nx" data-m="${m}" ${on?'aria-current="page"':''}>${l}</button>`; }).join('')}</div>`);
-  if(inNx) $('#crumb').innerHTML = `<span class="tc-sec">Understand</span><span class="tc-sep">/</span><span class="tc-sec">Network Explorer</span><span class="tc-sep">/</span><b class="tc-cur">${NXSUB[S.nx.mode].n}</b>`;
+  if(inNx) $('#crumb').innerHTML = `<span class="tc-sec">Network Explorer</span><span class="tc-sep">/</span><b class="tc-cur">${NXSUB[S.nx.mode].n}</b>`;
 };
 ACT['go-nx']=(el,d)=>{ S.nx.mode=d.m; if(d.m==='issue') S.sk.stage='list'; else if(d.m==='connect') S.cp.stage='list'; else S.nx.stage[d.m]='list'; go('network'); };
 ACT['nx-mode']=(el,d)=>ACT['go-nx'](el,d);
@@ -4960,7 +5037,7 @@ AFTER.push(()=>{
   const sec = SECTION[S.view]||'';
   const feat = S.view==='network' ? NXSUB[S.nx.mode].n : S.view==='listening' ? TITLES.listening : (TITLES[S.view]||home.textContent);
   const attrs=[...home.attributes].filter(a=>a.name.startsWith('data-')).map(a=>`${a.name}="${esc(a.value)}"`).join(' ');
-  top.innerHTML = `<span class="tc-sec">${sec}</span>${S.view==='network'?'<span class="tc-sep">/</span><span class="tc-sec">Network Explorer</span>':''}<span class="tc-sep">/</span><button class="tc-link" ${attrs}>${feat}</button><span class="tc-sep">/</span><b class="tc-cur" aria-current="page">${last.innerHTML}</b>`;
+  top.innerHTML = `${S.view==='network'?'<span class="tc-sec">Network Explorer</span><span class="tc-sep">/</span>':''}<button class="tc-link" ${attrs}>${feat}</button><span class="tc-sep">/</span><b class="tc-cur" aria-current="page">${last.innerHTML}</b>`;
   top.setAttribute('aria-label','Navigasi jejak');
   const row=el.closest('.row.between');
   if(el.classList.contains('pcrumb')) el.remove();
@@ -5482,7 +5559,7 @@ AFTER.push(()=>{ if(S.view!=='network'||S.nx.mode!=='explore'||S.rm.stage!=='res
 /* titik masuk lintas fitur */
 nxExplore = function(id){ rmStartScope(id); };
 const _vNet2 = vNetwork2;
-vNetwork2 = function(){ if(S.nx.mode==='explore'){ const atHome=S.rm.stage==='list'; return `<div class="wrap" style="max-width:1240px">${atHome?`<div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Understand · Network Explorer</div><h1>Relationship Map</h1><p class="lede">${NXSUB.explore.d}</p></div></div>`:''}${vRM()}</div>`; } return _vNet2(); };
+vNetwork2 = function(){ if(S.nx.mode==='explore'){ const atHome=S.rm.stage==='list'; return `<div class="wrap" style="max-width:1240px">${atHome?`<div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Network Explorer</div><h1>Relationship Map</h1><p class="lede">${NXSUB.explore.d}</p></div></div>`:''}${vRM()}</div>`; } return _vNet2(); };
 VIEWS.network = vNetwork2;
 const _goNx = ACT['go-nx']; ACT['go-nx']=(el,d)=>{ if(d.m==='explore'){ S.nx.mode='explore'; S.rm.stage='list'; go('network'); return; } _goNx(el,d); };
 
@@ -5620,6 +5697,518 @@ rmResult = (function(orig){ return function(){
 ACT['rm-tab']=(el,d)=>{ S.rm.tab=d.t; S.fpop=null; rerender(); };
 ['rm-node','rm-edge'].forEach(k=>{ const o=ACT[k]; ACT[k]=(el,d)=>{ S.rm.tab='graph'; o(el,d); }; });
 const _rmOpen0=rmOpen; rmOpen=function(id){ _rmOpen0(id); S.rm.tab='graph'; };
+
+
+/* =========================================================
+   RELATIONSHIP MAP — MVP PRD Draft v0.2
+   ========================================================= */
+/* ---------- taxonomy & konfigurasi purpose (versioned, dapat diuji) ---------- */
+const RMCOVS = ['Kepemilikan & Pengendalian','Jabatan, Afiliasi & Struktur Organisasi','Pendanaan, Transaksi & Kontrak','Relasi Personal & Kekerabatan','Aliansi, Kerja Sama & Operasional','Proyek, Program & Peristiwa','Kebijakan, Regulasi & Perizinan','Pengawasan, Audit & Akuntabilitas','Kepercayaan, Pengaruh & Delegasi','Proses Hukum & Penyelesaian Sengketa','Sikap, Komunikasi & Advokasi','Lokasi'];
+const RMORGCAT = {ner:'perusahaan',hmi:'perusahaan',arunika:'bank',arsek:'perusahaan',sagara:'perusahaan',summ:'perusahaan',sbn:'perusahaan',pmb:'perusahaan',bangun:'perusahaan',kop:'koperasi',jaga:'LSM',jkp:'LSM',dlh:'regulator',dlhst:'regulator',dprd:'legislatif',atr:'kementerian',kanwil:'instansi pemerintah',kantah:'instansi pemerintah',pemprov:'pemerintah daerah',kpk:'penegak hukum'};
+const RMIND = {ner:'Pengolahan nikel',hmi:'Investasi / holding',arunika:'Perbankan',arsek:'Sekuritas',sagara:'Logistik tambang',summ:'Properti',sbn:'Pengolahan nikel',pmb:'Pelayaran',kop:'Koperasi perikanan',jaga:'LSM advokasi pesisir',jkp:'Koalisi LSM pesisir',dlh:'Pemerintahan · pengawasan lingkungan',dlhst:'Pemerintahan · pengawasan lingkungan',dprd:'Legislatif daerah',atr:'Pemerintahan · agraria dan pertanahan',kanwil:'Pemerintahan · pertanahan',kantah:'Pemerintahan · pertanahan',kpk:'Penegakan hukum antikorupsi',pemprov:'Pemerintahan daerah'};
+const rmCat = id => RMORGCAT[id] || (NN[id]&&NN[id].t==='Organization' ? (/^PT\b/.test(NN[id].n)?'perusahaan':'organisasi') : null);
+const rmGov = id => ['regulator','legislatif','kementerian','instansi pemerintah','pemerintah daerah','penegak hukum'].includes(rmCat(id));
+function rmCov(e){ const lawSub = rmCat(e.a)==='penegak hukum';
+  switch(e.rel){
+    case 'works_for': return ['Jabatan, Afiliasi & Struktur Organisasi','Jabatan'];
+    case 'affiliated_with': return ['Jabatan, Afiliasi & Struktur Organisasi','Afiliasi keanggotaan'];
+    case 'part_of': return ['Jabatan, Afiliasi & Struktur Organisasi','Struktur organisasi'];
+    case 'subsidiary_of': return ['Kepemilikan & Pengendalian','Anak usaha'];
+    case 'shareholder_of': return ['Kepemilikan & Pengendalian','Kepemilikan saham'];
+    case 'finances': return ['Pendanaan, Transaksi & Kontrak','Pembiayaan'];
+    case 'contracts_with': return ['Pendanaan, Transaksi & Kontrak','Kontrak'];
+    case 'oversees': return ['Pengawasan, Audit & Akuntabilitas','Pengawasan'];
+    case 'investigates': return lawSub?['Proses Hukum & Penyelesaian Sengketa','Penyidikan']:['Pengawasan, Audit & Akuntabilitas','Pemeriksaan regulator'];
+    case 'conducted': return lawSub?['Proses Hukum & Penyelesaian Sengketa','Tindakan penegakan']:['Pengawasan, Audit & Akuntabilitas','Tindakan administratif'];
+    case 'sues': case 'filed': return ['Proses Hukum & Penyelesaian Sengketa','Gugatan perdata'];
+    case 'suspect_in': return ['Proses Hukum & Penyelesaian Sengketa','Status tersangka'];
+    case 'responded_to': return ['Sikap, Komunikasi & Advokasi','Tanggapan publik'];
+    case 'supports': return ['Sikap, Komunikasi & Advokasi','Dukungan atau advokasi'];
+    case 'subject_of': return ['Pengawasan, Audit & Akuntabilitas','Sorotan atas dugaan pelanggaran'];
+    case 'claimed_close_to': return ['Relasi Personal & Kekerabatan','Kedekatan (dugaan)'];
+    case 'located_in': return ['Lokasi','Lokasi kegiatan'];
+    default: return ['Aliansi, Kerja Sama & Operasional','Lainnya'];
+  } }
+const RMDEF = {works_for:'Seseorang memegang jabatan atau bekerja untuk organisasi pada periode tertentu.', affiliated_with:'Entitas menjadi anggota atau berafiliasi dengan organisasi/koalisi.', part_of:'Unit atau kantor merupakan bagian struktural dari organisasi induk.', subsidiary_of:'Perusahaan merupakan anak usaha dari perusahaan induk menurut sumber.', shareholder_of:'Entitas memegang saham pada perusahaan; persentase dan kendali hanya bila disebut.', finances:'Entitas menyediakan pembiayaan (pinjaman, hibah, investasi) kepada entitas lain.', contracts_with:'Dua pihak terikat kontrak dengan lingkup dan periode tertentu.', oversees:'Entitas memiliki kewenangan atau fungsi mengawasi entitas lain.', investigates:'Entitas memeriksa atau menyidik entitas/perkara lain sesuai kewenangannya.', conducted:'Entitas melakukan tindakan tertentu dalam perkara atau proses.', sues:'Entitas mengajukan gugatan terhadap entitas lain.', filed:'Entitas mengajukan perkara atau laporan.', suspect_in:'Seseorang ditetapkan berstatus tersangka dalam perkara pada waktu tertentu.', responded_to:'Entitas menyampaikan tanggapan publik atas isu atau perkara.', supports:'Entitas menyatakan dukungan atau melakukan advokasi untuk pihak lain.', subject_of:'Entitas menjadi pihak yang disorot dalam isu yang diberitakan.', claimed_close_to:'Klaim beratribusi bahwa dua orang memiliki kedekatan; belum terverifikasi.', located_in:'Entitas atau kegiatan berlokasi di wilayah tertentu.'};
+const RMPURPOSE = { version:'rm-purpose v0.2 (26 Okt 2026)',
+  overall:{l:'Overall Relationship Overview', d:'Seluruh coverage; prioritaskan relasi penting dan terdokumentasi.', primary:RMCOVS.filter(c=>c!=='Lokasi'), supporting:['Lokasi']},
+  own:{l:'Ownership & Corporate Affiliations', d:'Kepemilikan & pengendalian; jabatan, afiliasi & struktur organisasi.', primary:['Kepemilikan & Pengendalian','Jabatan, Afiliasi & Struktur Organisasi'], supporting:['Pendanaan, Transaksi & Kontrak','Relasi Personal & Kekerabatan']},
+  biz:{l:'Business & Financial Relationships', d:'Pendanaan, transaksi & kontrak; aliansi & operasional; proyek, program & peristiwa.', primary:['Pendanaan, Transaksi & Kontrak','Aliansi, Kerja Sama & Operasional','Proyek, Program & Peristiwa'], supporting:['Kepemilikan & Pengendalian','Jabatan, Afiliasi & Struktur Organisasi']},
+  gov:{l:'Government & Regulatory Relationships', d:'Kebijakan, regulasi & perizinan; pengawasan, audit & akuntabilitas.', primary:['Kebijakan, Regulasi & Perizinan','Pengawasan, Audit & Akuntabilitas'], supporting:['Kepercayaan, Pengaruh & Delegasi','Pendanaan, Transaksi & Kontrak','Jabatan, Afiliasi & Struktur Organisasi']},
+  legal:{l:'Legal & Institutional Relationships', d:'Proses hukum & penyelesaian sengketa; pengawasan, audit & akuntabilitas.', primary:['Proses Hukum & Penyelesaian Sengketa','Pengawasan, Audit & Akuntabilitas'], supporting:['Kebijakan, Regulasi & Perizinan','Jabatan, Afiliasi & Struktur Organisasi','Sikap, Komunikasi & Advokasi']},
+};
+const RMPK = ['overall','own','biz','gov','legal'];
+function rmTier(e,pk){ const P=RMPURPOSE[pk], [cov,cas]=rmCov(e), claim=rmClaim(e);
+  if(pk==='overall'){ if(cov==='Lokasi') return {tier:'supporting',cov,cas,why:'Lokasi memberi konteks, bukan hubungan antarpihak.'}; if(claim) return {tier:'supporting',cov,cas,why:'Klaim beratribusi; ditampilkan sebagai konteks, bukan fakta.'}; return {tier:'primary',cov,cas,why:`Hubungan terdokumentasi dalam coverage ${cov}.`}; }
+  if(pk==='gov' && cov==='Pendanaan, Transaksi & Kontrak' && (rmGov(e.a)||rmGov(e.b))) return {tier:'primary',cov,cas,why:'Pendanaan/kontrak yang melibatkan instansi pemerintah (aturan khusus purpose).'};
+  if(pk==='gov' && cov==='Jabatan, Afiliasi & Struktur Organisasi' && (rmGov(e.a)||rmGov(e.b))) return {tier:'supporting',cov,cas,why:'Jabatan/struktur pada instansi pemerintah menjelaskan peran pihak.'};
+  if(P.primary.includes(cov)) return {tier:claim?'supporting':'primary',cov,cas,why:claim?`Masuk coverage utama (${cov}), tetapi berupa klaim beratribusi sehingga diturunkan ke Supporting.`:`Langsung menjawab purpose: coverage ${cov} · ${cas}.`};
+  if(P.supporting.includes(cov)) return {tier:'supporting',cov,cas,why:`Coverage pendukung (${cov}); dipakai jika menjelaskan temuan utama.`};
+  return {tier:'other',cov,cas,why:`Valid, tetapi coverage ${cov} tidak terkait langsung dengan purpose ini.`}; }
+const TIERL = {primary:'Primary',supporting:'Supporting',other:'Other'};
+const TIERC = {primary:'#D71920',supporting:'#2F5D8A',other:'#9A9A9A'};
+/* waktu */
+function rmTS(e){ if(e.y0==null) return 'unknown'; const t=(e.status||'')+' '+(e.period||'');
+  if(/past|selesai|berakhir/i.test(t) || (e.y1!=null&&e.y1<2026)) return 'hist';
+  if(/masih berlaku|berlangsung|current|sekarang|ongoing|masih menjabat/i.test(t)) return 'current';
+  return 'last'; }
+const RMTSL = {current:'Current',hist:'Historis',last:'Last documented',unknown:'Time unknown'};
+const rmBasis = e => e.y0==null ? 'Tidak tersedia' : (NN[e.b]&&NN[e.b].t==='Case'&&['filed','conducted','sues','suspect_in'].includes(e.rel)) ? 'Event-based time (tanggal peristiwa terkait)' : 'Masa berlaku hubungan (valid_from / valid_to)';
+/* konflik asersi (contoh) */
+const RMCONFLICT = {e19:[{p:'PT NER menyatakan patuh pada baku mutu air limbah dan terbuka untuk diperiksa.',by:'Hendra Wiratama, Direktur Utama (atas nama perusahaan)',mod:'menyatakan',pol:'Negatif (menolak tuduhan)',src:'s3',d:'3 Okt 2026'},{p:'Dokumen uji internal 2023 menunjukkan satu hasil di atas ambang.',by:'Majalah Tempo, berdasarkan dokumen',mod:'diberitakan',pol:'Positif (mendukung tuduhan)',src:'s7',d:'6 Okt 2026'}]};
+
+/* ---------- state ---------- */
+const rmNewF2 = () => ({tiers:[], covs:[], rels:[], types:[], y0:null, y1:null, hop:'Semua', dist:'Semua'});
+S.rm.f = rmNewF2(); FB.rm.reset = ()=>{ S.rm.f=rmNewF2(); };
+S.rm.form = {type:'Organization', q:'', searched:false, pick:null, purpose:'overall', all:true, y0:2020, y1:2026, depth:3};
+S.rm.expanded = new Set(); S.rm.showOther=false; S.rm.refine={}; S.rm.relType=null;
+S.rm.runs = [
+  {id:'rm1', o:'ner', sc:{purpose:'own',all:true,y0:2020,y1:2026,depth:3}, when:'Hari ini, 09:40', status:'Lengkap'},
+  {id:'rm2', o:'atr', sc:{purpose:'legal',all:true,y0:2020,y1:2026,depth:2}, when:'Kemarin, 16:12', status:'Lengkap'},
+  {id:'rm3', o:'hendra', sc:{purpose:'overall',all:false,y0:2022,y1:2026,depth:2}, when:'8 Okt 2026, 11:05', status:'Lengkap'},
+  {id:'rm4', o:'ner', sc:{purpose:'gov',all:true,y0:2020,y1:2026,depth:3}, when:'7 Okt 2026, 16:40', status:'Lengkap'},
+  {id:'rm5', o:'kop', sc:{purpose:'legal',all:true,y0:2020,y1:2026,depth:2}, when:'5 Okt 2026, 13:22', status:'Parsial'},
+];
+
+/* ---------- analisis ---------- */
+rmAnalyse = function(run){
+  const sc=run.sc, X=run.o, pk=sc.purpose;
+  const E0 = rmEdges();
+  const tm = e => sc.all ? 'in' : e.y0==null ? 'unk' : ((e.y1??e.y0)>=sc.y0 && e.y0<=sc.y1) ? 'in' : 'out';
+  const E = E0.filter(e=>tm(e)!=='out');
+  const info=new Map([[X,{lv:0,p:null,e:[],kids:[]}]]); let fr=[X];
+  for(let lv=1; lv<=sc.depth && fr.length; lv++){ const nx=[];
+    fr.forEach(id=>{ if(id!==X && NN[id].t==='Location') return;
+      E.filter(e=>e.a===id||e.b===id).forEach(e=>{ const o=e.a===id?e.b:e.a; if(info.has(o)){ const v=info.get(o); if(v.p===id&&!v.e.includes(e)) v.e.push(e); return; } info.set(o,{lv,p:id,e:[e],kids:[]}); info.get(id).kids.push(o); nx.push(o); }); });
+    fr=nx; }
+  const order={primary:0,supporting:1,other:2};
+  info.forEach((v,id)=>{ if(id===X) return; v.t = v.e.map(e=>({e,...rmTier(e,pk),tm:tm(e)})).sort((a,b)=>order[a.tier]-order[b.tier]); v.tier=v.t[0].tier; v.types=[...new Set(v.e.map(e=>e.rel))]; v.unk=v.e.every(e=>tm(e)==='unk'); });
+  const alt={}; info.forEach((v,id)=>{ if(v.lv<2) return; alt[id]=[...info].filter(([pid,pv])=>pv.lv===v.lv-1&&pid!==v.p&&E.some(e=>(e.a===pid&&e.b===id)||(e.b===pid&&e.a===id))).map(([pid])=>pid); });
+  const co = RM_COMENTION.filter(e=>e.a===X||e.b===X);
+  const excluded = sc.all?0:E0.filter(e=>tm(e)==='out'&&(e.a===X||e.b===X)).length;
+  return {X, sc, pk, E, info, alt, co, total:info.size-1, excluded};
+};
+function rmScore(R,id){ const v=R.info.get(id), e=v.t[0].e; let s={primary:30,supporting:20,other:10}[v.tier]; if(e.label&&e.label!=='—') s+=2; if(!rmClaim(e)) s+=2; if(rmTS(e)!=='unknown') s+=1.5; s-=v.lv*1.2; s+=Math.min(e.n||1,3)*.3; return s; }
+rmVisible = function(R){
+  const F=S.rm.f, X=R.X, keep=new Set([X]), pass=new Set(), conn=new Set();
+  const ancOf = id => { const a=[]; let c=R.info.get(id).p; while(c&&c!==X){ a.push(c); c=R.info.get(c).p; } return a; };
+  const lens = id => { const v=R.info.get(id); if(F.tiers.length) return F.tiers.includes(v.tier);
+    if(S.rm.showOther) return true; if(v.tier==='primary') return true;
+    const p=v.p; if(p!==X && S.rm.expanded.has(p)) return true;
+    if(v.tier==='supporting' && v.lv===1 && v.t[0].tier==='supporting' && RMPURPOSE[R.pk].primary.includes(v.t[0].cov) && rmClaim(v.t[0].e)) return true; // klaim pada coverage utama tetap tampil (berlabel dugaan)
+    if(v.tier==='supporting'){ // perlu untuk memahami temuan utama: bertetangga dengan node primary
+      if(p!==X && R.info.get(p).tier==='primary') return true; if(v.kids.some(k=>R.info.get(k).tier==='primary')) return true; }
+    return false; };
+  const hopMax=F.hop==='Semua'?99:+F.hop;
+  R.info.forEach((v,id)=>{ if(id===X||v.lv>hopMax) return; if(F.dist==='Langsung'&&v.lv>1) return; if(F.dist==='Tidak langsung'&&v.lv===1) return;
+    if(!lens(id)) return; if(F.types.length&&!F.types.includes(NN[id].t)) return;
+    if(F.covs.length&&!v.t.some(x=>F.covs.includes(x.cov))) return; if(F.rels.length&&!v.e.some(e=>F.rels.includes(REL[e.rel][0]))) return;
+    if(F.y0!=null&&!v.e.some(e=>e.y0!=null&&(e.y1??e.y0)>=F.y0&&e.y0<=F.y1)) return;
+    pass.add(id); });
+  pass.forEach(id=>{ keep.add(id); ancOf(id).forEach(a=>{ keep.add(a); if(!pass.has(a)) conn.add(a); }); });
+  const hiddenOther=[...R.info].filter(([i,v])=>i!==X&&!keep.has(i)).length;
+  return {keep, pass, conn, hidden:hiddenOther, hidden1:0, l1:0};
+};
+
+/* ---------- form pembuatan (satu halaman, tanpa review) ---------- */
+function rmRoleOf(id){ const rs=rmEdges().filter(e=>e.a===id&&e.rel==='works_for').sort((a,b)=>(b.y1??b.y0??0)-(a.y1??a.y0??0)||(b.y0??0)-(a.y0??0)); const r=rs.find(e=>rmTS(e)==='current')||rs[0];
+  if(!r) { const p=(SKENT[id]&&SKENT[id].pos||[])[0]; return p?{l:'Last documented role',txt:`${p[0]}, ${p[1]}`,per:p[2]}:null; }
+  const ts=rmTS(r); return {l: ts==='current'?'Current role':'Last documented role', txt:`${r.label&&r.label!=='—'?r.label:'Jabatan'}, ${NN[r.b].n}`, per:rmYr(r), e:r}; }
+rmList = function(){
+  const K=S.rm, F=K.form, q=F.q.trim().toLowerCase(), w=q.split(/\s+/).filter(x=>x.length>1);
+  const cands = F.searched&&q ? Object.entries(NN).filter(([id,n])=>n.t===F.type&&[n.n,...(n.al||[])].some(s=>{s=s.toLowerCase(); return s.includes(q)||w.some(x=>s.includes(x));})).map(([id])=>id).slice(0,8) : [];
+  const bad=!F.all&&F.y1<F.y0, ok=F.pick&&!bad;
+  const candHtml = id => { const n=NN[id]; const ro=n.t==='Person'?rmRoleOf(id):null;
+    return `<label class="opt sk-cand ${F.pick===id?'on':''}"><input type="radio" name="rmc2" data-a="rm2-pick" data-id="${id}" ${F.pick===id?'checked':''}><span class="row between" style="gap:8px"><b>${n.n}</b>${cpTP(n.t)}</span><span class="xs muted">Alias: ${n.al&&n.al.length?n.al.join(', '):'—'}</span>${n.t==='Person'?`<span class="small">${ro?`<strong style="display:inline">${ro.l}:</strong> ${ro.txt} <span class="muted">(${ro.per})</span>`:'<span class="muted">Peran belum terdokumentasi</span>'}</span>`:`<span class="small"><b>Industri:</b> ${RMIND[id]||'Belum terdokumentasi'}</span>`}</label>`; };
+  return `<div class="card" style="margin-top:0"><div class="sub-h" style="margin-top:0">Buat Relationship Map</div>
+    <div class="rm-f"><div class="rm-fl">1 · Focal entity</div><div>
+      <div class="seg" role="radiogroup" aria-label="Jenis entitas"><button class="${F.type==='Person'?'on':''}" data-a="rm2-type" data-v="Person" role="radio" aria-checked="${F.type==='Person'}">Person</button><button class="${F.type==='Organization'?'on':''}" data-a="rm2-type" data-v="Organization" role="radio" aria-checked="${F.type==='Organization'}">Organization</button></div>
+      <form class="sk-search" data-form="rm2-search" role="search" style="margin-top:8px"><span class="sk-ic">${ic('search',16)}</span><input name="q" value="${esc(F.q)}" placeholder="Cari canonical name atau alias" aria-label="Cari focal entity" autocomplete="off"><button class="btn sm primary">Cari</button></form>
+      ${F.searched?(cands.length?`<div class="grid" style="gap:6px;margin-top:8px">${cands.map(candHtml).join('')}</div>`:`<div class="sk-empty" style="margin-top:8px"><b>Tidak ditemukan ${F.type==='Person'?'person':'organization'} “${esc(F.q)}”.</b><div class="small">Coba alias atau ubah jenis entitas.</div></div>`):''}</div></div>
+    <div class="rm-f"><div class="rm-fl">2 · Analysis purpose</div><div class="grid" style="gap:6px">${RMPK.map(k=>`<button class="opt ${F.purpose===k?'on':''}" data-a="rm2-f" data-k="purpose" data-v="${k}"><b>${RMPURPOSE[k].l}${k==='overall'?' <span class="xs muted" style="font-weight:400">· default</span>':''}</b><span class="small muted">${RMPURPOSE[k].d}</span></button>`).join('')}</div></div>
+    <div class="rm-f"><div class="rm-fl">3 · Scope</div><div>
+      <div class="row" style="gap:16px;flex-wrap:wrap;align-items:flex-start"><div><div class="xs muted" style="font-weight:700;margin-bottom:4px">Time range</div><div class="nxs-chips"><button class="chipf ${F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="1">All available time</button><button class="chipf ${!F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="0">Custom period</button></div>
+        ${!F.all?`<div class="row" style="gap:8px;margin-top:6px"><label class="sk-yr">Dari<select class="select" data-a="rm2-yr" data-k="y0">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select></label><label class="sk-yr">Sampai<select class="select" data-a="rm2-yr" data-k="y1">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></label></div>${bad?'<div class="sk-err">Tahun akhir tidak boleh lebih awal.</div>':''}`:''}</div>
+      <div><div class="xs muted" style="font-weight:700;margin-bottom:4px">Network depth</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.depth===h?'on':''}" data-a="rm2-f" data-k="depth" data-v="${h}">${h} hop${h===3?' · default':''}</button>`).join('')}</div></div></div>
+      <div class="xs muted" style="margin-top:6px">Waktu mengacu pada masa berlaku hubungan, bukan tanggal terbit. Pada custom period, hubungan tanpa waktu dipisahkan dan tidak dihitung sebagai terjadi dalam periode.</div></div></div>
+    <div class="row between" style="margin-top:12px;gap:10px;flex-wrap:wrap"><span class="small muted">${F.pick?`Focal entity: <b style="color:var(--ink)">${NN[F.pick].n}</b> · ${RMPURPOSE[F.purpose].l} · ${F.all?'all time':F.y0+'–'+F.y1} · ${F.depth} hop`:'Pilih satu kandidat focal entity.'}</span><button class="btn primary" data-a="rm2-gen" ${ok&&!K.busy?'':'disabled'}>Generate Relationship Map</button></div></div>
+    <div class="card" style="padding:0;overflow:hidden;margin-top:14px"><div class="nxl-bar"><b class="small">Riwayat analisis</b><span class="xs muted">${K.runs.length} analisis</span></div>
+    ${K.runs.length?`<div class="scroll-x"><table class="t nxl-t"><thead><tr><th>Focal entity</th><th>Jenis</th><th>Purpose</th><th>Scope</th><th>Dibuat</th><th style="text-align:right">Aksi</th></tr></thead><tbody>${K.runs.map(r=>`<tr><td><b>${NN[r.o].n}</b>${r.status==='Parsial'?' <span class="tag" style="background:var(--ev-unverified-bg);color:var(--ev-unverified)">Parsial</span>':''}</td><td>${cpTP(NN[r.o].t)}</td><td class="small">${RMPURPOSE[r.sc.purpose].l}</td><td class="small">${r.sc.all?'All time':r.sc.y0+' – '+r.sc.y1}<div class="xs muted">${r.sc.depth} hop</div></td><td class="small" style="white-space:nowrap">${r.when}${r.fresh?' <span class="tag" style="background:var(--ev-verified-bg);color:var(--ev-verified)">Baru</span>':''}</td><td style="text-align:right;white-space:nowrap"><button class="btn sm" data-a="rm-open" data-id="${r.id}">Buka</button><button class="btn sm ghost" data-a="rm-del" data-id="${r.id}">Hapus</button></td></tr>`).join('')}</tbody></table></div>`:`<div class="empty"><h3>Anda belum membuat analisis</h3></div>`}</div>`;
+};
+rmGen = function(){ const o=NN[S.rm.form.pick]; return rmCrumb('Analisis baru') + `<div class="wz" style="max-width:660px;padding-top:10px"><h2>Generate Relationship Map ${esc(o.n)}</h2><p class="small muted">Biasanya kurang dari satu menit.</p>${procList(['Memuat focal entity (canonical ID) dan scope','Bounded traversal hingga '+S.rm.form.depth+' hop (Location tidak menjadi penghubung)','Mengelompokkan relationship per pasangan entitas','Mengevaluasi purpose rules: Coverage → Case → Type → peran entitas → waktu & evidence','Menentukan tier Primary / Supporting / Other','Menyusun Network Overview dengan referensi ke relationship dan evidence'],'rm-proc')}<div style="margin-top:12px"><button class="btn sm" data-a="rm2-cancel">Batalkan</button></div></div>`; };
+vRM = function(){ const K=S.rm; if(K.stage==='gen') return rmGen(); if(K.stage==='result') return rmResult(); return rmList(); };
+
+/* ---------- hasil ---------- */
+rmResult = function(){
+  const K=S.rm, run=K.runs.find(r=>r.id===K.cur), R=rmAnalyse(run), o=NN[R.X], sc=run.sc;
+  if(!['graph','summary','details','sources'].includes(K.tab)) K.tab='graph';
+  const ro = o.t==='Person'?rmRoleOf(R.X):null;
+  const head = `<div class="sk-head"><div style="min-width:0"><div class="row" style="gap:8px">${cpTP(o.t)}<span class="xs muted">Focal entity · ${ro?ro.l+': '+ro.txt+' ('+ro.per+')':(RMIND[R.X]||'')}</span></div><h2 style="margin-top:4px">${o.n}</h2>
+      <div class="row" style="gap:6px;margin-top:8px"><span class="qb-op" style="background:var(--red-tint);color:var(--red);font-weight:600">🎯 ${RMPURPOSE[sc.purpose].l}</span><span class="qb-op">📅 ${sc.all?'All available time':sc.y0+' – '+sc.y1}</span><span class="qb-op">🔗 ${sc.depth} hop</span><span class="qb-op xs">Dibuat ${run.when}</span></div></div>
+      <div class="row" style="gap:6px"><button class="btn sm" data-a="rm2-edit">✎ Ubah purpose / scope</button><button class="btn sm primary" data-a="rm-new">${ic('plus',13)}Analisis baru</button></div></div>`;
+  const partial = run.status==='Parsial' ? `<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin-top:12px"><b>Hasil parsial.</b> Traversal berhenti pada batas waktu saat menelusuri hop 2; bagian yang tersedia ditampilkan. <button class="btn sm" data-a="rm-retry" style="margin-left:6px">Coba lagi</button></div>` : '';
+  const crumb=rmCrumb(esc(o.n),'← Riwayat');
+  if(!R.total) return crumb+head+partial+`<div class="card"><div class="empty"><h3>Tidak ditemukan relationship dalam knowledge yang memenuhi scope</h3><p class="small muted" style="max-width:60ch;margin:0 auto">Tidak ditemukannya relationship tidak berarti hubungan tersebut tidak ada.</p></div></div>`;
+  const tabs=[['graph','Graph'],['summary','Network Overview'],['details','Detail objek'],['sources','Sumber']];
+  const body = K.tab==='graph'?rmGraphBlock(R,run):K.tab==='summary'?rmOverview(R,run):K.tab==='details'?rmDetails(R,run):rmSources(R);
+  return crumb+head+partial+nxTabs(K.tab,'rm-tab',tabs)+body;
+};
+function rmOverview(R,run){
+  const X=R.X, o=NN[X], all=[...R.info].filter(([i])=>i!==X), cnt={primary:0,supporting:0,other:0}; all.forEach(([i,v])=>cnt[v.tier]++);
+  const prim=all.filter(([i,v])=>v.tier==='primary'), dir=all.filter(([i,v])=>v.lv===1).length;
+  const covC={}; prim.forEach(([i,v])=>v.t.filter(x=>x.tier==='primary').forEach(x=>covC[x.cov]=(covC[x.cov]||0)+1)); const dom=Object.entries(covC).sort((a,b)=>b[1]-a[1]);
+  const keyRel = prim.sort((a,b)=>rmScore(R,b[0])-rmScore(R,a[0])).slice(0,5);
+  const allE=all.flatMap(([i,v])=>v.e), ts={current:0,hist:0,last:0,unknown:0}; allE.forEach(e=>ts[rmTS(e)]++);
+  const claims=allE.filter(rmClaim), srcs=[...new Set(allE.flatMap(e=>e.src||[]))].filter(s=>SRC[s]);
+  const multi=all.filter(([i,v])=>v.types.length>1), histRole=allE.find(e=>e.rel==='works_for'&&rmTS(e)==='hist');
+  const caseNodes=all.filter(([i,v])=>NN[i].t==='Case'&&v.lv>1);
+  const hl=[];
+  if(histRole) hl.push(`${rmSent(histRole)} (${rmYr(histRole)}) adalah hubungan historis; tidak ditampilkan sebagai peran saat ini.`);
+  if(multi.length) hl.push(`${multi.map(([i,v])=>`${NN[v.p].n} ↔ ${NN[i].n}`).slice(0,2).join(' dan ')} memiliki lebih dari satu jenis hubungan; tiap jenis punya bukti sendiri dan tidak digabung.`);
+  if(caseNodes.length) hl.push(`${o.n} terhubung tidak langsung ke ${caseNodes.map(([i])=>NN[i].n).slice(0,2).join(', ')} melalui ${[...new Set(caseNodes.map(([i,v])=>NN[v.p].n))].slice(0,2).join(', ')}. Jalur tidak langsung ini bukan bukti keterlibatan langsung ${o.n}.`);
+  if(dom[0]) hl.push(`Untuk purpose ini, pola utama berada pada coverage ${dom[0][0]}${dom[1]?' dan '+dom[1][0]:''}.`);
+  return `<div class="rm-ov">
+    <section class="card" style="margin-top:0"><div class="card-h"><h3>Network Summary</h3>${aiIc()}</div><p class="small" style="margin:0">Dengan purpose <b>${RMPURPOSE[R.pk].l}</b>, ditemukan <b>${R.total} entitas</b> dalam ${R.sc.depth} hop (${dir} langsung, ${R.total-dir} tidak langsung). ${cnt.primary} hubungan Primary, ${cnt.supporting} Supporting, ${cnt.other} Other. ${dom.length?`Coverage dominan pada hubungan Primary: ${dom.slice(0,3).map(([c,n])=>`${c} (${n})`).join(', ')}.`:'Belum ada hubungan yang memenuhi rule Primary untuk purpose ini.'}</p></section>
+    <section class="card"><div class="card-h"><h3>Key Relationships</h3><span class="xs muted">Fakta terdokumentasi · dipilih menurut purpose</span></div>${keyRel.length?keyRel.map(([i,v])=>{ const x=v.t[0], e=x.e; return `<div class="rm-kr"><div class="row between" style="gap:8px"><b class="small">${rmSent(e)}</b><span class="tierpill" style="--c:${TIERC[x.tier]}">${TIERL[x.tier]}</span></div><div class="xs muted">${x.cov} · ${x.cas} · ${rmYr(e)} · ${RMTSL[rmTS(e)]}${v.lv>1?` · ${v.lv} hop (tidak langsung)`:''}${v.types.length>1?` · ${v.types.length} jenis hubungan`:''}</div><div class="small" style="margin-top:3px">${x.why} ${cpCite(e.src)} <button class="linkish xs" data-a="rm-edge" data-p="${v.p}" data-c="${i}">Buka di graph</button></div></div>`; }).join(''):'<p class="small muted">Tidak ada hubungan yang memenuhi rule Primary. Lihat Supporting/Other di graph melalui filter Tier.</p>'}</section>
+    <section class="card"><div class="card-h"><h3>Analytical Highlights</h3>${aiIc()}</div><ul class="sk-ul">${hl.map(h=>`<li class="ai">${aiIc()} ${h}</li>`).join('')}</ul><p class="xs muted" style="margin:6px 0 0">Interpretasi AI dibedakan dari fakta di atas. Pengaruh, kendali, atau pelanggaran tidak disimpulkan dari koneksi tidak langsung.</p></section>
+    <section class="card"><div class="card-h"><h3>Data Coverage &amp; Limitations</h3></div><ul class="sk-ul">
+      <li>${srcs.length} sumber dari arsip Tempo yang telah diproses (cut-off ${RMCUT}); hanya objek yang lolos kebijakan publikasi ditampilkan.</li>
+      <li>Kelengkapan waktu: ${ts.current} current, ${ts.hist} historis, ${ts.last} last documented, ${ts.unknown} time unknown dari ${allE.length} relationship.${R.sc.all?'':` ${R.excluded} relationship langsung di luar periode ${R.sc.y0}–${R.sc.y1} tidak dimasukkan.`}</li>
+      ${claims.length?`<li>${claims.length} relationship berstatus klaim beratribusi (belum terverifikasi).</li>`:''}
+      ${R.co.length?`<li>${R.co.map(c=>`${NN[c.a].n} – ${NN[c.b].n}`).join('; ')} hanya disebut bersama tanpa pernyataan hubungan; tidak dijadikan relationship.</li>`:''}
+      <li>Traversal dibatasi ${R.sc.depth} hop.</li>
+      <li>Tidak ditemukannya relationship tidak berarti hubungan tersebut tidak ada.</li></ul></section></div>`;
+}
+rmFilters = function(R,V){ const all=[...R.info].filter(([i])=>i!==R.X);
+  const types=RM7.filter(t=>all.some(([i])=>NN[i].t===t)), covs=[...new Set(all.flatMap(([i,v])=>v.t.map(x=>x.cov)))], rels=[...new Set(all.flatMap(([i,v])=>v.e.map(e=>REL[e.rel][0])))], yrs=[]; for(let y=2015;y<=2026;y++) yrs.push(y);
+  return fbar('rm',[
+    {k:'tiers',label:'Tier',kind:'multi',opts:[['primary','Primary'],['supporting','Supporting'],['other','Other']]},
+    {k:'covs',label:'Coverage',kind:'multi',opts:covs.map(c=>[c,c])},
+    {k:'rels',label:'Jenis hubungan',kind:'multi',opts:rels.map(l=>[l,l])},
+    {k:'dist',label:'Koneksi',kind:'single',def:'Semua',opts:[['Semua','Semua'],['Langsung','Langsung'],['Tidak langsung','Tidak langsung']]},
+    ...(R.sc.depth>1?[{k:'hop',label:'Hop',kind:'single',def:'Semua',opts:[['Semua','Semua (≤ '+R.sc.depth+')'],...Array.from({length:R.sc.depth},(_,i)=>[String(i+1),'Hingga '+(i+1)+' hop'])]}]:[]),
+    {k:'types',label:'Jenis entitas',kind:'multi',opts:types.map(t=>[t,skTL(t)])},
+    {k:'period',label:'Periode',kind:'years',years:yrs},
+  ], `Terlihat <b>${V.pass.size}</b> dari ${R.total} entitas${V.hidden?` · ${V.hidden} disembunyikan`:''}`); };
+rmGraphBlock = function(R,run){
+  const K=S.rm, V=rmVisible(R), X=R.X, filt=rmFilters(R,V);
+  if(!V.pass.size) return filt+`<div class="card"><div class="empty"><h3>Tidak ada entitas yang tampil</h3><p class="small muted">${K.f.tiers.length||Object.values(K.f).some(v=>Array.isArray(v)?v.length:v!=null&&v!=='Semua')?'Filter menyembunyikan semua entitas.':'Belum ada hubungan Primary untuk purpose ini.'} Ini bukan berarti tidak ada hubungan.</p><div class="row" style="justify-content:center;gap:6px"><button class="btn sm" data-a="fb-reset" data-s="rm">Reset filter</button><button class="btn sm" data-a="rm2-other">Jelajahi semua hubungan</button></div></div></div>`;
+  const vis=[...V.keep], maxLv=Math.max(...vis.map(i=>R.info.get(i).lv));
+  const kidsV=id=>R.info.get(id).kids.filter(k=>V.keep.has(k)), leaves=id=>{ const k=kidsV(id); return k.length?Math.pow(k.reduce((s,c)=>s+leaves(c),0),.75):1; };
+  const ring=lv=>maxLv<=1?230:maxLv===2?[0,190,340][lv]:210+(lv-1)*135;
+  const W=2*(ring(maxLv)+120), H=W, cx=W/2, cy=H/2, sf=Math.max(1,Math.pow(W/800,.6)); RMVB=[W,H];
+  const pos={}; pos[X]=[cx,cy,0]; const place=(id,a0,a1)=>{ const k=kidsV(id), tot=k.reduce((s,c)=>s+leaves(c),0); let a=a0; k.forEach(c=>{ const span=(a1-a0)*leaves(c)/tot, ang=a+span/2, r=ring(R.info.get(c).lv); pos[c]=[cx+Math.cos(ang)*r, cy+Math.sin(ang)*r, ang]; place(c,a,a+span); a+=span; }); }; place(X,-Math.PI/2,Math.PI*1.5); RMPOS=pos;
+  const sel=K.sel, selN=sel&&sel.t==='n'&&V.keep.has(sel.id)?sel.id:null, selE=sel&&sel.t==='e'?sel:null;
+  const near=new Set(); if(selN){ let c=selN; while(c){ near.add(c); c=R.info.get(c).p; } kidsV(selN).forEach(k=>near.add(k)); }
+  const dense=V.keep.size>15;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Relationship Map ${esc(NN[X].n)}" data-zl="0" class="${dense?'dense':''}" data-sf="${sf.toFixed(3)}" style="--ik:${sf.toFixed(3)}">${nxDefs()}<g class="vp">`;
+  for(let l=1;l<=maxLv;l++) s+=`<circle cx="${cx}" cy="${cy}" r="${ring(l)}" class="nx-ring"/><text x="${cx+4}" y="${cy-ring(l)-5}" class="nx-hop">${l===1?'1 hop · langsung':l+' hop · tidak langsung'}</text>`;
+  vis.forEach(id=>{ if(id===X) return; const v=R.info.get(id), x=v.t[0], e=x.e, conn=V.conn.has(id), tier=conn?'supporting':v.tier;
+    const lab = REL[e.rel][0]+(v.types.length>1?`  ·  ${v.types.length} jenis`:'')+(rmClaim(e)?' · dugaan':'')+(v.unk?' · waktu ?':'');
+    const on=selE&&selE.p===v.p&&selE.c===id, dim=(!!selN&&!(near.has(id)&&near.has(v.p)))||(selE&&!on);
+    const w=(tier==='primary'?2.8:tier==='supporting'?1.6:1.1)*sf*(v.lv===1?1:.85);
+    let g=edgeLine(e, ...pos[v.p].slice(0,2), ...pos[id].slice(0,2), {ida:v.p, shA:(v.p===X?26*sf:12*sf)+6, sh:(v.lv===1?16:Math.max(9,13-v.lv))*sf+6, sf, w, sel:on, dim, tip:`${[...new Set(v.e.map(z=>REL[z.rel][0]))].join(', ')}|${TIERL[v.tier]}${conn?' (penghubung jalur)':''} · ${x.cov}|${RMTSL[rmTS(e)]} · ${rmYr(e)}`, label:lab, lcls:`lv${Math.min(v.lv,4)} ${tier==='primary'||near.has(id)&&near.has(v.p)||on?'keep':''}`}).replace('data-a="nx-edge"',`data-a="rm-edge" data-p="${v.p}" data-c="${id}"`);
+    g=g.replace('<g class="nxe',`<g class="nxe tier-${tier} ${v.unk?'tunk':''}`);
+    s+=g; });
+  vis.forEach(id=>{ if(id===X) return; const v=R.info.get(id), conn=V.conn.has(id), r=(v.lv===1?16:Math.max(9,13-v.lv))*sf, more=v.kids.filter(k=>!V.keep.has(k)).length;
+    let g=nodeG(id, ...pos[id].slice(0,2), {r, act:'rm-node', sel:selN===id, dim:(!!selN&&!near.has(id)), ctx:conn||v.tier==='other', ring:S.rm.expanded.has(id), tip:`${NN[id].n}|${skTL(NN[id].t)} · ${v.lv} hop · ${TIERL[v.tier]}${conn?' · penghubung jalur':''}${more?' · '+more+' koneksi tersembunyi':''}`, lcls:`lv${Math.min(v.lv,4)} ${near.has(id)||v.tier==='primary'?'keep':''}`, ml:v.lv>1?20:22});
+    if(v.tier==='primary'&&!conn) g=g.replace(/(<g class="nxn[^"]*")/,'$1 data-tier="primary"').replace('</g>',`<circle cx="${pos[id][0]}" cy="${pos[id][1]}" r="${r+5}" fill="none" stroke="#D71920" stroke-width="2" stroke-opacity=".8" class="tierring"/></g>`);
+    if(more) g=g.replace(/<\/g>$/,`<g><rect x="${pos[id][0]+r-2}" y="${pos[id][1]-r-10}" width="${18*sf}" height="${13*sf}" rx="${6*sf}" fill="var(--ink)"/><text x="${pos[id][0]+r+7*sf}" y="${pos[id][1]-r}" text-anchor="middle" fill="var(--paper)" font-size="${9*sf}" font-weight="800">+${more}</text></g></g>`);
+    s+=g; });
+  s+=nodeG(X,cx,cy,{r:26*sf, big:true, ring:true, act:'rm-node', sel:selN===X, tip:`${NN[X].n}|Focal entity · ${skTL(NN[X].t)}`, lcls:'lv0 keep', sub:'FOCAL ENTITY · '+skTL(NN[X].t).toUpperCase()})+'</g></svg>';
+  const ctl = `<div class="row" style="gap:8px;margin-top:8px;flex-wrap:wrap">${V.hidden&&!K.showOther?`<span class="xs muted">${V.hidden} entitas lain disembunyikan</span>`:''}${!K.f.tiers.length&&(V.hidden||K.showOther)?`<button class="btn sm" data-a="rm2-other">${K.showOther?'Tampilkan yang relevan saja':'Tampilkan semua'}</button>`:''}</div>`;
+  const legend = `<div class="nx-legend"><div>${['Person','Organization','Location','Program','Project','Issue','Case'].map(t=>`<span><svg width="18" height="18" viewBox="-10 -10 20 20" aria-hidden="true">${skShape(t,0,0,7)}${skGlyph(t,0,0,7)}</svg>${skTL(t)}</span>`).join('')}</div><div><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#333" stroke-width="3"/></svg>Primary</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#333" stroke-width="1.5" stroke-opacity=".55"/></svg>Supporting</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#999" stroke-width="1"/></svg>Other</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#555" stroke-width="2" stroke-dasharray="2 3"/></svg>Time unknown</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#C98A1A" stroke-width="2" stroke-dasharray="7 4"/></svg>Klaim beratribusi</span></div></div>`;
+  return filt+`<div class="nx-grid"><div><div class="fg nx-graph" id="rm-svg">${s}<div class="nx-tip" role="tooltip"></div><div class="fg-ctrl"><button data-a="rmz" data-z="1.3" aria-label="Perbesar">+</button><button data-a="rmz" data-z="0.77" aria-label="Perkecil">−</button><button data-a="rmz" data-z="0" aria-label="Kembali ke focal entity" title="Kembali ke focal entity">⌂</button></div></div>${ctl}${legend}</div>
+    <aside class="nx-panel">${sel?(sel.t==='e'?rmRelPanel(R,sel):rmNodePanel2(R,sel.id,V)):rmNodePanel2(R,X,V)}</aside></div>`;
+};
+/* ---------- Node Insight Panel ---------- */
+function rmRefineBox(key,label){ const r=S.rm.refine[key]; return `<div class="sk-sec"><div class="sk-sh">Additional context</div>${r?`<div class="rm-ref">${aiIc()} <span class="small">${r.text}</span><div class="xs muted" style="margin-top:4px">Konteks Anda: “${esc(r.ctx)}”. Data canonical di Knowledge Bank tidak berubah.</div></div>`:''}<form data-form="rm2-refine" data-key="${key}" class="rm-refine"><textarea class="input" name="ctx" rows="2" placeholder="mis. ${label}">${r?esc(r.ctx):''}</textarea><button class="btn sm">Perdalam insight</button></form></div>`; }
+function rmNodePanel2(R,id,V){
+  const X=R.X, N=NN[id], t=N.t, isX=id===X, v=R.info.get(id), pk=R.pk;
+  const back=!isX?'<button class="btn sm ghost" data-a="rm-desel">← Focal entity</button>':'';
+  let role='';
+  if(t==='Person'){ const rs=rmEdges().filter(e=>e.a===id&&e.rel==='works_for'); role = rs.length?rs.map(e=>`<div class="sk-pos"><b class="small">${rmTS(e)==='current'?'Current':rmTS(e)==='hist'?'Historis':'Last documented'}: ${e.label&&e.label!=='—'?e.label:'Jabatan'}</b><span class="small"> — ${NN[e.b].n}</span><div class="xs muted">${rmYr(e)} · dasar waktu: ${rmBasis(e).split(' (')[0]} ${cpCite(e.src)}</div></div>`).join(''):cpRow('Role & affiliation',null); }
+  else if(t==='Organization') role = cpRow('Industri',RMIND[id]||null)+cpRow('Kategori organisasi',rmCat(id));
+  else role = cpRow('Deskripsi',N.d||null);
+  let rin='';
+  if(isX){ rin=`<p class="small" style="margin:0">Focal entity analisis ini. Dengan purpose <b>${RMPURPOSE[pk].l}</b>, ${[...R.info].filter(([i,x])=>i!==X&&x.tier==='primary').length} entitas terhubung melalui hubungan Primary.</p>`; }
+  else { const chain=[]; let c=id; while(c!==X){ chain.unshift(c); c=R.info.get(c).p; } chain.unshift(X);
+    rin=`<p class="small" style="margin:0 0 6px">${v.lv===1?`Terhubung <b>langsung</b> dengan ${NN[X].n}`:`Terhubung <b>tidak langsung</b> (${v.lv} hop)`}. Tier <b>${TIERL[v.tier]}</b>: ${v.t[0].why}</p><div class="pchain">${chain.map((n,i)=>`<button class="pchip" data-a="rm-node" data-id="${n}">${nodeDot(NN[n].t,8)}${NN[n].n}</button>${i<chain.length-1?(()=>{ const e=R.info.get(chain[i+1]).e[0]; return `<span class="parr">${e.a===n?REL[e.rel][0]+' →':'← '+REL[e.rel][0]}</span>`; })():''}`).join('')}</div>${v.lv>1?'<p class="xs muted" style="margin:6px 0 0">Rangkaian ini bukan hubungan langsung; arah tiap hubungan diperiksa terpisah.</p>':''}${(R.alt[id]||[]).length?`<div class="xs muted" style="margin-top:4px">Penghubung alternatif: ${R.alt[id].map(a=>NN[a].n).join(', ')}</div>`:''}`; }
+  const nb = [...R.info].filter(([i,x])=>i!==id&&(x.p===id||(!isX&&i===v.p))).map(([i,x])=>[i, i===v?.p?v:x]);
+  const kc = (isX?[...R.info].filter(([i,x])=>x.lv===1):[...R.info].filter(([i,x])=>x.p===id)).sort((a,b)=>rmScore(R,b[0])-rmScore(R,a[0])).slice(0,6);
+  const kcHtml = kc.map(([i,x])=>{ const e=x.t[0].e; return `<button class="nx-kr" data-a="rm-edge" data-p="${x.p}" data-c="${i}"><span style="flex:1;min-width:0"><b class="small">${NN[i].n}</b><span class="xs muted" style="display:block">${e.a===x.p?'→ ':'← '}${REL[e.rel][0]} · ${RMTSL[rmTS(e)]} · ${x.e.length} relationship</span></span><span class="tierpill" style="--c:${TIERC[x.tier]}">${TIERL[x.tier]}</span></button>`; }).join('');
+  const evIds = isX?[]:[...new Set(v.e.flatMap(e=>e.src||[]))];
+  const events = [...R.info].filter(([i,x])=>NN[i].t==='Case'&&(x.p===id||(isX&&x.lv===1)||R.E.some(e=>(e.a===id&&e.b===i)||(e.b===id&&e.a===i))));
+  return `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">${isX?'FOCAL ENTITY':v.lv===1?'ENTITAS TERKAIT LANGSUNG':'ENTITAS TERKAIT TIDAK LANGSUNG'} ${!isX?`· <span style="color:${TIERC[v.tier]}">${TIERL[v.tier].toUpperCase()}</span>`:''}</div><h3>${N.n}</h3>${cpTP(t)}</div>
+    <div class="sk-sec"><div class="sk-sh">Entity profile</div>${cpRow('Canonical name',N.n)}${cpRow('Entity type',skTL(t))}${N.al&&N.al.length?cpRow('Aliases',N.al.join(', ')):''}${cpRow('Description',N.d||null)}</div>
+    <div class="sk-sec"><div class="sk-sh">Role &amp; affiliation</div>${role}</div>
+    <div class="sk-sec"><div class="sk-sh">Role in this network ${aiIc()}</div>${rin}</div>
+    ${kcHtml?`<div class="sk-sec"><div class="sk-sh">Key connections</div>${kcHtml}</div>`:''}
+    ${events.length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${events.map(([i])=>`<button class="nx-kr" data-a="rm-node" data-id="${i}"><span style="flex:1"><b class="small">${NN[i].n}</b><span class="xs muted" style="display:block">${NN[i].d||''}</span></span></button>`).join('')}</div>`:''}
+    ${evIds.length?`<div class="sk-sec"><div class="sk-sh">Supporting evidence</div>${rmEv(evIds)}</div>`:''}
+    ${rmRefineBox('n:'+id,`Apa relevansi ${N.n} bila kami akan bermitra dengan ${NN[X].n}?`)}
+    <div class="row" style="gap:6px;margin-top:8px;flex-wrap:wrap">${!isX&&v.kids.length?`<button class="btn sm" data-a="rm2-expand" data-id="${id}">${S.rm.expanded.has(id)?'− Ciutkan':'＋ Expand'} koneksi (${v.kids.length})</button>`:''}${!isX&&cpIsEndpointType(t)?`<button class="btn sm" data-a="rm-tocp" data-id="${id}">Analyze Connection Paths</button><button class="btn sm" data-a="rm-newobj" data-id="${id}">Buka Relationship Map</button>`:''}${['Program','Project','Issue','Case'].includes(t)?`<button class="btn sm" data-a="cp-totopic" data-id="${id}">Analyze Topic Network</button>`:''}</div>`;
+}
+/* ---------- Relationship Insight Panel ---------- */
+function rmRelPanel(R,sel){
+  const v=R.info.get(sel.c), A=sel.p, B=sel.c; if(!v) return '<p class="small muted">Hubungan tidak lagi dalam hasil.</p>';
+  const groups={}; v.e.forEach(e=>{ (groups[e.rel]=groups[e.rel]||[]).push(e); });
+  const typesSorted=Object.keys(groups).sort((a,b)=>({primary:0,supporting:1,other:2}[rmTier(groups[a][0],R.pk).tier])-({primary:0,supporting:1,other:2}[rmTier(groups[b][0],R.pk).tier]));
+  const cur = S.rm.relType&&groups[S.rm.relType] ? S.rm.relType : (typesSorted.length===1?typesSorted[0]:null);
+  const back = `<button class="btn sm ghost" data-a="rm-desel">← Focal entity</button>`;
+  const ov = `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">RELATIONSHIP</div><h3>${NN[A].n} ↔ ${NN[B].n}</h3><div class="xs muted">${typesSorted.length} jenis hubungan berbeda · ${v.e.length} record</div></div>
+    <div class="sk-sec"><div class="sk-sh">Grouped relationship overview</div>${typesSorted.map(k=>{ const g=groups[k], x=rmTier(g[0],R.pk), e=g[0]; return `<button class="nx-kr ${cur===k?'on':''}" data-a="rm2-rtype" data-k="${k}"><span style="flex:1;min-width:0"><b class="small">${e.a===A?'→':'←'} ${REL[k][0]}</b><span class="xs muted" style="display:block">${x.cov} · ${x.cas}</span><span class="xs muted" style="display:block">${g.map(z=>`${RMTSL[rmTS(z)]} ${rmYr(z)}`).join(' · ')} · ${g.some(rmClaim)?'klaim beratribusi':'terdokumentasi'}</span></span><span class="tierpill" style="--c:${TIERC[x.tier]}">${TIERL[x.tier]}</span></button>`; }).join('')}${typesSorted.length>1&&!cur?'<p class="xs muted" style="margin:4px 0 0">Pilih satu jenis hubungan untuk melihat detailnya.</p>':''}</div>`;
+  if(!cur) return ov + rmRefineBox('r:'+A+'|'+B,'Apa artinya hubungan ini untuk penilaian risiko kami?');
+  const recs=groups[cur], x=rmTier(recs[0],R.pk), e0=recs[0];
+  const assertions = RMCONFLICT[e0.id] || recs.map(e=>({p:`${rmSent(e)}${e.label&&e.label!=='—'?' ('+e.label+')':''}.`, by:(e.src||[]).map(s=>SRC[s]?SRC[s].o:'').filter(Boolean).join(', ')||'—', mod:rmClaim(e)?'diduga (klaim beratribusi)':'menyatakan', pol:'Positif', src:(e.src||[])[0], d:rmYr(e)}));
+  const conflict = RMCONFLICT[e0.id];
+  const interp = {primary:`Untuk purpose ${RMPURPOSE[R.pk].l}, hubungan ini langsung menjawab pertanyaan analisis (${x.cas}).`, supporting:`Hubungan ini menjelaskan konteks atau menjadi penghubung bagi temuan utama, tidak berdiri sendiri sebagai temuan.`, other:`Valid, tetapi tidak terkait langsung dengan purpose ini.`}[x.tier] + (R.info.get(B).lv>1?' Karena tidak langsung terhadap focal entity, hubungan ini bukan bukti keterkaitan langsung.':'');
+  return ov + `<div class="sk-sec"><div class="sk-sh">Relationship identity</div>${cpRow('Entity A',NN[e0.a].n)}${cpRow('Entity B',NN[e0.b].n)}${cpRow('Direction',`${NN[e0.a].n} → ${REL[cur][0]} → ${NN[e0.b].n}`)}${cpRow('Relationship type',REL[cur][0])}</div>
+    <div class="sk-sec"><div class="sk-sh">Definition &amp; classification</div>${cpRow('Definisi',RMDEF[cur]||null)}${cpRow('Coverage',x.cov)}${cpRow('Sub-kategori (case)',x.cas)}${cpRow('Tier untuk purpose',`${TIERL[x.tier]} — ${x.why}`)}</div>
+    ${recs.map((e,i)=>`<div class="sk-sec"><div class="sk-sh">${recs.length>1?`Record ${i+1} · `:''}Context &amp; time validity</div>${cpRow('Konteks',e.label&&e.label!=='—'?e.label:null)}${cpRow('Valid from',e.y0!=null?String(e.y0):null)}${cpRow('Valid to',e.y1!=null&&rmTS(e)!=='current'?String(e.y1):rmTS(e)==='current'?'— (masih berlaku menurut sumber)':null)}${cpRow('Periode (sumber)',e.period&&e.period!=='—'?e.period:null)}${cpRow('Status waktu',RMTSL[rmTS(e)]+(rmTS(e)==='last'?' — tidak otomatis dianggap masih berlangsung':''))}${cpRow('Dasar penentuan waktu',rmBasis(e))}</div>`).join('')}
+    <div class="sk-sec"><div class="sk-sh">Analytical interpretation ${aiIc()}</div><p class="small" style="margin:0">${interp}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Supporting assertions</div>${conflict?'<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin:0 0 6px"><b>Asersi bertentangan.</b> Sistem tidak memilih salah satu sebagai fakta final.</div>':''}${assertions.map(a=>`<div class="rm-as"><div class="small">${a.p}</div><div class="xs muted">Atribusi: ${a.by} · modality: ${a.mod} · polarity: ${a.pol} · ${a.d} ${a.src?cpCite([a.src]):''}</div></div>`).join('')}</div>
+    <div class="sk-sec"><div class="sk-sh">Evidence list</div>${recs.map(e=>(e.src||[]).map(s=>SRC[s]?`<div class="rm-evi"><button class="src-card" style="width:100%" data-a="src" data-id="${s}"><span class="xs muted">${SRC[s].o} · terbit ${SRC[s].d} · ID TMP-${s.toUpperCase()}</span><b>${SRC[s].t}</b><span class="small" style="font-style:italic">“${(SRC[s].x||'').replace(/<\/?mark>/g,'').slice(0,170)}…”</span><span class="xs">${rmClaim(e)?'<span style="color:var(--ev-unverified);font-weight:700">Klaim beratribusi · belum terverifikasi</span>':'<span style="color:var(--ev-verified);font-weight:700">Lolos kebijakan publikasi</span>'}</span></button></div>`:'').join('')).join('')}<p class="xs muted" style="margin:4px 0 0">Bukti tiap jenis hubungan dipisahkan dan tidak digabung untuk membuktikan proposisi lain.</p></div>
+    ${rmRefineBox('r:'+A+'|'+B+'|'+cur,'Apa implikasi hubungan ini untuk keputusan kemitraan?')}`;
+}
+/* ---------- detail objek ---------- */
+rmDetails = function(R,run){ const X=R.X, N=NN[X], t=N.t, ro=t==='Person'?rmRoleOf(X):null;
+  const role = t==='Person' ? rmEdges().filter(e=>e.a===X&&e.rel==='works_for').map(e=>`<div class="sk-pos"><b class="small">${rmTS(e)==='current'?'Current':rmTS(e)==='hist'?'Historis':'Last documented'}: ${e.label&&e.label!=='—'?e.label:'Jabatan'}</b><span class="small"> — ${NN[e.b].n}</span><div class="xs muted">${rmYr(e)} ${cpCite(e.src)}</div></div>`).join('')||cpRow('Role',null) : cpRow('Industri',RMIND[X]||null)+cpRow('Kategori',rmCat(X))+(SKENT[X]&&SKENT[X].org||[]).filter(r=>r[1]!==null).map(r=>cpRow(r[0],r[1],r[2])).join('');
+  const l1=[...R.info].filter(([i,v])=>v.lv===1).sort((a,b)=>rmScore(R,b[0])-rmScore(R,a[0]));
+  return `<div class="card" style="margin-top:0"><div class="card-h"><h3>${N.n}</h3>${cpTP(t)}</div>${cpRow('Canonical name',N.n)}${cpRow('Entity type',skTL(t))}${cpRow('Aliases',N.al&&N.al.length?N.al.join(', '):null)}${cpRow('Description',N.d||null)}<div class="sub-h">${t==='Person'?'Role & affiliation':'Profil organisasi'}</div>${role}</div>
+    <div class="card"><div class="card-h"><h3>Hubungan langsung</h3><span class="tag">${l1.length} entitas</span></div><div class="scroll-x"><table class="t"><thead><tr><th>Entitas</th><th>Hubungan</th><th>Tier</th><th>Waktu</th></tr></thead><tbody>${l1.map(([i,v])=>`<tr class="clickrow" data-a="rm-edge" data-p="${X}" data-c="${i}"><td><b class="small">${NN[i].n}</b> ${cpTP(NN[i].t)}</td><td class="small">${v.types.map(k=>REL[k][0]).join(', ')}</td><td><span class="tierpill" style="--c:${TIERC[v.tier]}">${TIERL[v.tier]}</span></td><td class="small">${v.e.map(e=>RMTSL[rmTS(e)]+' '+rmYr(e)).join(' · ')}</td></tr>`).join('')}</tbody></table></div></div>`; };
+
+/* ---------- aksi ---------- */
+ACT['rm2-type']=(el,d)=>{ const F=S.rm.form; F.type=d.v; F.searched=false; F.pick=null; rerender(); };
+ACT['rm2-pick']=(el,d)=>{ S.rm.form.pick=d.id; rerender(); };
+ACT['rm2-f']=(el,d)=>{ const F=S.rm.form; F[d.k] = d.k==='all'?d.v==='1': d.k==='depth'?+d.v : d.v; rerender(); };
+ACT['rm2-yr']=(el,d)=>{ S.rm.form[d.k]=+el.value; rerender(); };
+ACT['rm2-gen']=()=>{ const K=S.rm, F=K.form; if(K.busy||!F.pick) return; K.busy=true; K.stage='gen'; const tok=Date.now(); K.tok=tok; go('network');
+  runProc('rm-proc',4,()=>{ if(K.stage!=='gen'||K.tok!==tok) return; K.busy=false; const r={id:'rm'+tok, o:F.pick, sc:{purpose:F.purpose,all:F.all,y0:F.y0,y1:F.y1,depth:F.depth}, when:'Baru saja', status:'Lengkap', fresh:true}; K.runs.unshift(r); rmOpen(r.id); if(S.view==='network') go('network'); toast('Relationship Map siap.'); }); };
+ACT['rm2-cancel']=()=>{ S.rm.busy=false; S.rm.tok=null; S.rm.stage='list'; rerender(); toast('Dibatalkan. Isian form tetap tersimpan.'); };
+ACT['rm2-edit']=()=>{ const K=S.rm, r=K.runs.find(x=>x.id===K.cur); Object.assign(K.form,{type:NN[r.o].t,q:NN[r.o].n,searched:true,pick:r.o,purpose:r.sc.purpose,all:r.sc.all,y0:r.sc.y0,y1:r.sc.y1,depth:r.sc.depth}); K.stage='list'; go('network'); toast('Ubah purpose atau scope lalu generate ulang; hasil lama tetap di riwayat.'); };
+ACT['rm2-expand']=(el,d)=>{ const x=S.rm.expanded; x.has(d.id)?x.delete(d.id):x.add(d.id); S.rm.zt=null; rerender(); };
+ACT['rm2-other']=()=>{ S.rm.showOther=!S.rm.showOther; if(S.rm.f.tiers.length) S.rm.f=rmNewF2(); S.rm.zt=null; rerender(); };
+ACT['rm2-rtype']=(el,d)=>{ S.rm.relType=d.k; rerender(); };
+ACT['rm-new']=()=>{ S.rm.form={type:'Organization', q:'', searched:false, pick:null, purpose:'overall', all:true, y0:2020, y1:2026, depth:3}; S.rm.stage='list'; S.nx.mode='explore'; go('network'); };
+ACT['rm-newobj']=(el,d)=>{ Object.assign(S.rm.form,{type:NN[d.id].t,q:NN[d.id].n,searched:true,pick:d.id}); S.rm.stage='list'; S.nx.mode='explore'; go('network'); toast(`Focal entity diisi ${NN[d.id].n}. Pilih purpose lalu Generate.`); };
+nxExplore = function(id){ Object.assign(S.rm.form,{type:NN[id].t,q:NN[id].n,searched:true,pick:id}); S.rm.stage='list'; S.nx.mode='explore'; };
+const _rmOpen2=rmOpen; rmOpen=function(id){ _rmOpen2(id); S.rm.f=rmNewF2(); S.rm.expanded=new Set(); S.rm.showOther=false; S.rm.relType=null; S.rm.tab='graph'; };
+const _rmEdge2=ACT['rm-edge']; ACT['rm-edge']=(el,d)=>{ S.rm.relType=null; _rmEdge2(el,d); };
+FB.rm.after = ()=>{ S.rm.sel=null; S.rm.zt=null; };
+function rmRefineText(key,ctx){ const K=S.rm, run=K.runs.find(r=>r.id===K.cur), R=rmAnalyse(run); const c=ctx.toLowerCase();
+  const focus = /risiko hukum|hukum|perkara|kasus|tersangka|gugat/.test(c)?'legal':/mitra|kemitraan|partner|vendor|pengadaan/.test(c)?'own':/risiko|risk/.test(c)?'legal':/regulator|izin|pemerintah|regulasi/.test(c)?'gov':/dana|pinjam|kontrak|bisnis|investasi/.test(c)?'biz':R.pk;
+  const covF = RMPURPOSE[focus].primary;
+  if(key.startsWith('n:')){ const id=key.slice(2), v=R.info.get(id); const es = id===R.X ? [...R.info].filter(([i,x])=>x.lv===1).flatMap(([i,x])=>x.e) : v.e.concat([...R.info].filter(([i,x])=>x.p===id).flatMap(([i,x])=>x.e));
+    const rel = es.filter(e=>covF.includes(rmCov(e)[0])); const top=rel[0]||es[0];
+    return `Untuk konteks ini, yang paling relevan dari ${NN[id].n} adalah hubungan dalam coverage ${RMPURPOSE[focus].primary.slice(0,2).join(' / ')}${top?`, terutama “${rmSent(top)}” (${RMTSL[rmTS(top)]}, ${rmYr(top)})`:''}. ${rel.some(rmClaim)?'Sebagian masih klaim beratribusi; jangan dijadikan dasar keputusan tanpa verifikasi. ':''}${rel.some(e=>rmTS(e)==='unknown')?'Ada hubungan tanpa waktu yang jelas; konfirmasi masa berlakunya. ':''}${rel.length?`${rel.length} relationship terkait dapat ditelusuri ke sumbernya.`:'Belum ditemukan relationship yang langsung terkait konteks ini dalam hasil.'}`; }
+  const [_,a,b,typ]=key.split(/[:|]/); const v=R.info.get(b); const es=(v?v.e:[]).filter(e=>!typ||e.rel===typ); const e=es[0];
+  return e?`Dalam konteks “${ctx}”, hubungan ${rmSent(e)} ${rmTS(e)==='hist'?'bersifat historis sehingga relevansinya untuk keputusan saat ini terbatas':rmTS(e)==='unknown'?'belum memiliki waktu yang jelas sehingga perlu dikonfirmasi':'tercatat pada '+rmYr(e)}. ${rmClaim(e)?'Statusnya klaim beratribusi, bukan fakta terverifikasi. ':''}Hubungan ini tidak menunjukkan pengaruh atau kendali kecuali dinyatakan sumber.`:'Tidak ada relationship terpilih.'; }
+
+/* Relationship Map: alur bertahap — search besar → kandidat → form */
+rmList = (function(orig){ return function(){
+  const K=S.rm, F=K.form, html=orig();
+  const hist = html.slice(html.indexOf('<div class="card" style="padding:0;overflow:hidden;margin-top:14px">'));
+  const q=F.q.trim().toLowerCase(), w=q.split(/\s+/).filter(x=>x.length>1);
+  const cands = F.searched&&q ? Object.entries(NN).filter(([id,n])=>n.t===F.type&&[n.n,...(n.al||[])].some(s=>{s=s.toLowerCase(); return s.includes(q)||w.some(x=>s.includes(x));})).map(([id])=>id).slice(0,8) : [];
+  const meta = id => { const n=NN[id]; if(n.t==='Person'){ const ro=rmRoleOf(id); return ro?`${ro.txt} <span class="muted">· ${ro.l==='Current role'?'saat ini':'terakhir tercatat'}, ${ro.per}</span>`:'<span class="muted">Jabatan belum tercatat</span>'; } return RMIND[id]||'<span class="muted">Industri belum tercatat</span>'; };
+  let top;
+  if(!F.pick){
+    top = `<div class="card" style="margin-top:0"><div class="sub-h" style="margin-top:0">Analisis baru</div>
+      <form class="sk-search big" data-form="rm2-search" role="search"><select class="sk-type" data-a="rm2-typesel" aria-label="Jenis entitas"><option value="Person" ${F.type==='Person'?'selected':''}>Person</option><option value="Organization" ${F.type==='Organization'?'selected':''}>Organization</option></select><span class="sk-ic">${ic('search',18)}</span><input name="q" value="${esc(F.q)}" placeholder="Cari nama atau alias" aria-label="Cari focal entity" autocomplete="off"><button class="btn primary">Cari</button></form>
+      ${F.searched?(cands.length?`<div class="xs muted" style="margin:10px 0 6px">${cands.length} kandidat</div><div class="grid" style="gap:6px">${cands.map(id=>`<button class="opt sk-cand" data-a="rm2-pick" data-id="${id}"><span class="row between" style="gap:8px"><b>${NN[id].n}</b>${cpTP(NN[id].t)}</span><span class="xs muted">Alias: ${NN[id].al&&NN[id].al.length?NN[id].al.join(', '):'—'}</span><span class="small">${meta(id)}</span></button>`).join('')}</div>`
+        :`<div class="sk-empty" style="margin-top:10px"><b>Tidak ditemukan ${F.type==='Person'?'person':'organization'} “${esc(F.q)}”.</b><div class="small">Coba alias atau jenis entitas lain.</div></div>`):''}</div>`;
+  } else {
+    const n=NN[F.pick], bad=!F.all&&F.y1<F.y0;
+    top = `<div class="card" style="margin-top:0"><div class="sub-h" style="margin-top:0">Analisis baru</div>
+      <div class="sk-objbar" style="margin:0 0 4px">${cpTP(n.t)}<b>${n.n}</b><span class="xs muted">${n.al&&n.al.length?'Alias: '+n.al.join(', ')+' · ':''}</span><span class="xs">${meta(F.pick)}</span><button class="linkish" data-a="rm2-unpick" style="margin-left:auto">Ganti</button></div>
+      <div class="rm-f"><div class="rm-fl">Analysis purpose</div><div class="grid" style="gap:6px">${RMPK.map(k=>`<button class="opt ${F.purpose===k?'on':''}" data-a="rm2-f" data-k="purpose" data-v="${k}"><b>${RMPURPOSE[k].l}${k==='overall'?' <span class="xs muted" style="font-weight:400">· default</span>':''}</b><span class="small muted">${RMPURPOSE[k].d}</span></button>`).join('')}</div></div>
+      <div class="rm-f"><div class="rm-fl">Scope</div><div><div class="row" style="gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div><div class="xs muted" style="font-weight:700;margin-bottom:4px">Time range</div><div class="nxs-chips"><button class="chipf ${F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="1">All available time</button><button class="chipf ${!F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="0">Custom period</button></div>
+          ${!F.all?`<div class="row" style="gap:8px;margin-top:6px"><label class="sk-yr">Dari<select class="select" data-a="rm2-yr" data-k="y0">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select></label><label class="sk-yr">Sampai<select class="select" data-a="rm2-yr" data-k="y1">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></label></div>${bad?'<div class="sk-err">Tahun akhir tidak boleh lebih awal.</div>':''}`:''}</div>
+        <div><div class="xs muted" style="font-weight:700;margin-bottom:4px">Network depth</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.depth===h?'on':''}" data-a="rm2-f" data-k="depth" data-v="${h}">${h} hop${h===3?' · default':''}</button>`).join('')}</div></div></div>
+        <div class="xs muted" style="margin-top:6px">Waktu mengacu pada masa berlaku hubungan, bukan tanggal terbit. Pada custom period, hubungan tanpa waktu dipisahkan dan tidak dihitung sebagai terjadi dalam periode.</div></div></div>
+      <div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn primary" data-a="rm2-gen" ${!bad&&!K.busy?'':'disabled'}>Generate Relationship Map</button></div></div>`;
+  }
+  return top + hist;
+}; })(rmList);
+ACT['rm2-typesel']=(el)=>{ const F=S.rm.form; F.type=el.value; F.searched=false; F.pick=null; rerender(); };
+ACT['rm2-pick']=(el,d)=>{ S.rm.form.pick=d.id; rerender(); };
+ACT['rm2-unpick']=()=>{ const F=S.rm.form; F.pick=null; F.searched=!!F.q; rerender(); setTimeout(()=>{ const i=document.querySelector('[data-form="rm2-search"] input'); i&&i.focus(); },0); };
+ACT['rm-new']=()=>{ S.rm.form={type:'Organization', q:'', searched:false, pick:null, purpose:'overall', all:true, y0:2020, y1:2026, depth:3}; S.rm.stage='list'; S.nx.mode='explore'; go('network'); setTimeout(()=>{ const i=document.querySelector('[data-form="rm2-search"] input'); i&&i.focus(); },0); };
+
+/* Relationship Map: form sebagai halaman terpisah */
+rmList = (function(prev){ return function(){ const F=S.rm.form, p=F.pick; F.pick=null; const h=prev(); F.pick=p; return h; }; })(rmList);
+const RMHOPH = {1:'Hanya hubungan langsung. Paling cepat dibaca.',2:'Termasuk koneksi melalui satu perantara.',3:'Eksplorasi default PRD. Graph awal tetap difokuskan ke hubungan relevan.'};
+function rmForm(){
+  const K=S.rm, F=K.form, n=NN[F.pick], bad=!F.all&&F.y1<F.y0;
+  const meta = n.t==='Person' ? (()=>{ const ro=rmRoleOf(F.pick); return ro?`<strong style="display:inline">${ro.l}:</strong> ${ro.txt} <span class="muted">(${ro.per})</span>`:'<span class="muted">Peran belum terdokumentasi</span>'; })() : `<strong style="display:inline">Industri:</strong> ${RMIND[F.pick]||'Belum terdokumentasi'}`;
+  const popt = k => { const P=RMPURPOSE[k], on=F.purpose===k; return `<button class="rm-popt ${on?'on':''} ${k==='overall'?'wide':''}" data-a="rm2-f" data-k="purpose" data-v="${k}" role="radio" aria-checked="${on}"><span class="rm-radio">${on?'●':''}</span><span class="rm-pbody"><b>${P.l}</b>${k==='overall'?' <span class="xs muted">· default</span>':''}<span class="small muted" style="display:block;margin:2px 0 6px">${P.d}</span><span class="rm-chips">${(k==='overall'?['Semua coverage']:P.primary).map(c=>`<span class="rm-chip">${c}</span>`).join('')}</span></span></button>`; };
+  return rmCrumb('Analisis baru','← Riwayat') + `<div class="rm-form">
+    <h2 style="margin:0 0 4px">Buat Relationship Map</h2><p class="small muted" style="margin:0 0 14px">Tentukan tujuan dan cakupan analisis untuk entitas yang dipilih.</p>
+    <section class="rm-sec"><div class="rm-sh">Focal entity</div><div class="rm-ent"><span class="rm-ava" style="background:${NT[n.t]}">${skGlyph?'':''}${n.t==='Person'?'👤':'🏢'}</span><div style="min-width:0;flex:1"><div class="row" style="gap:8px"><b style="font-size:16px">${n.n}</b>${cpTP(n.t)}</div><div class="xs muted">${n.al&&n.al.length?'Alias: '+n.al.join(', '):'Tanpa alias'}</div><div class="small" style="margin-top:2px">${meta}</div></div><button class="btn sm ghost" data-a="rm2-unpick">Ganti entitas</button></div></section>
+    <section class="rm-sec"><div class="rm-sh">Analysis purpose <span class="xs muted" style="font-weight:400">· pilih satu</span></div><div class="rm-pgrid" role="radiogroup" aria-label="Analysis purpose">${RMPK.map(popt).join('')}</div><p class="xs muted" style="margin:8px 0 0">Purpose menentukan hubungan mana yang menjadi Primary di graph awal. Hubungan lain tetap bisa dijelajahi.</p></section>
+    <section class="rm-sec"><div class="rm-sh">Scope</div><div class="rm-scope">
+      <div><div class="rm-lab">Time range</div><div class="seg"><button class="${F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="1">All available time</button><button class="${!F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="0">Custom period</button></div>
+        ${!F.all?`<div class="row" style="gap:8px;margin-top:8px"><label class="sk-yr">Dari<select class="select" data-a="rm2-yr" data-k="y0">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select></label><label class="sk-yr">Sampai<select class="select" data-a="rm2-yr" data-k="y1">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></label></div>${bad?'<div class="sk-err" role="alert">Tahun akhir tidak boleh lebih awal.</div>':''}`:''}
+        <p class="xs muted" style="margin:6px 0 0">Berdasarkan masa berlaku hubungan, bukan tanggal terbit. Hubungan tanpa waktu ditandai terpisah.</p></div>
+      <div><div class="rm-lab">Network depth</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.depth===h?'on':''}" data-a="rm2-f" data-k="depth" data-v="${h}">${h} hop</button>`).join('')}</div><p class="xs muted" style="margin:6px 0 0">${RMHOPH[F.depth]}</p></div></div></section>
+    <div class="rm-foot"><div class="small" style="min-width:0"><b>${n.n}</b> · ${RMPURPOSE[F.purpose].l} · ${F.all?'All available time':F.y0+'–'+F.y1} · ${F.depth} hop</div><div class="row" style="gap:6px;flex:none"><button class="btn" data-a="rm2-unpick">Kembali</button><button class="btn primary" data-a="rm2-gen" ${!bad&&!K.busy?'':'disabled'}>Generate Relationship Map</button></div></div>
+  </div>`;
+}
+vRM = function(){ const K=S.rm; if(K.stage==='form'&&K.form.pick) return rmForm(); if(K.stage==='gen') return rmGen(); if(K.stage==='result') return rmResult(); return rmList(); };
+const _vNet3 = vNetwork2; vNetwork2 = function(){ if(S.nx.mode==='explore'){ const atHome=S.rm.stage==='list'; return `<div class="wrap" style="max-width:1240px">${atHome?`<div class="page-head" style="margin-bottom:14px"><div><div class="layer-tag">Network Explorer</div><h1>Relationship Map</h1><p class="lede">${NXSUB.explore.d}</p></div></div>`:''}${vRM()}</div>`; } return _vNet3(); }; VIEWS.network=vNetwork2;
+const rmToForm = id => { Object.assign(S.rm.form,{type:NN[id].t,q:S.rm.form.q||NN[id].n,pick:id}); S.rm.stage='form'; S.nx.mode='explore'; };
+ACT['rm2-pick']=(el,d)=>{ rmToForm(d.id); S.rm.form.searched=true; go('network'); };
+ACT['rm2-unpick']=()=>{ const F=S.rm.form; F.pick=null; F.searched=!!F.q; S.rm.stage='list'; go('network'); setTimeout(()=>{ const i=document.querySelector('[data-form="rm2-search"] input'); i&&i.focus(); },0); };
+ACT['rm2-cancel']=()=>{ S.rm.busy=false; S.rm.tok=null; S.rm.stage='form'; rerender(); toast('Dibatalkan. Isian tetap tersimpan.'); };
+ACT['rm2-edit']=()=>{ const K=S.rm, r=K.runs.find(x=>x.id===K.cur); Object.assign(K.form,{type:NN[r.o].t,q:NN[r.o].n,searched:true,pick:r.o,purpose:r.sc.purpose,all:r.sc.all,y0:r.sc.y0,y1:r.sc.y1,depth:r.sc.depth}); K.stage='form'; go('network'); };
+ACT['rm-newobj']=(el,d)=>{ rmToForm(d.id); S.rm.form.q=NN[d.id].n; S.rm.form.searched=true; go('network'); };
+nxExplore = function(id){ rmToForm(id); S.rm.form.q=NN[id].n; S.rm.form.searched=true; };
+
+/* Relationship Map: copy & layout cleanup */
+Object.assign(RMPURPOSE.overall,{d:'Semua jenis hubungan, mengutamakan yang paling penting.'});
+Object.assign(RMPURPOSE.own,{d:'Kepemilikan, pengendalian, jabatan, dan afiliasi.'});
+Object.assign(RMPURPOSE.biz,{d:'Pendanaan, kontrak, kerja sama, dan proyek.'});
+Object.assign(RMPURPOSE.gov,{d:'Regulasi, perizinan, dan pengawasan.'});
+Object.assign(RMPURPOSE.legal,{d:'Proses hukum, sengketa, dan audit.'});
+NXSUB.explore.d = 'Lihat jejaring hubungan satu orang atau organisasi, lengkap dengan waktu dan sumbernya.';
+rmForm = function(){
+  const K=S.rm, F=K.form, n=NN[F.pick], bad=!F.all&&F.y1<F.y0;
+  const meta = n.t==='Person' ? (()=>{ const ro=rmRoleOf(F.pick); return ro?`${ro.txt} <span class="muted">· ${ro.l==='Current role'?'saat ini':'terakhir tercatat'}, ${ro.per}</span>`:'<span class="muted">Jabatan belum tercatat</span>'; })() : (RMIND[F.pick]||'<span class="muted">Industri belum tercatat</span>');
+  return rmCrumb('Analisis baru','← Riwayat') + `<div class="rm-form">
+    <h2 style="margin:0 0 14px">Relationship Map baru</h2>
+    <section class="rm-sec rm-ent"><span class="rm-ava" style="background:${NT[n.t]}">${n.t==='Person'?'👤':'🏢'}</span><div style="min-width:0;flex:1"><div class="row" style="gap:8px"><b style="font-size:16px">${n.n}</b>${cpTP(n.t)}</div><div class="small" style="margin-top:2px">${meta}</div></div><button class="btn sm ghost" data-a="rm2-unpick">Ganti</button></section>
+    <section class="rm-sec"><div class="rm-sh">Tujuan analisis</div><div class="rm-plist" role="radiogroup" aria-label="Tujuan analisis">${RMPK.map(k=>{ const on=F.purpose===k; return `<button class="rm-prow ${on?'on':''}" data-a="rm2-f" data-k="purpose" data-v="${k}" role="radio" aria-checked="${on}"><span class="rm-radio">${on?'●':''}</span><span><b>${RMPURPOSE[k].l}</b><span class="small muted">${RMPURPOSE[k].d}</span></span></button>`; }).join('')}</div></section>
+    <section class="rm-sec"><div class="rm-sh">Cakupan</div><div class="rm-scope">
+      <div><div class="rm-lab">Periode</div><div class="seg"><button class="${F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="1">Semua waktu</button><button class="${!F.all?'on':''}" data-a="rm2-f" data-k="all" data-v="0">Rentang tahun</button></div>
+        ${!F.all?`<div class="row" style="gap:8px;margin-top:8px"><select class="select" style="width:auto" data-a="rm2-yr" data-k="y0" aria-label="Tahun awal">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select><span class="muted">–</span><select class="select" style="width:auto" data-a="rm2-yr" data-k="y1" aria-label="Tahun akhir">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></div>${bad?'<div class="sk-err" role="alert">Tahun akhir lebih awal dari tahun awal.</div>':''}`:''}</div>
+      <div><div class="rm-lab">Kedalaman</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.depth===h?'on':''}" data-a="rm2-f" data-k="depth" data-v="${h}">${h} hop</button>`).join('')}</div></div></div></section>
+    <div class="rm-foot"><button class="btn" data-a="rm2-unpick">Batal</button><button class="btn primary" data-a="rm2-gen" ${!bad&&!K.busy?'':'disabled'}>Generate</button></div>
+  </div>`;
+};
+rmGen = function(){ const o=NN[S.rm.form.pick]; return rmCrumb('Analisis baru','← Riwayat') + `<div class="wz" style="max-width:560px;padding-top:10px"><h2>Menyusun Relationship Map ${esc(o.n)}</h2>${procList(['Memuat entitas','Menelusuri hubungan hingga '+S.rm.form.depth+' hop','Menilai relevansi dengan tujuan analisis','Menyusun ringkasan dan graph'],'rm-proc')}<div style="margin-top:12px"><button class="btn sm" data-a="rm2-cancel">Batal</button></div></div>`; };
+ACT['rm2-gen']=(function(o){ return ()=>{ o(); }; })(ACT['rm2-gen']);
+
+/* =========================================================
+   Relationship Map: generate sebagai proses latar belakang
+   ========================================================= */
+const RMSTEPS2 = d => ['Memuat entitas','Menelusuri hubungan hingga '+d+' hop','Menilai relevansi dengan tujuan analisis','Menyusun ringkasan dan graph'];
+const RMDUR = {1:9000, 2:15000, 3:22000};
+const fmtT = ms => { const s=Math.max(0,Math.round(ms/1000)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
+const rmJobs = () => S.rm.runs.filter(r=>r.status==='Proses');
+function rmJobState(r){ const el=Date.now()-r.job.t0, f=Math.min(1,el/r.job.dur), n=RMSTEPS2(r.sc.depth).length, cur=Math.min(n-1,Math.floor(f*n)); return {el, left:r.job.dur-el, f, cur, n}; }
+/* seed: satu analisis yang sedang berjalan saat prototipe dibuka */
+if(!S.rm.runs.find(r=>r.id==='rm6')) S.rm.runs.unshift({id:'rm6', o:'arunika', sc:{purpose:'biz',all:true,y0:2020,y1:2026,depth:3}, when:'Baru saja', status:'Proses', job:{t0:Date.now()-4000, dur:45000}});
+rmGen = function(){
+  const K=S.rm, r=K.runs.find(x=>x.id===K.cur); if(!r||r.status!=='Proses'){ K.stage='list'; return rmList(); }
+  const o=NN[r.o], st=rmJobState(r), steps=RMSTEPS2(r.sc.depth);
+  return rmCrumb('Sedang diproses','← Riwayat') + `<div class="wz rm-job" data-job="${r.id}" style="max-width:600px;padding-top:10px">
+    <h2 style="margin-bottom:4px">Menyusun Relationship Map ${esc(o.n)}</h2>
+    <p class="small muted" style="margin:0 0 14px">${RMPURPOSE[r.sc.purpose].l} · ${r.sc.all?'Semua waktu':r.sc.y0+'–'+r.sc.y1} · ${r.sc.depth} hop</p>
+    <ul class="proc">${steps.map((t,i)=>`<li class="${i<st.cur?'done':i===st.cur?'now':''}" data-step="${i}"><span class="dot">${i<st.cur?'✓':''}</span>${t}</li>`).join('')}</ul>
+    <div class="jb-track"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div>
+    <div class="row between small" style="margin-top:6px"><span class="muted">Berjalan <b class="jb-el">${fmtT(st.el)}</b></span><span>Perkiraan sisa <b class="jb-left">${fmtT(st.left)}</b></span></div>
+    <div class="rm-bg"><div><b class="small">Tidak perlu menunggu di halaman ini</b><div class="xs muted">Proses tetap berjalan. Hasilnya muncul di riwayat dan Anda mendapat notifikasi saat selesai.</div></div><button class="btn primary" data-a="rm-home">Kembali ke Relationship Map</button></div>
+    <button class="btn sm ghost" data-a="rm-jobcancel" data-id="${r.id}" style="margin-top:10px">Batalkan proses</button></div>`;
+};
+/* status di riwayat */
+rmList = (function(prev){ return function(){
+  let h=prev();
+  h=h.replace('<th>Dibuat</th><th style="text-align:right">Aksi</th>','<th>Dibuat</th><th>Status</th><th style="text-align:right">Aksi</th>');
+  S.rm.runs.forEach(r=>{
+    const status = r.status==='Proses' ? (()=>{ const st=rmJobState(r); return `<td data-jobrow="${r.id}" style="min-width:150px"><span class="jb-tag"><i class="spin"></i>Sedang diproses</span><div class="jb-track sm"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div><div class="xs muted">Sisa ± <span class="jb-left">${fmtT(st.left)}</span></div></td>`; })()
+      : r.status==='Parsial' ? `<td><span class="tag" style="background:var(--ev-unverified-bg);color:var(--ev-unverified)">Parsial</span></td>` : `<td><span class="tag" style="background:var(--ev-verified-bg);color:var(--ev-verified)">Selesai</span></td>`;
+    const act = r.status==='Proses' ? `<button class="btn sm" data-a="rm-open" data-id="${r.id}">Lihat progres</button><button class="btn sm ghost" data-a="rm-jobcancel" data-id="${r.id}">Batalkan</button>` : null;
+    const re = new RegExp(`(<button class="btn sm" data-a="rm-open" data-id="${r.id}">Buka</button><button class="btn sm ghost" data-a="rm-del" data-id="${r.id}">Hapus</button>)`);
+    const m = h.match(re); if(!m) return;
+    const i=h.indexOf(m[0]), tdStart=h.lastIndexOf('<td style="text-align:right;white-space:nowrap">',i);
+    h = h.slice(0,tdStart) + status + h.slice(tdStart, i) + (act||m[0]) + h.slice(i+m[0].length);
+  });
+  h=h.replace(/ <span class="tag" style="background:var\(--ev-unverified-bg\);color:var\(--ev-unverified\)">Parsial<\/span><\/td><td>/g,'</td><td>');
+  return h;
+}; })(rmList);
+/* aksi */
+ACT['rm2-gen']=()=>{ const K=S.rm, F=K.form; if(!F.pick||K.busy) return; const id='rm'+Date.now();
+  K.runs.unshift({id, o:F.pick, sc:{purpose:F.purpose,all:F.all,y0:F.y0,y1:F.y1,depth:F.depth}, when:'Baru saja', status:'Proses', job:{t0:Date.now(), dur:RMDUR[F.depth]}});
+  Object.assign(K.form,{q:'',searched:false,pick:null});
+  K.cur=id; K.stage='gen'; S.nx.mode='explore'; go('network'); };
+const _rmOpenJ = ACT['rm-open']; ACT['rm-open']=(el,d)=>{ const r=S.rm.runs.find(x=>x.id===d.id); if(r&&r.status==='Proses'){ S.rm.cur=r.id; S.rm.stage='gen'; S.nx.mode='explore'; go('network'); return; } _rmOpenJ(el,d); };
+ACT['rm-jobcancel']=(el,d)=>{ const K=S.rm, r=K.runs.find(x=>x.id===d.id); if(!r) return; K.runs=K.runs.filter(x=>x.id!==d.id);
+  if(K.stage==='gen'&&K.cur===d.id){ Object.assign(K.form,{type:NN[r.o].t,q:K.form.q||NN[r.o].n,pick:r.o,purpose:r.sc.purpose,all:r.sc.all,y0:r.sc.y0,y1:r.sc.y1,depth:r.sc.depth}); K.stage='form'; }
+  toast('Proses dibatalkan.'); rerender(); };
+ACT['rm-home']=()=>{ S.rm.stage='list'; S.nx.mode='explore'; go('network'); };
+/* ticker */
+function rmTick(){
+  const jobs=rmJobs(); if(!jobs.length) return;
+  jobs.forEach(r=>{ const st=rmJobState(r);
+    document.querySelectorAll(`[data-job="${r.id}"],[data-jobrow="${r.id}"]`).forEach(box=>{ const b=box.querySelector('.jb-bar'); if(b) b.style.width=Math.round(st.f*100)+'%'; const l=box.querySelector('.jb-left'); if(l) l.textContent=fmtT(st.left); const e=box.querySelector('.jb-el'); if(e) e.textContent=fmtT(st.el);
+      box.querySelectorAll('[data-step]').forEach(li=>{ const i=+li.dataset.step; li.className = i<st.cur?'done':i===st.cur?'now':''; li.querySelector('.dot').textContent = i<st.cur?'✓':''; }); });
+    if(st.f>=1){ r.status='Lengkap'; r.fresh=true; r.when='Baru saja'; delete r.job;
+      const onGen = S.view==='network'&&S.nx.mode==='explore'&&S.rm.stage==='gen'&&S.rm.cur===r.id;
+      if(onGen){ rmOpen(r.id); rerender(); toast('Relationship Map siap.'); }
+      else { const inp=document.activeElement, val=inp&&inp.value, sel=inp&&inp.selectionStart, path=inp&&inp.closest&&inp.closest('form')&&inp.name; rerender();
+        if(path){ const ni=document.querySelector(`form [name="${path}"]`); if(ni){ ni.value=val; ni.focus(); try{ ni.setSelectionRange(sel,sel); }catch(_){} } }
+        toast(`Relationship Map ${NN[r.o].n} siap. Buka dari riwayat Relationship Map.`); }
+    } });
+}
+setInterval(rmTick, 500);
+/* indikator di sidebar */
+AFTER.push(()=>{ const n=rmJobs().length, it=document.querySelector('.nav-subitem[data-m="explore"]'); if(it&&n&&!it.querySelector('.spin')) it.insertAdjacentHTML('beforeend',` <i class="spin" title="${n} analisis sedang diproses" aria-label="${n} analisis sedang diproses"></i>`); });
+
+/* Relationship Map: semua tier tampil, fokus tier = berwarna, lainnya grayscale */
+S.rm.focus = ['primary'];
+const _rmOpenF = rmOpen; rmOpen = function(id){ _rmOpenF(id); S.rm.focus=['primary']; S.rm.focusTouched=false; };
+rmVisible = function(R){
+  const F=S.rm.f, X=R.X, keep=new Set([X]), pass=new Set(), conn=new Set(), hopMax=F.hop==='Semua'?99:+F.hop;
+  R.info.forEach((v,id)=>{ if(id===X||v.lv>hopMax) return; if(F.dist==='Langsung'&&v.lv>1) return; if(F.dist==='Tidak langsung'&&v.lv===1) return;
+    if(F.types.length&&!F.types.includes(NN[id].t)) return; if(F.covs.length&&!v.t.some(x=>F.covs.includes(x.cov))) return;
+    if(F.rels.length&&!v.e.some(e=>F.rels.includes(REL[e.rel][0]))) return; if(F.y0!=null&&!v.e.some(e=>e.y0!=null&&(e.y1??e.y0)>=F.y0&&e.y0<=F.y1)) return;
+    pass.add(id); });
+  pass.forEach(id=>{ keep.add(id); let c=R.info.get(id).p; while(c&&c!==X){ keep.add(c); if(!pass.has(c)) conn.add(c); c=R.info.get(c).p; } });
+  return {keep, pass, conn, hidden:0};
+};
+rmFilters = (function(prev){ return function(R,V){ const saved=S.rm.f.tiers; let h=prev(R,V);
+  // hapus tombol Tier dari toolbar (fokus tier punya kontrol sendiri)
+  h=h.replace(/<div class="fb-w"><button class="fb-btn[^"]*" data-a="fb-open" data-s="rm" data-k="tiers"[\s\S]*?<\/div>(?=<div class="fb-w">)/,'');
+  return h; }; })(rmFilters);
+function rmFocusBar(R,V){ const c={primary:0,supporting:0,other:0}; V.pass.forEach(id=>c[R.info.get(id).tier]++); const F=S.rm.focus;
+  return `<div class="tierbar" role="group" aria-label="Fokus tier"><span class="tb-l">Fokus</span>${['primary','supporting','other'].map(t=>{ const on=F.includes(t); return `<button class="tb-btn ${on?'on':''}" data-a="rm2-focus" data-t="${t}" aria-pressed="${on}"><i style="background:${on?TIERC[t]:'#BDBDBD'}"></i>${TIERL[t]} <span class="tb-n">${c[t]}</span></button>`; }).join('')}<span class="tb-hint">Tier lain tetap tampil dalam abu-abu</span></div>`; }
+rmGraphBlock = function(R,run){
+  const K=S.rm, V=rmVisible(R), X=R.X, filt=rmFilters(R,V);
+  if(!K.focusTouched){ const has=t=>[...V.pass].some(id=>R.info.get(id).tier===t); if(!K.focus.some(has)){ const f=['primary','supporting','other'].find(has); if(f) K.focus=[f]; } }
+  const FOC=K.focus;
+  if(!V.pass.size) return filt+`<div class="card"><div class="empty"><h3>Filter menyembunyikan semua entitas</h3><button class="btn sm" data-a="fb-reset" data-s="rm">Reset filter</button></div></div>`;
+  const vis=[...V.keep], maxLv=Math.max(...vis.map(i=>R.info.get(i).lv));
+  const kidsV=id=>R.info.get(id).kids.filter(k=>V.keep.has(k)), leaves=id=>{ const k=kidsV(id); return k.length?Math.pow(k.reduce((s,c)=>s+leaves(c),0),.75):1; };
+  const ring=lv=>maxLv<=1?230:maxLv===2?[0,190,340][lv]:210+(lv-1)*135;
+  const W=2*(ring(maxLv)+120), H=W, cx=W/2, cy=H/2, sf=Math.max(1,Math.pow(W/800,.6)); RMVB=[W,H];
+  const pos={}; pos[X]=[cx,cy,0]; const place=(id,a0,a1)=>{ const k=kidsV(id), tot=k.reduce((s,c)=>s+leaves(c),0); let a=a0; k.forEach(c=>{ const span=(a1-a0)*leaves(c)/tot, ang=a+span/2, r=ring(R.info.get(c).lv); pos[c]=[cx+Math.cos(ang)*r, cy+Math.sin(ang)*r, ang]; place(c,a,a+span); a+=span; }); }; place(X,-Math.PI/2,Math.PI*1.5); RMPOS=pos;
+  const sel=K.sel, selN=sel&&sel.t==='n'&&V.keep.has(sel.id)?sel.id:null, selE=sel&&sel.t==='e'?sel:null;
+  const near=new Set(); if(selN){ let c=selN; while(c){ near.add(c); c=R.info.get(c).p; } kidsV(selN).forEach(k=>near.add(k)); }
+  const isF = id => V.pass.has(id) && FOC.includes(R.info.get(id).tier);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Relationship Map ${esc(NN[X].n)}" data-zl="0" class="${V.keep.size>15?'dense':''}" data-sf="${sf.toFixed(3)}" style="--ik:${sf.toFixed(3)}">${nxDefs()}<g class="vp">`;
+  for(let l=1;l<=maxLv;l++) s+=`<circle cx="${cx}" cy="${cy}" r="${ring(l)}" class="nx-ring"/><text x="${cx+4}" y="${cy-ring(l)-5}" class="nx-hop">${l===1?'1 hop · langsung':l+' hop · tidak langsung'}</text>`;
+  const edges=[], nodes=[];
+  vis.forEach(id=>{ if(id===X) return; const v=R.info.get(id), x=v.t[0], e=x.e, foc=isF(id);
+    const lab = REL[e.rel][0]+(v.types.length>1?`  ·  ${v.types.length} jenis`:'')+(rmClaim(e)?' · dugaan':'')+(v.unk?' · waktu ?':'');
+    const on=selE&&selE.p===v.p&&selE.c===id, dim=(!!selN&&!(near.has(id)&&near.has(v.p)))||(selE&&!on);
+    let g=edgeLine(e, ...pos[v.p].slice(0,2), ...pos[id].slice(0,2), {ida:v.p, shA:(v.p===X?26*sf:12*sf)+6, sh:(v.lv===1?16:Math.max(9,13-v.lv))*sf+6, sf, w:(v.lv===1?2.2:1.7)*sf, sel:on, dim, tip:`${[...new Set(v.e.map(z=>REL[z.rel][0]))].join(', ')}|${TIERL[v.tier]} · ${x.cov}|${RMTSL[rmTS(e)]} · ${rmYr(e)}`, label:(foc||on)?lab:'', lcls:`lv${Math.min(v.lv,4)} ${foc||on||near.has(id)&&near.has(v.p)?'keep':''}`}).replace('data-a="nx-edge"',`data-a="rm-edge" data-p="${v.p}" data-c="${id}"`);
+    g=g.replace('<g class="nxe',`<g class="nxe ${foc||on?'foc':'unfoc'} ${v.unk?'tunk':''}`);
+    (foc?edges.push.bind(edges,g):edges.unshift.bind(edges,g))(); });
+  vis.forEach(id=>{ if(id===X) return; const v=R.info.get(id), foc=isF(id), r=(v.lv===1?16:Math.max(9,13-v.lv))*sf;
+    let g=nodeG(id, ...pos[id].slice(0,2), {r, act:'rm-node', sel:selN===id, dim:(!!selN&&!near.has(id)), tip:`${NN[id].n}|${skTL(NN[id].t)} · ${v.lv} hop · ${TIERL[v.tier]}`, lcls:`lv${Math.min(v.lv,4)} ${foc||near.has(id)?'keep':''}`, ml:v.lv>1?20:22});
+    g=g.replace('<g class="nxn',`<g class="nxn ${foc||selN===id?'foc':'unfoc'}`);
+    (foc?nodes.push.bind(nodes,g):nodes.unshift.bind(nodes,g))(); });
+  s+=edges.join('')+nodes.join('');
+  s+=nodeG(X,cx,cy,{r:26*sf, big:true, ring:true, act:'rm-node', sel:selN===X, tip:`${NN[X].n}|Focal entity · ${skTL(NN[X].t)}`, lcls:'lv0 keep', sub:'FOCAL ENTITY · '+skTL(NN[X].t).toUpperCase()})+'</g></svg>';
+  const legend = `<div class="nx-legend"><div>${['Person','Organization','Location','Program','Project','Issue','Case'].map(t=>`<span><svg width="18" height="18" viewBox="-10 -10 20 20" aria-hidden="true">${skShape(t,0,0,7)}${skGlyph(t,0,0,7)}</svg>${skTL(t)}</span>`).join('')}</div><div><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#2F5D8A" stroke-width="2"/></svg>Tier difokuskan</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#BDBDBD" stroke-width="2"/></svg>Tier lain</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#555" stroke-width="2" stroke-dasharray="2 3"/></svg>Waktu tidak diketahui</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#C98A1A" stroke-width="2" stroke-dasharray="7 4"/></svg>Klaim beratribusi</span></div></div>`;
+  return filt+rmFocusBar(R,V)+`<div class="nx-grid"><div><div class="fg nx-graph" id="rm-svg">${s}<div class="nx-tip" role="tooltip"></div><div class="fg-ctrl"><button data-a="rmz" data-z="1.3" aria-label="Perbesar">+</button><button data-a="rmz" data-z="0.77" aria-label="Perkecil">−</button><button data-a="rmz" data-z="0" aria-label="Kembali ke focal entity" title="Kembali ke focal entity">⌂</button></div></div>${legend}</div>
+    <aside class="nx-panel">${sel?(sel.t==='e'?rmRelPanel(R,sel):rmNodePanel2(R,sel.id,V)):rmNodePanel2(R,X,V)}</aside></div>`;
+};
+ACT['rm2-focus']=(el,d)=>{ S.rm.focusTouched=true; const F=S.rm.focus, i=F.indexOf(d.t); if(i>=0){ if(F.length===1){ toast('Minimal satu tier difokuskan.'); return; } F.splice(i,1); } else F.push(d.t); rerender(); };
+/* tombol expand di panel tidak lagi diperlukan */
+rmNodePanel2 = (function(prev){ return function(R,id,V){ return prev(R,id,V).replace(/<button class="btn sm" data-a="rm2-expand"[^>]*>[\s\S]*?<\/button>/,''); }; })(rmNodePanel2);
 
 render();
 </script>
