@@ -1198,6 +1198,12 @@ svg[data-zl="1"] .nxsub.lv3:not(.keep),svg[data-zl="1"] .nxsub.lv4:not(.keep),sv
 #rm-svg .nxe.foc > path:nth-of-type(2){stroke-opacity:1}
 @media (max-width:720px){ .tb-hint{margin-left:0;flex-basis:100%} }
 
+
+.rm-ctxbox{display:flex;flex-direction:column;gap:2px;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--ink-2);border-radius:8px;padding:8px 12px;margin-top:10px}
+.rm-ctxtag{font-size:10.5px;font-weight:700;color:#1F4E8C;background:#E8EFF8;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.rm-ctxline{display:block;margin-top:4px}
+
+.rm-recs{display:grid;gap:2px;margin:4px 0 2px}.rm-rec{font-size:12px;color:var(--ink-2);padding-left:8px;border-left:2px solid var(--rule)}
 </style>
 </head>
 <body>
@@ -5952,14 +5958,14 @@ function rmNodePanel2(R,id,V){
 /* ---------- Relationship Insight Panel ---------- */
 function rmRelPanel(R,sel){
   const v=R.info.get(sel.c), A=sel.p, B=sel.c; if(!v) return '<p class="small muted">Hubungan tidak lagi dalam hasil.</p>';
-  const groups={}; v.e.forEach(e=>{ (groups[e.rel]=groups[e.rel]||[]).push(e); });
-  const typesSorted=Object.keys(groups).sort((a,b)=>({primary:0,supporting:1,other:2}[rmTier(groups[a][0],R.pk).tier])-({primary:0,supporting:1,other:2}[rmTier(groups[b][0],R.pk).tier]));
+  const tierOf=g=>(v.t||[]).find(x=>x.e.rel===g[0].rel)||tierOf(g); const groups={}; v.e.forEach(e=>{ (groups[e.rel]=groups[e.rel]||[]).push(e); });
+  const typesSorted=Object.keys(groups).sort((a,b)=>({primary:0,supporting:1,other:2}[tierOf(groups[a]).tier])-({primary:0,supporting:1,other:2}[tierOf(groups[b]).tier]));
   const cur = S.rm.relType&&groups[S.rm.relType] ? S.rm.relType : (typesSorted.length===1?typesSorted[0]:null);
   const back = `<button class="btn sm ghost" data-a="rm-desel">← Focal entity</button>`;
-  const ov = `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">RELATIONSHIP</div><h3>${NN[A].n} ↔ ${NN[B].n}</h3><div class="xs muted">${typesSorted.length} jenis hubungan berbeda · ${v.e.length} record</div></div>
-    <div class="sk-sec"><div class="sk-sh">Grouped relationship overview</div>${typesSorted.map(k=>{ const g=groups[k], x=rmTier(g[0],R.pk), e=g[0]; return `<button class="nx-kr ${cur===k?'on':''}" data-a="rm2-rtype" data-k="${k}"><span style="flex:1;min-width:0"><b class="small">${e.a===A?'→':'←'} ${REL[k][0]}</b><span class="xs muted" style="display:block">${x.cov} · ${x.cas}</span><span class="xs muted" style="display:block">${g.map(z=>`${RMTSL[rmTS(z)]} ${rmYr(z)}`).join(' · ')} · ${g.some(rmClaim)?'klaim beratribusi':'terdokumentasi'}</span></span><span class="tierpill" style="--c:${TIERC[x.tier]}">${TIERL[x.tier]}</span></button>`; }).join('')}${typesSorted.length>1&&!cur?'<p class="xs muted" style="margin:4px 0 0">Pilih satu jenis hubungan untuk melihat detailnya.</p>':''}</div>`;
+  const ov = `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">RELATIONSHIP</div><h3>${NN[A].n} ↔ ${NN[B].n}</h3><div class="xs muted">${typesSorted.length} jenis hubungan${v.e.length>typesSorted.length?` · ${v.e.length} record pada periode berbeda`:''}</div></div>
+    <div class="sk-sec"><div class="sk-sh">Grouped relationship overview</div>${typesSorted.map(k=>{ const g=groups[k], x=tierOf(g), e=g[0]; return `<button class="nx-kr ${cur===k?'on':''}" data-a="rm2-rtype" data-k="${k}"><span style="flex:1;min-width:0"><b class="small">${e.a===A?'→':'←'} ${REL[k][0]}</b><span class="xs muted" style="display:block">${x.cov} · ${x.cas}</span>${g.length>1?`<span class="rm-recs">${g.map(z=>`<span class="rm-rec"><b>${z.label&&z.label!=='—'?z.label:REL[k][0]}</b> · ${rmYr(z)} · ${RMTSL[rmTS(z)]}</span>`).join('')}</span>`:`<span class="xs muted" style="display:block">${g[0].label&&g[0].label!=='—'?g[0].label+' · ':''}${rmYr(g[0])} · ${RMTSL[rmTS(g[0])]}</span>`}<span class="xs muted" style="display:block">${g.some(rmClaim)?'Klaim beratribusi':'Terdokumentasi'}${g.length>1?` · ${g.length} record`:''}</span></span><span class="tierpill" style="--c:${TIERC[x.tier]}">${TIERL[x.tier]}</span></button>`; }).join('')}${typesSorted.length>1&&!cur?'<p class="xs muted" style="margin:4px 0 0">Pilih satu jenis hubungan untuk melihat detailnya.</p>':''}</div>`;
   if(!cur) return ov + rmRefineBox('r:'+A+'|'+B,'Apa artinya hubungan ini untuk penilaian risiko kami?');
-  const recs=groups[cur], x=rmTier(recs[0],R.pk), e0=recs[0];
+  const recs=groups[cur], x=tierOf(recs), e0=recs[0];
   const assertions = RMCONFLICT[e0.id] || recs.map(e=>({p:`${rmSent(e)}${e.label&&e.label!=='—'?' ('+e.label+')':''}.`, by:(e.src||[]).map(s=>SRC[s]?SRC[s].o:'').filter(Boolean).join(', ')||'—', mod:rmClaim(e)?'diduga (klaim beratribusi)':'menyatakan', pol:'Positif', src:(e.src||[])[0], d:rmYr(e)}));
   const conflict = RMCONFLICT[e0.id];
   const interp = {primary:`Untuk purpose ${RMPURPOSE[R.pk].l}, hubungan ini langsung menjawab pertanyaan analisis (${x.cas}).`, supporting:`Hubungan ini menjelaskan konteks atau menjadi penghubung bagi temuan utama, tidak berdiri sendiri sebagai temuan.`, other:`Valid, tetapi tidak terkait langsung dengan purpose ini.`}[x.tier] + (R.info.get(B).lv>1?' Karena tidak langsung terhadap focal entity, hubungan ini bukan bukti keterkaitan langsung.':'');
@@ -6209,6 +6215,68 @@ rmGraphBlock = function(R,run){
 ACT['rm2-focus']=(el,d)=>{ S.rm.focusTouched=true; const F=S.rm.focus, i=F.indexOf(d.t); if(i>=0){ if(F.length===1){ toast('Minimal satu tier difokuskan.'); return; } F.splice(i,1); } else F.push(d.t); rerender(); };
 /* tombol expand di panel tidak lagi diperlukan */
 rmNodePanel2 = (function(prev){ return function(R,id,V){ return prev(R,id,V).replace(/<button class="btn sm" data-a="rm2-expand"[^>]*>[\s\S]*?<\/button>/,''); }; })(rmNodePanel2);
+
+/* =========================================================
+   Relationship Map: Additional Context di Create Insight
+   ========================================================= */
+const RMCTXKW = [
+  [/hukum|perkara|kasus|gugat|tersangka|sengketa|pidana|sidik/i, ['Proses Hukum & Penyelesaian Sengketa']],
+  [/saham|pemilik|kepemilikan|kendali|pengendali|anak usaha|holding/i, ['Kepemilikan & Pengendalian']],
+  [/afiliasi|jabatan|direksi|direktur|komisaris|pengurus|pejabat/i, ['Jabatan, Afiliasi & Struktur Organisasi']],
+  [/dana|pinjam|kredit|kontrak|pembiayaan|bank|vendor|pengadaan|bisnis|investasi|mitra/i, ['Pendanaan, Transaksi & Kontrak']],
+  [/izin|regulator|regulasi|pengawas|audit|lingkungan|limbah|pemerintah|kepatuhan/i, ['Pengawasan, Audit & Akuntabilitas','Kebijakan, Regulasi & Perizinan']],
+  [/sikap|pernyataan|tanggapan|advokasi|warga|nelayan|publik|reputasi/i, ['Sikap, Komunikasi & Advokasi']],
+];
+function rmCtxParse(ctx){ const c=(ctx||'').trim(); if(!c) return null; const covs=new Set(); RMCTXKW.forEach(([re,cv])=>{ if(re.test(c)) cv.forEach(x=>covs.add(x)); });
+  const lc=c.toLowerCase(), ents=new Set(Object.entries(NN).filter(([id,n])=>[n.n,...(n.al||[])].some(a=>a.length>2&&lc.includes(a.toLowerCase()))).map(([id])=>id));
+  return {text:c, covs, ents}; }
+const rmCtxHit = (x,e,CX) => !!CX && (CX.covs.has(x.cov) || CX.ents.has(e.a) || CX.ents.has(e.b));
+/* analisis: konteks mempengaruhi prioritas & seleksi */
+rmAnalyse = (function(prev){ return function(run){ const R=prev(run), CX=rmCtxParse(run.sc.ctx); R.ctx=CX; if(!CX) return R; CX.ents.delete(R.X);
+  const order={primary:0,supporting:1,other:2};
+  R.info.forEach((v,id)=>{ if(id===R.X) return; v.t.forEach(x=>{ x.ctx=rmCtxHit(x,x.e,CX); if(x.ctx&&x.tier==='other'){ x.tier='supporting'; x.why=`Dinaikkan ke Supporting karena relevan dengan konteks Anda (${x.cov}).`; } else if(x.ctx&&x.tier==='supporting'&&!rmClaim(x.e)){ x.tier='primary'; x.why=`Dinaikkan ke Primary karena langsung menjawab konteks Anda (${x.cov}).`; } else if(x.ctx) x.why+=' Relevan dengan konteks Anda.'; });
+    v.t.sort((a,b)=>order[a.tier]-order[b.tier]||(b.ctx?1:0)-(a.ctx?1:0)); v.tier=v.t[0].tier; v.ctx=v.t.some(x=>x.ctx); });
+  return R; }; })(rmAnalyse);
+rmScore = (function(prev){ return function(R,id){ const v=R.info.get(id); return prev(R,id)+(v&&v.ctx?6:0); }; })(rmScore);
+/* overview mempertimbangkan konteks */
+rmOverview = (function(prev){ return function(R,run){ let h=prev(R,run); const CX=R.ctx; if(!CX) return h;
+  const hits=[...R.info].filter(([i,v])=>i!==R.X&&v.ctx).sort((a,b)=>rmScore(R,b[0])-rmScore(R,a[0]));
+  const top=hits[0]; const te=top&&top[1].t.find(x=>x.ctx);
+  h=h.replace('</p></section>',` <span class="rm-ctxline">Dengan konteks Anda, ${hits.length} entitas diprioritaskan${CX.covs.size?` pada ${[...CX.covs].slice(0,2).join(' dan ')}`:''}.</span></p></section>`);
+  h=h.replace(/(<div class="rm-kr"><div class="row between" style="gap:8px"><b class="small">)([^<]*)(<\/b>)/g,(m,a,b,c)=>{ const hit=hits.find(([i,v])=>v.t.some(x=>x.ctx&&rmSent(x.e)===b)); return a+b+c+(hit?' <span class="rm-ctxtag">Relevan dengan konteks</span>':''); });
+  if(te) h=h.replace('<ul class="sk-ul">',`<ul class="sk-ul"><li class="ai">${aiIc()} Terkait konteks Anda, hubungan paling relevan adalah “${rmSent(te.e)}” (${RMTSL[rmTS(te.e)]}, ${rmYr(te.e)})${rmClaim(te.e)?', yang masih berupa klaim beratribusi':''}. ${hits.length>1?`${hits.length-1} hubungan lain juga terkait konteks ini.`:''} ${cpCite(te.e.src)}</li>`);
+  return h; }; })(rmOverview);
+/* form: kolom konteks tambahan */
+S.rm.form.ctx = S.rm.form.ctx||'';
+rmForm = (function(prev){ return function(){ const F=S.rm.form; return prev().replace('<div class="rm-foot">',`<section class="rm-sec"><div class="rm-sh">Konteks tambahan <span class="xs muted" style="font-weight:400">opsional</span></div><textarea class="input" rows="3" data-bind="rm2-ctx" placeholder="mis. Kami menilai ${esc(NN[F.pick].n)} sebagai calon mitra dan ingin tahu afiliasi pengurus serta risiko hukumnya.">${esc(F.ctx||'')}</textarea><div class="xs muted" style="margin-top:4px">Dipakai untuk memprioritaskan hasil, bukan sebagai fakta.</div></section><div class="rm-foot">`); }; })(rmForm);
+BIND['rm2-ctx']=v=>{ S.rm.form.ctx=v; };
+/* header hasil menampilkan konteks */
+rmResult = (function(prev){ return function(){ let h=prev(); const r=S.rm.runs.find(x=>x.id===S.rm.cur); if(r&&r.sc.ctx&&S.rm.stage==='result') h=h.replace('<div class="tabs"',`<div class="rm-ctxbox"><span class="xs muted" style="font-weight:700">Konteks tambahan</span><span class="small">“${esc(r.sc.ctx)}”</span></div><div class="tabs"`); return h; }; })(rmResult);
+/* RM-18 dihapus: tidak ada input konteks setelah insight dihasilkan */
+rmRefineBox = () => '';
+/* simpan & pulihkan konteks di semua jalur */
+ACT['rm2-gen']=(function(o){ return ()=>{ const ctx=S.rm.form.ctx||''; o(); const r=S.rm.runs[0]; if(r&&r.status==='Proses') r.sc.ctx=ctx; S.rm.form.ctx=''; }; })(ACT['rm2-gen']);
+ACT['rm2-edit']=(function(o){ return ()=>{ const r=S.rm.runs.find(x=>x.id===S.rm.cur); o(); S.rm.form.ctx=r&&r.sc.ctx||''; rerender(); }; })(ACT['rm2-edit']);
+ACT['rm-jobcancel']=(function(o){ return (el,d)=>{ const r=S.rm.runs.find(x=>x.id===d.id); const onGen=S.rm.stage==='gen'&&S.rm.cur===d.id; o(el,d); if(onGen&&r) { S.rm.form.ctx=r.sc.ctx||''; rerender(); } }; })(ACT['rm-jobcancel']);
+ACT['rm-new']=(function(o){ return ()=>{ o(); S.rm.form.ctx=''; }; })(ACT['rm-new']);
+/* contoh riwayat dengan konteks */
+(()=>{ const r1=S.rm.runs.find(r=>r.id==='rm1'); if(r1) r1.sc.ctx='Kami menilai PT NER sebagai calon mitra pengadaan; fokus pemegang saham dan sumber pendanaannya.';
+  const r3=S.rm.runs.find(r=>r.id==='rm3'); if(r3) r3.sc.ctx='Persiapan diskusi kemitraan; cek risiko hukum yang terkait Hendra Wiratama.'; })();
+
+/* Dummy: pasangan entitas dengan 2 jenis hubungan berbeda */
+Object.assign(SRC, {
+  rmx1:{t:'Bank Arunika diam-diam masuk ke saham Nusantara Energi', o:'Majalah Tempo', d:'14 Jul 2025', ty:'news', x:'Dua sumber yang mengetahui transaksi menyebut <mark>Bank Arunika memegang sekitar 4 persen saham PT Nusantara Energi Raya melalui konversi sebagian kredit</mark>. Bank Arunika menolak berkomentar; PT NER menyatakan susunan pemegang saham belum berubah.'},
+  rmx2:{t:'Nusantara Energi teken kemitraan dengan koperasi nelayan', o:'Tempo.co', d:'9 Mar 2022', ty:'news', x:'PT Nusantara Energi Raya <mark>menandatangani perjanjian kemitraan dengan Koperasi Nelayan Teluk Buli</mark> untuk pengadaan ikan bagi katering karyawan smelter, berlaku hingga akhir 2023.'},
+  rmx3:{t:'Kemitraan NER dan koperasi nelayan tidak diperpanjang', o:'Tempo.co', d:'18 Jan 2024', ty:'news', x:'Perjanjian kemitraan pengadaan ikan antara PT NER dan Koperasi Nelayan Teluk Buli <mark>berakhir Desember 2023 dan tidak diperpanjang</mark>.'},
+});
+if(!NE.find(e=>e.id==='mx1')) NE.push(
+  {id:'mx1', a:'arunika', rel:'shareholder_of', b:'ner', label:'Pemegang saham minoritas ±4% melalui konversi kredit (menurut sumber)', period:'Jul 2025', y0:2025, y1:null, status:'Klaim yang diberitakan', src:['rmx1'], n:1},
+  {id:'mx2', a:'ner', rel:'contracts_with', b:'kop', label:'Kemitraan pengadaan ikan untuk katering karyawan smelter', period:'Mar 2022 – Des 2023', y0:2022, y1:2023, status:'Past', src:['rmx2','rmx3'], n:2}
+);
+/* asersi bertentangan untuk klaim saham */
+RMCONFLICT.mx1 = [
+  {p:'Bank Arunika memegang sekitar 4% saham PT NER melalui konversi sebagian kredit.', by:'Dua sumber anonim (dikutip Majalah Tempo)', mod:'diduga (klaim beratribusi)', pol:'Positif', src:'rmx1', d:'Jul 2025'},
+  {p:'Susunan pemegang saham PT NER belum berubah.', by:'PT Nusantara Energi Raya (pernyataan perusahaan)', mod:'menyatakan', pol:'Negatif (membantah)', src:'rmx1', d:'Jul 2025'}];
 
 render();
 </script>
