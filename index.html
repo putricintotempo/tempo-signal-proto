@@ -1326,6 +1326,26 @@ svg[data-zl="1"] .nxsub.lv3:not(.keep),svg[data-zl="1"] .nxsub.lv4:not(.keep),sv
 .rv-hl{border:1px solid var(--rule);border-radius:8px;padding:10px 12px}
 @media (max-width:900px){ .rv-strip{grid-template-columns:1fr} .rv-chips{max-width:none} }
 
+
+.tn-st.Selesai{background:var(--ev-verified-bg);color:var(--ev-verified)} .tn-st.Kosong{background:var(--canvas);color:var(--muted)} .tn-st.Gagal{background:#FBE6E4;color:#B03A2E}
+.tn-cfg{margin-top:6px} .tn-cfg summary{cursor:pointer;color:var(--muted);font-weight:600}
+.tn-stats{grid-template-columns:repeat(4,1fr)}
+.tn-ks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.tn-kscard{display:flex;flex-direction:column;gap:4px;text-align:left;border:1px solid var(--rule);border-radius:10px;background:var(--paper);padding:10px 12px;color:var(--ink)}
+.tn-kscard:hover{border-color:var(--ink-2)}
+.tn-gtags{display:flex;flex-wrap:wrap;gap:4px} .tn-gtags i{font-style:normal;font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 8px;color:var(--c);border:1px solid var(--c)}
+.tn-kind{display:inline-block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border-radius:4px;padding:1px 6px;background:var(--canvas);margin-right:6px} .tn-kind.ind{background:var(--ev-unverified-bg);color:var(--ev-unverified)}
+.tn-grp .c3-gh{border-left:4px solid var(--gc)} .tn-gdot{width:10px;height:10px;border-radius:50%;background:var(--gc)}
+.tn-sc{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;background:var(--paper)}
+.tn-role{border-left:3px solid var(--rule);padding:2px 0 2px 8px;margin-top:6px}
+.tn-lg{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+#tn-svg .nxe.unfoc,#tn-svg .nxn.unfoc{filter:grayscale(1);opacity:.3}
+#tn-svg svg{width:100%;height:auto;max-height:78vh}
+@media (max-width:720px){ .tn-stats{grid-template-columns:repeat(2,1fr)} #tn-svg{overflow-x:auto} #tn-svg svg{min-width:640px} }
+
+.tn-lg.ring{background:transparent;border:3px solid;width:12px;height:12px;box-sizing:border-box}
+.tn-clul{font-size:15px;font-weight:800;letter-spacing:.01em}
+.tn-elab{font-weight:700;fill:#B03A2E;paint-order:stroke;stroke:var(--paper);stroke-width:4px}
 </style>
 </head>
 <body>
@@ -3860,6 +3880,7 @@ document.addEventListener('submit', e => {
   if(f==='hero-ask'){ const q=fd.get('q')||'Apa kontroversi PT Nusantara Energi Raya?'; askNew(); askSubmit(q); }
   if(f==='ask'){ askSubmit(fd.get('q')||''); }
   if(f==='quotes'){ qSearch(fd.get('q')); }
+  if(f==='tn-search'){ S.sk.q=(fd.get('q')||'').trim(); S.sk.searched=!!S.sk.q; rerender(); }
   if(f==='c3-search'){ const k=e.target.dataset.k, X=S.cp.form[k]; X.q=(fd.get('q')||'').trim(); X.searched=!!X.q; X.id=null; rerender(); }
   if(f==='rm2-search'){ const F=S.rm.form; F.q=(fd.get('q')||'').trim(); F.searched=!!F.q; F.pick=null; rerender(); }
   if(f==='rm2-refine'){ const ctx=(fd.get('ctx')||'').trim(); const key=e.target.dataset.key; if(!ctx){ toast('Tuliskan konteks atau pertanyaan terlebih dahulu.'); return; } S.rm.refine[key]={ctx, text:rmRefineText(key,ctx)}; rerender(); }
@@ -7151,6 +7172,370 @@ rmOverview = (function(prev){ return function(R,run){ return prev(R,run).replace
 rmGraphBlock = (function(prev){ return function(R,run){ return prev(R,run).replace(/<div class="rv-strip">[\s\S]*?<div class="rv-chips">[\s\S]*?<\/div><\/div>/,''); }; })(rmGraphBlock);
 /* CP: tanpa filter di tab Graph */
 c3PathsTab = (function(prev){ return function(R,run){ S.cp.f=c3NewF(); return prev(R,run).replace(/<details class="c3-adv"[\s\S]*?<\/details>/,''); }; })(c3PathsTab);
+
+
+/* =========================================================
+   TOPIC NETWORK — PRD (stakeholder-centric)
+   ========================================================= */
+const TNG = {
+  init:{l:'Initiators & Decision Makers', d:'Menginisiasi atau mengambil keputusan terkait topik', c:'#7A3FB0', w:6},
+  reg:{l:'Regulators & Authorities', d:'Memiliki kewenangan pengaturan, perizinan, atau kebijakan', c:'#2F5D8A', w:5},
+  impl:{l:'Implementers & Operators', d:'Bertanggung jawab atas pelaksanaan atau pengoperasian', c:'#0E7C86', w:5},
+  fin:{l:'Owners & Financial Stakeholders', d:'Memiliki kepentingan kepemilikan atau pendanaan', c:'#2E9E5B', w:5},
+  over:{l:'Oversight & Accountability', d:'Melakukan pengawasan, audit, pemeriksaan, atau penegakan hukum', c:'#B03A2E', w:4.5},
+  legal:{l:'Legal & Dispute Participants', d:'Berperan dalam proses hukum atau sengketa', c:'#7A1F1F', w:5},
+  pos:{l:'Supporters & Opponents', d:'Menyatakan dukungan, penolakan, atau kritik', c:'#C98A1A', w:3},
+  aff:{l:'Affected Stakeholders', d:'Menerima manfaat atau mengalami dampak', c:'#5A6B7B', w:3},
+  other:{l:'Other Stakeholders', d:'Keterlibatan terdokumentasi di luar kelompok lain', c:'#9A9A9A', w:1}};
+const TNGO = ['init','reg','impl','fin','over','legal','pos','aff','other'];
+function tnGroups(r){ const l=r.l, c=r.c;
+  if(c==='exec'&&/menetapkan kebijakan|menginisiasi|menggagas/.test(l)) return [['init','Penetap kebijakan']];
+  if(c==='exec'&&/memiliki dan mengembangkan/.test(l)) return [['fin','Pemilik proyek'],['impl','Pengembang']];
+  if(c==='exec') return [['impl',({menyelenggarakan:'Penyelenggara',melaksanakan:'Pelaksana',mengembangkan:'Pengembang','bertanggung jawab atas':'Penanggung jawab',menyalurkan:'Penyalur',melayani:'Pelaksana layanan',mengoordinasikan:'Koordinator','menyediakan data untuk':'Penyedia data','berkolaborasi dalam':'Mitra kolaborasi','berkolaborasi dengan':'Mitra kolaborasi',mendukung:'Pendukung pelaksanaan','berpartisipasi dalam':'Peserta pelaksanaan'})[l]||rvCap(l)]];
+  if(c==='over'&&/memberi izin/.test(l)) return [['reg','Pemberi izin']];
+  if(c==='over') return [['over',({mengawasi:'Pengawas',mengevaluasi:'Evaluator',memverifikasi:'Pemeriksa',menekan:'Pengawas politik','menutup sementara':'Penindak'})[l]||rvCap(l)]];
+  if(c==='money'&&/mengerjakan|memasok|bermitra/.test(l)) return [['impl',({mengerjakan:'Kontraktor',memasok:'Pemasok','bermitra dengan':'Mitra operasional'})[l]]];
+  if(c==='money') return [['fin',({mendanai:'Pemberi dana',mengontrak:'Pemberi kontrak',mendukung:'Pendukung pendanaan'})[l]||'Pihak finansial']];
+  if(c==='case'&&/tersangka|menggugat|mengajukan|saksi|pelapor/.test(l)) return [['legal',/tersangka/.test(l)?'Tersangka':/menggugat/.test(l)?'Penggugat':/mengajukan/.test(l)?'Pengaju perkara':rvCap(l)]];
+  if(c==='case') return [['over',({menyidik:'Penyidik',menyelidiki:'Penyelidik',menggeledah:'Penyidik (penggeledahan)',menangani:'Penanganan',mengaudit:'Auditor'})[l]||rvCap(l)]];
+  if(c==='stance'&&/terdampak/.test(l)) return [['aff','Pihak terdampak']];
+  if(c==='stance') return [['pos',({mendukung:'Pendukung',mengkritik:'Pengkritik','menolak tuduhan dalam':'Membantah tuduhan',menanggapi:'Pemberi tanggapan',mengadvokasi:'Advokasi','mengangkat isu':'Pengangkat isu',mengajak:'Pengajak kerja sama'})[l]||rvCap(l)]];
+  if(c==='link'&&/diduga/.test(l)) return [['other',rvCap(l)+' (klaim)']];
+  return []; }
+const TNVER = {stated:'Terdokumentasi', reported:'Diberitakan (dugaan)', inferred:'Kesimpulan sistem', disputed:'Diperselisihkan'};
+const tnPer = t => !t ? 'Waktu tidak diketahui' : skYr(t);
+const tnIsPO = id => ['Person','Organization'].includes((NN[id]||{}).t);
+const TNCTX = [[/keputusan|kebijakan|inisiat|mandat/i,'init'],[/izin|regulasi|regulator/i,'reg'],[/pelaksana|kontraktor|operator|pelaksanaan|tanggung jawab|tugas/i,'impl'],[/dana|pendanaan|biaya|investor|pinjam|pemilik/i,'fin'],[/pengawas|audit|pengawasan/i,'over'],[/hukum|perkara|tersangka|gugat|korupsi/i,'legal'],[/dukung|tolak|kritik|posisi|sikap|pandangan/i,'pos'],[/warga|terdampak|komunitas|nelayan|penerima/i,'aff']];
+/* ---------- analisis ---------- */
+function tnAnalyse(run){
+  const o=SKOBJ[run.o], sc=run.sc; if(!o) return {o:{n:(SKDECOY.find(d=>d.id===run.o)||{}).n||'', type:(SKDECOY.find(d=>d.id===run.o)||{}).type}, empty:true, sh:new Map(), ce:new Set(), rels:[], srcs:[], run};
+  const inP = r => sc.all || !r.t || (r.t[1]>=sc.y0 && r.t[0]<=sc.y1);
+  const rels = o.rels.map((r,i)=>({...r, id:run.o+':'+i})).filter(inP);
+  const nodeOf = id => o.nodes.find(n=>n.id===id);
+  const ctxSub = new Set(rels.filter(r=>r.c==='link'&&/bagian dari|berkaitan dengan|memeriksa kegiatan/.test(r.l)&&(r.b==='OBJ'||r.a==='OBJ')).map(r=>r.a==='OBJ'?r.b:r.a).filter(id=>!tnIsPO(id)));
+  const sh = new Map();
+  o.nodes.forEach(n=>{ if(!tnIsPO(n.id)) return; const roles=[];
+    rels.filter(r=>(r.a===n.id&&(r.b==='OBJ'||ctxSub.has(r.b)))||(r.b===n.id&&r.a==='OBJ')).forEach(r=>tnGroups(r).forEach(([g,label])=>roles.push({g,label,rel:r,via:r.b!=='OBJ'&&r.a!=='OBJ'?r.b:null})));
+    (n.st||[]).forEach(s=>{ if(!roles.length&&(sc.all||(+String(s.d).slice(-4)>=sc.y0&&+String(s.d).slice(-4)<=sc.y1))) roles.push({g:'pos',label:'Menyampaikan pandangan',st:s}); });
+    if(roles.length) sh.set(n.id,{id:n.id, n, roles, groups:[...new Set(roles.map(x=>x.g))]}); });
+  // kedalaman & entitas terkait
+  const inc=new Set(['OBJ',...sh.keys(),...ctxSub]); const ce=new Set([...ctxSub]);
+  const depth=sc.depth||3;
+  if(depth>=2){ let frontier=new Set(inc); for(let d=2; d<=depth; d++){ const nx=new Set(); rels.forEach(r=>{ [[r.a,r.b],[r.b,r.a]].forEach(([x,y])=>{ if(frontier.has(x)&&!inc.has(y)&&nodeOf(y)){ const isTopic = r.c!=='link' || /bagian dari|berlokasi|dilaksanakan|ditangani|berdampak|berkaitan/.test(r.l); if(isTopic){ nx.add(y); } } }); }); nx.forEach(y=>{ inc.add(y); ce.add(y); }); frontier=nx; } }
+  else rels.forEach(r=>{ if(r.a==='OBJ'&&nodeOf(r.b)&&!inc.has(r.b)){ inc.add(r.b); ce.add(r.b); } if(r.b==='OBJ'&&nodeOf(r.a)&&!inc.has(r.a)){ inc.add(r.a); ce.add(r.a); } });
+  const er = rels.filter(r=>inc.has(r.a)&&inc.has(r.b)).map(r=>{ const prim = r.a==='OBJ'||r.b==='OBJ'||ctxSub.has(r.b)&&sh.has(r.a)||(sh.has(r.a)&&sh.has(r.b)&&['exec','money','over','case','stance'].includes(r.c)); return {...r, rel: prim?'primary':'supporting'}; });
+  // signifikansi
+  const ctxG=new Set(TNCTX.filter(([re])=>re.test(sc.ctx||'')).map(x=>x[1]));
+  const CORE=/Penyelenggara|Penanggung jawab|Penetap kebijakan|Pemilik proyek|Pemberi izin|Tersangka|Penyidik|Penggugat|Kontraktor|Pemberi dana/, PERI=/Mitra kolaborasi|Pendukung|Peserta|Penyedia data|Pengajak/;
+  sh.forEach(s=>{ s.score=Math.max(...s.roles.map(x=>TNG[x.g].w+(o.type==='Case'&&x.g==='legal'?1.5:0)+(CORE.test(x.label)?2:PERI.test(x.label)?-1.5:0)))+(s.groups.length-1)*.3+(s.roles.some(x=>x.rel&&x.rel.s==='stated')?1:0)+(s.groups.some(g=>ctxG.has(g))?3:0); s.pg = s.groups.slice().sort((a,b)=>TNG[b].w-TNG[a].w)[0]; s.cx = s.groups.some(g=>ctxG.has(g)); });
+  const srcs=[...new Set(er.map(r=>r.src).concat([...sh.values()].flatMap(s=>s.roles.map(x=>x.st&&x.st.src)).filter(Boolean)))].filter(s=>SRC[s]);
+  return {o, sc, rels:er, sh, ce, ctxSub, ctxG, srcs, run, empty: !sh.size && !er.length}; }
+const tnName = id => id==='OBJ' ? '' : (NN[id]||{}).n||id;
+const tnSH = D => [...D.sh.values()].sort((a,b)=>b.score-a.score);
+const tnRoleTxt = s => [...new Set(s.roles.map(x=>x.label))].join(', ');
+/* ---------- sintesis ---------- */
+function tnSummary(D){ const O=D.o.n, by=g=>tnSH(D).filter(s=>s.groups.includes(g)), nm=a=>a.length>3?a.slice(0,3).map(s=>tnName(s.id)).join(', ')+`, dan ${a.length-3} pihak lain`:rvJoin(a.map(s=>tnName(s.id)));
+  const parts=[]; const order=TNGO.slice().sort((a,b)=>(D.ctxG.has(b)?1:0)-(D.ctxG.has(a)?1:0));
+  const I=by('init'), M=by('impl');
+  const split = I.length&&M.length&&!I.some(s=>M.includes(s)); if(split) parts.push(`${nm(I)} berperan dalam arah kebijakan, sementara ${nm(M)} menjalankan pelaksanaan`);
+  order.forEach(g=>{ const a=by(g); if(!a.length) return; if((g==='init'||g==='impl')&&I.length&&M.length&&!I.some(s=>M.includes(s))) return;
+    parts.push(({init:`Arah kebijakan dan keputusan berada pada ${nm(a)}`, reg:`Kewenangan perizinan atau regulasi ada pada ${nm(a)}`, impl:`Pelaksanaan dijalankan oleh ${nm(a)}`, fin:`Pendanaan atau kepemilikan terdokumentasi dari ${nm(a)}`, over:`Pengawasan, pemeriksaan, atau penegakan dilakukan oleh ${nm(a)}`, legal:(()=>{ const labs=[...new Set(a.flatMap(s=>s.roles.filter(x=>x.g==='legal').map(x=>x.label.toLowerCase())))]; return labs.length===1 ? `Proses hukum melibatkan ${nm(a)} sebagai ${labs[0]}` : `Proses hukum melibatkan ${a.slice(0,3).map(s=>`${tnName(s.id)} (${s.roles.filter(x=>x.g==='legal').map(x=>x.label.toLowerCase()).join(', ')})`).join(', ')}${a.length>3?`, dan ${a.length-3} pihak lain`:''}`; })(), pos:`Pandangan terhadap topik disampaikan oleh ${nm(a)}`, aff:`Pihak terdampak yang terdokumentasi: ${nm(a)}`, other:`Keterlibatan lain yang diberitakan: ${nm(a)}`})[g]); });
+  const n2=a=>rvJoin(a.slice(0,2).map(s=>tnName(s.id))), V=by('over'), L=by('legal'), P=by('pos'), Fi=by('fin');
+  const head = split ? 'Inisiasi dan pelaksanaan berada pada pihak yang berbeda'
+    : L.length&&V.length ? `Ditangani ${n2(V)}; ${L.length} pihak berperan dalam proses hukum`
+    : V.length&&P.length ? `Diawasi ${n2(V)}, dengan pandangan publik dari ${P.length} pihak`
+    : M.length&&Fi.length ? `Dilaksanakan ${n2(M)} dengan pendanaan dari ${n2(Fi)}`
+    : M.length ? `Dilaksanakan oleh ${n2(M)}` : V.length ? `Diawasi oleh ${n2(V)}` : parts.length ? `Keterlibatan ${parts.length} kelompok pihak` : 'Belum ditemukan keterlibatan yang terdokumentasi';
+  return {head, body: parts.slice(0,4).map(p=>p+'.').join(' '), src:tnSH(D).slice(0,5).flatMap(s=>s.roles.map(x=>x.rel?x.rel.src:x.st&&x.st.src)).filter(Boolean)}; }
+const TNWHY = {init:'Menetapkan arah dan keputusan utama terkait topik.', reg:'Memegang kewenangan pengaturan atau perizinan.', impl:'Bertanggung jawab atas pelaksanaan di lapangan.', fin:'Sumber pendanaan atau kepemilikan yang terdokumentasi.', over:'Menjalankan fungsi pengawasan atau penegakan.', legal:'Pihak dalam proses hukum terkait topik.', pos:'Menyampaikan pandangan terdokumentasi terhadap aspek topik.', aff:'Terdokumentasi mengalami dampak atau menerima manfaat.', other:'Keterlibatannya diberitakan, belum masuk kelompok lain.'};
+function tnInvolve(s){ const r=s.roles.find(x=>x.rel&&x.g===s.pg)||s.roles.find(x=>x.rel); return r ? r.rel.ex : (s.roles[0].st?`“${s.roles[0].st.q}”`:''); }
+function tnKeyRels(D){ const out=[];
+  D.rels.filter(r=>r.rel==='primary'&&r.a!=='OBJ'&&r.b!=='OBJ'&&D.sh.has(r.a)).slice(0,3).forEach(r=>out.push({kind:'direct', a:r.a, b:r.b, r, txt:r.ex}));
+  D.rels.filter(r=>r.rel==='primary'&&(r.a==='OBJ'||r.b==='OBJ')&&D.sh.has(r.a)).sort((x,y)=>(D.sh.get(y.a).score)-(D.sh.get(x.a).score)).slice(0,2).forEach(r=>out.push({kind:'direct', a:r.a, b:r.b, r, txt:r.ex}));
+  // tidak langsung: entitas terkait → stakeholder → topik
+  D.rels.filter(r=>r.rel==='supporting'&&D.sh.has(r.b)&&!D.sh.has(r.a)&&tnIsPO(r.a)).slice(0,2).forEach(r=>{ const r2=D.rels.find(x=>x.a===r.b&&(x.b==='OBJ')); if(r2) out.push({kind:'indirect', path:[r.a,r.b,'OBJ'], rels:[r,r2], txt:`${r.ex} ${r2.ex}`}); });
+  return out.slice(0,6); }
+function tnHighlights(D){ const H=[], by=g=>tnSH(D).filter(s=>s.groups.includes(g)), O=D.o.n, ex=(s,g)=>{ const r=s.roles.find(x=>x.g===g&&x.rel); return r?r.rel.ex:''; };
+  const I=by('init'), M=by('impl'), F=by('fin'), V=by('over'), L=by('legal'), P=by('pos');
+  if(I.length&&M.length&&!I.some(s=>M.includes(s))) H.push({t:'Kewenangan dan pelaksanaan berada pada pihak yang berbeda', b:`${ex(I[0],'init')} ${ex(M[0],'impl')} Keduanya perlu dibedakan saat menelusuri keputusan dan tanggung jawab operasional.`, src:[I[0],M[0]].flatMap(s=>s.roles.filter(x=>x.rel).map(x=>x.rel.src)), go:I[0].id});
+  if(F.length){ const vals=F.flatMap(s=>s.roles.filter(x=>x.g==='fin'&&x.rel).map(x=>x.rel)); const noval=vals.filter(r=>r.det&&(r.det['Nilai']===null||r.det['Nilai kontrak']===null||r.det['Nilai pendanaan']===null));
+    H.push({t:`Pendanaan terdokumentasi melalui ${rvJoin(F.slice(0,3).map(s=>tnName(s.id)))}`, b:`${vals.slice(0,2).map(r=>r.ex).join(' ')} Hubungan pendanaan ini relevan untuk memahami struktur pembiayaan, tetapi belum membuktikan kendali atas keputusan operasional.${noval.length?' Nilai pendanaan untuk sebagian pihak tidak diungkap.':''}`, src:vals.map(r=>r.src), go:F[0].id}); }
+  if(V.length&&L.length){ H.push({t:'Pengawasan dan proses hukum berjalan bersamaan', b:`${ex(V[0],'over')} ${ex(L[0],'legal')} Status hukum melekat pada pihak masing-masing dan belum merupakan putusan.`, src:[V[0],L[0]].flatMap(s=>s.roles.filter(x=>x.rel).map(x=>x.rel.src)), go:L[0].id}); }
+  else if(V.length>=2) H.push({t:`Pengawasan tersebar pada ${V.length} pihak`, b:V.slice(0,3).map(s=>ex(s,'over')).filter(Boolean).join(' ')+' Setiap pengawas memegang kewenangan yang berbeda.', src:V.slice(0,3).flatMap(s=>s.roles.filter(x=>x.rel).map(x=>x.rel.src)), go:V[0].id});
+  const stP=P.flatMap(s=>s.roles.filter(x=>x.g==='pos').map(x=>({s,x}))); if(stP.length>=2) H.push({t:'Pandangan yang terdokumentasi menyoroti aspek berbeda', b:stP.slice(0,3).map(({s,x})=>x.rel?x.rel.ex:`${tnName(s.id)}: “${x.st.q}”`).join(' ')+' Posisi terhadap satu aspek tidak digeneralisasi sebagai posisi terhadap keseluruhan topik.', src:stP.map(({x})=>x.rel?x.rel.src:x.st.src), go:stP[0].s.id});
+  // perkembangan: pergantian jabatan pada stakeholder yang sama
+  const roleRels=D.rels.filter(r=>r.c==='role'&&r.l==='memimpin'&&D.sh.has(r.b)); const byOrg={}; roleRels.forEach(r=>(byOrg[r.b]=byOrg[r.b]||[]).push(r));
+  Object.entries(byOrg).forEach(([org,rs])=>{ if(rs.length<2) return; rs.sort((a,b)=>(a.t?a.t[0]:0)-(b.t?b.t[0]:0)); H.push({t:`Kepemimpinan ${tnName(org)} berganti ${rs.length} kali dalam periode analisis`, b:`${rs.map(r=>`${tnName(r.a)} (${tnPer(r.t)})`).join(' → ')}. Periode jabatan tidak beririsan (Non-overlapping); keputusan pada fase berbeda perlu dikaitkan dengan pimpinan yang menjabat saat itu.`, src:rs.map(r=>r.src), go:org}); });
+  const claims=D.rels.filter(r=>r.s==='reported'||r.s==='disputed'); if(claims.length) H.push({t:'Sebagian keterlibatan masih berupa dugaan', b:claims.slice(0,2).map(r=>r.ex).join(' ')+' Informasi ini ditampilkan dengan atribusinya dan tidak diperlakukan sebagai fakta terkonfirmasi.', src:claims.map(r=>r.src), go:claims[0].a});
+  return H.slice(0,5); }
+/* ---------- state & data contoh ---------- */
+S.sk.stage='list'; S.sk.type='Program'; S.sk.q=''; S.sk.searched=false; S.sk.pick=null; S.sk.form={all:true,y0:2020,y1:2026,depth:3,ctx:''};
+S.sk.runs = [
+  {id:'tn1', o:'sk_mbg', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:'Fokus pada pihak yang mengambil keputusan, mendanai, dan melaksanakan program.'}, when:'Hari ini, 07:50', status:'Selesai'},
+  {id:'tn2', o:'sk_mbgcase', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:''}, when:'Hari ini, 07:58', status:'Selesai'},
+  {id:'tn3', o:'sk_mbgfood', sc:{all:false,y0:2025,y1:2026,depth:2,ctx:''}, when:'Kemarin, 19:10', status:'Selesai'},
+  {id:'tn4', o:'sk_kpk', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:''}, when:'Kemarin, 15:30', status:'Selesai'},
+  {id:'tn5', o:'sk_buli', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:'Menyiapkan pertemuan dengan pemerintah provinsi dan nelayan'}, when:'8 Okt 2026, 10:12', status:'Selesai'},
+  {id:'tn6', o:'sk_prj', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:''}, when:'2 Okt 2026, 14:05', status:'Gagal', err:'Proses retrieval melampaui batas waktu.'},
+  {id:'tn7', o:'dx1', sc:{all:true,y0:2020,y1:2026,depth:3,ctx:''}, when:'1 Okt 2026, 09:12', status:'Kosong'},
+];
+S.sk.stack=[]; S.sk.gsel=null; S.sk.hl=null; S.sk.hlPath=null; S.sk.showCE=false; S.sk.exp=new Set(); S.sk.tzt=null; S.sk.collapsed=new Set();
+const tnNewF = () => ({types:[], covs:[], rels:[], relv:'Semua'});
+S.sk.f=tnNewF(); FB.sk={ get:()=>S.sk.f, reset:()=>{ S.sk.f=tnNewF(); }, after:()=>{ S.sk.tzt=null; } };
+const TNDUR={1:9000,2:14000,3:20000};
+/* ---------- halaman awal ---------- */
+function tnCands(){ const q=S.sk.q.trim().toLowerCase(); if(!q) return []; const w=q.split(/\s+/).filter(x=>x.length>1);
+  const all=[...Object.entries(SKOBJ).map(([id,o])=>({id,...o})), ...SKDECOY];
+  return all.filter(o=>o.type===S.sk.type&&[o.n,...(o.al||[])].some(s=>{s=s.toLowerCase(); return s.includes(q)||w.some(x=>s.includes(x));})); }
+function tnCtxInfo(o){ const full=SKOBJ[o.id], dash='–';
+  if(!full) return [['Deskripsi',o.short||dash]];
+  const by=(kinds)=>full.rels.filter(r=>r.b==='OBJ'&&kinds(r)).map(r=>tnName(r.a));
+  if(o.type==='Program') return [['Inisiator / pelaksana',rvJoin([...new Set([...by(r=>/menetapkan kebijakan|menyelenggarakan/.test(r.l))])].slice(0,2))||dash]];
+  if(o.type==='Project') return [['Lokasi',(full.locs[0]||[])[0]||dash],['Pemilik / pelaksana',rvJoin([...new Set(by(r=>/memiliki|mengerjakan|melaksanakan/.test(r.l)))].slice(0,2))||dash]];
+  if(o.type==='Issue') return [['Konteks utama',o.short||dash]];
+  return [['Institusi penanganan',rvJoin([...new Set(by(r=>r.c==='case'&&/menyidik|menyelidiki|menangani/.test(r.l)))].slice(0,2))||dash]]; }
+function tnList(){ const K=S.sk, cands=K.searched?tnCands():[];
+  const rows=K.runs.map(r=>{ const o=SKOBJ[r.o]||SKDECOY.find(d=>d.id===r.o)||{}; const pr=r.status==='Proses', st=pr?tnJobSt(r):null;
+    const stat = pr?`<td data-tnrow="${r.id}" style="min-width:150px"><span class="jb-tag"><i class="spin"></i>Sedang diproses</span><div class="jb-track sm"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div><div class="xs muted">Sisa ± <span class="jb-left">${fmtT(st.left)}</span></div></td>`
+      : `<td><span class="tag tn-st ${r.status}">${({Selesai:'Berhasil',Kosong:'Hasil kosong',Gagal:'Gagal',Parsial:'Parsial'})[r.status]||r.status}</span></td>`;
+    return `<tr><td><b>${o.n}</b></td><td><span class="tag" style="background:var(--canvas)">${skTL(o.type)}</span></td><td class="small">${r.sc.all?'Semua periode':r.sc.y0+' – '+r.sc.y1}<div class="xs muted">${r.sc.depth} hop</div></td><td class="small" style="white-space:nowrap">${r.when}${r.fresh?' <span class="tag" style="background:var(--ev-verified-bg);color:var(--ev-verified)">Baru</span>':''}</td>${stat}<td style="text-align:right;white-space:nowrap">${pr?`<button class="btn sm" data-a="tn-open" data-id="${r.id}">Lihat progres</button><button class="btn sm ghost" data-a="tn-cancel" data-id="${r.id}">Batalkan</button>`:r.status==='Gagal'?`<button class="btn sm" data-a="tn-retry" data-id="${r.id}">Retry</button><button class="btn sm ghost" data-a="tn-del" data-id="${r.id}">Hapus</button>`:`<button class="btn sm" data-a="tn-open" data-id="${r.id}">Buka</button><button class="btn sm ghost" data-a="tn-del" data-id="${r.id}">Hapus</button>`}</td></tr>`; }).join('');
+  return `<div class="card" style="margin-top:0"><div class="sub-h" style="margin-top:0">Analisis baru</div>
+    <form class="sk-search big" data-form="tn-search" role="search"><select class="sk-type" data-a="tn-type" aria-label="Jenis entitas">${['Program','Project','Issue','Case'].map(t=>`<option value="${t}" ${K.type===t?'selected':''}>${skTL(t)}</option>`).join('')}</select><span class="sk-ic">${ic('search',18)}</span><input name="q" value="${esc(K.q)}" placeholder="Cari nama atau alias topik" aria-label="Cari Focal Entity" autocomplete="off"><button class="btn primary">Cari</button></form>
+    ${K.searched?(cands.length?`<div class="xs muted" style="margin:10px 0 6px">${cands.length} kandidat</div><div class="grid" style="gap:6px">${cands.map(o=>`<button class="opt sk-cand" data-a="tn-pick" data-id="${o.id}"><span class="row between" style="gap:8px"><b>${o.n}</b><span class="tag" style="background:var(--canvas)">${skTL(o.type)}</span></span><span class="xs muted">Alias: ${o.al&&o.al.length?o.al.join(', '):'–'}</span><span class="small">${o.short||'–'}</span><span class="xs muted">${tnCtxInfo(o).map(([k,v])=>`${k}: ${v}`).join(' · ')}</span></button>`).join('')}</div>`
+      :`<div class="sk-empty" style="margin-top:10px"><b>Tidak ditemukan ${skTL(K.type).toLowerCase()} “${esc(K.q)}”.</b><div class="small">Coba kata kunci, alias, atau jenis entitas lain.</div></div>`):''}</div>
+    <div class="card" style="padding:0;overflow:hidden;margin-top:14px"><div class="nxl-bar"><b class="small">Riwayat insight</b><span class="xs muted">${K.runs.length} insight</span></div>${K.runs.length?`<div class="scroll-x"><table class="t nxl-t"><thead><tr><th>Focal entity</th><th>Jenis</th><th>Cakupan</th><th>Dibuat</th><th>Status</th><th style="text-align:right">Aksi</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<div class="empty"><h3>Anda belum membuat insight</h3></div>'}</div>`; }
+function tnForm(){ const K=S.sk, F=K.form, o=SKOBJ[K.pick]||SKDECOY.find(d=>d.id===K.pick), bad=!F.all&&F.y1<F.y0;
+  return `<div class="row between" style="margin-bottom:10px"><nav class="nx-crumb"><button class="linkish" data-a="tn-home">Topic Network</button><span>/</span><b>Analisis baru</b></nav></div><div class="rm-form"><h2 style="margin:0 0 14px">Topic Network baru</h2>
+    <section class="rm-sec rm-ent"><span class="rm-ava" style="background:${NT[o.type]}">${{Program:'PG',Project:'PY',Issue:'IS',Case:'KS'}[o.type]}</span><div style="min-width:0;flex:1"><div class="row" style="gap:8px"><b style="font-size:16px">${o.n}</b><span class="tag" style="background:var(--canvas)">${skTL(o.type)}</span></div><div class="small" style="margin-top:2px">${o.short||'–'}</div><div class="xs muted">${tnCtxInfo(o).map(([k,v])=>`${k}: ${v}`).join(' · ')}</div></div><button class="btn sm ghost" data-a="tn-unpick">Ganti</button></section>
+    <section class="rm-sec"><div class="rm-sh">Cakupan</div><div class="rm-scope"><div><div class="rm-lab">Rentang waktu analisis</div><div class="seg"><button class="${F.all?'on':''}" data-a="tn-f" data-k="all" data-v="1">Semua periode</button><button class="${!F.all?'on':''}" data-a="tn-f" data-k="all" data-v="0">Rentang waktu khusus</button></div>${!F.all?`<div class="row" style="gap:8px;margin-top:8px"><select class="select" style="width:auto" data-a="tn-yr" data-k="y0" aria-label="Tahun mulai">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select><span class="muted">–</span><select class="select" style="width:auto" data-a="tn-yr" data-k="y1" aria-label="Tahun akhir">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></div>${bad?'<div class="sk-err" role="alert">Tahun akhir tidak boleh lebih awal dari tahun mulai.</div>':''}`:''}</div>
+      <div><div class="rm-lab">Kedalaman jaringan</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.depth===h?'on':''}" data-a="tn-f" data-k="depth" data-v="${h}">${h} hop</button>`).join('')}</div></div></div></section>
+    <section class="rm-sec"><div class="rm-sh">Additional Context <span class="xs muted" style="font-weight:400">opsional</span></div><textarea class="input" rows="3" data-bind="tn-ctx" placeholder="mis. Fokus pada pihak yang terlibat dalam pengambilan keputusan, pendanaan, dan pelaksanaan.">${esc(F.ctx)}</textarea><div class="xs muted" style="margin-top:4px">Dipakai untuk memprioritaskan hasil, bukan sebagai fakta.</div></section>
+    <div class="rm-foot"><button class="btn" data-a="tn-unpick">Batal</button><button class="btn primary" data-a="tn-gen" ${bad?'disabled':''}>Generate Insight</button></div></div>`; }
+const tnJobSt = r => { const el=Date.now()-r.job.t0, f=Math.min(1,el/r.job.dur), cur=Math.min(3,Math.floor(f*4)); return {el,left:r.job.dur-el,f,cur}; };
+function tnGen(){ const K=S.sk, r=K.runs.find(x=>x.id===K.cur); if(!r||r.status!=='Proses'){ K.stage='list'; return tnList(); } const o=SKOBJ[r.o]||SKDECOY.find(d=>d.id===r.o), st=tnJobSt(r), steps=['Mengambil knowledge terkait topik','Mengidentifikasi stakeholder dan perannya','Menemukan hubungan yang relevan (hingga '+r.sc.depth+' hop)','Menyusun ringkasan dan analytical highlights'];
+  return `<div class="row between" style="margin-bottom:10px"><nav class="nx-crumb"><button class="linkish" data-a="tn-home">Topic Network</button><span>/</span><b>Sedang diproses</b></nav></div><div class="wz" data-tnjob="${r.id}" style="max-width:600px;padding-top:10px"><h2 style="margin-bottom:4px">Menyusun Topic Network ${esc(o.n)}</h2><p class="small muted" style="margin:0 0 14px">${skTL(o.type)} · ${r.sc.all?'Semua periode':r.sc.y0+'–'+r.sc.y1} · ${r.sc.depth} hop</p>
+    <ul class="proc">${steps.map((t,i)=>`<li class="${i<st.cur?'done':i===st.cur?'now':''}" data-step="${i}"><span class="dot">${i<st.cur?'✓':''}</span>${t}</li>`).join('')}</ul>
+    <div class="jb-track"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div><div class="row between small" style="margin-top:6px"><span class="muted">Berjalan <b class="jb-el">${fmtT(st.el)}</b></span><span>Perkiraan sisa <b class="jb-left">${fmtT(st.left)}</b></span></div>
+    <div class="rm-bg"><div><b class="small">Tidak perlu menunggu di halaman ini</b><div class="xs muted">Proses tetap berjalan. Statusnya dapat dipantau di riwayat.</div></div><button class="btn primary" data-a="tn-home">Kembali ke Topic Network</button></div>
+    <button class="btn sm ghost" data-a="tn-cancel" data-id="${r.id}" style="margin-top:10px">Batalkan proses</button></div>`; }
+/* ---------- hasil ---------- */
+const TNTABS=[['overview','Insight Overview'],['mapping','Stakeholder Mapping'],['graph','Graph'],['coverage','Cakupan & Keterbatasan Data'],['sources','Sumber']];
+function tnResult(){ const K=S.sk, run=K.runs.find(r=>r.id===K.cur), D=tnAnalyse(run), o=D.o; if(!TNTABS.some(t=>t[0]===K.tab)) K.tab='overview';
+  const head=`<div class="sk-head"><div style="min-width:0"><div class="row" style="gap:8px"><span class="tag" style="background:var(--canvas)">${skTL(o.type)}</span><span class="xs muted">Focal entity · dibuat ${run.when}</span></div><h2 style="margin-top:4px">${o.n}</h2><div class="row" style="gap:6px;margin-top:8px"><span class="qb-op">📅 ${run.sc.all?'Semua periode':run.sc.y0+' – '+run.sc.y1}</span></div>
+      <details class="tn-cfg"><summary class="xs">Detail konfigurasi</summary><div class="small">Kedalaman jaringan: ${run.sc.depth} hop</div><div class="small">Additional Context: ${run.sc.ctx?`“${esc(run.sc.ctx)}”`:'–'}</div></details></div>
+      <div class="row" style="gap:6px"><button class="btn sm" data-a="tn-edit">✎ Ubah konfigurasi</button><button class="btn sm primary" data-a="tn-new">${ic('plus',13)}Analisis baru</button></div></div>`;
+  const crumb=`<div class="row between" style="margin-bottom:10px"><nav class="nx-crumb"><button class="linkish" data-a="tn-home">Topic Network</button><span>/</span><b>${esc(o.n)}</b></nav></div>`;
+  if(run.status==='Gagal') return crumb+head+`<div class="card"><div class="empty"><h3>Insight gagal dibuat</h3><p class="small muted">${run.err||'Terjadi kesalahan saat memproses.'}</p><button class="btn primary" data-a="tn-retry" data-id="${run.id}">Retry dengan konfigurasi yang sama</button></div></div>`;
+  if(D.empty) return crumb+head+`<div class="card"><div class="empty"><h3>Keterlibatan belum ditemukan dalam cakupan data dan konfigurasi analisis</h3><p class="small muted" style="max-width:60ch;margin:0 auto">Ini tidak berarti tidak ada pihak yang terlibat. Coba ubah periode, Additional Context, atau kedalaman jaringan, lalu generate ulang.</p><button class="btn sm" data-a="tn-edit" style="margin-top:10px">Ubah konfigurasi</button></div></div>`;
+  const body = K.tab==='overview'?tnOverview(D):K.tab==='mapping'?tnMapping(D):K.tab==='graph'?tnGraphTab(D):K.tab==='coverage'?tnCoverage(D):tnSources(D);
+  const drawer = K.stack.length ? `<div class="c3-scrim" data-a="tn-pclose" aria-hidden="true"></div><aside class="c3-drawer" role="dialog" aria-label="Insight panel">${tnPanel(D)}</aside>` : '';
+  return crumb+head+nxTabs(K.tab,'tn-tab',TNTABS)+body+drawer; }
+function tnOverview(D){ const sm=tnSummary(D), sh=tnSH(D), kr=tnKeyRels(D), hl=tnHighlights(D), grpN=TNGO.filter(g=>sh.some(s=>s.groups.includes(g))).length;
+  return `<div class="rm-ov"><section class="card" style="margin-top:0"><div class="c3-stats tn-stats">${[['Stakeholders',D.sh.size],['Connected entities',D.ce.size],['Relationships',D.rels.length],['Stakeholder groups',grpN]].map(([l,v])=>`<div><b>${v}</b><span>${l}</span></div>`).join('')}</div></section>
+    <section class="card c3-brief"><div class="xs muted" style="font-weight:800;letter-spacing:.06em">NETWORK SUMMARY ${aiIc()}</div><h3 class="c3-headline">${sm.head}</h3><p class="c3-lead">${sm.body} ${rvCite(sm.src)}</p></section>
+    <section class="card"><div class="card-h"><h3>Key Stakeholders</h3><button class="linkish small" data-a="tn-tab" data-t="mapping">Lihat Stakeholder Mapping ›</button></div><div class="tn-ks">${sh.slice(0,5).map(s=>`<button class="tn-kscard" data-a="tn-node" data-id="${s.id}"><span class="row between" style="gap:6px"><b>${tnName(s.id)}</b><span class="xs muted">${skTL(NN[s.id].t)}</span></span><span class="tn-gtags">${s.groups.map(g=>`<i style="--c:${TNG[g].c}">${TNG[g].l}</i>`).join('')}</span><span class="small" style="font-weight:600">${tnRoleTxt(s)}</span><span class="small muted">${tnInvolve(s)}</span><span class="xs"><b>Mengapa penting:</b> ${TNWHY[s.pg]}${s.cx?' Relevan dengan Additional Context.':''}</span></button>`).join('')}</div></section>
+    <section class="card"><div class="card-h"><h3>Key Relationships</h3></div>${kr.map(k=>k.kind==='direct'?`<button class="nx-kr" data-a="tn-edge" data-p="${k.a}" data-c="${k.b}"><span style="flex:1;min-width:0"><span class="tn-kind">Langsung</span><b class="small">${tnName(k.a)||D.o.n} → ${k.r.l} → ${tnName(k.b)||D.o.n}</b><span class="xs muted" style="display:block">${k.txt} · ${tnPer(k.r.t)} · ${TNVER[k.r.s]||''}</span></span><span class="rm-chev">›</span></button>`:`<button class="nx-kr" data-a="tn-path" data-path="${k.path.join(',')}"><span style="flex:1;min-width:0"><span class="tn-kind ind">Tidak langsung</span><b class="small">${k.path.map(x=>tnName(x)||D.o.n).join(' → ')}</b><span class="xs muted" style="display:block">${k.txt} Sorot jalur di graph.</span></span><span class="rm-chev">›</span></button>`).join('')||'<p class="small muted">Belum ditemukan hubungan antar-stakeholder yang signifikan.</p>'}</section>
+    ${hl.length?`<section class="card"><div class="card-h"><h3>Analytical Highlights</h3>${aiIc()}</div><div class="grid" style="gap:8px">${hl.map(h=>`<div class="rv-hl"><b>${h.t}</b><p class="small" style="margin:3px 0">${h.b}</p><div class="row" style="gap:8px;flex-wrap:wrap">${rvCite(h.src)}<button class="linkish small" data-a="tn-node" data-id="${h.go}">Lihat stakeholder ›</button></div></div>`).join('')}</div></section>`:''}</div>`; }
+function tnGroupSum(g,a,D){ const nm=a.slice(0,3).map(s=>`${tnName(s.id)} (${s.roles.filter(x=>x.g===g).map(x=>x.label.toLowerCase()).join(', ')})`);
+  const lead=({init:'Arah kebijakan dan keputusan',reg:'Kewenangan pengaturan dan perizinan',impl:'Pelaksanaan',fin:'Pendanaan dan kepemilikan',over:'Pengawasan dan penegakan',legal:'Proses hukum',pos:'Pandangan terhadap topik',aff:'Dampak yang terdokumentasi',other:'Keterlibatan lain'})[g];
+  const r0=a[0].roles.find(x=>x.g===g&&x.rel); return `${lead} terkait ${D.o.n} melibatkan ${a.length>3?nm.join(', ')+`, dan ${a.length-3} pihak lain`:rvJoin(nm)}.${r0?' '+r0.rel.ex:''}`; }
+function tnMapping(D){ const K=S.sk, sh=tnSH(D), gs=TNGO.filter(g=>sh.some(s=>s.groups.includes(g)));
+  const inGraph=id=>D.rels.some(r=>r.a===id||r.b===id);
+  return `<div class="card" style="margin-top:0"><div class="card-h"><h3>Stakeholder Mapping</h3><span class="xs muted">${D.sh.size} stakeholders · ${gs.length} groups</span></div><p class="small muted" style="margin:0">Pihak yang terlibat dalam ${D.o.n} berdasarkan peran yang terdokumentasi. Satu pihak dapat muncul di beberapa kelompok.</p></div>
+    ${gs.map(g=>{ const a=sh.filter(s=>s.groups.includes(g)), open=!K.collapsed.has(g); return `<section class="c3-group tn-grp" style="--gc:${TNG[g].c}"><button class="c3-gh" data-a="tn-gtoggle" data-g="${g}" aria-expanded="${open}"><span class="c3-car">${open?'▾':'▸'}</span><i class="tn-gdot"></i><b>${TNG[g].l}</b><span class="tag">${a.length} stakeholder</span></button>
+      ${open?`<div class="c3-gb"><p class="small" style="margin:0 0 10px">${aiIc()} ${tnGroupSum(g,a,D)}</p><div class="grid" style="gap:8px">${a.map(s=>{ const rs=s.roles.filter(x=>x.g===g), N=NN[s.id], aff=N.t==='Person'?(SKENT[s.id]&&SKENT[s.id].pos&&SKENT[s.id].pos[0]?`${SKENT[s.id].pos[0][0]}, ${SKENT[s.id].pos[0][1]} (${SKENT[s.id].pos[0][2]})`:(rmRoleOf(s.id)||{}).txt||'–'):(RMIND[s.id]||(SKENT[s.id]&&SKENT[s.id].org?SKENT[s.id].org[1]&&SKENT[s.id].org[1][1]:'')||N.d||'–');
+        const srcs=[...new Set(rs.map(x=>x.rel?x.rel.src:x.st&&x.st.src).filter(Boolean))];
+        return `<div class="tn-sc"><div class="row between" style="gap:8px;align-items:flex-start"><div><b>${N.n}</b> <span class="xs muted">${skTL(N.t)} · ${aff}</span></div>${s.groups.length>1?`<span class="xs muted">${s.groups.length} peran</span>`:''}</div>
+          ${rs.map(x=>`<div class="tn-role"><b class="small">${x.label}</b>${x.via?` <span class="xs muted">melalui ${tnName(x.via)}</span>`:''}<div class="small">${x.rel?x.rel.ex:`“${x.st.q}” — ${x.st.cap}`}</div><div class="xs muted">${x.rel?tnPer(x.rel.t)+' · '+(TNVER[x.rel.s]||''):x.st.d}</div></div>`).join('')}
+          ${(s.n.st||[]).length&&g!=='pos'?`<div class="xs" style="margin-top:4px"><b>Posisi:</b> “${s.n.st[0].q.length>110?s.n.st[0].q.slice(0,108)+'…':s.n.st[0].q}” <span class="muted">${s.n.st[0].d}</span></div>`:''}
+          <div class="row" style="gap:6px;margin-top:6px;flex-wrap:wrap">${rvCite(srcs)}<button class="btn sm" data-a="tn-node" data-id="${s.id}">Lihat detail</button>${inGraph(s.id)?`<button class="btn sm ghost" data-a="tn-hl" data-id="${s.id}">Sorot di graph</button>`:'<span class="xs muted">Jalur hubungan belum terdokumentasi di Knowledge Bank</span>'}</div></div>`; }).join('')}</div></div>`:''}</section>`; }).join('')}`; }
+function tnCoverage(D){ const unk=D.rels.filter(r=>!r.t), cl=D.rels.filter(r=>r.s==='reported'||r.s==='disputed'), inf=D.rels.filter(r=>r.s==='inferred'), stOnly=[...D.sh.values()].filter(s=>!D.rels.some(r=>r.a===s.id||r.b===s.id));
+  return `<div class="card" style="margin-top:0"><div class="card-h"><h3>Cakupan & Keterbatasan Data</h3><span class="xs muted">${D.srcs.length} sumber</span></div><ul class="sk-ul">
+    <li>${D.srcs.length} artikel dari arsip Tempo yang telah diproses; ${D.sc.all?'semua periode':'periode '+D.sc.y0+'–'+D.sc.y1}; kedalaman ${D.sc.depth} hop dari focal entity.</li>
+    ${unk.length?`<li>${unk.length} hubungan tidak memiliki informasi waktu; ditampilkan dengan label Waktu Tidak Diketahui dan tidak dianggap terkonfirmasi pada periode analisis.</li>`:''}
+    ${cl.length?`<li>${cl.length} hubungan berupa dugaan atau diperselisihkan: ${cl.map(r=>`${tnName(r.a)||D.o.n} ${r.l} ${tnName(r.b)||D.o.n}`).join('; ')}.</li>`:''}
+    ${inf.length?`<li>${inf.length} hubungan merupakan kesimpulan sistem dan ditandai demikian.</li>`:''}
+    ${stOnly.length?`<li>${stOnly.map(s=>tnName(s.id)).join(', ')} terdokumentasi melalui pernyataan, tetapi jalur hubungannya belum tersedia di Knowledge Bank.</li>`:''}
+    ${(D.o.gaps||[]).map(g=>`<li>${g[0]}.</li>`).join('')}
+    <li>Tanggal publikasi tidak dipakai sebagai waktu keterlibatan. Tidak ditemukannya keterlibatan tidak berarti tidak ada pihak lain yang terlibat.</li></ul></div>`; }
+function tnSources(D){ const map={}; D.rels.forEach(r=>{ if(SRC[r.src]) (map[r.src]=map[r.src]||new Set()).add(`${tnName(r.a)||D.o.n} ${r.l} ${tnName(r.b)||D.o.n}`); }); [...D.sh.values()].forEach(s=>s.roles.forEach(x=>{ if(x.st&&SRC[x.st.src]) (map[x.st.src]=map[x.st.src]||new Set()).add(`Pernyataan ${tnName(s.id)}`); }));
+  return srcTable(Object.keys(map).map(id=>[id,[...map[id]].slice(0,3).join('; ')+(map[id].size>3?` (+${map[id].size-3})`:'')]), 'Tanggal publikasi ditampilkan sebagai metadata sumber, bukan waktu keterlibatan. Klik baris untuk membuka artikel.'); }
+/* ---------- graph ---------- */
+let TNPOS={}, TNVB=[900,900];
+function tnGraphTab(D){ const K=S.sk, sh=tnSH(D), gs=TNGO.filter(g=>sh.some(s=>s.groups.includes(g))), types=[...new Set([...D.sh.keys(),...D.ce].map(i=>NN[i].t))], covs=[...new Set(D.rels.map(r=>SKRCAT[r.c][0]))], rls=[...new Set(D.rels.map(r=>r.l))];
+  const F=K.f; const eOk=r=>(!F.covs.length||F.covs.includes(SKRCAT[r.c][0]))&&(!F.rels.length||F.rels.includes(r.l))&&(F.relv==='Semua'||(F.relv==='Hubungan utama')===(r.rel==='primary'));
+  const visN=new Set(['OBJ',...D.sh.keys()]); D.ce.forEach(c=>{ if(K.showCE||D.rels.some(r=>((r.a===c&&K.exp.has(r.b))||(r.b===c&&K.exp.has(r.a))))) visN.add(c); });
+  if(F.types.length) [...visN].forEach(i=>{ if(i!=='OBJ'&&!F.types.includes(NN[i].t)) visN.delete(i); });
+  const E=D.rels.filter(r=>visN.has(r.a)&&visN.has(r.b)&&eOk(r)); if(F.covs.length||F.rels.length||F.relv!=='Semua') [...visN].forEach(i=>{ if(i!=='OBJ'&&!E.some(r=>r.a===i||r.b===i)) visN.delete(i); });
+  const bar = fbar('sk',[{k:'types',label:'Entity type',kind:'multi',opts:types.map(t=>[t,skTL(t)])},{k:'covs',label:'Kategori hubungan',kind:'multi',opts:covs.map(c=>[c,c])},{k:'rels',label:'Jenis hubungan',kind:'multi',opts:rls.map(l=>[l,l])},{k:'relv',label:'Relevansi',kind:'single',def:'Semua',opts:[['Semua','Semua'],['Hubungan utama','Hubungan utama'],['Hubungan pendukung','Hubungan pendukung']]}], `Terlihat <b>${visN.size-1}</b> dari ${D.sh.size+D.ce.size} node`);
+  const gchips = `<div class="tierbar" role="group" aria-label="Stakeholder group"><span class="tb-l">Kelompok</span><button class="tb-btn ${!K.gsel?'on':''}" data-a="tn-gsel" data-g="">Semua stakeholder</button>${gs.map(g=>`<button class="tb-btn ${K.gsel===g?'on':''}" data-a="tn-gsel" data-g="${g}" aria-pressed="${K.gsel===g}"><i style="background:${TNG[g].c}"></i>${TNG[g].l}</button>`).join('')}</div>`;
+  const hiddenCE = D.ce.size - [...D.ce].filter(c=>visN.has(c)).length;
+  if(visN.size<=1) return bar+gchips+`<div class="card"><div class="empty"><h3>Tidak ada node yang sesuai filter</h3><button class="btn sm" data-a="fb-reset" data-s="sk">Reset filter</button></div></div>`;
+  return bar+gchips+`<div class="fg nx-graph" id="tn-svg">${tnGraph(D,visN,E)}<div class="nx-tip" role="tooltip"></div><div class="fg-ctrl"><button data-a="tnz" data-z="1.3" aria-label="Perbesar">+</button><button data-a="tnz" data-z="0.77" aria-label="Perkecil">−</button><button data-a="tnz" data-z="0" aria-label="Reset tampilan">⌂</button></div></div>
+    <div class="row between" style="margin-top:8px;gap:8px;flex-wrap:wrap"><span class="xs muted">${hiddenCE?`${hiddenCE} connected entity belum ditampilkan (batas tampilan awal, bukan tidak ditemukan).`:'Semua node hasil analisis ditampilkan.'}${K.hl||K.hlPath?' <button class="linkish xs" data-a="tn-unhl">Hapus sorotan</button>':''}</span><button class="btn sm" data-a="tn-ce">${K.showCE?'Sembunyikan connected entities':'Tampilkan connected entities'}</button></div>
+    <div class="nx-legend"><div><b class="xs" style="margin-right:4px">Cincin kelompok:</b>${gs.map(g=>`<span><i class="tn-lg ring" style="border-color:${TNG[g].c}"></i>${TNG[g].l}</span>`).join('')}<span><i class="tn-lg ring" style="border-color:transparent;background:var(--canvas)"></i>Tanpa cincin: connected entity</span></div><div><b class="xs" style="margin-right:4px">Jenis entitas:</b>${[...new Set([...visN].filter(i=>i!=='OBJ').map(i=>NN[i].t).concat([D.o.type]))].map(t=>`<span><svg width="18" height="18" viewBox="-10 -10 20 20" aria-hidden="true">${skShape(t,0,0,7)}${skGlyph(t,0,0,7)}</svg>${skTL(t)}</span>`).join('')}</div><div><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#A8A8A8" stroke-width="1.6"/></svg>Hubungan utama</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#A8A8A8" stroke-width="1.2" stroke-dasharray="4 4"/></svg>Hubungan pendukung</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#B03A2E" stroke-width="2.6"/></svg>Disorot saat dipilih</span><span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#C98A1A" stroke-width="2" stroke-dasharray="7 4"/></svg>Dugaan</span></div></div>
+    <p class="xs muted" style="margin:6px 0 0">Stakeholder ditempatkan di kelompok peran utamanya; pihak dengan beberapa peran tetap disorot saat kelompok lain dipilih. Kedekatan dalam satu kelompok bukan hubungan faktual.</p>`; }
+function tnShape(t,x,y,r,fill){ if(t==='Person') return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>`; if(t==='Organization') return `<rect x="${x-r}" y="${y-r}" width="${2*r}" height="${2*r}" rx="${r*.28}" fill="${fill}"/>`; return `<path d="M${x},${y-r*1.15} L${x+r*1.15},${y} L${x},${y+r*1.15} L${x-r*1.15},${y} Z" fill="${fill}"/>`; }
+function tnGraph(D,visN,E){ const K=S.sk, sh=tnSH(D).filter(s=>visN.has(s.id)), gs=TNGO.filter(g=>sh.some(s=>s.pg===g));
+  const nS=sh.length, ceVis=[...visN].some(i=>i!=='OBJ'&&!D.sh.has(i)), R1=Math.max(240, nS*100/(2*Math.PI)), R2=R1+140, W=Math.round(2*((ceVis?R2:R1)+150)), H=W, cx=W/2, cy=H/2; TNVB=[W,H];
+  const pos={OBJ:[cx,cy,0]}; const slots=gs.reduce((a,g)=>a+sh.filter(s=>s.pg===g).length+0.8,0); let a=-Math.PI/2; const garc={};
+  gs.forEach(g=>{ const m=sh.filter(s=>s.pg===g), span=(m.length+0.8)/slots*Math.PI*2; garc[g]=[a,a+span]; m.forEach((s,i)=>{ const ang=a+span*(i+0.9)/(m.length+0.8); pos[s.id]=[cx+Math.cos(ang)*R1, cy+Math.sin(ang)*R1, ang]; }); a+=span; });
+  const ces=[...visN].filter(i=>i!=='OBJ'&&!D.sh.has(i)); const cnt={};
+  ces.forEach(c=>{ const nb=D.rels.find(r=>(r.a===c&&pos[r.b])||(r.b===c&&pos[r.a])); const p=nb?(nb.a===c?nb.b:nb.a):'OBJ'; const base=p==='OBJ'?Math.PI/2:pos[p][2]; const k=cnt[p]=(cnt[p]||0)+1; const ang=base+(k%2?1:-1)*Math.ceil(k/2)*0.16; pos[c]=[cx+Math.cos(ang)*R2, cy+Math.sin(ang)*R2, ang]; });
+  TNPOS=pos;
+  const gsel=K.gsel, hl=K.hl, hp=K.hlPath; const focN=new Set(); if(gsel){ sh.filter(s=>s.groups.includes(gsel)).forEach(s=>focN.add(s.id)); focN.add('OBJ'); } if(hl){ focN.add(hl); D.rels.filter(r=>r.a===hl||r.b===hl).forEach(r=>{ focN.add(r.a); focN.add(r.b); }); } if(hp) hp.forEach(x=>focN.add(x));
+  const anyF=focN.size>0; const isF=id=>!anyF||focN.has(id);
+  const pairs={}; E.forEach(r=>{ const k=[r.a,r.b].sort().join('|'); (pairs[k]=pairs[k]||[]).push(r); });
+  const sf=Math.max(1,Math.pow(W/900,.55));
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Topic Network ${esc(D.o.n)}" style="--ik:${sf.toFixed(3)}"><defs>${['#555','#9A9A9A','#C98A1A'].map((c,i)=>`<marker id="tnar${i}" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`).join('')}</defs><g class="vp">`;
+  gs.forEach(g=>{ const [a0,a1]=garc[g], mid=(a0+a1)/2, lr=R1+58; s+=`<path d="M${cx+Math.cos(a0+.04)*(R1+34)},${cy+Math.sin(a0+.04)*(R1+34)} A${R1+34},${R1+34} 0 ${a1-a0>Math.PI?1:0} 1 ${cx+Math.cos(a1-.04)*(R1+34)},${cy+Math.sin(a1-.04)*(R1+34)}" stroke="${TNG[g].c}" stroke-width="5" stroke-opacity="${!gsel||gsel===g?.55:.15}" fill="none" stroke-linecap="round"/>`; });
+  Object.entries(pairs).forEach(([k,rs])=>{ const r=rs[0], [x1,y1]=pos[r.a], [x2,y2]=pos[r.b], types=[...new Set(rs.map(z=>z.l))], prim=rs.some(z=>z.rel==='primary'), claim=rs.some(z=>z.s==='reported'||z.s==='disputed');
+    const foc = !anyF || ((focN.has(r.a)&&focN.has(r.b)) && (!hp||hp.includes(r.a)&&hp.includes(r.b)));
+    const ra=(r.a==='OBJ'?40:22)*sf, rb=(r.b==='OBJ'?42:24)*sf, dx=x2-x1, dy=y2-y1, L=Math.hypot(dx,dy)||1, sx=x1+dx/L*ra, sy=y1+dy/L*ra, ex=x2-dx/L*rb, ey=y2-dy/L*rb;
+    const col=claim?'#C98A1A':prim?(D.sh.has(r.a)?TNG[D.sh.get(r.a).pg].c:'#555'):'#9A9A9A', mk=claim?2:prim?0:1, mixed=new Set(rs.map(z=>z.a)).size>1;
+    const lab = types.length>1?`${types.length} hubungan`:r.l; const on=K.stack.length&&K.stack[K.stack.length-1].t==='rg'&&[K.stack[K.stack.length-1].a,K.stack[K.stack.length-1].b].sort().join('|')===k;
+    s+=`<g class="nxe ${foc?'':'unfoc'} ${on?'sel':''}" data-a="tn-edge" data-p="${r.a}" data-c="${r.b}" data-tip="${esc(rs.map(z=>`${tnName(z.a)||D.o.n} ${z.l} ${tnName(z.b)||D.o.n}`).join('; ')+'|'+(prim?'Hubungan utama':'Hubungan pendukung'))}" tabindex="0" role="button" aria-label="${esc(lab)}"><path d="M${sx},${sy} L${ex},${ey}" stroke="transparent" stroke-width="14"/><path d="M${sx},${sy} L${ex},${ey}" stroke="${col}" stroke-width="${(prim?2.2:1.4)*sf*(on?1.6:1)}" stroke-dasharray="${claim?'7 4':prim?'':'5 4'}" ${mixed?'':`marker-end="url(#tnar${mk})"`}/>${(foc&&(on||hp||(prim&&r.a!=='OBJ'&&r.b!=='OBJ')))?`<text x="${(sx+ex)/2}" y="${(sy+ey)/2-5}" text-anchor="middle" class="nxel" style="font-size:${10*sf}px">${esc(lab)}</text>`:''}</g>`; });
+  [...visN].forEach(id=>{ if(id==='OBJ') return; const [x,y]=pos[id], t=NN[id].t, st=D.sh.get(id), r=(st?16:12)*sf, fill=st?TNG[st.pg].c:'#C9C9C9', foc=isF(id), on=K.stack.length&&K.stack[K.stack.length-1].t==='node'&&K.stack[K.stack.length-1].id===id;
+    s+=`<g class="nxn ${foc?'':'unfoc'} ${on?'sel':''}" data-a="tn-node" data-id="${id}" data-tip="${esc(NN[id].n+'|'+(st?st.groups.map(g=>TNG[g].l).join(', '):'Connected entity')+' · '+skTL(t))}" tabindex="0" role="button" aria-label="${esc(NN[id].n)}">${st?`<circle cx="${x}" cy="${y}" r="${r+5*sf}" fill="var(--paper)" stroke="${TNG[st.pg].c}" stroke-width="${3.5*sf}"/>`:''}${skShape(t,x,y,r)}${skGlyph(t,x,y,r)}${hl===id?`<circle cx="${x}" cy="${y}" r="${r+7}" fill="none" stroke="var(--red)" stroke-width="2.5"/>`:''}${on?`<circle cx="${x}" cy="${y}" r="${r+10}" fill="none" stroke="var(--ink)" stroke-width="2"/>`:''}${st&&st.groups.length>1?`<g><rect x="${x+r-6}" y="${y-r-10}" width="${40*sf}" height="${14*sf}" rx="${7*sf}" fill="var(--ink)"/><text x="${x+r+14*sf}" y="${y-r+1*sf}" text-anchor="middle" fill="var(--paper)" font-size="${9*sf}" font-weight="800">${st.groups.length} peran</text></g>`:''}<text x="${x}" y="${y+r+14*sf}" text-anchor="middle" class="nxl">${esc(NN[id].n.length>24?NN[id].n.slice(0,22)+'…':NN[id].n)}</text>${st?`<text x="${x}" y="${y+r+26*sf}" text-anchor="middle" class="nxs">${esc(st.roles[0].label)}</text>`:''}</g>`; });
+  s+=`<g class="nxn" data-a="tn-node" data-id="OBJ" tabindex="0" role="button" aria-label="${esc(D.o.n)}"><circle cx="${cx}" cy="${cy}" r="${36*sf}" fill="none" stroke="var(--ink)" stroke-width="${3*sf}"/>${skShape(D.o.type,cx,cy,28*sf)}${skGlyph(D.o.type,cx,cy,28*sf)}<text x="${cx}" y="${cy+52*sf}" text-anchor="middle" class="nxl lv0" style="font-size:${15*sf}px">${esc(D.o.n.length>34?D.o.n.slice(0,32)+'…':D.o.n)}</text><text x="${cx}" y="${cy+66*sf}" text-anchor="middle" class="nxs">FOCAL ENTITY · ${skTL(D.o.type).toUpperCase()}</text></g>`;
+  return s+'</g></svg>'; }
+/* ---------- panel ---------- */
+const tnTop=()=>S.sk.stack[S.sk.stack.length-1];
+function tnPH(kind,title,sub){ return `<div class="c3-ph">${S.sk.stack.length>1?'<button class="btn sm ghost" data-a="tn-pback">← Kembali</button>':'<span></span>'}<button class="btn sm ghost" data-a="tn-pclose" aria-label="Tutup panel">✕ Tutup</button></div><div class="nxp-h" style="margin-top:4px"><div class="xs muted" style="font-weight:700">${kind}</div><h3>${title}</h3>${sub?`<div class="xs muted">${sub}</div>`:''}</div>`; }
+function tnPanel(D){ const t=tnTop(); if(!t) return ''; if(t.t==='node') return tnNodePanel(D,t.id); if(t.t==='rg') return tnRGPanel(D,t.a,t.b); if(t.t==='rel') return tnRelPanel(D,D.rels.find(r=>r.id===t.id)); return ''; }
+function tnNodePanel(D,id){ if(id==='OBJ'){ const o=D.o; return tnPH('FOCAL ENTITY',o.n,skTL(o.type))+`<div class="sk-sec"><div class="sk-sh">Deskripsi</div><p class="small" style="margin:0">${o.desc||o.short||'–'}</p></div><div class="sk-sec"><div class="sk-sh">Detail</div>${(o.det||[]).map(r=>cpRow(r[0],r[1],r[2])).join('')}</div>`; }
+  const N=NN[id], s=D.sh.get(id), rels=D.rels.filter(r=>r.a===id||r.b===id).sort((x,y)=>(y.rel==='primary')-(x.rel==='primary'));
+  const ev=[...new Set(rels.map(r=>r.src).concat(s?s.roles.map(x=>x.st&&x.st.src).filter(Boolean):[]))];
+  const events=rels.map(r=>r.a===id?r.b:r.a).filter(x=>x!=='OBJ'&&['Case','Program','Project','Issue'].includes((NN[x]||{}).t));
+  const ri = s ? s.roles.map(x=>`<div class="tn-role" style="border-left-color:${TNG[x.g].c}"><div class="xs" style="color:${TNG[x.g].c};font-weight:800">${TNG[x.g].l}</div><b class="small">${x.label}</b>${x.via?` <span class="xs muted">melalui ${tnName(x.via)}</span>`:''}<div class="small">${x.rel?x.rel.ex:`“${x.st.q}”`}</div><div class="xs muted">Periode: ${x.rel?tnPer(x.rel.t):x.st.d}${x.rel?' · '+(TNVER[x.rel.s]||''):''}</div></div>`).join('')+`<p class="small" style="margin:6px 0 0"><b>Mengapa relevan:</b> ${TNWHY[s.pg]}</p>`
+    : `<p class="small" style="margin:0">${N.n} bukan stakeholder dalam topik ini. Entitas ini relevan sebagai konteks: ${rels.slice(0,2).map(r=>r.ex).join(' ')}</p>`;
+  const aff = N.t==='Person' ? ((SKENT[id]&&SKENT[id].pos||[]).map(p=>cpRow(p[0],`${p[1]} · ${p[2]}`,p[3])).join('')||cpRow('Jabatan terakhir',(rmRoleOf(id)||{}).txt||null)) : cpRow('Industri / deskripsi',RMIND[id]||(SKENT[id]&&SKENT[id].org?(SKENT[id].org.find(r=>/Bidang|Sektor/.test(r[0]))||[])[1]:null)||N.d||null);
+  return tnPH(s?'STAKEHOLDER':'CONNECTED ENTITY', N.n, `${skTL(N.t)}${N.d?' · '+N.d:''}`)+`
+    <div class="sk-sec"><div class="sk-sh">Role in Network ${aiIc()}</div>${ri}</div>
+    <div class="sk-sec"><div class="sk-sh">Key connections</div>${rels.slice(0,6).map(r=>{ const o2=r.a===id?r.b:r.a; return `<button class="nx-kr" data-a="tn-edge" data-p="${r.a}" data-c="${r.b}"><span style="flex:1;min-width:0"><b class="small">${tnName(o2)||D.o.n}</b><span class="xs muted" style="display:block">${r.a===id?'→ ':'← '}${r.l} · ${tnPer(r.t)} · ${TNVER[r.s]||''}${r.rel==='primary'?'':' · pendukung'}</span></span><span class="rm-chev">›</span></button>`; }).join('')||'<p class="small muted">–</p>'}</div>
+    ${events.length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${events.map(x=>`<button class="nx-kr" data-a="tn-node" data-id="${x}"><span style="flex:1"><b class="small">${tnName(x)}</b><span class="xs muted" style="display:block">${NN[x].d||''}</span></span></button>`).join('')}</div>`:''}
+    ${(N&&(D.o.nodes.find(n=>n.id===id)||{}).st||[]).length?`<div class="sk-sec"><div class="sk-sh">Relevant positions</div>${D.o.nodes.find(n=>n.id===id).st.map(p=>`<div class="rm-as"><div class="small">“${p.q}”</div><div class="xs muted">${p.cap} · ${p.d} ${cpCite([p.src])}</div></div>`).join('')}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Supporting evidence</div>${rmEv(ev)||'<p class="small muted">–</p>'}</div>
+    <details class="c3-tech"><summary>Entity profile & affiliation</summary>${cpRow('Canonical name',N.n)}${cpRow('Entity type',skTL(N.t))}${cpRow('Aliases',N.al&&N.al.length?N.al.join(', '):'–')}${cpRow('Description',N.d||'–')}${aff}</details>
+    ${s&&D.rels.some(r=>r.a===id||r.b===id)?`<div class="row" style="gap:6px;margin-top:10px"><button class="btn sm" data-a="tn-hl" data-id="${id}">Sorot di graph</button><button class="btn sm ghost" data-a="tn-expand" data-id="${id}">${S.sk.exp.has(id)?'Ciutkan':'Expand'} entitas terkait</button></div>`:''}`; }
+function tnRGPanel(D,a,b){ const rs=D.rels.filter(r=>(r.a===a&&r.b===b)||(r.a===b&&r.b===a)).sort((x,y)=>(y.rel==='primary')-(x.rel==='primary')); const types=[...new Set(rs.map(r=>r.l))];
+  const groups={}; rs.forEach(r=>(groups[SKRCAT[r.c][0]]=groups[SKRCAT[r.c][0]]||[]).push(r));
+  return tnPH('RELATIONSHIP GROUP',`${tnName(a)||D.o.n} ↔ ${tnName(b)||D.o.n}`,`${types.length} jenis hubungan`)+`<div class="sk-sec"><div class="sk-sh">Ringkasan</div><p class="small" style="margin:0">${rs.map(r=>r.ex).join(' ')}</p></div>`+Object.entries(groups).map(([g,list])=>`<div class="sk-sec"><div class="sk-sh">${g}</div>${list.map(r=>`<button class="rm-rtab" data-a="tn-rel" data-id="${r.id}"><span class="rm-rb"><b>${r.l}</b><span class="xs muted">${tnName(r.a)||D.o.n} → ${tnName(r.b)||D.o.n}</span><span class="xs muted">${tnPer(r.t)} · ${TNVER[r.s]||''}</span><span class="xs">${r.rel==='primary'?'Menjelaskan keterlibatan dalam topik':'Memberi konteks (hubungan pendukung)'}</span></span><span class="rm-chev">›</span></button>`).join('')}</div>`).join(''); }
+function tnRelPanel(D,r){ if(!r) return tnPH('DETAIL RELATIONSHIP','Tidak tersedia');
+  const interp = r.rel==='primary' ? `${r.ex} Hubungan ini menjelaskan keterlibatan ${tnName(r.a)||D.o.n} dalam ${D.o.n}.` : `${r.ex} Hubungan ini memberi konteks institusional, tetapi tidak dengan sendirinya membuktikan keterlibatan pribadi dalam seluruh tahapan ${D.o.n}.`;
+  return tnPH('DETAIL RELATIONSHIP', rvCap(r.l), `${tnName(r.a)||D.o.n} → ${tnName(r.b)||D.o.n}`)+`
+    <div class="sk-sec"><div class="sk-sh">Context</div><p class="small" style="margin:0 0 4px">${r.ex} ${cpCite([r.src])}</p>${Object.entries(r.det||{}).map(([k,v])=>cpRow(k,v)).join('')}</div>
+    <div class="sk-sec"><div class="sk-sh">Time validity</div>${cpRow('Periode',r.t?tnPer(r.t):'Waktu Tidak Diketahui')}${cpRow('Sumber informasi waktu',r.t?'Masa berlaku hubungan':'Tidak tersedia')}${cpRow('Tanggal publikasi sumber',SRC[r.src]?SRC[r.src].d:'–')}</div>
+    <div class="sk-sec"><div class="sk-sh">Interpretation ${aiIc()}</div><p class="small" style="margin:0">${interp}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Evidence list</div>${rmEv([r.src].concat(r.alt?[r.alt[1]]:[]))}</div>
+    <details class="c3-tech" ${r.alt?'open':''}><summary>Identity, classification & assertions</summary>${cpRow('Relationship type',r.l)}${cpRow('Direction',`${tnName(r.a)||D.o.n} → ${tnName(r.b)||D.o.n}`)}${cpRow('Coverage',SKRCAT[r.c][0])}${cpRow('Relevansi',r.rel==='primary'?'Primary':'Supporting')}${cpRow('Verification status',TNVER[r.s]||'')}<div class="rm-as"><div class="small">${r.q?'“'+r.q+'”':r.ex}</div><div class="xs muted">Atribusi: ${SRC[r.src]?SRC[r.src].o:'–'} · modality: ${r.s==='reported'?'dugaan':r.s==='inferred'?'kesimpulan sistem':'menyatakan'} ${cpCite([r.src])}</div></div>${r.alt?`<div class="rm-as"><div class="small">${r.alt[0]}</div><div class="xs muted">Pernyataan berbeda ${cpCite([r.alt[1]])}</div></div>`:''}</details>`; }
+/* ---------- view & aksi ---------- */
+vStake = function(){ const K=S.sk; if(K.stage==='form'&&K.pick) return tnForm(); if(K.stage==='gen') return tnGen(); if(K.stage==='result') return tnResult(); return tnList(); };
+const tnPush=it=>{ const K=S.sk, t=tnTop(); if(t&&JSON.stringify(t)===JSON.stringify(it)) return; K.stack.push(it); };
+function tnOpen(id){ const K=S.sk, r=K.runs.find(x=>x.id===id); K.cur=id; K.stage=r&&r.status==='Proses'?'gen':'result'; K.tab='overview'; K.stack=[]; K.gsel=null; K.hl=null; K.hlPath=null; K.showCE=false; K.exp=new Set(); K.f=tnNewF(); K.tzt=null; K.collapsed=new Set(); S.nx.mode='issue'; }
+ACT['tn-home']=()=>{ S.sk.stage='list'; S.nx.mode='issue'; go('network'); };
+ACT['tn-new']=()=>{ Object.assign(S.sk,{stage:'list',q:'',searched:false,pick:null,form:{all:true,y0:2020,y1:2026,depth:3,ctx:''}}); S.nx.mode='issue'; go('network'); };
+ACT['tn-type']=(el)=>{ S.sk.type=el.value; S.sk.searched=false; rerender(); };
+ACT['tn-pick']=(el,d)=>{ S.sk.pick=d.id; S.sk.stage='form'; go('network'); };
+ACT['tn-unpick']=()=>{ S.sk.pick=null; S.sk.stage='list'; go('network'); };
+ACT['tn-f']=(el,d)=>{ const F=S.sk.form; F[d.k]=d.k==='all'?d.v==='1':+d.v; rerender(); };
+ACT['tn-yr']=(el,d)=>{ S.sk.form[d.k]=+el.value; rerender(); };
+BIND['tn-ctx']=v=>{ S.sk.form.ctx=v; };
+function tnStartJob(o,sc){ const id='tn'+Date.now(); S.sk.runs.unshift({id,o,sc:{...sc},when:'Baru saja',status:'Proses',job:{t0:Date.now(),dur:TNDUR[sc.depth]||14000}}); return id; }
+ACT['tn-gen']=()=>{ const K=S.sk; const id=tnStartJob(K.pick,K.form); K.cur=id; K.stage='gen'; K.pick=null; K.q=''; K.searched=false; go('network'); };
+ACT['tn-open']=(el,d)=>{ tnOpen(d.id); go('network'); };
+ACT['tn-del']=(el,d)=>{ S.sk.runs=S.sk.runs.filter(r=>r.id!==d.id); toast('Insight dihapus.'); rerender(); };
+ACT['tn-retry']=(el,d)=>{ const K=S.sk, r=K.runs.find(x=>x.id===d.id); K.runs=K.runs.filter(x=>x.id!==d.id); const id=tnStartJob(r.o,r.sc); K.cur=id; K.stage='gen'; S.nx.mode='issue'; go('network'); };
+ACT['tn-cancel']=(el,d)=>{ const K=S.sk, r=K.runs.find(x=>x.id===d.id); K.runs=K.runs.filter(x=>x.id!==d.id); if(K.stage==='gen'&&K.cur===d.id&&r){ K.pick=r.o; K.form={...r.sc}; K.stage='form'; } toast('Proses dibatalkan.'); rerender(); };
+ACT['tn-edit']=()=>{ const K=S.sk, r=K.runs.find(x=>x.id===K.cur); K.pick=r.o; K.form={...r.sc}; K.stage='form'; go('network'); };
+ACT['tn-tab']=(el,d)=>{ S.sk.tab=d.t; S.fpop=null; rerender(); };
+ACT['tn-gtoggle']=(el,d)=>{ const c=S.sk.collapsed; c.has(d.g)?c.delete(d.g):c.add(d.g); rerender(); };
+ACT['tn-node']=(el,d)=>{ tnPush({t:'node',id:d.id}); rerender(); };
+ACT['tn-edge']=(el,d)=>{ tnPush({t:'rg',a:d.p,b:d.c}); rerender(); };
+ACT['tn-rel']=(el,d)=>{ tnPush({t:'rel',id:d.id}); rerender(); };
+ACT['tn-pback']=()=>{ S.sk.stack.pop(); rerender(); };
+ACT['tn-pclose']=()=>{ S.sk.stack=[]; rerender(); };
+ACT['tn-hl']=(el,d)=>{ const K=S.sk; K.hl=d.id; K.hlPath=null; K.gsel=null; K.tab='graph'; K.stack=[]; K.tzt=null; rerender(); };
+ACT['tn-path']=(el,d)=>{ const K=S.sk; K.hlPath=d.path.split(','); K.hl=null; K.gsel=null; K.showCE=true; K.tab='graph'; K.tzt=null; rerender(); };
+ACT['tn-unhl']=()=>{ S.sk.hl=null; S.sk.hlPath=null; rerender(); };
+ACT['tn-gsel']=(el,d)=>{ S.sk.gsel=d.g||null; S.sk.hl=null; S.sk.hlPath=null; rerender(); };
+ACT['tn-ce']=()=>{ S.sk.showCE=!S.sk.showCE; S.sk.tzt=null; rerender(); };
+ACT['tn-expand']=(el,d)=>{ const x=S.sk.exp; x.has(d.id)?x.delete(d.id):x.add(d.id); S.sk.tab='graph'; rerender(); };
+ACT['tnz']=(el,d)=>{ const g=FG['tn-svg']; if(!g||!window.d3) return; const s=d3.select(g.svg); if(+d.z) s.transition().duration(200).call(g.z.scaleBy,+d.z); else { S.sk.tzt=null; s.transition().duration(220).call(g.z.transform,d3.zoomIdentity); } };
+ACT['go-nx']=(function(o){ return (el,d)=>{ if(d.m==='issue'){ S.nx.mode='issue'; S.sk.stage='list'; go('network'); return; } o(el,d); }; })(ACT['go-nx']);
+ACT['cp-totopic']=(el,d)=>{ const n=NN[d.id]; const hit=Object.entries(SKOBJ).find(([k,o])=>o.n===n.n||(o.al||[]).includes(n.n)||k===({c_mbg:'sk_mbg',c_mbgfood:'sk_mbgfood',c_mbgcase:'sk_mbgcase'})[d.id]);
+  if(hit){ S.sk.pick=hit[0]; S.sk.form={all:true,y0:2020,y1:2026,depth:3,ctx:''}; S.sk.stage='form'; } else { Object.assign(S.sk,{stage:'list',type:n.t,q:n.n,searched:true}); toast(`${n.n} belum tersedia sebagai topik di data contoh.`); }
+  S.nx.mode='issue'; go('network'); };
+AFTER.push(()=>{ if(S.view!=='network'||S.nx.mode!=='issue'||S.sk.stage!=='result'||S.sk.tab!=='graph') return; const el=document.getElementById('tn-svg'); if(!el) return; const svg=el.querySelector('svg'), vp=svg.querySelector('.vp'), tip=el.querySelector('.nx-tip');
+  if(window.d3){ const z=d3.zoom().scaleExtent([.4,4]).on('zoom',e=>{ vp.setAttribute('transform',e.transform); S.sk.tzt=e.transform; }); const sel=d3.select(svg).call(z); FG['tn-svg']={svg,z}; if(S.sk.tzt) sel.call(z.transform,S.sk.tzt); }
+  svg.addEventListener('mousemove',e=>{ const t=e.target.closest('[data-tip]'); if(!t){ tip.style.display='none'; return; } const [a,...rest]=t.dataset.tip.split('|'); tip.innerHTML=`<b>${esc(a)}</b>${rest.map(r=>`<span>${esc(r)}</span>`).join('')}`; const r=el.getBoundingClientRect(); tip.style.display='block'; let x=e.clientX-r.left+14,y=e.clientY-r.top+14; if(x+tip.offsetWidth>r.width-6) x=e.clientX-r.left-tip.offsetWidth-12; tip.style.left=x+'px'; tip.style.top=y+'px'; });
+  svg.addEventListener('mouseleave',()=>tip.style.display='none'); });
+function tnTick(){ S.sk.runs.filter(r=>r.status==='Proses').forEach(r=>{ const st=tnJobSt(r);
+  document.querySelectorAll(`[data-tnjob="${r.id}"],[data-tnrow="${r.id}"]`).forEach(box=>{ const b=box.querySelector('.jb-bar'); if(b) b.style.width=Math.round(st.f*100)+'%'; const l=box.querySelector('.jb-left'); if(l) l.textContent=fmtT(st.left); const e=box.querySelector('.jb-el'); if(e) e.textContent=fmtT(st.el); box.querySelectorAll('[data-step]').forEach(li=>{ const i=+li.dataset.step; li.className=i<st.cur?'done':i===st.cur?'now':''; li.querySelector('.dot').textContent=i<st.cur?'✓':''; }); });
+  if(st.f>=1){ const D=tnAnalyse({...r}); r.status=D.empty?'Kosong':'Selesai'; r.fresh=true; delete r.job; const on=S.view==='network'&&S.nx.mode==='issue'&&S.sk.stage==='gen'&&S.sk.cur===r.id;
+    if(on){ tnOpen(r.id); rerender(); toast('Topic Network siap.'); } else { const inp=document.activeElement, val=inp&&inp.value, nm=inp&&inp.name; rerender(); if(nm){ const ni=document.querySelector(`form [name="${nm}"]`); if(ni){ ni.value=val; ni.focus(); } } toast(`Topic Network ${(SKOBJ[r.o]||{}).n||''} siap.`); } } }); }
+setInterval(tnTick,500);
+AFTER.push(()=>{ const n=S.sk.runs.filter(r=>r.status==='Proses').length, it=document.querySelector('.nav-subitem[data-m="issue"]'); if(it&&n&&!it.querySelector('.spin')) it.insertAdjacentHTML('beforeend',' <i class="spin"></i>'); });
+NXSUB.issue = {...NXSUB.issue, n:'Topic Network', d:'Pahami pihak-pihak yang terlibat, peran, dan hubungan mereka dalam suatu topik.'};
+
+
+/* kompatibilitas: tautan lama Topic Network (sk-open) diarahkan ke insight baru */
+ACT['sk-open']=(el,d)=>{ const map={sk1:'sk_kpk',sk2:'sk_buli',sk3:'sk_prj',sk4:'sk_mon',sk5:'sk_mbg',sk6:'sk_mbgcase',sk7:'sk_mbgfood'}; const o=map[d.id]||d.id;
+  const r=S.sk.runs.find(x=>x.id===d.id)||S.sk.runs.find(x=>x.o===o&&x.status==='Selesai');
+  if(r){ tnOpen(r.id); go('network'); } else if(SKOBJ[o]){ S.sk.pick=o; S.sk.form={all:true,y0:2020,y1:2026,depth:3,ctx:''}; S.sk.stage='form'; S.nx.mode='issue'; go('network'); } else ACT['tn-home'](); };
+tnResult = (function(prev){ return function(){ const K=S.sk; if(!K.runs.find(r=>r.id===K.cur)){ K.stage='list'; return tnList(); } return prev(); }; })(tnResult);
+
+/* ===== Topic Network: clustered layout (focal anchor + soft cluster per Stakeholder Group) ===== */
+const TNLAY = {};
+function tnLayout(D){ const key=D.run.id+'|'+JSON.stringify(D.sc); if(TNLAY[key]) return TNLAY[key];
+  const sh=tnSH(D), gs=TNGO.filter(g=>sh.some(s=>s.pg===g));
+  // connected entity → stakeholder terdekat yang punya hubungan terdokumentasi
+  const ceHome={}; [...D.ce].forEach(c=>{ const r=D.rels.filter(r=>(r.a===c&&D.sh.has(r.b))||(r.b===c&&D.sh.has(r.a))).sort((x,y)=>(y.rel==='primary')-(x.rel==='primary'))[0]; ceHome[c]=r?(r.a===c?r.b:r.a):null; });
+  const cl=[...gs.map(g=>({g, members:sh.filter(s=>s.pg===g).map(s=>s.id)})), {g:'ctx', members:[]}];
+  cl.forEach(c=>{ c.ces = c.g==='ctx' ? [...D.ce].filter(x=>!ceHome[x]) : [...D.ce].filter(x=>ceHome[x]&&c.members.includes(ceHome[x])); });
+  const C = cl.filter(c=>c.members.length||c.ces.length);
+  const cellW=172, cellH=112, ceW=138, ceH=84;
+  C.forEach(c=>{ const n=c.members.length; c.cols=Math.max(c.g==='ctx'?3:2, Math.min(4, Math.ceil(Math.sqrt(Math.max(n,1)*1.7)))); c.rows=Math.ceil(n/c.cols); c.ceCols=Math.max(c.cols, Math.min(4,Math.ceil(c.ces.length/2))); c.ceRows=Math.ceil(c.ces.length/c.ceCols);
+    c.w=Math.max(c.cols*cellW, c.ceCols*ceW)+40; c.h=48+c.rows*cellH+c.ceRows*ceH+16; });
+  const half=Math.ceil(C.length/2), top=C.slice(0,half), bot=C.slice(half), gap=48;
+  const rowW=row=>row.reduce((a,c)=>a+c.w,0)+gap*Math.max(0,row.length-1);
+  const W=Math.max(rowW(top), rowW(bot), 760)+80, topH=Math.max(0,...top.map(c=>c.h)), band=200, H=40+topH+band+Math.max(0,...bot.map(c=>c.h))+40;
+  const pos={}; const place=(row,y,alignBottom)=>{ let x=(W-rowW(row))/2; row.forEach(c=>{ c.x=x; c.y=alignBottom?y+(topH-c.h):y; 
+      c.members.forEach((id,i)=>{ const col=i%c.cols, r=Math.floor(i/c.cols), off=(c.w-c.cols*cellW)/2; pos[id]=[c.x+off+col*cellW+cellW/2+((i*37)%17-8), c.y+48+r*cellH+cellH/2-6+((i*53)%13-6)]; });
+      c.ces.forEach((id,i)=>{ const col=i%c.ceCols, r=Math.floor(i/c.ceCols), off=(c.w-c.ceCols*ceW)/2; pos[id]=[c.x+off+col*ceW+ceW/2, c.y+48+c.rows*cellH+r*ceH+ceH/2-4]; });
+      x+=c.w+gap; }); };
+  place(top,40,true); place(bot,40+topH+band,false);
+  pos.OBJ=[W/2, 40+topH+band/2-8];
+  const L={W,H,pos,clusters:C}; TNLAY[key]=L; return L; }
+function tnGraph(D,visN,E){ const K=S.sk, L=tnLayout(D), pos=L.pos, W=L.W, H=L.H; TNPOS=pos; TNVB=[W,H]; const k=Math.max(1,Math.min(1.5,W/1250));
+  const top=K.stack.length?K.stack[K.stack.length-1]:null;
+  const gsel=K.gsel, hl=K.hl||(top&&top.t==='node'&&top.id!=='OBJ'?top.id:null), hp=K.hlPath, selE=top&&top.t==='rg'?[top.a,top.b].sort().join('|'):null;
+  const focN=new Set(); if(gsel){ [...D.sh.values()].filter(s=>s.groups.includes(gsel)).forEach(s=>focN.add(s.id)); focN.add('OBJ'); }
+  if(hl){ focN.add(hl); D.rels.filter(r=>r.a===hl||r.b===hl).forEach(r=>{ focN.add(r.a); focN.add(r.b); }); } if(hp) hp.forEach(x=>focN.add(x)); if(selE) selE.split('|').forEach(x=>focN.add(x));
+  const anyF=focN.size>0, isF=id=>!anyF||focN.has(id);
+  const cluOf={}; L.clusters.forEach(c=>{ c.members.concat(c.ces).forEach(id=>cluOf[id]=c.g); });
+  let s=`<svg viewBox="0 0 ${W} ${H}" style="--ik:${k.toFixed(3)}" role="img" aria-label="Topic Network ${esc(D.o.n)}"><defs>${[['g','#A8A8A8'],['r','#B03A2E'],['a','#C98A1A']].map(([k,c])=>`<marker id="tnm${k}" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`).join('')}</defs><g class="vp">`;
+  // soft cluster boundaries (mengikuti node yang terlihat)
+  L.clusters.forEach(c=>{ const ids=c.members.concat(c.ces).filter(id=>visN.has(id)); if(!ids.length) return; const xs=ids.map(i=>pos[i][0]), ys=ids.map(i=>pos[i][1]);
+    const x0=Math.min(...xs)-62*k, x1=Math.max(...xs)+62*k, y0=Math.min(...ys)-58*k, y1=Math.max(...ys)+50*k, col=c.g==='ctx'?'#9A9A9A':TNG[c.g].c, dim=gsel&&gsel!==c.g&&!c.members.some(m=>D.sh.get(m)&&D.sh.get(m).groups.includes(gsel));
+    s+=`<g class="tn-clu" opacity="${dim?.35:1}"><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" rx="34" fill="${col}" fill-opacity=".07" stroke="${col}" stroke-opacity=".55" stroke-width="1.6" stroke-dasharray="6 5"/><text x="${x0+18*k}" y="${y0+24*k}" class="tn-clul" style="font-size:${15*k}px" fill="${col}">${c.g==='ctx'?'Konteks topik':TNG[c.g].l}</text></g>`; });
+  // edges
+  const pairs={}; E.forEach(r=>{ const k=[r.a,r.b].sort().join('|'); (pairs[k]=pairs[k]||[]).push(r); });
+  Object.entries(pairs).forEach(([pk,rs])=>{ const r=rs[0]; if(!pos[r.a]||!pos[r.b]) return; const [x1,y1]=pos[r.a], [x2,y2]=pos[r.b], types=[...new Set(rs.map(z=>z.l))], claim=rs.some(z=>z.s==='reported'||z.s==='disputed'), prim=rs.some(z=>z.rel==='primary');
+    const mem=x=>gsel&&D.sh.get(x)&&D.sh.get(x).groups.includes(gsel); const foc = selE ? selE===pk : hl ? (r.a===hl||r.b===hl) : hp ? (hp.includes(r.a)&&hp.includes(r.b)) : gsel ? ((mem(r.a)||mem(r.b))&&focN.has(r.a)&&focN.has(r.b)) : false;
+    const on=selE===pk, hot=foc||on;
+    const ra=(r.a==='OBJ'?40:22)*k, rb=(r.b==='OBJ'?42:24)*k, dx=x2-x1, dy=y2-y1, Ln=Math.hypot(dx,dy)||1, sx=x1+dx/Ln*ra, sy=y1+dy/Ln*ra, ex=x2-dx/Ln*rb, ey=y2-dy/Ln*rb;
+    const cross = r.a!=='OBJ'&&r.b!=='OBJ'&&cluOf[r.a]&&cluOf[r.b]&&cluOf[r.a]!==cluOf[r.b];
+    const cxp=(sx+ex)/2-(ey-sy)*.18, cyp=(sy+ey)/2+(ex-sx)*.18; const d= cross?`M${sx},${sy} Q${cxp},${cyp} ${ex},${ey}`:`M${sx},${sy} L${ex},${ey}`;
+    const lx=cross?(sx+2*cxp+ex)/4:(sx+ex)/2, ly=cross?(sy+2*cyp+ey)/4:(sy+ey)/2;
+    const col=hot?(claim?'#C98A1A':'#B03A2E'):(claim?'#C98A1A':'#A8A8A8'), mk=hot?(claim?'a':'r'):(claim?'a':'g'), mixed=new Set(rs.map(z=>z.a)).size>1, lab=types.length>1?`${types.length} hubungan`:r.l;
+    s+=`<g class="nxe ${anyF&&!hot?'unfoc':''}" data-a="tn-edge" data-p="${r.a}" data-c="${r.b}" data-tip="${esc(rs.map(z=>`${tnName(z.a)||D.o.n} ${z.l} ${tnName(z.b)||D.o.n}`).join('; ')+'|'+(prim?'Hubungan utama':'Hubungan pendukung'))}" tabindex="0" role="button" aria-label="${esc(lab)}"><path d="${d}" stroke="transparent" stroke-width="14" fill="none"/><path d="${d}" fill="none" stroke="${col}" stroke-width="${(hot?2.6:prim?1.5:1.1)*k}" stroke-dasharray="${claim?'7 4':prim?'':'4 4'}" ${mixed?'':`marker-end="url(#tnm${mk})"`}/>${hot?`<text x="${lx}" y="${ly-6}" text-anchor="middle" class="nxel tn-elab">${esc(lab)}</text>`:''}${!hot&&types.length>1?`<text x="${lx}" y="${ly-4}" text-anchor="middle" class="nxel">${types.length} hubungan</text>`:''}</g>`; });
+  // nodes (ukuran seragam; bentuk = entity type; cincin = kelompok)
+  [...visN].forEach(id=>{ if(id==='OBJ'||!pos[id]) return; const [x,y]=pos[id], t=NN[id].t, st=D.sh.get(id), r=(st?17:14)*k, foc=isF(id), on=top&&top.t==='node'&&top.id===id;
+    s+=`<g class="nxn ${foc?'':'unfoc'}" data-a="tn-node" data-id="${id}" data-tip="${esc(NN[id].n+'|'+(st?st.groups.map(g=>TNG[g].l).join(', '):'Connected entity')+' · '+skTL(t))}" tabindex="0" role="button" aria-label="${esc(NN[id].n)}">${st?`<circle cx="${x}" cy="${y}" r="${r+5*k}" fill="var(--paper)" stroke="${TNG[st.pg].c}" stroke-width="${3.5*k}"/>`:''}${skShape(t,x,y,r)}${skGlyph(t,x,y,r)}${(on||K.hl===id)?`<circle cx="${x}" cy="${y}" r="${r+10*k}" fill="none" stroke="var(--red)" stroke-width="${2.5*k}"/>`:''}${st&&st.groups.length>1?`<g><rect x="${x+r-2*k}" y="${y-r-12*k}" width="${44*k}" height="${15*k}" rx="${7.5*k}" fill="var(--ink)"/><text x="${x+r+20*k}" y="${y-r-1*k}" text-anchor="middle" fill="var(--paper)" font-size="${9.5*k}" font-weight="800">${st.groups.length} peran</text></g>`:''}<text x="${x}" y="${y+r+16*k}" text-anchor="middle" class="nxl" ${st?'':`style="font-size:${10.5*k}px;font-weight:500"`}>${esc(NN[id].n.length>21?NN[id].n.slice(0,19)+'…':NN[id].n)}</text>${st?`<text x="${x}" y="${y+r+29*k}" text-anchor="middle" class="nxs" style="font-size:${9.5*k}px">${esc(st.roles[0].label)}</text>`:''}</g>`; });
+  const [fx,fy]=pos.OBJ;
+  s+=`<g class="nxn ${isF('OBJ')?'':'unfoc'}" data-a="tn-node" data-id="OBJ" tabindex="0" role="button" aria-label="${esc(D.o.n)}"><circle cx="${fx}" cy="${fy}" r="${38*k}" fill="var(--paper)" stroke="var(--ink)" stroke-width="${3*k}"/>${skShape(D.o.type,fx,fy,29*k)}${skGlyph(D.o.type,fx,fy,29*k)}<text x="${fx}" y="${fy+56*k}" text-anchor="middle" class="nxl lv0" style="font-size:${15*k}px">${esc(D.o.n.length>40?D.o.n.slice(0,38)+'…':D.o.n)}</text><text x="${fx}" y="${fy+72*k}" text-anchor="middle" class="nxs" style="font-size:${10*k}px">FOCAL ENTITY · ${skTL(D.o.type).toUpperCase()}</text></g>`;
+  return s+'</g></svg>'; }
 
 render();
 </script>
