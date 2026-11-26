@@ -1218,6 +1218,114 @@ svg[data-zl="1"] .nxsub.lv3:not(.keep),svg[data-zl="1"] .nxsub.lv4:not(.keep),sv
 .rm-rtab.on .rm-chev{color:var(--red)}
 .rm-dhead{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--canvas);border-radius:8px;padding:8px 10px;margin:4px 0 2px;position:sticky;top:0;z-index:2}
 
+
+.c3-slot .sk-search{padding:4px}
+.c3-lab{font-size:11.5px;font-weight:800;color:var(--muted);margin-bottom:4px;letter-spacing:.05em}
+.c3-sel{display:flex;align-items:center;gap:10px;border:1.5px solid var(--rule);border-radius:8px;padding:10px;background:var(--paper)}
+.c3-sel.bad{border-color:var(--red);background:var(--red-tint)}
+.c3-pair{display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center}
+.c3-pe{display:flex;gap:10px;align-items:flex-start}
+.c3-arr{text-align:center;color:var(--muted);font-size:18px}
+.c3-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.c3-stats>div{background:var(--canvas);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column}
+.c3-stats b{font-size:22px;font-family:var(--serif)} .c3-stats span{font-size:12px;color:var(--muted)}
+.rm-hl{display:block;width:100%;text-align:left;border:1px solid var(--rule);border-radius:8px;background:var(--paper);padding:10px 12px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.rm-hl:hover{border-color:var(--ink-2)} .rm-hlgo{color:var(--red);font-weight:600;white-space:nowrap;font-size:12.5px}
+.c3-wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:12px;align-items:start}
+.c3-panel{position:sticky;top:12px;max-height:calc(100vh - 110px);overflow:auto}
+.c3-groups{display:grid;gap:12px}
+.c3-group{background:var(--paper);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.c3-gh{display:flex;align-items:center;gap:8px;width:100%;border:0;background:none;padding:12px 14px;text-align:left;font-size:15px}
+.c3-gh:hover{background:var(--canvas)} .c3-car{width:14px;color:var(--muted)}
+.c3-gb{padding:0 14px 14px}
+.c3-gl{display:grid;gap:10px}
+.c3-graph svg{min-height:200px}
+.c3-list{display:grid;gap:6px}
+.c3-path{display:block;width:100%;text-align:left;border:1.5px solid var(--rule);border-radius:8px;background:var(--paper);padding:9px 11px}
+.c3-path:hover{border-color:var(--ink-2)} .c3-path.on{border-color:var(--red);background:var(--red-tint)} .c3-path.dim{opacity:.55}
+.c3-seq{font-size:12.5px;font-weight:600;margin:3px 0}
+.c3-tc{font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 8px;background:var(--canvas);color:var(--ink-2);border:1px solid var(--rule)}
+.c3-tc.overlap{background:#E6F4EC;color:#1E7B46;border-color:#BFE3CD} .c3-tc.non{background:#F1F1F1;color:#666} .c3-tc.und,.c3-tc.claim{background:var(--ev-unverified-bg);color:var(--ev-unverified);border-color:transparent}
+.c3-ph{display:flex;justify-content:space-between;align-items:center}
+.c3-graph .nxe.unfoc,.c3-graph .nxn.unfoc{filter:grayscale(1);opacity:.35}
+@media (max-width:1100px){ .c3-wrap{grid-template-columns:1fr} .c3-panel{position:static;max-height:none} .c3-stats{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:720px){ .c3-pair{grid-template-columns:1fr} .c3-stats{grid-template-columns:repeat(2,1fr)} .c3-graph{overflow-x:auto} .c3-graph svg{min-width:600px} }
+
+
+.c3-brief{border-left:4px solid var(--red)}
+.c3-headline{font-family:var(--serif);font-size:22px;line-height:1.3;margin:6px 0 8px}
+.c3-claimp{background:var(--ev-unverified-bg);border-radius:6px;padding:8px 10px;margin:0 0 8px}
+.c3-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.c3-chips>div{background:var(--canvas);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:1px}
+.c3-chips span{font-size:11.5px;color:var(--muted);font-weight:700} .c3-chips b{font-size:14px} .c3-chips small{font-size:12px;color:var(--muted)}
+.c3-kf{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.c3-kf li{display:flex;gap:12px;border-top:1px solid var(--rule-2);padding-top:10px} .c3-kf li:first-child{border-top:0;padding-top:0}
+.c3-kn{font-family:var(--serif);font-size:20px;color:var(--red);font-weight:700;min-width:28px}
+.c3-tl{display:grid;gap:6px}
+.c3-tly{display:grid;grid-template-columns:56px 1fr;gap:10px;border-left:2px solid var(--rule);padding-left:10px}
+.c3-tly>b{font-family:var(--serif);font-size:15px}
+.c3-det{padding:0}
+.c3-det>summary{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 16px;cursor:pointer;list-style:none}
+.c3-det>summary::-webkit-details-marker{display:none}
+.c3-det>summary::after{content:'▾';color:var(--muted)} .c3-det[open]>summary::after{content:'▴'}
+.c3-det>div{padding:0 16px 14px}
+.c3-adv{margin:12px 0 10px}
+.c3-adv>summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ink-2)}
+.c3-adv .fbar{margin-top:8px}
+.seg.sm button{padding:5px 11px;font-size:12.5px}
+.c3-cards{display:grid;gap:10px}
+.c3-card{border:1.5px solid var(--rule);border-radius:10px;padding:12px 14px;background:var(--paper)}
+.c3-card.on{border-color:var(--red);box-shadow:0 0 0 3px var(--red-tint)}
+.c3-card.isclaim{border-style:dashed}
+.c3-ct{font-size:16px;margin:2px 0 0;font-family:var(--serif)}
+.c3-mini{display:flex;align-items:flex-start;gap:0;margin:12px 0 6px;padding:10px 6px;background:var(--canvas);border-radius:8px;overflow-x:auto}
+.c3-mnode{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;min-width:96px;max-width:140px;padding:2px 4px;text-align:center;font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.25}
+.c3-mnode .dotc{transform:scale(1.4)}
+.c3-mnode.end span{font-weight:800}
+.c3-mnode:hover span{text-decoration:underline}
+.c3-mseg{flex:1;min-width:120px;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;padding:6px 4px 0;color:var(--ink)}
+.c3-mseg:hover .c3-ml{text-decoration:underline}
+.c3-line{position:relative;display:block;width:100%;height:2px;background:var(--ink-2);margin:2px 0 4px}
+.c3-line.f::after,.c3-line.b::after{content:'';position:absolute;top:-4px;border:5px solid transparent}
+.c3-line.f::after{right:-2px;border-left:8px solid var(--ink-2);border-right:0}
+.c3-line.b::after{left:-2px;border-right:8px solid var(--ink-2);border-left:0}
+.c3-mseg.claim .c3-line{background:repeating-linear-gradient(90deg,#C98A1A 0 7px,transparent 7px 11px)}
+.c3-mseg.claim .c3-line.f::after{border-left-color:#C98A1A} .c3-mseg.claim .c3-line.b::after{border-right-color:#C98A1A}
+.c3-mseg.unk .c3-line{background:repeating-linear-gradient(90deg,var(--ink-2) 0 3px,transparent 3px 6px)}
+.c3-ml{font-size:12.5px;font-weight:700;text-align:center;line-height:1.25}
+.c3-mt{font-size:11.5px;color:var(--muted);text-align:center}
+.c3-scrim{position:fixed;inset:0;background:rgba(0,0,0,.12);z-index:40}
+.c3-drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,92vw);background:var(--paper);z-index:41;box-shadow:-10px 0 30px rgba(0,0,0,.15);overflow:auto;padding:16px 18px calc(16px + env(safe-area-inset-bottom,0px));padding-top:calc(16px + env(safe-area-inset-top,0px))}
+.c3-bars{display:grid;gap:3px;margin-top:4px}
+.c3-br{display:flex;align-items:center;gap:2px} .c3-bl{flex:0 0 130px;font-size:11.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c3-bc{flex:1;height:10px;border-radius:2px;background:var(--rule-2)} .c3-bc.on{background:var(--ink-2)} .c3-br.head .c3-bc{background:none;height:auto;font-size:10px;color:var(--muted);text-align:center}
+.c3-tech{margin-top:10px;border-top:1px solid var(--rule-2);padding-top:8px}
+.c3-tech>summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--muted)}
+@media (max-width:720px){ .c3-chips{grid-template-columns:1fr} .c3-mini{flex-direction:column;align-items:stretch} .c3-mnode{flex-direction:row;max-width:none;min-width:0;text-align:left} .c3-mseg{min-width:0;align-items:flex-start;padding-left:22px} .c3-line{width:2px;height:22px;margin-left:4px} .c3-line.f::after{right:auto;left:-4px;top:auto;bottom:-6px;border:5px solid transparent;border-top:8px solid var(--ink-2)} .c3-line.b::after{left:-4px;top:-6px;border:5px solid transparent;border-bottom:8px solid var(--ink-2)} .c3-ml,.c3-mt{text-align:left} }
+
+@media (max-width:720px){ .c3-mseg.claim .c3-line{background:repeating-linear-gradient(180deg,#C98A1A 0 5px,transparent 5px 9px)} .c3-mseg.unk .c3-line{background:repeating-linear-gradient(180deg,var(--ink-2) 0 3px,transparent 3px 6px)} }
+
+.c3-lead{font-size:14.5px;margin:0 0 4px;color:var(--ink)}
+.c3-sum{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.c3-sum li{display:flex;align-items:flex-start;gap:8px;border-top:1px solid var(--rule-2);padding-top:6px}
+.c3-sum li:first-child{border-top:0;padding-top:0}
+.c3-sl{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:1px;border:0;background:none;padding:2px 0;text-align:left;color:var(--ink);font-size:14px}
+.c3-sl:hover b{text-decoration:underline}
+.c3-unv{margin-top:12px;border:1px dashed var(--ev-unverified);border-radius:8px;padding:9px 12px;background:var(--ev-unverified-bg)}
+.c3-unvtag{font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ev-unverified);border:1.5px solid var(--ev-unverified);border-radius:999px;padding:1px 8px}
+
+
+.rv-strip{display:grid;grid-template-columns:1fr;gap:8px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--red);border-radius:10px;padding:12px 14px;margin:12px 0 4px}
+.rv-sh{font-family:var(--serif);font-size:17px}
+.rv-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.rv-chip{max-width:340px;border:1px solid var(--rule);background:var(--canvas);border-radius:8px;padding:5px 10px;font-size:12.5px;text-align:left;color:var(--ink);line-height:1.35}
+.rv-chip:hover{border-color:var(--ink-2)}
+.rv-h{font-size:15px}
+.rv-unc{background:var(--ev-unverified-bg);border-radius:6px;padding:5px 8px;margin:4px 0}
+.rv-cons{margin:6px 0 0;padding-top:6px;border-top:1px solid var(--rule-2)}
+.rv-hl{border:1px solid var(--rule);border-radius:8px;padding:10px 12px}
+@media (max-width:900px){ .rv-strip{grid-template-columns:1fr} .rv-chips{max-width:none} }
+
 </style>
 </head>
 <body>
@@ -3752,6 +3860,7 @@ document.addEventListener('submit', e => {
   if(f==='hero-ask'){ const q=fd.get('q')||'Apa kontroversi PT Nusantara Energi Raya?'; askNew(); askSubmit(q); }
   if(f==='ask'){ askSubmit(fd.get('q')||''); }
   if(f==='quotes'){ qSearch(fd.get('q')); }
+  if(f==='c3-search'){ const k=e.target.dataset.k, X=S.cp.form[k]; X.q=(fd.get('q')||'').trim(); X.searched=!!X.q; X.id=null; rerender(); }
   if(f==='rm2-search'){ const F=S.rm.form; F.q=(fd.get('q')||'').trim(); F.searched=!!F.q; F.pick=null; rerender(); }
   if(f==='rm2-refine'){ const ctx=(fd.get('ctx')||'').trim(); const key=e.target.dataset.key; if(!ctx){ toast('Tuliskan konteks atau pertanyaan terlebih dahulu.'); return; } S.rm.refine[key]={ctx, text:rmRefineText(key,ctx)}; rerender(); }
   if(f==='rm-search'){ S.rm.q=(fd.get('q')||'').trim(); S.rm.searched=!!S.rm.q; S.rm.pick=null; rerender(); }
@@ -6300,6 +6409,748 @@ if(!NE.find(e=>e.id==='mx1')) NE.push(
 RMCONFLICT.mx1 = [
   {p:'Bank Arunika memegang sekitar 4% saham PT NER melalui konversi sebagian kredit.', by:'Dua sumber anonim (dikutip Majalah Tempo)', mod:'diduga (klaim beratribusi)', pol:'Positif', src:'rmx1', d:'Jul 2025'},
   {p:'Susunan pemegang saham PT NER belum berubah.', by:'PT Nusantara Energi Raya (pernyataan perusahaan)', mod:'menyatakan', pol:'Negatif (membantah)', src:'rmx1', d:'Jul 2025'}];
+
+
+/* =========================================================
+   CONNECTION PATHS v3 — PRD (Create Insight, Context Groups,
+   per-group graph & path list, insight panels)
+   ========================================================= */
+const C3COV = e => ({role:['Jabatan, Afiliasi & Struktur Organisasi',(e.det&&e.det['Jabatan'])?'Jabatan':'Afiliasi'], own:['Kepemilikan & Pengendalian','Kepemilikan saham'], money:['Pendanaan, Transaksi & Kontrak','Pendanaan'], contract:['Pendanaan, Transaksi & Kontrak','Kontrak'], exec:['Proyek, Program & Peristiwa','Pelaksana program/proyek'], over:['Pengawasan, Audit & Akuntabilitas','Pengawasan program'], case:['Proses Hukum & Penyelesaian Sengketa',(e.det&&e.det['Peran / status'])||'Peran dalam perkara'], struct:['Proyek, Program & Peristiwa','Pemilik proyek']}[e.k]||['Aliansi, Kerja Sama & Operasional','Lainnya']);
+const C3DEF = {role:'Seseorang memegang jabatan atau peran di organisasi pada periode tertentu.', own:'Entitas memegang saham pada perusahaan; persentase dan kendali hanya bila disebut sumber.', money:'Entitas menyediakan dana (hibah, pinjaman, investasi) kepada entitas lain.', contract:'Dua pihak terikat kontrak dengan lingkup dan periode tertentu.', exec:'Entitas melaksanakan kegiatan dalam program atau proyek.', over:'Entitas mengawasi program, proyek, atau entitas lain sesuai kewenangannya.', case:'Entitas memiliki peran atau status tertentu dalam perkara pada waktu tertentu.', struct:'Entitas memiliki atau bertanggung jawab atas proyek.'};
+const C3GROUPS = ['own','biz','gov','legal','other'];
+const C3GL = k => k==='other' ? 'Other Relationships' : RMPURPOSE[k].l;
+const C3TC = {overlap:'Overlapping', non:'Non-overlapping', und:'Undetermined'};
+const C3TCD = {overlap:'Seluruh hubungan pembentuk jalur memiliki periode yang beririsan.', non:'Jalur terbentuk secara struktural, tetapi periodenya tidak beririsan.', und:'Informasi waktu tidak cukup untuk menentukan irisan.'};
+const C3DUR = {1:8000, 2:12000, 3:18000};
+const c3Yr = e => !e.t ? 'waktu tidak diketahui' : (e.t[0]===e.t[1] ? ''+e.t[0] : e.t[0]+' – '+e.t[1]);
+const c3Basis = e => !e.t ? 'Tidak tersedia' : e.ev==='event' ? 'Event-based time' : 'Masa berlaku hubungan (valid_from / valid_to)';
+const c3Ver = e => e.st==='fact' ? 'Terdokumentasi' : 'Klaim beratribusi · belum terverifikasi';
+function c3PathCtx(p){ const covs=p.edges.map(e=>C3COV(e)[0]), mt=p.mids.map(m=>NN[m].t), gov=p.nodes.some(n=>rmGov(n));
+  let pr='other';
+  if(covs.includes('Proses Hukum & Penyelesaian Sengketa')||mt.includes('Case')) pr='legal';
+  else if(covs.includes('Kepemilikan & Pengendalian')) pr='own';
+  else if(gov&&(covs.includes('Pengawasan, Audit & Akuntabilitas')||covs.includes('Kebijakan, Regulasi & Perizinan'))) pr='gov';
+  else if(covs.some(c=>['Pendanaan, Transaksi & Kontrak','Proyek, Program & Peristiwa','Aliansi, Kerja Sama & Operasional'].includes(c))) pr='biz';
+  else if(covs.every(c=>c==='Jabatan, Afiliasi & Struktur Organisasi')) pr='own';
+  const sup=['own','biz','gov','legal'].filter(k=>k!==pr&&(k==='gov'?gov&&covs.some(c=>RMPURPOSE.gov.primary.includes(c)):k==='legal'?covs.includes('Proses Hukum & Penyelesaian Sengketa'):covs.some(c=>RMPURPOSE[k].primary.includes(c))));
+  return {pr, sup}; }
+function c3Analyse(run){
+  const R=cpAnalyse({a:run.a,b:run.b,sc:{all:run.sc.all,y0:run.sc.y0,y1:run.sc.y1,hop:run.sc.hop,loc:'',obj:'aff',ctx:''}});
+  const CX=rmCtxParse(run.sc.ctx); if(CX){ CX.ents.delete(run.a); CX.ents.delete(run.b); } R.CX=CX;
+  R.paths.forEach(p=>{ const c=c3PathCtx(p); p.ctxG=c.pr; p.ctxS=c.sup; p.tc = p.edges.some(e=>!e.t)?'und':p.shared?'overlap':'non'; p.claim=p.edges.some(e=>e.st!=='fact');
+    p.cx = !!CX && (p.edges.some(e=>CX.covs.has(C3COV(e)[0])) || p.nodes.some(n=>CX.ents.has(n)));
+    p.score = (p.cx?6:0)+(p.tc==='overlap'?2:p.tc==='non'?1:0)+(p.claim?-2:2)-p.hops+p.srcs.length*.3;
+    p.title = p.hops===1 ? `Hubungan langsung · ${p.edges[0].l}` : `Melalui ${p.mids.map(cpName).join(' → ')}`; });
+  R.paths.sort((x,y)=>y.score-x.score);
+  R.inter=[...new Set(R.paths.flatMap(p=>p.mids))]; R.run=run;
+  return R; }
+function c3Filter(R){ const F=S.cp.f; return R.paths.filter(p=>(F.hop==='Semua'||p.hops===+F.hop)&&(!F.covs.length||p.edges.some(e=>F.covs.includes(C3COV(e)[0])))&&(!F.rels.length||p.edges.some(e=>F.rels.includes(e.l)))); }
+const c3NewF = () => ({hop:'Semua', covs:[], rels:[]});
+S.cp.f=c3NewF(); FB.cp.get=()=>S.cp.f; FB.cp.reset=()=>{ S.cp.f=c3NewF(); }; FB.cp.after=()=>{ S.cp.act=null; };
+/* runs & jobs */
+S.cp.runs.forEach(r=>{ r.sc={all:true,y0:2020,y1:2026,hop:3,ctx:''}; });
+(()=>{ const r=S.cp.runs.find(x=>x.id==='cp1'); if(r) r.sc.ctx='Kami menilai PT Lintas Samudra sebagai calon vendor; cek afiliasi Raka Pradipta dan risiko hukumnya.';
+  const r4=S.cp.runs.find(x=>x.id==='cp4'); if(r4) Object.assign(r4.sc,{all:false,y0:2021,y1:2024});
+  if(!S.cp.runs.find(x=>x.id==='cp6')) S.cp.runs.unshift({id:'cp6', a:'ptnusa', b:'yayasan', sc:{all:true,y0:2020,y1:2026,hop:3,ctx:''}, when:'Baru saja', status:'Proses', job:{t0:Date.now()-3000, dur:40000}}); })();
+S.cp.form = cpNewForm(); S.cp.form.ctx=''; S.cp.stack=[]; S.cp.collapsed=new Set(); S.cp.zt={};
+const c3Jobs = () => S.cp.runs.filter(r=>r.status==='Proses');
+const c3JobSt = r => { const el=Date.now()-r.job.t0, f=Math.min(1,el/r.job.dur), n=4, cur=Math.min(n-1,Math.floor(f*n)); return {el,left:r.job.dur-el,f,cur}; };
+const C3STEPS = h => ['Memuat Entity A dan Entity B','Mencari jalur hingga '+h+' hop','Mengelompokkan jalur per konteks','Menyusun ringkasan dan insight'];
+
+/* ---------- kandidat ---------- */
+function c3RoleOf(id){ const rs=CPE.filter(e=>e.a===id&&e.k==='role').sort((a,b)=>((b.t&&b.t[1])||0)-((a.t&&a.t[1])||0)); const r=rs[0];
+  if(r) return {txt:`${r.det['Jabatan']||'Jabatan'}, ${cpName(r.b)}`, per:r.t?c3Yr(r):'periode tidak diketahui', cur:r.t&&r.t[1]>=2026};
+  const ro=rmRoleOf(id); return ro?{txt:ro.txt, per:ro.per, cur:ro.l==='Current role'}:null; }
+function c3Meta(id){ const n=NN[id]; if(n.t==='Person'){ const ro=c3RoleOf(id); return ro?`${ro.txt} <span class="muted">· ${ro.cur?'saat ini':'terakhir tercatat'}, ${ro.per}</span>`:'<span class="muted">Jabatan belum tercatat</span>'; }
+  return RMIND[id]||(SKENT[id]&&SKENT[id].org&&(SKENT[id].org.find(r=>r[0]==='Sektor')||[])[1])||'<span class="muted">Industri belum tercatat</span>'; }
+function c3Slot(k){
+  const F=S.cp.form, X=F[k], other=F[k==='a'?'b':'a'], L=k.toUpperCase();
+  if(X.id){ const n=NN[X.id], same=other.id===X.id;
+    return `<div class="c3-slot"><div class="c3-lab">Entity ${L}</div><div class="c3-sel ${same?'bad':''}"><span class="cp-end ${k==='b'?'b':''}">${L}</span><div style="min-width:0;flex:1"><div class="row" style="gap:6px"><b>${n.n}</b>${cpTP(n.t)}</div><div class="xs">${c3Meta(X.id)}</div></div><button class="btn sm ghost" data-a="c3-clear" data-k="${k}">Ganti</button></div>${same?'<div class="sk-err" role="alert">Entity A dan B harus berbeda.</div>':''}</div>`; }
+  const q=X.q.trim().toLowerCase(), w=q.split(/\s+/).filter(x=>x.length>1);
+  const cands = X.searched&&q ? Object.entries(NN).filter(([id,n])=>n.t===X.type&&[n.n,...(n.al||[])].some(s=>{s=s.toLowerCase(); return s.includes(q)||w.some(x=>s.includes(x));})).map(([id])=>id).slice(0,6) : [];
+  return `<div class="c3-slot"><div class="c3-lab">Entity ${L}</div><form class="sk-search" data-form="c3-search" data-k="${k}"><select class="sk-type" data-a="c3-type" data-k="${k}" aria-label="Jenis entitas ${L}"><option value="Person" ${X.type==='Person'?'selected':''}>Person</option><option value="Organization" ${X.type==='Organization'?'selected':''}>Organization</option></select><input name="q" value="${esc(X.q)}" placeholder="Cari nama atau alias" aria-label="Cari Entity ${L}" autocomplete="off"><button class="btn sm primary">Cari</button></form>
+    ${X.searched?(cands.length?`<div class="xs muted" style="margin:8px 0 4px">${cands.length} kandidat</div><div class="grid" style="gap:6px">${cands.map(id=>`<button class="opt sk-cand" data-a="c3-pick" data-k="${k}" data-id="${id}"><span class="row between" style="gap:8px"><b>${NN[id].n}</b>${cpTP(NN[id].t)}</span><span class="xs muted">Alias: ${NN[id].al&&NN[id].al.length?NN[id].al.join(', '):'—'}</span><span class="small">${c3Meta(id)}</span></button>`).join('')}</div>`:`<div class="sk-empty" style="margin-top:8px"><b>Tidak ditemukan “${esc(X.q)}”.</b><div class="small">Coba alias atau jenis entitas lain.</div></div>`):''}</div>`;
+}
+cpList = function(){
+  const K=S.cp, F=K.form, ok=F.a.id&&F.b.id&&F.a.id!==F.b.id;
+  const hist = K.runs.length ? `<div class="scroll-x"><table class="t nxl-t"><thead><tr><th>Entity A</th><th>Entity B</th><th>Cakupan</th><th>Dibuat</th><th>Status</th><th style="text-align:right">Aksi</th></tr></thead><tbody>${K.runs.map(r=>{ const pr=r.status==='Proses'; const st=pr?c3JobSt(r):null;
+      return `<tr><td><b>${cpName(r.a)}</b> ${cpTP(NN[r.a].t)}</td><td><b>${cpName(r.b)}</b> ${cpTP(NN[r.b].t)}</td><td class="small">${r.sc.all?'Semua periode':r.sc.y0+' – '+r.sc.y1}<div class="xs muted">${r.sc.hop} hop</div></td><td class="small" style="white-space:nowrap">${r.when}${r.fresh?' <span class="tag" style="background:var(--ev-verified-bg);color:var(--ev-verified)">Baru</span>':''}</td>
+      ${pr?`<td data-c3row="${r.id}" style="min-width:150px"><span class="jb-tag"><i class="spin"></i>Sedang diproses</span><div class="jb-track sm"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div><div class="xs muted">Sisa ± <span class="jb-left">${fmtT(st.left)}</span></div></td>`:r.status==='Parsial'?'<td><span class="tag" style="background:var(--ev-unverified-bg);color:var(--ev-unverified)">Parsial</span></td>':'<td><span class="tag" style="background:var(--ev-verified-bg);color:var(--ev-verified)">Selesai</span></td>'}
+      <td style="text-align:right;white-space:nowrap">${pr?`<button class="btn sm" data-a="cp-open" data-id="${r.id}">Lihat progres</button><button class="btn sm ghost" data-a="c3-jobcancel" data-id="${r.id}">Batalkan</button>`:`<button class="btn sm" data-a="cp-open" data-id="${r.id}">Buka</button><button class="btn sm ghost" data-a="cp-del" data-id="${r.id}">Hapus</button>`}</td></tr>`; }).join('')}</tbody></table></div>` : `<div class="empty"><h3>Anda belum membuat analisis</h3></div>`;
+  return `<div class="card" style="margin-top:0"><div class="sub-h" style="margin-top:0">Analisis baru</div>
+      <div class="cp-pair">${c3Slot('a')}<button class="nxs-swap" data-a="c3-swap" aria-label="Tukar Entity A dan B" title="Tukar A dan B">⇄</button>${c3Slot('b')}</div>
+      <div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn primary" data-a="c3-next" ${ok?'':'disabled'}>Generate</button></div></div>
+    <div class="card" style="padding:0;overflow:hidden;margin-top:14px"><div class="nxl-bar"><b class="small">Riwayat analisis</b><span class="xs muted">${K.runs.length} analisis</span></div>${hist}</div>`;
+};
+function c3Form(){
+  const F=S.cp.form, bad=!F.all&&F.y1<F.y0, ent = k => { const n=NN[F[k].id]; return `<div class="c3-pe"><span class="cp-end ${k==='b'?'b':''}">${k.toUpperCase()}</span><div style="min-width:0"><div class="row" style="gap:6px"><b>${n.n}</b>${cpTP(n.t)}</div><div class="xs">${c3Meta(F[k].id)}</div></div></div>`; };
+  return cpCrumb('Analisis baru','← Riwayat') + `<div class="rm-form"><h2 style="margin:0 0 14px">Connection Paths baru</h2>
+    <section class="rm-sec"><div class="c3-pair">${ent('a')}<span class="c3-arr">↔</span>${ent('b')}</div><div class="row" style="justify-content:flex-end;margin-top:6px"><button class="btn sm ghost" data-a="c3-back">Ganti entitas</button></div></section>
+    <section class="rm-sec"><div class="rm-sh">Cakupan</div><div class="rm-scope">
+      <div><div class="rm-lab">Periode</div><div class="seg"><button class="${F.all?'on':''}" data-a="c3-f" data-k="all" data-v="1">Semua periode</button><button class="${!F.all?'on':''}" data-a="c3-f" data-k="all" data-v="0">Rentang waktu khusus</button></div>
+        ${!F.all?`<div class="row" style="gap:8px;margin-top:8px"><select class="select" style="width:auto" data-a="c3-yr" data-k="y0" aria-label="Tahun mulai">${SKYEARS.map(y=>`<option ${F.y0===y?'selected':''}>${y}</option>`).join('')}</select><span class="muted">–</span><select class="select" style="width:auto" data-a="c3-yr" data-k="y1" aria-label="Tahun akhir">${SKYEARS.map(y=>`<option ${F.y1===y?'selected':''}>${y}</option>`).join('')}</select></div>${bad?'<div class="sk-err" role="alert">Tahun akhir lebih awal dari tahun mulai.</div>':''}`:''}</div>
+      <div><div class="rm-lab">Kedalaman jalur</div><div class="seg">${[1,2,3].map(h=>`<button class="${F.hop===h?'on':''}" data-a="c3-f" data-k="hop" data-v="${h}">${h} hop</button>`).join('')}</div></div></div></section>
+    <section class="rm-sec"><div class="rm-sh">Konteks tambahan <span class="xs muted" style="font-weight:400">opsional</span></div><textarea class="input" rows="3" data-bind="c3-ctx" placeholder="mis. Kami menilai ${esc(NN[F.b.id].n)} sebagai calon vendor dan ingin tahu afiliasinya dengan ${esc(NN[F.a.id].n)}.">${esc(F.ctx||'')}</textarea><div class="xs muted" style="margin-top:4px">Dipakai untuk memprioritaskan hasil, bukan sebagai fakta.</div></section>
+    <div class="rm-foot"><button class="btn" data-a="c3-back">Batal</button><button class="btn primary" data-a="c3-gen" ${bad?'disabled':''}>Generate</button></div></div>`;
+}
+function c3Gen(){ const K=S.cp, r=K.runs.find(x=>x.id===K.cur); if(!r||r.status!=='Proses'){ K.stage='list'; return cpList(); } const st=c3JobSt(r), steps=C3STEPS(r.sc.hop);
+  return cpCrumb('Sedang diproses','← Riwayat') + `<div class="wz" data-c3job="${r.id}" style="max-width:600px;padding-top:10px"><h2 style="margin-bottom:4px">Menyusun Connection Paths</h2><p class="small muted" style="margin:0 0 14px">${cpName(r.a)} ↔ ${cpName(r.b)} · ${r.sc.all?'Semua periode':r.sc.y0+'–'+r.sc.y1} · ${r.sc.hop} hop</p>
+    <ul class="proc">${steps.map((t,i)=>`<li class="${i<st.cur?'done':i===st.cur?'now':''}" data-step="${i}"><span class="dot">${i<st.cur?'✓':''}</span>${t}</li>`).join('')}</ul>
+    <div class="jb-track"><i class="jb-bar" style="width:${Math.round(st.f*100)}%"></i></div><div class="row between small" style="margin-top:6px"><span class="muted">Berjalan <b class="jb-el">${fmtT(st.el)}</b></span><span>Perkiraan sisa <b class="jb-left">${fmtT(st.left)}</b></span></div>
+    <div class="rm-bg"><div><b class="small">Tidak perlu menunggu di halaman ini</b><div class="xs muted">Proses tetap berjalan. Hasilnya muncul di riwayat dan Anda mendapat notifikasi saat selesai.</div></div><button class="btn primary" data-a="cp-home">Kembali ke Connection Paths</button></div>
+    <button class="btn sm ghost" data-a="c3-jobcancel" data-id="${r.id}" style="margin-top:10px">Batalkan proses</button></div>`; }
+
+/* ---------- hasil ---------- */
+const C3TABS=[['paths','Connection Paths'],['overview','Insight Overview'],['coverage','Cakupan & Keterbatasan'],['sources','Sumber']];
+cpResult = function(){
+  const K=S.cp, run=K.runs.find(r=>r.id===K.cur), R=c3Analyse(run); if(!C3TABS.some(t=>t[0]===K.tab)) K.tab='paths';
+  const head=`<div class="sk-head"><div style="min-width:0"><div class="xs muted">Dibuat ${run.when}</div><h2 style="margin-top:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="cp-end">A</span>${cpName(run.a)} ${cpTP(NN[run.a].t)} <span class="muted">↔</span> <span class="cp-end b">B</span>${cpName(run.b)} ${cpTP(NN[run.b].t)}</h2>
+      <div class="row" style="gap:6px;margin-top:8px"><span class="qb-op">📅 ${run.sc.all?'Semua periode':run.sc.y0+' – '+run.sc.y1}</span><span class="qb-op">🔗 Maks. ${run.sc.hop} hop</span></div></div>
+      <div class="row" style="gap:6px"><button class="btn sm" data-a="c3-edit">✎ Ubah cakupan</button><button class="btn sm primary" data-a="cp-new">${ic('plus',13)}Analisis baru</button></div></div>
+    ${run.sc.ctx?`<div class="rm-ctxbox"><span class="xs muted" style="font-weight:700">Konteks tambahan</span><span class="small">“${esc(run.sc.ctx)}”</span></div>`:''}
+    ${run.status==='Parsial'?`<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin-top:12px"><b>Hasil parsial.</b> Pencarian berhenti pada batas waktu; jumlah path adalah yang ditemukan sejauh ini. <button class="btn sm" data-a="cp-retry" style="margin-left:6px">Coba lagi</button></div>`:''}`;
+  const crumb=cpCrumb(`${cpName(run.a)} ↔ ${cpName(run.b)}`,'← Riwayat');
+  if(!R.paths.length) return crumb+head+`<div class="card"><div class="empty"><h3>Keterkaitan belum ditemukan</h3><p class="small muted" style="max-width:60ch;margin:0 auto">Tidak ada jalur hingga ${run.sc.hop} hop dalam cakupan data dan konfigurasi analisis ini. Ini tidak berarti kedua entitas tidak memiliki hubungan.</p><div class="row" style="justify-content:center;gap:6px;margin-top:10px"><button class="btn sm" data-a="c3-edit">Ubah cakupan</button><button class="btn sm" data-a="cp-new">Pilih entitas lain</button></div></div></div>`;
+  const body = K.tab==='paths'?c3PathsTab(R,run):K.tab==='overview'?c3Overview(R,run):K.tab==='coverage'?c3Coverage(R,run):cpSources(R,run);
+  return crumb+head+nxTabs(K.tab,'c3-tab',C3TABS)+body;
+};
+function c3Stats(R){ const d=R.paths.filter(p=>p.hops===1).length; return {total:R.paths.length, direct:d, indirect:R.paths.length-d, shortest:Math.min(...R.paths.map(p=>p.hops)), inter:R.inter.length}; }
+function c3Overview(R,run){ const st=c3Stats(R), A=cpName(run.a), B=cpName(run.b);
+  const byG={}; R.paths.forEach(p=>(byG[p.ctxG]=byG[p.ctxG]||[]).push(p)); const gs=Object.entries(byG).sort((a,b)=>b[1].length-a[1].length);
+  const shared=R.inter.map(m=>[m,R.paths.filter(p=>p.mids.includes(m))]).filter(([m,ps])=>ps.length>1).sort((a,b)=>b[1].length-a[1].length);
+  const ov=R.paths.filter(p=>p.tc==='overlap'), cross=R.paths.filter(p=>p.ctxS.length);
+  const yrs=R.paths.flatMap(p=>p.edges.filter(e=>e.t).map(e=>e.t)); const y0=yrs.length?Math.min(...yrs.map(t=>t[0])):null, y1=yrs.length?Math.max(...yrs.map(t=>t[1])):null;
+  const top=R.paths[0], cxp=R.paths.filter(p=>p.cx);
+  const sigM = R.inter.slice().sort((a,b)=>R.paths.filter(p=>p.mids.includes(b)).length-R.paths.filter(p=>p.mids.includes(a)).length).slice(0,3);
+  const go = (p,t) => `<button class="rm-hl" data-a="c3-goto" data-id="${p.id}">${t} <span class="rm-hlgo">Lihat path ›</span></button>`;
+  const hl=[];
+  if(R.CX&&cxp.length) hl.push(go(cxp[0],`Terkait konteks Anda, path paling relevan adalah “${cxp[0].title}”: ${cxp[0].edges.map(cpStep).join('; ')}.`));
+  if(shared.length) hl.push(go(shared[0][1][0],`${cpName(shared[0][0])} menjadi perantara bersama di ${shared[0][1].length} path, sehingga menjadi titik temu utama ${A} dan ${B}.`));
+  if(cross.length) hl.push(go(cross[0],`Path “${cross[0].title}” menghubungkan lintas konteks: ${C3GL(cross[0].ctxG)} dengan ${cross[0].ctxS.map(C3GL).join(', ')}.`));
+  if(ov.length) hl.push(go(ov[0],`${ov.length} path memiliki irisan waktu, misalnya “${ov[0].title}” pada ${cpYr(ov[0].shared)}.`));
+  if(y0!=null) hl.push(go(R.paths.find(p=>p.edges.some(e=>e.t&&e.t[0]===y0))||top,`Perkembangan: hubungan paling awal tercatat ${y0}, paling akhir ${y1}${R.paths.some(p=>p.tc==='non')?'; sebagian path hanya terhubung secara struktural pada periode berbeda':''}.`));
+  return `<div class="rm-ov"><section class="card" style="margin-top:0"><div class="card-h"><h3>Connection Statistics</h3></div><div class="c3-stats">${[['Unique paths',st.total],['Direct',st.direct],['Indirect',st.indirect],['Shortest path',st.shortest+' hop'],['Intermediate entities',st.inter]].map(([l,v])=>`<div><b>${v}</b><span>${l}</span></div>`).join('')}</div></section>
+    <section class="card"><div class="card-h"><h3>Connection Summary</h3>${aiIc()}</div><p class="small" style="margin:0">${st.direct?`${A} dan ${B} memiliki ${st.direct} hubungan langsung${R.paths.find(p=>p.hops===1&&p.claim)?' (berupa klaim beratribusi)':''}. `:`Tidak ditemukan hubungan langsung antara ${A} dan ${B}. `}${st.indirect?`Keduanya terhubung tidak langsung melalui ${st.inter} entitas perantara, terutama ${sigM.map(cpName).join(', ')}. `:''}Konteks utama: ${gs.map(([g,ps])=>`${C3GL(g)} (${ps.length} path)`).join(', ')}.${R.CX?` Dengan konteks Anda, ${cxp.length} path diprioritaskan.`:''} Jalur tidak langsung bukan bukti hubungan langsung.</p></section>
+    <section class="card"><div class="card-h"><h3>Analytical Highlights</h3>${aiIc()}</div><div class="grid" style="gap:6px">${hl.join('')}</div></section></div>`; }
+function c3Coverage(R,run){ const es=[...new Set(R.paths.flatMap(p=>p.edges))], unk=es.filter(e=>!e.t), cl=es.filter(e=>e.st!=='fact'), miss=es.filter(e=>Object.values(e.det||{}).some(v=>v===null)), srcs=[...new Set(es.flatMap(e=>e.src))];
+  return `<div class="card" style="margin-top:0"><div class="card-h"><h3>Cakupan & Keterbatasan Data</h3></div><ul class="sk-ul">
+    <li>${srcs.length} sumber dari arsip Tempo yang telah diproses (cut-off ${CPDATE}).</li>
+    <li>Kedalaman maksimum ${run.sc.hop} hop; jalur tidak mengulang entitas yang sama. ${R.paths.length} path ditemukan dalam pencarian ini${R.limitHit?' (batas pencarian tercapai)':''}.</li>
+    <li>${run.sc.all?'Semua periode.':`Periode ${run.sc.y0}–${run.sc.y1}: setiap hubungan pembentuk jalur dievaluasi terhadap periode ini.`} ${unk.length?`${unk.length} hubungan tanpa informasi waktu tetap disertakan; jalurnya ditandai karena keterkaitan dalam periode belum dapat dipastikan.`:'Semua hubungan memiliki informasi waktu.'}</li>
+    ${cl.length?`<li>${cl.length} hubungan berupa klaim beratribusi (belum terverifikasi).</li>`:''}
+    ${miss.length?`<li>Atribut belum lengkap pada ${miss.length} hubungan (misalnya ${Object.entries(miss[0].det).filter(([k,v])=>v===null).map(([k])=>k.toLowerCase()).slice(0,2).join(', ')}).</li>`:''}
+    ${R.co.length?`<li>${R.co[0][2]} artikel menyebut kedua entitas bersama tanpa pernyataan hubungan; tidak dihitung sebagai hubungan.</li>`:''}
+    <li>Tanggal publikasi tidak dipakai sebagai waktu hubungan.</li><li>Tidak ditemukannya path tidak berarti hubungan tersebut tidak ada.</li></ul></div>`; }
+function c3PathsTab(R,run){
+  const K=S.cp, FP=c3Filter(R), covs=[...new Set(R.paths.flatMap(p=>p.edges.map(e=>C3COV(e)[0])))], rels=[...new Set(R.paths.flatMap(p=>p.edges.map(e=>e.l)))];
+  const bar = fbar('cp',[{k:'hop',label:'Jumlah hop',kind:'single',def:'Semua',opts:[['Semua','Semua'],...[1,2,3].filter(h=>R.paths.some(p=>p.hops===h)).map(h=>[String(h),h+' hop'])]},{k:'covs',label:'Coverage',kind:'multi',opts:covs.map(c=>[c,c])},{k:'rels',label:'Jenis hubungan',kind:'multi',opts:rels.map(l=>[l,l])}], `<b>${FP.length}</b> dari ${R.paths.length} path`);
+  if(K.act&&!FP.find(p=>p.id===K.act)) K.act=null;
+  const groups=C3GROUPS.map(g=>[g,FP.filter(p=>p.ctxG===g)]).filter(([g,ps])=>ps.length);
+  const gHtml = groups.length ? groups.map(([g,ps])=>c3Group(g,ps,R,run)).join('') : `<div class="card"><div class="empty"><h3>Tidak ada path yang sesuai filter</h3><button class="btn sm" data-a="fb-reset" data-s="cp">Reset filter</button></div></div>`;
+  return bar + `<div class="c3-wrap"><div class="c3-groups">${gHtml}</div><aside class="nx-panel c3-panel">${c3Panel(R,run)}</aside></div>`;
+}
+function c3GroupSummary(g,ps,run){ const A=cpName(run.a), B=cpName(run.b), mids=[...new Set(ps.flatMap(p=>p.mids))], ov=ps.filter(p=>p.tc==='overlap');
+  const what={own:'afiliasi jabatan atau kepemilikan',biz:'kontrak, pendanaan, atau keterlibatan program/proyek',gov:'pengawasan atau regulasi',legal:'peran dalam perkara hukum',other:'hubungan lain'}[g];
+  return `${A} dan ${B} terkait melalui ${what}${ps.every(p=>p.claim)?' (berupa klaim beratribusi)':''}${mids.length?`, dengan perantara ${mids.map(cpName).join(', ')}`:' secara langsung'}. ${ov.length?`${ov.length} dari ${ps.length} path beririsan waktu (${ov.map(p=>cpYr(p.shared)).join(', ')}).`:'Waktu antarhubungan tidak beririsan atau belum dapat dipastikan.'}`; }
+function c3Group(g,ps,R,run){ const K=S.cp, open=!K.collapsed.has(g), act=ps.find(p=>p.id===K.act);
+  return `<section class="c3-group ${open?'open':''}"><button class="c3-gh" data-a="c3-toggle" data-g="${g}" aria-expanded="${open}"><span class="c3-car">${open?'▾':'▸'}</span><b>${C3GL(g)}</b><span class="tag">${ps.length} path</span></button>
+    ${open?`<div class="c3-gb"><p class="small" style="margin:0 0 10px">${aiIc()} ${c3GroupSummary(g,ps,run)}</p>
+      <div class="c3-gl"><div class="fg nx-graph c3-graph" id="c3g-${g}" data-g="${g}">${c3Graph(g,ps,run,R)}<div class="nx-tip" role="tooltip"></div><div class="fg-ctrl"><button data-a="c3z" data-g="${g}" data-z="1.3" aria-label="Perbesar">+</button><button data-a="c3z" data-g="${g}" data-z="0.77" aria-label="Perkecil">−</button><button data-a="c3z" data-g="${g}" data-z="0" aria-label="Reset tampilan">⌂</button></div></div>
+      <div class="c3-list" role="list">${act?`<button class="linkish xs" data-a="c3-desel" style="margin-bottom:6px">← Tampilkan semua path</button>`:''}${ps.map(p=>`<button class="c3-path ${K.act===p.id?'on':''} ${act&&K.act!==p.id?'dim':''}" data-a="c3-path" data-id="${p.id}" role="listitem" aria-pressed="${K.act===p.id}"><div class="row between" style="gap:6px"><b class="small">${p.title}</b><span class="xs muted" style="white-space:nowrap">${p.hops} hop</span></div><div class="c3-seq">${p.nodes.map(cpName).join(' › ')}</div><div class="xs muted">${cpInsight(p,run).split('. ')[0].replace(/\.+$/,'')}.</div><div class="row" style="gap:4px;margin-top:4px;flex-wrap:wrap"><span class="c3-tc ${p.tc}">${C3TC[p.tc]}</span>${p.claim?'<span class="c3-tc claim">Memuat klaim</span>':''}${p.cx?'<span class="rm-ctxtag">Relevan dengan konteks</span>':''}${!run.sc.all&&p.tc==='und'?'<span class="c3-tc und">Periode belum dapat dipastikan</span>':''}</div></button>`).join('')}</div></div></div>`:''}</section>`; }
+let C3POS={};
+function c3Graph(g,ps,run,R){
+  const K=S.cp, act=K.act&&ps.find(p=>p.id===K.act), W=720, xA=70, xB=W-70;
+  const pos={}, colOf={}; ps.forEach(p=>p.nodes.slice(1,-1).forEach((n,i)=>{ const f=(i+1)/(p.nodes.length-1); (colOf[n]=colOf[n]||[]).push(f); }));
+  const cols={}; Object.entries(colOf).forEach(([n,fs])=>{ const f=Math.round(fs.reduce((a,b)=>a+b,0)/fs.length*6)/6; (cols[f]=cols[f]||[]).push(n); });
+  const maxC=Math.max(1,...Object.values(cols).map(c=>c.length)), hasDirect=ps.some(p=>p.hops===1), H=Math.max(220, 90+maxC*96+(hasDirect?50:0)), cy=H/2+(hasDirect?22:0);
+  pos[run.a]=[xA,cy]; pos[run.b]=[xB,cy];
+  Object.entries(cols).forEach(([f,ns])=>ns.forEach((n,i)=>{ pos[n]=[xA+(xB-xA)*(+f), cy+(i-(ns.length-1)/2)*96]; }));
+  C3POS[g]=pos;
+  const pairs={}; ps.forEach(p=>p.edges.forEach(e=>{ const k=[e.a,e.b].sort().join('|'); (pairs[k]=pairs[k]||{a:e.a,b:e.b,es:new Set()}).es.add(e); }));
+  const onP = act ? new Set(act.edges) : null, onN = act ? new Set(act.nodes) : null;
+  const mk=c=>`<marker id="c3ar-${g}-${c.replace('#','')}" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${c}"/></marker>`;
+  const cols2=[...new Set([...Object.values(CPKCOL),'#C98A1A','#BDBDBD'])];
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Graph ${esc(C3GL(g))}"><defs>${cols2.map(mk).join('')}</defs><g class="vp">`;
+  Object.entries(pairs).forEach(([k,pr])=>{ const es=[...pr.es], types=[...new Set(es.map(e=>e.l))], e=es[0], [x1,y1]=pos[pr.a], [x2,y2]=pos[pr.b];
+    const inP = !act || es.some(z=>onP.has(z)), claim=es.some(z=>z.st!=='fact'), unk=es.every(z=>!z.t), mixed=new Set(es.map(z=>z.a)).size>1;
+    const col = !inP ? '#BDBDBD' : claim ? '#C98A1A' : CPKCOL[e.k]||'#555', dash = claim?'7 4':unk?'2 3':'';
+    const direct = (pr.a===run.a&&pr.b===run.b)||(pr.a===run.b&&pr.b===run.a);
+    const sx=pr.a===e.a?x1:x2, sy=pr.a===e.a?y1:y2, ex=pr.a===e.a?x2:x1, ey=pr.a===e.a?y2:y1; const dx=ex-sx, dy=ey-sy, L=Math.hypot(dx,dy)||1;
+    const rS=(e.a===run.a||e.a===run.b)?26:18, rE=(e.b===run.a||e.b===run.b)?28:20; const a1=[sx+dx/L*rS, sy+dy/L*rS], a2=[ex-dx/L*rE, ey-dy/L*rE];
+    const d = direct ? `M${a1[0]},${a1[1]-6} Q${(a1[0]+a2[0])/2},${Math.min(a1[1],a2[1])-H*0.42} ${a2[0]},${a2[1]-6}` : `M${a1[0]},${a1[1]} L${a2[0]},${a2[1]}`;
+    const mx = direct ? (a1[0]+a2[0])/2 : (a1[0]+a2[0])/2, my = direct ? Math.min(a1[1],a2[1])-H*0.21-6 : (a1[1]+a2[1])/2-8;
+    const lab = types.length>1 ? `${types.length} hubungan` : types[0]+(claim?' · dugaan':'');
+    const on = K.stack.length&&K.stack[K.stack.length-1].t==='rg'&&[K.stack[K.stack.length-1].a,K.stack[K.stack.length-1].b].sort().join('|')===k;
+    s+=`<g class="nxe ${inP?'':'unfoc'} ${on?'sel':''}" data-a="c3-edge" data-p="${pr.a}" data-c="${pr.b}" data-tip="${esc(es.map(cpStep).join('; ')+'|'+[...new Set(es.map(c3Yr))].join(', '))}" tabindex="0" role="button" aria-label="${esc(cpName(pr.a)+' – '+cpName(pr.b)+': '+types.join(', '))}"><path d="${d}" stroke="transparent" stroke-width="16" fill="none"/><path d="${d}" stroke="${col}" stroke-width="${on?3.4:inP&&act?2.8:2}" fill="none" stroke-dasharray="${dash}" ${mixed?'':`marker-end="url(#c3ar-${g}-${col.replace('#','')})"`}/>${inP?`<rect x="${mx-(lab.length*3.2+8)}" y="${my-12}" width="${lab.length*6.4+16}" height="16" rx="3" fill="var(--paper)" opacity=".92"/><text x="${mx}" y="${my}" text-anchor="middle" class="cp-elab">${esc(lab)}</text>`:''}</g>`; });
+  Object.entries(pos).forEach(([id,[x,y]])=>{ const t=NN[id].t, end=id===run.a?'A':id===run.b?'B':null, r=end?22:16, inN=!act||onN.has(id), cnt=ps.filter(p=>p.mids.includes(id)).length;
+    const on = K.stack.length&&K.stack[K.stack.length-1].t==='node'&&K.stack[K.stack.length-1].id===id;
+    s+=`<g class="nxn ${inN?'':'unfoc'} ${on?'sel':''}" data-a="c3-node" data-id="${id}" data-tip="${esc(cpName(id)+'|'+skTL(t)+(end?' · Entity '+end:' · perantara di '+cnt+' path'))}" tabindex="0" role="button" aria-label="${esc(cpName(id)+', '+skTL(t))}">${end?`<circle cx="${x}" cy="${y}" r="${r+6}" fill="none" stroke="var(--ink)" stroke-width="2.5"/>`:''}${skShape(t,x,y,r)}${skGlyph(t,x,y,r)}${on?`<circle cx="${x}" cy="${y}" r="${r+9}" fill="none" stroke="var(--red)" stroke-width="2"/>`:''}${end?`<rect x="${x-9}" y="${y-r-30}" width="18" height="18" rx="9" fill="var(--ink)"/><text x="${x}" y="${y-r-17}" text-anchor="middle" fill="var(--paper)" font-size="11" font-weight="800">${end}</text>`:''}${cnt>1?`<rect x="${x+r-4}" y="${y-r-8}" width="22" height="14" rx="7" fill="var(--ink)"/><text x="${x+r+7}" y="${y-r+2}" text-anchor="middle" fill="var(--paper)" font-size="9.5" font-weight="800">×${cnt}</text>`:''}<text x="${x}" y="${y+r+15}" text-anchor="middle" class="nxl">${esc(cpName(id).length>24?cpName(id).slice(0,22)+'…':cpName(id))}</text><text x="${x}" y="${y+r+27}" text-anchor="middle" class="nxs">${skTL(t)}</text></g>`; });
+  return s+'</g></svg>'; }
+
+/* ---------- panel insight (dengan navigasi kembali) ---------- */
+const c3Top = () => S.cp.stack[S.cp.stack.length-1];
+function c3PanelHead(kind,title,sub){ const n=S.cp.stack.length; return `<div class="c3-ph">${n>1?'<button class="btn sm ghost" data-a="c3-pback">← Kembali</button>':'<span></span>'}<button class="btn sm ghost" data-a="c3-pclose" aria-label="Tutup panel">✕</button></div><div class="nxp-h" style="margin-top:4px"><div class="xs muted" style="font-weight:700">${kind}</div><h3>${title}</h3>${sub?`<div class="xs muted">${sub}</div>`:''}</div>`; }
+function c3Panel(R,run){ const top=c3Top(); if(!top){ const st=c3Stats(R); return `<div class="nxp-h"><div class="xs muted" style="font-weight:700">INSIGHT PANEL</div><h3>${st.total} path ditemukan</h3><div class="xs muted">${st.direct} langsung · ${st.indirect} tidak langsung · ${st.inter} entitas perantara</div></div><p class="small muted">Pilih path di daftar, atau klik entitas atau garis di graph untuk melihat insight-nya.</p>`; }
+  if(top.t==='path') return c3PathPanel(R,run,R.paths.find(p=>p.id===top.id));
+  if(top.t==='node') return c3NodePanel(R,run,top.id);
+  if(top.t==='rg') return c3RGPanel(R,run,top.a,top.b);
+  if(top.t==='rel') return c3RelPanel(R,run,CPE.find(e=>e.id===top.id));
+  return ''; }
+const c3EvCards = ids => [...new Set(ids)].filter(s=>SRC[s]).map(s=>`<button class="src-card" style="width:100%;margin-bottom:6px" data-a="src" data-id="${s}"><span class="xs muted">${SRC[s].o} · terbit ${SRC[s].d} · ID TMP-${s.toUpperCase()}</span><b>${SRC[s].t}</b><span class="small" style="font-style:italic">“${(SRC[s].x||'').replace(/<\/?mark>/g,'').slice(0,150)}…”</span></button>`).join('');
+function c3PathPanel(R,run,p){ if(!p) return c3PanelHead('PATH','Path tidak tersedia');
+  const yrs=p.edges.filter(e=>e.t), cont = yrs.length&&yrs.every(e=>e.t[1]>=2026) ? 'Masih berlanjut menurut sumber' : yrs.length ? 'Sebagian atau seluruh hubungan telah berakhir' : 'Tidak dapat dipastikan';
+  const events=p.nodes.filter(n=>['Case','Program','Project'].includes(NN[n].t)).concat(p.edges.filter(e=>e.ev==='event').map(e=>e.id));
+  return c3PanelHead('PATH INSIGHT', p.title, `${p.hops} hop · ${C3GL(p.ctxG)}${p.ctxS.length?' · juga '+p.ctxS.map(C3GL).join(', '):''}`) + `
+    <div class="sk-sec"><div class="sk-sh">Path identity</div><div class="pchain">${p.nodes.map((n,i)=>`<button class="pchip" data-a="c3-node" data-id="${n}">${nodeDot(NN[n].t,8)}${cpName(n)}</button>${i<p.edges.length?`<button class="parr linkish" data-a="c3-edge" data-p="${p.edges[i].a}" data-c="${p.edges[i].b}">${p.edges[i].a===n?p.edges[i].l+' →':'← '+p.edges[i].l}</button>`:''}`).join('')}</div>${cpRow('Primary context',C3GL(p.ctxG))}${cpRow('Supporting contexts',p.ctxS.length?p.ctxS.map(C3GL).join(', '):'—')}</div>
+    <div class="sk-sec"><div class="sk-sh">Path summary ${aiIc()}</div><p class="small" style="margin:0">${cpInsight(p,run)}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Relationship breakdown</div>${p.edges.map((e,i)=>`<div class="c3-seg"><button class="nx-kr" data-a="c3-edge" data-p="${e.a}" data-c="${e.b}"><span style="flex:1;min-width:0"><b class="small">${i+1}. ${cpStep(e)}</b><span class="xs muted" style="display:block">${C3COV(e)[0]} · ${C3COV(e)[1]}</span><span class="xs muted" style="display:block">${c3Yr(e)} · ${c3Ver(e)}</span></span><span class="rm-chev">›</span></button><button class="linkish xs" data-a="c3-rel" data-id="${e.id}" style="margin:0 0 6px 8px">Detail relationship ›</button></div>`).join('')}</div>
+    <div class="sk-sec"><div class="sk-sh">Temporal context</div>${cpRow('Klasifikasi',`<span class="c3-tc ${p.tc}">${C3TC[p.tc]}</span> ${C3TCD[p.tc]}`)}${cpRow('Periode bersama',p.shared?cpYr(p.shared):'—')}${cpRow('Keberlanjutan',cont)}${!run.sc.all&&p.tc==='und'?'<p class="xs muted" style="margin:4px 0 0">Keterkaitan dalam periode pilihan belum dapat dipastikan karena ada hubungan tanpa informasi waktu.</p>':''}<p class="xs muted" style="margin:4px 0 0">Dihitung dari hubungan yang membentuk path ini saja.</p></div>
+    ${events.length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${events.map(x=>NN[x]?`<button class="nx-kr" data-a="c3-node" data-id="${x}"><span style="flex:1"><b class="small">${cpName(x)}</b><span class="xs muted" style="display:block">${NN[x].d||''}</span></span></button>`:(()=>{ const e=CPE.find(z=>z.id===x); return `<button class="nx-kr" data-a="c3-rel" data-id="${x}"><span style="flex:1"><b class="small">${cpStep(e)}</b><span class="xs muted" style="display:block">Peristiwa · ${c3Yr(e)}</span></span></button>`; })()).join('')}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Interpretation ${aiIc()}</div><ul class="sk-ul">${cpCannot(p,run).map(c=>`<li>${c}</li>`).join('')}${p.claim?'<li>Path ini memuat klaim beratribusi; modality “dugaan” dipertahankan dan tidak diperlakukan sebagai fakta.</li>':''}${p.tc==='non'?'<li>Waktu hubungan tidak beririsan, sehingga path hanya menunjukkan keterhubungan struktural.</li>':''}</ul></div>
+    <div class="sk-sec"><div class="sk-sh">Supporting evidence</div>${c3EvCards(p.edges.flatMap(e=>e.src.concat(e.alt?[e.alt[1]]:[])))}</div>`; }
+function c3NodePanel(R,run,id){ const N=NN[id], t=N.t, ps=R.paths.filter(p=>p.nodes.includes(id)), isEnd=id===run.a||id===run.b, other=id===run.a?run.b:run.a;
+  const role = t==='Person' ? (CPE.filter(e=>e.a===id&&e.k==='role').map(e=>`<div class="sk-pos"><b class="small">${e.det['Jabatan']||'Jabatan'}</b><span class="small"> — ${cpName(e.b)}</span><div class="xs muted">${c3Yr(e)}${e.t&&e.t[1]<2026?' · historis':''} ${cpCite(e.src)}</div></div>`).join('')||cpRow('Jabatan & afiliasi',c3Meta(id))) : t==='Organization' ? cpRow('Industri',c3Meta(id)) : cpRow('Deskripsi',N.d||null);
+  const rin = isEnd ? `${N.n} adalah Entity ${id===run.a?'A':'B'}; terhubung ke ${cpName(other)} melalui ${ps.length} path${ps.some(p=>p.hops===1)?', termasuk hubungan langsung':''}.` : `${N.n} menghubungkan ${cpName(run.a)} dan ${cpName(run.b)} di ${ps.length} path: ${ps.map(p=>p.title).join('; ')}. Kemunculan di beberapa path bukan ukuran pengaruh.`;
+  const kc = [...new Set(ps.flatMap(p=>p.edges.filter(e=>e.a===id||e.b===id)))];
+  const ev = ps.flatMap(p=>p.nodes).filter((n,i,a)=>a.indexOf(n)===i&&n!==id&&['Case','Program','Project'].includes(NN[n].t)&&kc.some(e=>e.a===n||e.b===n));
+  return c3PanelHead(isEnd?`ENTITY ${id===run.a?'A':'B'}`:'ENTITAS PERANTARA', N.n, skTL(t)) + `
+    <div class="sk-sec"><div class="sk-sh">Entity profile</div>${cpRow('Canonical name',N.n)}${cpRow('Entity type',skTL(t))}${N.al&&N.al.length?cpRow('Aliases',N.al.join(', ')):''}${cpRow('Description',N.d||null)}</div>
+    <div class="sk-sec"><div class="sk-sh">Role &amp; affiliation</div>${role}</div>
+    <div class="sk-sec"><div class="sk-sh">Role in network ${aiIc()}</div><p class="small" style="margin:0 0 6px">${rin}</p><div class="row" style="gap:4px;flex-wrap:wrap">${ps.map(p=>`<button class="chipf ${S.cp.act===p.id?'on':''}" data-a="c3-path" data-id="${p.id}">${p.title}</button>`).join('')}</div></div>
+    <div class="sk-sec"><div class="sk-sh">Key connections</div>${kc.map(e=>`<button class="nx-kr" data-a="c3-edge" data-p="${e.a}" data-c="${e.b}"><span style="flex:1;min-width:0"><b class="small">${cpStep(e)}</b><span class="xs muted" style="display:block">${c3Yr(e)} · ${c3Ver(e)}</span></span><span class="rm-chev">›</span></button>`).join('')}</div>
+    ${ev.length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${ev.map(n=>`<button class="nx-kr" data-a="c3-node" data-id="${n}"><span style="flex:1"><b class="small">${cpName(n)}</b><span class="xs muted" style="display:block">${NN[n].d||''}</span></span></button>`).join('')}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Supporting evidence</div>${c3EvCards(kc.flatMap(e=>e.src))||'<p class="small muted">—</p>'}</div>`; }
+function c3InScope(run,e){ return run.sc.all || !e.t || (e.t[1]>=run.sc.y0 && e.t[0]<=run.sc.y1); }
+function c3RGPanel(R,run,a,b){ const act=S.cp.act&&R.paths.find(p=>p.id===S.cp.act), inAct=new Set(act?act.edges:[]);
+  const es=CPE.filter(e=>((e.a===a&&e.b===b)||(e.a===b&&e.b===a))&&c3InScope(run,e)).sort((x,y)=>(inAct.has(y)?1:0)-(inAct.has(x)?1:0));
+  const groups={}; es.forEach(e=>{ const [c,cs]=C3COV(e); (groups[c+' · '+cs]=groups[c+' · '+cs]||[]).push(e); });
+  const types=new Set(es.map(e=>e.l));
+  return c3PanelHead('RELATIONSHIP GROUP', `${cpName(a)} ↔ ${cpName(b)}`, `${types.size} jenis hubungan${es.length>types.size?` · ${es.length} record`:''}`) + `
+    ${Object.entries(groups).map(([gk,list])=>`<div class="sk-sec"><div class="sk-sh">${gk}</div>${list.map(e=>`<button class="rm-rtab ${inAct.has(e)?'on':''}" data-a="c3-rel" data-id="${e.id}"><span class="rm-rb"><b>${e.l}</b><span class="xs muted">${cpName(e.a)} → ${cpName(e.b)}</span><span class="xs muted">${e.det&&Object.entries(e.det).filter(([k,v])=>v&&!/Periode|Tanggal|Mulai|Akhir|Masa/.test(k)).slice(0,1).map(([k,v])=>v).join('')||''}</span><span class="xs muted">${c3Yr(e)} · ${c3Ver(e)}</span>${inAct.has(e)?'<span class="xs" style="color:var(--red);font-weight:700">Membentuk path terpilih</span>':''}</span><span class="rm-chev">›</span></button>`).join('')}</div>`).join('')}`; }
+function c3RelPanel(R,run,e){ if(!e) return c3PanelHead('RELATIONSHIP','Tidak tersedia');
+  const [cov,cas]=C3COV(e), ps=R.paths.filter(p=>p.edges.includes(e)), act=S.cp.act&&ps.find(p=>p.id===S.cp.act);
+  const asr=[{p:`${cpStep(e)}.`, by:e.src.map(s=>SRC[s]?SRC[s].o:'').join(', '), mod:e.st==='fact'?'menyatakan':'diduga', pol:'Positif', src:e.src[0]}].concat(e.alt?[{p:e.alt[0], by:'Pihak terkait (bantahan)', mod:'menyatakan', pol:'Negatif (membantah)', src:e.alt[1]}]:[]);
+  const interp = ps.length ? (act?`Segmen ke-${act.edges.indexOf(e)+1} dari path “${act.title}”. `:`Dipakai di ${ps.length} path. `)+({role:'Menunjukkan afiliasi jabatan yang menjadi titik temu.',own:'Menunjukkan klaim kepemilikan; tidak membuktikan kendali.',money:'Menunjukkan aliran dana; tidak berarti keterlibatan dalam kegiatan penerima.',contract:'Menunjukkan hubungan kontraktual yang menyambungkan kedua sisi.',exec:'Menunjukkan peran pelaksana dalam konteks yang sama.',over:'Menunjukkan peran pengawasan dalam konteks yang sama.',case:'Menunjukkan peran dalam perkara; bukan bukti kesalahan.',struct:'Menunjukkan tanggung jawab atas proyek.'}[e.k]||'') : 'Tidak membentuk path dalam hasil ini.';
+  return c3PanelHead('DETAIL RELATIONSHIP', e.l, `${cpName(e.a)} → ${cpName(e.b)}`) + `
+    <div class="sk-sec"><div class="sk-sh">Relationship identity</div>${cpRow('Entity A',cpName(e.a))}${cpRow('Entity B',cpName(e.b))}${cpRow('Relationship type',e.l)}${cpRow('Direction',`${cpName(e.a)} → ${e.l} → ${cpName(e.b)}`)}</div>
+    <div class="sk-sec"><div class="sk-sh">Definition &amp; classification</div>${cpRow('Definisi',C3DEF[e.k]||null)}${cpRow('Coverage',cov)}${cpRow('Sub-kategori (case)',cas)}</div>
+    <div class="sk-sec"><div class="sk-sh">Context</div>${Object.entries(e.det||{}).map(([k,v])=>cpRow(k,v)).join('')}${e.ctx?cpRow('Konteks',cpName(e.ctx)):''}</div>
+    <div class="sk-sec"><div class="sk-sh">Time validity</div>${cpRow('Valid from',e.t?String(e.t[0]):null)}${cpRow('Valid to',e.t?String(e.t[1]):null)}${cpRow('Sumber informasi waktu',c3Basis(e))}${cpRow('Status',!e.t?'Unknown':e.det&&Object.entries(e.det).some(([k,v])=>/Akhir|Tanggal efektif/.test(k)&&v===null)?'Partial':'Lengkap')}${cpRow('Tanggal publikasi sumber',e.src.map(s=>SRC[s]?SRC[s].d:'').join(', '))}</div>
+    <div class="sk-sec"><div class="sk-sh">Interpretation ${aiIc()}</div><p class="small" style="margin:0">${interp}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Supporting assertions</div>${e.alt?'<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin:0 0 6px"><b>Asersi bertentangan.</b> Sistem tidak memilih salah satu sebagai fakta final.</div>':''}${asr.map(a=>`<div class="rm-as"><div class="small">${a.p}</div><div class="xs muted">Atribusi: ${a.by} · modality: ${a.mod} · polarity: ${a.pol} ${cpCite([a.src])}</div></div>`).join('')}</div>
+    <div class="sk-sec"><div class="sk-sh">Evidence list</div>${e.src.concat(e.alt?[e.alt[1]]:[]).filter(s=>SRC[s]).map(s=>`<div class="rm-evi"><button class="src-card" style="width:100%" data-a="src" data-id="${s}"><span class="xs muted">${SRC[s].o} · terbit ${SRC[s].d} · ID TMP-${s.toUpperCase()}</span><b>${SRC[s].t}</b><span class="small" style="font-style:italic">“${(SRC[s].x||'').replace(/<\/?mark>/g,'').slice(0,170)}…”</span><span class="xs" style="font-weight:700;color:${e.st==='fact'?'var(--ev-verified)':'var(--ev-unverified)'}">${c3Ver(e)} · buka artikel ›</span></button></div>`).join('')}</div>`; }
+
+/* ---------- view & aksi ---------- */
+vCP = function(){ const K=S.cp; if(K.stage==='form'&&K.form.a.id&&K.form.b.id) return c3Form(); if(K.stage==='gen') return c3Gen(); if(K.stage==='result') return cpResult(); return cpList(); };
+const c3Push = item => { const K=S.cp, top=c3Top(); if(top&&JSON.stringify(top)===JSON.stringify(item)) return; K.stack.push(item); };
+ACT['cp-home']=()=>{ S.cp.stage='list'; S.nx.mode='connect'; go('network'); };
+ACT['cp-new']=()=>{ S.cp.form=cpNewForm(); S.cp.form.ctx=''; S.cp.stage='list'; S.nx.mode='connect'; go('network'); };
+ACT['c3-type']=(el,d)=>{ const X=S.cp.form[d.k]; X.type=el.value; X.searched=false; X.id=null; rerender(); };
+ACT['c3-pick']=(el,d)=>{ const X=S.cp.form[d.k]; X.id=d.id; X.q=NN[d.id].n; rerender(); };
+ACT['c3-clear']=(el,d)=>{ const X=S.cp.form[d.k]; X.id=null; X.searched=!!X.q; rerender(); };
+ACT['c3-swap']=()=>{ const F=S.cp.form; [F.a,F.b]=[F.b,F.a]; rerender(); };
+ACT['c3-next']=()=>{ const F=S.cp.form; if(!F.a.id||!F.b.id||F.a.id===F.b.id) return; if(F.hop==null||F.hop===2&&!F._set) F.hop=3; F.all=F.all!==false; S.cp.stage='form'; go('network'); };
+ACT['c3-back']=()=>{ S.cp.stage='list'; go('network'); };
+ACT['c3-f']=(el,d)=>{ const F=S.cp.form; F[d.k] = d.k==='all'?d.v==='1': +d.v; if(d.k==='hop') F._set=true; rerender(); };
+ACT['c3-yr']=(el,d)=>{ S.cp.form[d.k]=+el.value; rerender(); };
+BIND['c3-ctx']=v=>{ S.cp.form.ctx=v; };
+ACT['c3-gen']=()=>{ const K=S.cp, F=K.form, id='cp'+Date.now(); K.runs.unshift({id, a:F.a.id, b:F.b.id, sc:{all:F.all,y0:F.y0,y1:F.y1,hop:F.hop,ctx:F.ctx||''}, when:'Baru saja', status:'Proses', job:{t0:Date.now(), dur:C3DUR[F.hop]||12000}});
+  K.form=cpNewForm(); K.form.ctx=''; K.cur=id; K.stage='gen'; S.nx.mode='connect'; go('network'); };
+ACT['c3-jobcancel']=(el,d)=>{ const K=S.cp, r=K.runs.find(x=>x.id===d.id); if(!r) return; K.runs=K.runs.filter(x=>x.id!==d.id);
+  if(K.stage==='gen'&&K.cur===d.id){ const F=cpNewForm(); F.a={type:NN[r.a].t,q:NN[r.a].n,id:r.a,searched:false}; F.b={type:NN[r.b].t,q:NN[r.b].n,id:r.b,searched:false}; Object.assign(F,{all:r.sc.all,y0:r.sc.y0,y1:r.sc.y1,hop:r.sc.hop,ctx:r.sc.ctx,_set:true}); K.form=F; K.stage='form'; }
+  toast('Proses dibatalkan.'); rerender(); };
+ACT['c3-edit']=()=>{ const K=S.cp, r=K.runs.find(x=>x.id===K.cur), F=cpNewForm(); F.a={type:NN[r.a].t,q:NN[r.a].n,id:r.a,searched:false}; F.b={type:NN[r.b].t,q:NN[r.b].n,id:r.b,searched:false}; Object.assign(F,{all:r.sc.all,y0:r.sc.y0,y1:r.sc.y1,hop:r.sc.hop,ctx:r.sc.ctx,_set:true}); K.form=F; K.stage='form'; go('network'); };
+cpOpen = function(id){ const K=S.cp; K.cur=id; const r=K.runs.find(x=>x.id===id); K.stage = r&&r.status==='Proses' ? 'gen' : 'result'; K.act=null; K.stack=[]; K.f=c3NewF(); K.collapsed=new Set(); K.zt={}; K.tab='paths'; S.nx.mode='connect'; };
+ACT['cp-open']=(el,d)=>{ cpOpen(d.id); go('network'); };
+ACT['cp-retry']=()=>{ const r=S.cp.runs.find(x=>x.id===S.cp.cur); r.status='Lengkap'; toast('Pencarian diulang dan selesai (prototipe).'); rerender(); };
+ACT['c3-tab']=(el,d)=>{ S.cp.tab=d.t; S.fpop=null; rerender(); };
+ACT['c3-toggle']=(el,d)=>{ const c=S.cp.collapsed; c.has(d.g)?c.delete(d.g):c.add(d.g); rerender(); };
+ACT['c3-path']=(el,d)=>{ const K=S.cp; if(K.act===d.id&&c3Top()&&c3Top().t==='path'){ K.act=null; K.stack=[]; } else { K.act=d.id; K.stack=[{t:'path',id:d.id}]; } K.tab='paths'; rerender(); };
+ACT['c3-desel']=()=>{ S.cp.act=null; S.cp.stack=S.cp.stack.filter(x=>x.t!=='path'); rerender(); };
+ACT['c3-goto']=(el,d)=>{ const K=S.cp; K.tab='paths'; K.f=c3NewF(); K.act=d.id; K.stack=[{t:'path',id:d.id}]; rerender(); setTimeout(()=>{ const b=document.querySelector(`.c3-path[data-id="${d.id}"]`); b&&b.scrollIntoView({block:'center',behavior:'smooth'}); },60); };
+ACT['c3-node']=(el,d)=>{ c3Push({t:'node',id:d.id}); rerender(); };
+ACT['c3-edge']=(el,d)=>{ c3Push({t:'rg',a:d.p,b:d.c}); rerender(); };
+ACT['c3-rel']=(el,d)=>{ c3Push({t:'rel',id:d.id}); rerender(); };
+ACT['c3-pback']=()=>{ S.cp.stack.pop(); rerender(); };
+ACT['c3-pclose']=()=>{ S.cp.stack=[]; rerender(); };
+ACT['c3z']=(el,d)=>{ const g=FG['c3g-'+d.g]; if(!g||!window.d3) return; const s=d3.select(g.svg); if(+d.z) s.transition().duration(200).call(g.z.scaleBy,+d.z); else { S.cp.zt[d.g]=null; s.transition().duration(220).call(g.z.transform,d3.zoomIdentity); } };
+nxConnect = function(a,b){ const K=S.cp; let r=K.runs.find(x=>x.a===a&&x.b===b&&x.status!=='Proses'); if(!r){ r={id:'cp'+Date.now(), a, b, sc:{all:true,y0:2020,y1:2026,hop:3,ctx:''}, when:'Baru saja', status:'Lengkap', fresh:true}; K.runs.unshift(r); } cpOpen(r.id); };
+AFTER.push(()=>{ if(S.view!=='network'||S.nx.mode!=='connect'||S.cp.stage!=='result') return;
+  document.querySelectorAll('.c3-graph').forEach(el=>{ const g=el.dataset.g, svg=el.querySelector('svg'), vp=svg.querySelector('.vp'), tip=el.querySelector('.nx-tip');
+    if(window.d3){ const z=d3.zoom().scaleExtent([.5,4]).on('zoom',e=>{ vp.setAttribute('transform',e.transform); S.cp.zt[g]=e.transform; }); const sel=d3.select(svg).call(z); FG['c3g-'+g]={svg,z}; if(S.cp.zt[g]) sel.call(z.transform,S.cp.zt[g]); }
+    svg.addEventListener('mousemove',e=>{ const t=e.target.closest('[data-tip]'); if(!t){ tip.style.display='none'; return; } const [a,...rest]=t.dataset.tip.split('|'); tip.innerHTML=`<b>${esc(a)}</b>${rest.map(r=>`<span>${esc(r)}</span>`).join('')}`; const r=el.getBoundingClientRect(); tip.style.display='block'; let x=e.clientX-r.left+14,y=e.clientY-r.top+14; if(x+tip.offsetWidth>r.width-6) x=e.clientX-r.left-tip.offsetWidth-12; tip.style.left=x+'px'; tip.style.top=y+'px'; });
+    svg.addEventListener('mouseleave',()=>tip.style.display='none'); }); });
+/* job ticker & sidebar */
+function c3Tick(){ c3Jobs().forEach(r=>{ const st=c3JobSt(r);
+  document.querySelectorAll(`[data-c3job="${r.id}"],[data-c3row="${r.id}"]`).forEach(box=>{ const b=box.querySelector('.jb-bar'); if(b) b.style.width=Math.round(st.f*100)+'%'; const l=box.querySelector('.jb-left'); if(l) l.textContent=fmtT(st.left); const e=box.querySelector('.jb-el'); if(e) e.textContent=fmtT(st.el); box.querySelectorAll('[data-step]').forEach(li=>{ const i=+li.dataset.step; li.className=i<st.cur?'done':i===st.cur?'now':''; li.querySelector('.dot').textContent=i<st.cur?'✓':''; }); });
+  if(st.f>=1){ r.status='Lengkap'; r.fresh=true; r.when='Baru saja'; delete r.job; const onGen=S.view==='network'&&S.nx.mode==='connect'&&S.cp.stage==='gen'&&S.cp.cur===r.id;
+    if(onGen){ cpOpen(r.id); rerender(); toast('Connection Paths siap.'); } else { const inp=document.activeElement, val=inp&&inp.value, nm=inp&&inp.name; rerender(); if(nm){ const ni=document.querySelector(`form [name="${nm}"]`); if(ni){ ni.value=val; ni.focus(); } } toast(`Connection Paths ${cpName(r.a)} ↔ ${cpName(r.b)} siap.`); } } }); }
+setInterval(c3Tick,500);
+AFTER.push(()=>{ const n=c3Jobs().length, it=document.querySelector('.nav-subitem[data-m="connect"]'); if(it&&n&&!it.querySelector('.spin')) it.insertAdjacentHTML('beforeend',` <i class="spin" aria-label="${n} analisis sedang diproses"></i>`); });
+ACT['rm-tocp']=(el,d)=>{ const K=S.rm, r=K.runs.find(x=>x.id===K.cur); const F=cpNewForm(); F.ctx=''; F.a={type:NN[r.o].t,q:NN[r.o].n,id:r.o,searched:false}; F.b={type:NN[d.id].t,q:NN[d.id].n,id:d.id,searched:false}; S.cp.form=F; S.cp.stage='list'; S.nx.mode='connect'; go('network'); };
+
+NXSUB.connect.d='Lihat bagaimana dua orang atau organisasi terhubung, melalui siapa, kapan, dan apa buktinya.';
+
+
+/* =========================================================
+   CONNECTION PATHS — revisi review (insight-first)
+   ========================================================= */
+const c3Pub = s => SRC[s]?SRC[s].d:'';
+const c3Low = x => (x||'').charAt(0).toLowerCase()+(x||'').slice(1);
+const c3Cite = ids => cpCite([...new Set((ids||[]).filter(s=>SRC[s]))]);
+/* klausa fakta per relationship, dari atribut data */
+function c3Clause(e, opt={}){ const A=cpName(e.a), B=cpName(e.b), d=e.det||{}, t=e.t?c3Yr(e):null;
+  switch(e.k){
+    case 'role': return `${A} menjabat ${d['Jabatan']?'sebagai '+c3Low(d['Jabatan'])+' ':''}${opt.noObj?'':'di '+B}${t?` (${t})`:', dengan periode jabatan belum diketahui'}`;
+    case 'contract': return `${A} mengontrak ${B}${d['Lingkup / paket']?` untuk ${c3Low(d['Lingkup / paket'])}${d['Proyek']?' '+d['Proyek']:''}`:''}${t?` (${t})`:''}`;
+    case 'money': return `${A} menyalurkan ${c3Low(d['Bentuk pendanaan']||'pendanaan')}${d['Nilai']?' '+d['Nilai']:''} kepada ${B}${t?` pada ${d['Periode']||t}`:''}`;
+    case 'over': return `${A} menjadi pengawas ${B}${t?` (${t})`:''}`;
+    case 'exec': return `${A} menjadi pelaksana${d['Lingkup tugas']?' '+c3Low(d['Lingkup tugas']):''} dalam ${B}${t?` (${t})`:''}`;
+    case 'case': return `${A} ${d['Tindakan']?c3Low(d['Tindakan']):'berperan sebagai '+c3Low(d['Peran / status']||'pihak')}${opt.noObj?'':' dalam '+B} (diberitakan ${c3Pub(e.src[0])})`;
+    case 'own': return `${A} diduga memiliki saham di ${B} menurut ${c3Low(d['Atribusi']||'sumber')} (diberitakan ${c3Pub(e.src[0])})`;
+    case 'struct': return `${A} memiliki ${B}${t?` (${t})`:''}`;
+  } return cpStep(e); }
+/* kontinuitas: hanya bila didukung bukti */
+function c3Cont(e){ if(e.ev==='event') return null; const d=e.det||{}, txt=Object.values(d).filter(Boolean).join(' ');
+  if(/masih menjabat|masih berlaku|sekarang/i.test(txt)) return ['Ongoing','Masih berlaku menurut sumber'];
+  if(e.t && e.t[1]>2026) return ['Ongoing',`Berlaku hingga ${e.t[1]} menurut sumber`];
+  if(e.t && (d['Akhir']||d['Masa kontrak']||d['Periode']) && e.t[1]<2026) return ['Ended',`Periode tercatat berakhir ${e.t[1]}; kelanjutannya tidak diketahui`];
+  return ['Unknown','Informasi kelanjutan tidak tersedia']; }
+/* temuan per path */
+function c3Finding(p, run){
+  const CX=p._cx, es=p.edges, ks=es.map(e=>e.k), A=cpName(run.a), B=cpName(run.b), vendor=CX&&/vendor|pengadaan|mitra/i.test(CX.text), purpose=vendor?'penilaian vendor':'analisis ini';
+  const by=k=>es.find(e=>e.k===k), cites=[...new Set(es.flatMap(e=>e.src.concat(e.alt?[e.alt[1]]:[])))], sh=p.shared?cpYr(p.shared):null;
+  let f={title:'',body:'',sig:'',theme:'',long:'',tnote:''};
+  const r=by('role'), c=by('contract'), m=by('money'), o=by('own'), ov=by('over'), ex=by('exec');
+  if(o&&p.claim){ f.title=`Dugaan kepemilikan saham ${cpName(o.a)} di ${cpName(o.b)}${o.alt?', telah dibantah':''}`;
+    f.body=`${c3Clause(o)}.${o.alt?` ${o.alt[0].replace(/\.$/,'')} (diberitakan ${c3Pub(o.alt[1])}).`:''} Persentase dan periode kepemilikan belum diketahui.`;
+    f.sig=`Untuk ${purpose}, status kepemilikan ini perlu diverifikasi; belum merupakan kepemilikan yang terbukti.`; f.theme='dugaan kepemilikan saham'; f.long=f.theme+' yang dibantah'; f.tnote='klaim belum terverifikasi'; }
+  else if(ks.filter(k=>k==='case').length===2){ const [e1,e2]=es; const role=e=>c3Low((e.det&&e.det['Peran / status'])||'pihak');
+    f.title=`Peran ${role(e2)} dan ${role(e1)} dalam perkara yang sama`;
+    f.body=`Dalam ${cpName(p.mids[0])}, ${c3Clause(e2,{noObj:true})}, sedangkan ${c3Clause(e1,{noObj:true})}. Ini menunjukkan peran berbeda dalam perkara yang sama, bukan bukti kesalahan bersama; tahun yang sama tidak berarti terjadi bersamaan.`;
+    f.sig= CX&&CX.covs.has('Proses Hukum & Penyelesaian Sengketa') ? `Untuk ${purpose}, konteks perkara dan perkembangan terakhirnya layak diperiksa.` : 'Konteks perkara dan perkembangan terakhirnya layak diperiksa.'; f.theme='perkara hukum'; f.long=`peran berbeda dalam ${cpName(p.mids[0])}`; f.tnote='dua peristiwa yang diberitakan pada 2024'; }
+  else if(r&&c){ const P=cpName(r.a), X=cpName(r.b), jab=c3Low((r.det&&r.det['Jabatan'])||'pejabat');
+    f.title = p.tc==='overlap' ? `Kontrak berlangsung selama masa jabatan ${P}` : `Kontrak ${X} dan jabatan ${P} pada periode berbeda`;
+    f.body = `${c3Clause(c)}. ${p.tc==='overlap'?`Masa kontrak beririsan dengan jabatan ${P} sebagai ${jab} ${X} (${c3Yr(r)}) pada resolusi tahun ${sh}.`:`${P} menjabat sebagai ${jab} ${X} (${c3Yr(r)}); periodenya tidak beririsan dengan kontrak.`}`;
+    f.sig = `Untuk ${purpose}, riwayat ini relevan untuk menelusuri afiliasi ${vendor?'pengadaan':'korporasi'} dan siapa yang berwenang menyetujui kontrak. Peran ${P} dalam keputusan kontrak belum diketahui.`;
+    const lk=c.det&&c.det['Lingkup / paket']; f.theme=`kontrak ${lk?c3Low(lk):''}`.trim(); f.long=`kontrak ${lk?c3Low(lk)+' ':''}dengan perusahaan tempat ${P} pernah menjabat`; f.tnote= p.tc==='overlap'?`kontrak beririsan dengan masa jabatan (${sh})`:'periode berbeda'; }
+  else if(ov&&ex){ f.title='Pengawasan dan pelaksanaan pada program yang sama';
+    f.body=`${c3Clause(ov)}; ${c3Clause(ex)}.${sh?` Kedua peran tercatat pada ${sh}.`:''}`;
+    f.sig='Memberi konteks hubungan institusional; kewenangan pengawasan langsung terhadap pelaksana belum diketahui.'; f.theme=c3Low(cpName(ov.b)); f.long=`peran berbeda dalam ${cpName(ov.b)}`; f.tnote= sh?`kedua peran tercatat pada ${sh}`:'periode belum dapat dipastikan'; }
+  else if(r&&m){ const P=cpName(r.a), X=cpName(r.b), F=cpName(m.a), jab=c3Low((r.det&&r.det['Jabatan'])||'pejabat'), hib=/hibah/i.test((m.det&&m.det['Bentuk pendanaan'])||'');
+    f.title = hib ? `Hibah ${m.det['Nilai']||''} kepada ${/yayasan/i.test(X)?'yayasan':'organisasi'} yang berafiliasi dengan ${P}`.replace('  ',' ') : p.tc==='overlap' ? `${F} mendanai ${X} saat ${P} menjabat` : p.tc==='non' ? (r.t[1]<m.t[0]?`Jabatan ${P} di ${X} mendahului pendanaan ${F}`:`Pendanaan ${F} mendahului jabatan ${P} di ${X}`) : `${F} mendanai ${X}, tempat ${P} tercatat menjabat`;
+    f.body = `${c3Clause(m)}. ${P} tercatat sebagai ${jab} ${X}${r.t?` (${c3Yr(r)})`:'; periode jabatannya tidak disebutkan'}.${p.tc==='non'?` Keduanya terhubung melalui ${X} pada fase berbeda.`:''}`;
+    f.sig = `Menghubungkan afiliasi ${P} dengan pendanaan ${X}; keterlibatan ${P} dalam ${hib?'hibah':'pendanaan'} tersebut belum diketahui.`;
+    f.theme = hib?'hibah kepada yayasan':'pendanaan'; f.long = hib?`hibah kepada yayasan yang mencatat ${P} sebagai ${jab}`:`pendanaan ${F} kepada ${X}`; f.tnote = !r.t?'periode jabatan belum diketahui':p.tc==='overlap'?`beririsan (${sh})`:'fase berbeda'; }
+  else if(ks.filter(k=>k==='role').length===2){ const [e1,e2]=es, X=cpName(p.mids[0]);
+    f.title = p.tc==='overlap' ? `${cpName(e1.a)} dan ${cpName(e2.a)} sama-sama menjabat di ${X}` : `${cpName(e1.a)} dan ${cpName(e2.a)} menjabat di ${X} pada periode berbeda`;
+    f.body = `${c3Clause(e1)}; ${c3Clause(e2)}.${p.tc==='overlap'?` Masa jabatan beririsan pada ${sh}.`:''}`;
+    f.sig = 'Dapat menjadi jalur koordinasi atau rujukan; tidak membuktikan keduanya saling kenal atau bekerja bersama.'; f.theme='afiliasi jabatan'; f.long=`jabatan di ${X}`; f.tnote=p.tc==='overlap'?`beririsan (${sh})`:'periode berbeda'; }
+  else if(m&&c){ f.title=`${cpName(m.a)} membiayai ${cpName(m.b)}, yang juga mengontrak ${cpName(c.b)}`; f.body=`${c3Clause(m)}. ${c3Clause(c)}.`; f.sig=`Kedua transaksi terhubung melalui ${cpName(m.b)}; tidak menunjukkan dana tersebut dipakai untuk kontrak.`; f.theme='pendanaan dan kontrak'; f.long=`pendanaan dan kontrak melalui ${cpName(m.b)}`; f.tnote=p.tc==='overlap'?`beririsan (${sh})`:'fase berbeda'; }
+  else if(p.hops===1&&c){ f.title=`Kontrak langsung ${c3Low((c.det&&c.det['Lingkup / paket'])||'')}`.trim(); f.body=`${c3Clause(c)}.`; f.sig='Hubungan kontraktual langsung yang terdokumentasi; tidak menunjukkan kepemilikan atau kendali.'; f.theme='kontrak langsung'; f.long=f.theme; f.tnote=cpYr(c.t); }
+  else { f.title=`Terhubung melalui ${p.mids.map(cpName).join(' dan ')||'hubungan langsung'}`; f.body=es.map(e=>c3Clause(e)).join('; ')+'.'; f.sig='Rangkaian ini menunjukkan keterhubungan; setiap segmen terdokumentasi terpisah.'; f.theme='hubungan lain'; f.long=f.title.toLowerCase(); f.tnote=p.tc==='overlap'?`beririsan (${sh})`:p.tc==='non'?'periode berbeda':'waktu belum dapat dipastikan'; }
+  f.cites=cites; return f; }
+/* analisis + ranking substantif */
+c3Analyse = (function(prev){ return function(run){ const R=prev(run), W={contract:3,money:3,own:2.5,case:3,role:2,over:2,exec:2,struct:1.5};
+  R.paths.forEach(p=>{ p._cx=R.CX; p.f=c3Finding(p,run); p.title=p.f.title;
+    p.score=(p.cx?6:0)+Math.max(...p.edges.map(e=>W[e.k]||1))+(p.claim?-1.5:2)+({overlap:2,non:1,und:.5})[p.tc]-p.hops*.3+Math.min(p.srcs.length,3)*.2; });
+  R.paths.sort((x,y)=>y.score-x.score); return R; }; })(c3Analyse);
+
+/* ---------- Insight Overview (default) ---------- */
+function c3Timeline(R){ const items=[], seen=new Set(); const add=(y,txt,src,pub)=>{ const k=y+txt; if(seen.has(k)) return; seen.add(k); items.push({y,txt,src,pub}); };
+  [...new Set(R.paths.flatMap(p=>p.edges))].forEach(e=>{ const d=e.det||{}, A=cpName(e.a), B=cpName(e.b);
+    if(e.k==='own'){ add(+c3Pub(e.src[0]).slice(-4), `Dugaan kepemilikan saham ${A} di ${B} diberitakan${e.alt?' dan dibantah':''}`, e.src.concat(e.alt?[e.alt[1]]:[]), `tanggal publikasi ${c3Pub(e.src[0])}${e.alt?' dan '+c3Pub(e.alt[1]):''}`); return; }
+    if(!e.t) return;
+    if(e.k==='role'){ add(e.t[0], `${A} mulai menjabat ${c3Low(d['Jabatan']||'')} ${B}`.replace('  ',' '), e.src); if(e.t[1]<2026&&d['Akhir']) add(e.t[1], `Masa jabatan ${c3Low(d['Jabatan']||'')} ${A} di ${B} berakhir`, e.src); }
+    else if(e.k==='contract') add(e.t[0], `Kontrak ${A} dengan ${B}${d['Lingkup / paket']?' ('+c3Low(d['Lingkup / paket'])+')':''} mulai berlaku`, e.src);
+    else if(e.k==='over') add(e.t[0], `${A} menjadi pengawas ${B}`, e.src);
+    else if(e.k==='exec') add(e.t[0], `${A} menjadi pelaksana ${B}`, e.src);
+    else if(e.k==='money') add(e.t[0], `${A} menyalurkan ${c3Low(d['Bentuk pendanaan']||'pendanaan')}${d['Nilai']?' '+d['Nilai']:''} kepada ${B}`, e.src);
+    else if(e.k==='case') add(e.t[0], `${A}: ${c3Low(d['Peran / status']||'pihak')} dalam ${B}`, e.src, `diberitakan ${c3Pub(e.src[0])}`); });
+  const byY={}; items.forEach(i=>(byY[i.y]=byY[i.y]||[]).push(i)); return Object.keys(byY).sort().map(y=>[y,byY[y]]); }
+c3Overview = function(R,run){
+  const A=cpName(run.a), B=cpName(run.b), fact=R.paths.filter(p=>!p.claim), claims=R.paths.filter(p=>p.claim), st=c3Stats(R);
+  const themes=[...new Set(fact.map(p=>p.f.theme))].slice(0,3);
+  const yrs=fact.flatMap(p=>p.edges.filter(e=>e.t).map(e=>e.t)); const y0=yrs.length?Math.min(...yrs.map(t=>t[0])):null, y1=yrs.length?Math.max(...yrs.map(t=>t[1])):null;
+  const sh=fact.filter(p=>p.shared).map(p=>p.shared); const s0=sh.length?Math.min(...sh.map(x=>x[0])):null, s1=sh.length?Math.max(...sh.map(x=>x[1])):null;
+  const joinT = a => a.length>1 ? a.slice(0,-1).join(', ')+' dan '+a[a.length-1] : a[0]||'';
+  const head = fact.length ? `Keterkaitan melalui ${joinT(themes)}` : claims.length ? `Keterkaitan hanya berupa klaim yang belum terverifikasi` : '';
+  const top=fact.slice(0,3);
+  const narr = fact.length ? `Keterkaitan ${A} dan ${B} terutama terdokumentasi melalui ${joinT(fact.slice(0,3).map(p=>p.f.long))}${s0?` pada ${s0===s1?s0:s0+'–'+s1}`:''}. ${top[0].f.body.split('. ')[0].replace(/\.$/,'')}.${top[1]?` ${top[1].f.body.split('. ')[0].replace(/\.$/,'')}.`:''} ${c3Cite(top.flatMap(p=>p.f.cites))}` : '';
+  const claimP = claims.map(p=>`${p.f.body} ${c3Cite(p.f.cites)}`).join(' ');
+  const direct = R.paths.filter(p=>p.hops===1), dDoc=direct.filter(p=>!p.claim), dCl=direct.filter(p=>p.claim);
+  const chips = `<div class="c3-chips"><div><span>Hubungan langsung</span><b>${dDoc.length?dDoc.map(p=>p.edges[0].l).join(', '):dCl.length?'Hanya klaim: '+dCl.map(p=>p.f.theme).join(', '):'Tidak ditemukan'}</b>${dCl.length?`<small>${dCl.some(p=>p.edges[0].alt)?'Dibantah; ':''}belum terverifikasi</small>`:''}</div><div><span>Periode utama</span><b>${s0?(s0===s1?s0:s0+'–'+s1):y0?y0+'–'+y1:'Belum diketahui'}</b><small>${themes.map(t=>t.split(' ')[0]).join(', ')}</small></div></div>`;
+  const kf = (fact.length?fact:claims).slice(0,4);
+  const tl = c3Timeline(R);
+  const unkN=[...new Set(R.paths.flatMap(p=>p.edges))].filter(e=>!e.t&&e.k!=='own').length;
+  return `<div class="rm-ov">
+    <section class="card c3-brief" style="margin-top:0"><div class="xs muted" style="font-weight:800;letter-spacing:.06em">CONNECTION SUMMARY ${aiIc()}</div><h3 class="c3-headline">${head}</h3>${narr?`<p class="small" style="margin:0 0 8px">${narr}</p>`:''}${claimP?`<p class="small c3-claimp"><b>Klaim terpisah:</b> ${claimP}</p>`:''}${chips}</section>
+    <section class="card"><div class="card-h"><h3>Key Findings</h3><button class="linkish small" data-a="c3-tab" data-t="paths">Lihat semua koneksi ›</button></div>
+      <ol class="c3-kf">${kf.map((p,i)=>`<li><span class="c3-kn">${String(i+1).padStart(2,'0')}</span><div><b>${p.f.title}</b>${p.cx?' <span class="rm-ctxtag">Relevan dengan konteks</span>':''}<p class="small" style="margin:3px 0">${p.f.body} ${p.f.sig} ${c3Cite(p.f.cites)}</p><button class="linkish small" data-a="c3-goto" data-id="${p.id}">Lihat koneksi ›</button></div></li>`).join('')}</ol></section>
+    ${tl.length?`<section class="card"><div class="card-h"><h3>Relationship Development</h3><span class="xs muted">Waktu hubungan; tanggal publikasi ditandai</span></div><div class="c3-tl">${tl.map(([y,its])=>`<div class="c3-tly"><b>${y}</b><div>${its.map(i=>`<div class="small">${i.txt}${i.pub?` <span class="xs muted">(${i.pub})</span>`:''} ${c3Cite(i.src)}</div>`).join('')}</div></div>`).join('')}</div>${unkN?`<p class="xs muted" style="margin:6px 0 0">${unkN} hubungan tanpa informasi waktu tidak dimasukkan ke timeline.</p>`:''}</section>`:''}
+    <details class="card c3-det"><summary><b>Connection Statistics</b><span class="xs muted">${st.total} path · ${st.inter} perantara</span></summary><div class="c3-stats" style="margin-top:10px">${[['Unique paths',st.total],['Langsung terdokumentasi',dDoc.length],['Langsung berupa klaim',dCl.length],['Tidak langsung',st.indirect],['Entitas perantara',st.inter],['Shortest path',st.shortest+' hop'+(dCl.length&&!dDoc.length&&st.shortest===1?' (klaim)':'')]].map(([l,v])=>`<div><b>${v}</b><span>${l}</span></div>`).join('')}</div></details>
+    <details class="card c3-det"><summary><b>Cakupan & Keterbatasan Data</b><span class="xs muted">sumber, periode, dan batas analisis</span></summary>${c3Coverage(R,run).replace('<div class="card" style="margin-top:0"><div class="card-h"><h3>Cakupan & Keterbatasan Data</h3></div>','<div>')}</details></div>`;
+};
+/* ---------- Connection Paths tab: Path View default ---------- */
+S.cp.view = {};
+function c3Card(p,run){ const K=S.cp, on=K.act===p.id, es=p.edges;
+  const seg = (e,i) => { const fwd=e.a===p.nodes[i]; const cont=c3Cont(e); return `<button class="c3-mseg ${e.st!=='fact'?'claim':''} ${!e.t?'unk':''}" data-a="c3-edge" data-p="${e.a}" data-c="${e.b}" aria-label="${esc(cpStep(e))}"><span class="c3-line ${fwd?'f':'b'}" aria-hidden="true"></span><span class="c3-ml">${e.k==='role'&&e.det&&e.det['Jabatan']?e.det['Jabatan']:e.l}</span><span class="c3-mt">${e.k==='money'&&e.det&&e.det['Nilai']?e.det['Nilai']+' · ':''}${e.t?c3Yr(e):'periode tidak diketahui'}${e.st!=='fact'?' · klaim'+(e.alt?', dibantah':''):''}</span></button>`; };
+  const node = (n) => `<button class="c3-mnode ${n===run.a||n===run.b?'end':''}" data-a="c3-node" data-id="${n}"><svg width="28" height="28" viewBox="-14 -14 28 28" aria-hidden="true">${skShape(NN[n].t,0,0,11)}${skGlyph(NN[n].t,0,0,11)}</svg><span>${cpName(n)}</span><small class="xs muted">${skTL(NN[n].t)}</small></button>`;
+  const meta = `${p.hops===1?'Hubungan langsung':'Hubungan tidak langsung'} · ${p.tc==='overlap'?'Periode bersama: '+cpYr(p.shared):p.tc==='non'?'Periode berbeda':p.f.tnote}`;
+  return `<article class="c3-card ${on?'on':''} ${p.claim?'isclaim':''}" data-pid="${p.id}"><div class="row between" style="gap:8px;align-items:flex-start"><div><div class="xs muted">${meta}</div><h4 class="c3-ct">${p.f.title}</h4></div>${p.cx?'<span class="rm-ctxtag">Relevan dengan konteks</span>':''}</div>
+    <div class="c3-mini">${p.nodes.map((n,i)=>node(n)+(i<es.length?seg(es[i],i):'')).join('')}</div>
+    <p class="small" style="margin:8px 0 6px"><b class="xs" style="letter-spacing:.05em">INSIGHT</b> ${p.f.body.split('. ').slice(0,2).join('. ').replace(/\.?$/,'.')} ${p.f.sig}</p>
+    <div class="row between" style="gap:8px"><button class="linkish xs" data-a="c3-pathev" data-id="${p.id}">${p.srcs.length+(es.some(e=>e.alt)?1:0)} sumber</button><button class="btn sm" data-a="c3-path" data-id="${p.id}">Explore details ›</button></div></article>`; }
+function c3GroupSum(g,ps,run){ const fact=ps.filter(p=>!p.claim), longs=[...new Set((fact.length?fact:ps).map(p=>p.f.long))];
+  const noun={own:'Keterkaitan afiliasi dan kepemilikan',biz:'Keterkaitan bisnis',gov:'Keterkaitan regulasi',legal:'Keterkaitan hukum',other:'Keterkaitan lain'}[g];
+  const tn=ps.map(p=>p.f.tnote).filter(Boolean); const joinT=a=>a.length>1?a.slice(0,-1).join(', ')+', serta '+a[a.length-1]:a[0]||'';
+  return `${noun} muncul melalui ${joinT(longs)}.${tn.length?` Catatan waktu: ${[...new Set(tn)].join('; ')}.`:''}`; }
+c3Group = function(g,ps,R,run){ const K=S.cp, open=!K.collapsed.has(g), view=K.view[g]||'path';
+  return `<section class="c3-group ${open?'open':''}" id="c3grp-${g}"><button class="c3-gh" data-a="c3-toggle" data-g="${g}" aria-expanded="${open}"><span class="c3-car">${open?'▾':'▸'}</span><b>${C3GL(g)}</b><span class="tag">${ps.length} path</span></button>
+    ${open?`<div class="c3-gb"><p class="small" style="margin:0 0 10px">${aiIc()} ${c3GroupSum(g,ps,run)}</p>
+      <div class="row between" style="margin-bottom:8px"><div class="seg sm"><button class="${view==='path'?'on':''}" data-a="c3-view" data-g="${g}" data-v="path">Path View</button><button class="${view==='network'?'on':''}" data-a="c3-view" data-g="${g}" data-v="network">Network View</button></div>${K.act&&ps.find(p=>p.id===K.act)?'<button class="linkish xs" data-a="c3-desel">Hapus sorotan path</button>':''}</div>
+      ${view==='path'?`<div class="c3-cards">${ps.map(p=>c3Card(p,run)).join('')}</div>`:`<div class="fg nx-graph c3-graph" id="c3g-${g}" data-g="${g}">${c3Graph(g,ps,run,R)}<div class="nx-tip" role="tooltip"></div><div class="fg-ctrl"><button data-a="c3z" data-g="${g}" data-z="1.3" aria-label="Perbesar">+</button><button data-a="c3z" data-g="${g}" data-z="0.77" aria-label="Perkecil">−</button><button data-a="c3z" data-g="${g}" data-z="0" aria-label="Reset tampilan">⌂</button></div></div><div class="c3-list">${ps.map(p=>`<button class="c3-path ${K.act===p.id?'on':''}" data-a="c3-hl" data-id="${p.id}"><b class="small">${p.f.title}</b><div class="c3-seq">${p.nodes.map(cpName).join(' › ')}</div></button>`).join('')}</div>`}</div>`:''}</section>`; };
+c3PathsTab = function(R,run){ const K=S.cp, FP=c3Filter(R), covs=[...new Set(R.paths.flatMap(p=>p.edges.map(e=>C3COV(e)[0])))], rels=[...new Set(R.paths.flatMap(p=>p.edges.map(e=>e.l)))];
+  const bar = `<details class="c3-adv" ${K.f.hop!=='Semua'||K.f.covs.length||K.f.rels.length?'open':''}><summary>Filter lanjutan</summary>${fbar('cp',[{k:'hop',label:'Jumlah hop',kind:'single',def:'Semua',opts:[['Semua','Semua'],...[1,2,3].filter(h=>R.paths.some(p=>p.hops===h)).map(h=>[String(h),h+' hop'])]},{k:'covs',label:'Coverage',kind:'multi',opts:covs.map(c=>[c,c])},{k:'rels',label:'Jenis hubungan',kind:'multi',opts:rels.map(l=>[l,l])}], `<b>${FP.length}</b> dari ${R.paths.length} path`)}</details>`;
+  const groups=C3GROUPS.map(g=>[g,FP.filter(p=>p.ctxG===g)]).filter(([g,ps])=>ps.length);
+  return bar + (groups.length ? `<div class="c3-groups">${groups.map(([g,ps])=>c3Group(g,ps,R,run)).join('')}</div>` : `<div class="card"><div class="empty"><h3>Tidak ada path yang sesuai filter</h3><button class="btn sm" data-a="fb-reset" data-s="cp">Reset filter</button></div></div>`); };
+/* ---------- hasil: tab & drawer ---------- */
+cpResult = (function(prev){ return function(){ const K=S.cp; if(!['overview','paths','coverage','sources'].includes(K.tab)) K.tab='overview';
+  const run=K.runs.find(r=>r.id===K.cur), R=c3Analyse(run);
+  let h=prev();
+  h=h.replace(/<div class="tabs"[\s\S]*?<\/div>/, nxTabs(K.tab,'c3-tab',NXTABS4.cp));
+  h=h.replace('<h3>Keterkaitan belum ditemukan</h3><p class="small muted" style="max-width:60ch;margin:0 auto">Tidak ada jalur hingga '+run.sc.hop+' hop dalam cakupan data dan konfigurasi analisis ini. Ini tidak berarti kedua entitas tidak memiliki hubungan.</p>','<h3>Belum ditemukan jalur keterkaitan dalam cakupan data dan periode yang dipilih</h3><p class="small muted" style="max-width:60ch;margin:0 auto">Hingga '+run.sc.hop+' hop. Ini tidak berarti kedua entitas tidak memiliki hubungan.</p>');
+  h=h.replace('<button class="btn sm" data-a="c3-edit">Ubah cakupan</button><button class="btn sm" data-a="cp-new">Pilih entitas lain</button>','<button class="btn sm" data-a="c3-edit">Ubah periode atau kedalaman</button><button class="btn sm" data-a="cp-new">Pilih entitas lain</button>');
+  if(!R.paths.length) return h;
+  const i=h.indexOf('<div class="tabs"'), j=h.indexOf('</div>',i)+6; const head=h.slice(0,j);
+  const body = K.tab==='overview'?c3Overview(R,run):K.tab==='paths'?c3PathsTab(R,run):K.tab==='coverage'?c3Coverage(R,run):cpSources(R,run);
+  const drawer = K.stack.length ? `<div class="c3-scrim" data-a="c3-pclose" aria-hidden="true"></div><aside class="c3-drawer" role="dialog" aria-label="Insight panel">${c3Panel(R,run)}</aside>` : '';
+  return head + body + drawer; }; })(cpResult);
+const _cpOpen4 = cpOpen; cpOpen = function(id){ _cpOpen4(id); S.cp.tab='overview'; S.cp.view={}; };
+ACT['c3-tab']=(el,d)=>{ S.cp.tab=d.t; S.fpop=null; rerender(); };
+ACT['c3-view']=(el,d)=>{ S.cp.view[d.g]=d.v; rerender(); };
+ACT['c3-hl']=(el,d)=>{ S.cp.act = S.cp.act===d.id?null:d.id; rerender(); };
+ACT['c3-path']=(el,d)=>{ const K=S.cp; K.act=d.id; K.stack=[{t:'path',id:d.id}]; rerender(); };
+ACT['c3-pathev']=(el,d)=>{ ACT['c3-path'](el,d); setTimeout(()=>{ const x=document.querySelector('.c3-drawer [data-sec="evidence"]'); x&&x.scrollIntoView({block:'start'}); },50); };
+ACT['c3-goto']=(el,d)=>{ const K=S.cp, R=c3Analyse(K.runs.find(r=>r.id===K.cur)), p=R.paths.find(x=>x.id===d.id); K.tab='paths'; K.f=c3NewF(); K.act=d.id; if(p){ K.collapsed.delete(p.ctxG); K.view[p.ctxG]='path'; } rerender(); setTimeout(()=>{ const b=document.querySelector(`.c3-card[data-pid="${d.id}"]`); b&&b.scrollIntoView({block:'center',behavior:'smooth'}); },60); };
+ACT['c3-desel']=()=>{ S.cp.act=null; rerender(); };
+/* ---------- panel insight-first ---------- */
+c3PanelHead = function(kind,title,sub){ const n=S.cp.stack.length; return `<div class="c3-ph">${n>1?'<button class="btn sm ghost" data-a="c3-pback">← Kembali</button>':'<span></span>'}<button class="btn sm ghost" data-a="c3-pclose" aria-label="Tutup panel">✕ Tutup</button></div><div class="nxp-h" style="margin-top:4px"><div class="xs muted" style="font-weight:700">${kind}</div><h3>${title}</h3>${sub?`<div class="xs muted">${sub}</div>`:''}</div>`; };
+function c3Bars(es){ const ys=es.filter(e=>e.t).flatMap(e=>e.t); if(!ys.length) return ''; const y0=Math.min(...ys), y1=Math.max(...ys), n=y1-y0+1, yrs=Array.from({length:n},(_,i)=>y0+i);
+  const row=(l,t,cls)=>`<div class="c3-br"><span class="c3-bl">${l}</span>${yrs.map(y=>`<span class="c3-bc ${t&&y>=t[0]&&y<=t[1]?cls:''}"></span>`).join('')}</div>`;
+  return `<div class="c3-bars"><div class="c3-br head"><span class="c3-bl"></span>${yrs.map(y=>`<span class="c3-bc yr">${String(y).slice(2)}</span>`).join('')}</div>${es.map(e=>row(e.k==='role'&&e.det&&e.det['Jabatan']?`${e.det['Jabatan']} · ${cpName(e.a).split(' ')[0]}`:`${e.l} · ${cpName(e.b).split(' ').slice(0,2).join(' ')}`,e.t,'on')).join('')}</div>`; }
+c3PathPanel = function(R,run,p){ if(!p) return c3PanelHead('PATH','Path tidak tersedia'); const f=p.f;
+  return c3PanelHead('PATH INSIGHT', f.title, `${C3GL(p.ctxG)} · ${p.hops===1?'Hubungan langsung':'Hubungan tidak langsung'}`) + `
+    <div class="sk-sec"><div class="sk-sh">Path summary</div><p class="small" style="margin:0">${f.body} ${c3Cite(f.cites)}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Interpretation ${aiIc()}</div><p class="small" style="margin:0">${f.sig}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Relationship breakdown</div>${p.edges.map(e=>{ const c=c3Cont(e); return `<button class="nx-kr" data-a="c3-edge" data-p="${e.a}" data-c="${e.b}"><span style="flex:1;min-width:0"><b class="small">${cpName(e.a)} → ${e.k==='role'&&e.det&&e.det['Jabatan']?'menjabat sebagai '+c3Low(e.det['Jabatan']):e.l} → ${cpName(e.b)}</b><span class="xs muted" style="display:block">${e.t?c3Yr(e):'periode tidak diketahui'} · ${c3Ver(e)}${c?' · '+c[0]:''}</span></span><span class="rm-chev">›</span></button>`; }).join('')}</div>
+    <div class="sk-sec"><div class="sk-sh">Temporal context</div>${c3Bars(p.edges)}<p class="small" style="margin:6px 0 0"><span class="c3-tc ${p.tc}">${C3TC[p.tc]}</span> ${p.tc==='overlap'?`Beririsan pada resolusi tahun ${cpYr(p.shared)}.`:p.tc==='non'?'Hubungan pembentuk jalur berlaku pada periode berbeda.':'Informasi waktu tidak cukup untuk menentukan irisan.'} ${p.edges.map(e=>{ const c=c3Cont(e); return c?`${e.k==='role'?'Jabatan':e.l.charAt(0).toUpperCase()+e.l.slice(1)}: ${c[1].charAt(0).toLowerCase()+c[1].slice(1)}.`:''; }).join(' ')}</p></div>
+    ${p.mids.filter(n=>['Case','Program','Project'].includes(NN[n].t)).length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${p.mids.filter(n=>['Case','Program','Project'].includes(NN[n].t)).map(n=>`<button class="nx-kr" data-a="c3-node" data-id="${n}"><span style="flex:1"><b class="small">${cpName(n)}</b><span class="xs muted" style="display:block">${NN[n].d||''}</span></span><span class="rm-chev">›</span></button>`).join('')}</div>`:''}
+    <div class="sk-sec" data-sec="evidence"><div class="sk-sh">Supporting evidence</div>${c3EvCards(f.cites)}</div>
+    <details class="c3-tech"><summary>Detail teknis path</summary><div class="pchain" style="margin-top:6px">${p.nodes.map((n,i)=>`<button class="pchip" data-a="c3-node" data-id="${n}">${nodeDot(NN[n].t,8)}${cpName(n)}</button>${i<p.edges.length?`<span class="parr">${p.edges[i].a===n?p.edges[i].l+' →':'← '+p.edges[i].l}</span>`:''}`).join('')}</div>${cpRow('Hop',String(p.hops))}${cpRow('Primary context',C3GL(p.ctxG))}${cpRow('Supporting contexts',p.ctxS.length?p.ctxS.map(C3GL).join(', '):'—')}${cpRow('Klasifikasi waktu',C3TC[p.tc])}</details>`; };
+c3NodePanel = function(R,run,id){ const N=NN[id], t=N.t, ps=R.paths.filter(p=>p.nodes.includes(id)), isEnd=id===run.a||id===run.b, other=id===run.a?run.b:run.a;
+  const kc=[...new Set(ps.flatMap(p=>p.edges.filter(e=>e.a===id||e.b===id)))];
+  const rin = isEnd ? `${N.n} adalah Entity ${id===run.a?'A':'B'}. Keterkaitannya dengan ${cpName(other)} terdokumentasi melalui ${ps.length} path, terutama ${ps.slice(0,2).map(p=>c3Low(p.f.title)).join(' dan ')}.` : `${N.n} menjadi penghubung dalam ${ps.length===1?'path':ps.length+' path'} ${ps.map(p=>'“'+p.f.title+'”').join(', ')}: ${kc.map(e=>c3Clause(e)).join('; ')}.${ps.length>1?' Kemunculan di beberapa path bukan ukuran pengaruh.':''}`;
+  const ev=[...new Set(ps.flatMap(p=>p.mids))].filter(n=>n!==id&&['Case','Program','Project'].includes(NN[n].t)&&kc.some(e=>e.a===n||e.b===n));
+  return c3PanelHead(isEnd?`ENTITY ${id===run.a?'A':'B'}`:'ENTITAS PERANTARA', N.n, `${skTL(t)}${N.d?' · '+N.d:''}`) + `
+    <div class="sk-sec"><div class="sk-sh">Role in network ${aiIc()}</div><p class="small" style="margin:0">${rin} ${c3Cite(kc.flatMap(e=>e.src))}</p></div>
+    ${t==='Person'?`<div class="sk-sec"><div class="sk-sh">Jabatan & afiliasi</div>${CPE.filter(e=>e.a===id&&e.k==='role').map(e=>`<div class="sk-pos"><b class="small">${e.det['Jabatan']||'Jabatan'}</b><span class="small"> — ${cpName(e.b)}</span><div class="xs muted">${e.t?c3Yr(e):'periode tidak diketahui'}${c3Cont(e)?' · '+c3Cont(e)[0]:''} ${cpCite(e.src)}</div></div>`).join('')||cpRow('Jabatan & afiliasi',c3Meta(id))}</div>`:t==='Organization'?`<div class="sk-sec"><div class="sk-sh">Profil singkat</div>${cpRow('Industri',c3Meta(id))}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Key connections</div>${kc.map(e=>`<button class="nx-kr" data-a="c3-edge" data-p="${e.a}" data-c="${e.b}"><span style="flex:1;min-width:0"><b class="small">${c3Clause(e)}</b><span class="xs muted" style="display:block">${c3Ver(e)}</span></span><span class="rm-chev">›</span></button>`).join('')}</div>
+    ${ev.length?`<div class="sk-sec"><div class="sk-sh">Relevant events</div>${ev.map(n=>`<button class="nx-kr" data-a="c3-node" data-id="${n}"><span style="flex:1"><b class="small">${cpName(n)}</b><span class="xs muted" style="display:block">${NN[n].d||''}</span></span></button>`).join('')}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Supporting evidence</div>${c3EvCards(kc.flatMap(e=>e.src))||'<p class="small muted">—</p>'}</div>
+    <details class="c3-tech"><summary>Entity profile</summary>${cpRow('Canonical name',N.n)}${cpRow('Entity type',skTL(t))}${cpRow('Aliases',N.al&&N.al.length?N.al.join(', '):null)}${cpRow('Description',N.d||null)}</details>`; };
+c3RGPanel = (function(prev){ return function(R,run,a,b){ const es=CPE.filter(e=>((e.a===a&&e.b===b)||(e.a===b&&e.b===a))&&c3InScope(run,e)); let h=prev(R,run,a,b);
+  const sum = es.length===1 ? `${c3Clause(es[0])}.` : `${es.length} hubungan: ${es.map(e=>c3Clause(e)).join('; ')}.`;
+  h=h.replace(/(<\/div><\/div>)(<div class="sk-sec">)/, `$1<div class="sk-sec"><div class="sk-sh">Ringkasan</div><p class="small" style="margin:0">${sum} ${c3Cite(es.flatMap(e=>e.src))}</p></div>$2`);
+  es.forEach(e=>{ const c=c3Cont(e); if(c) h=h.replace(`<span class="xs muted">${c3Yr(e)} · ${c3Ver(e)}</span>`,`<span class="xs muted">${c3Yr(e)} · ${c3Ver(e)} · ${c[0]}</span>`); });
+  return h; }; })(c3RGPanel);
+c3RelPanel = function(R,run,e){ if(!e) return c3PanelHead('RELATIONSHIP','Tidak tersedia');
+  const [cov,cas]=C3COV(e), ps=R.paths.filter(p=>p.edges.includes(e)), act=S.cp.act&&ps.find(p=>p.id===S.cp.act), c=c3Cont(e);
+  const interp = ps.length ? `${act?`Segmen ${act.edges.indexOf(e)+1} dari path “${act.f.title}”. `:`Membentuk ${ps.length===1?'path':ps.length+' path'} ${ps.map(p=>'“'+p.f.title+'”').join(', ')}. `}${(act||ps[0]).f.sig}` : 'Tidak membentuk path dalam hasil ini.';
+  const asr=[{p:`${c3Clause(e)}.`, by:e.src.map(s=>SRC[s]?SRC[s].o:'').join(', '), mod:e.st==='fact'?'menyatakan':'diduga', pol:'Positif', src:e.src[0]}].concat(e.alt?[{p:e.alt[0], by:'Pihak terkait (bantahan)', mod:'menyatakan', pol:'Negatif (membantah)', src:e.alt[1]}]:[]);
+  return c3PanelHead('DETAIL RELATIONSHIP', e.k==='role'&&e.det&&e.det['Jabatan']?`Menjabat sebagai ${c3Low(e.det['Jabatan'])}`:e.l.charAt(0).toUpperCase()+e.l.slice(1), `${cpName(e.a)} → ${cpName(e.b)}`) + `
+    <div class="sk-sec"><div class="sk-sh">Context</div><p class="small" style="margin:0 0 6px">${c3Clause(e)}.${Object.entries(e.det||{}).filter(([k,v])=>v===null).length?` ${Object.entries(e.det).filter(([k,v])=>v===null).map(([k])=>k).join(', ')} tidak diungkap.`:''} ${c3Cite(e.src)}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Time validity</div>${cpRow('Periode',e.t?c3Yr(e)+' (resolusi tahun)':'Tidak diketahui')}${cpRow('Sumber informasi waktu',c3Basis(e)+(e.t?'; bukan tanggal publikasi':''))}${c?cpRow('Continuity',`${c[0]} — ${c[1]}`):cpRow('Continuity','Tidak berlaku (peristiwa)')}${cpRow('Tanggal publikasi sumber',e.src.map(c3Pub).join(', '))}</div>
+    <div class="sk-sec"><div class="sk-sh">Interpretation ${aiIc()}</div><p class="small" style="margin:0">${interp}</p></div>
+    <div class="sk-sec"><div class="sk-sh">Evidence list</div>${e.src.concat(e.alt?[e.alt[1]]:[]).filter(s=>SRC[s]).map(s=>`<button class="src-card" style="width:100%;margin-bottom:6px" data-a="src" data-id="${s}"><span class="xs muted">${SRC[s].o} · terbit ${SRC[s].d} · ID TMP-${s.toUpperCase()}</span><b>${SRC[s].t}</b><span class="small" style="font-style:italic">“${(SRC[s].x||'').replace(/<\/?mark>/g,'')}”</span><span class="xs" style="display:block;margin-top:4px;font-weight:700;color:${e.st==='fact'?'var(--ev-verified)':'var(--ev-unverified)'}">${s===(e.alt||[])[1]?'Bantahan':c3Ver(e)} · buka sumber ›</span></button>`).join('')}</div>
+    <details class="c3-tech" ${e.alt?'open':''}><summary>Identity, classification & assertions</summary>${cpRow('Relationship type',e.l)}${cpRow('Direction',`${cpName(e.a)} → ${cpName(e.b)}`)}${cpRow('Definisi',C3DEF[e.k]||null)}${cpRow('Coverage',cov)}${cpRow('Sub-kategori (case)',cas)}${Object.entries(e.det||{}).map(([k,v])=>cpRow(k,v)).join('')}<div class="sk-sh" style="margin-top:8px">Supporting assertions</div>${e.alt?'<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin:0 0 6px"><b>Asersi bertentangan.</b> Sistem tidak memilih salah satu sebagai fakta final.</div>':''}${asr.map(a=>`<div class="rm-as"><div class="small">${a.p}</div><div class="xs muted">Atribusi: ${a.by} · modality: ${a.mod} · polarity: ${a.pol} ${cpCite([a.src])}</div></div>`).join('')}</details>`; };
+
+/* generator temuan: pilih relationship pembentuk pola, jelaskan segmen tambahan */
+const c3Jab = x => (x||'').toLowerCase();
+c3Clause = (function(prev){ return function(e,opt={}){ if(e.k==='role'){ const A=cpName(e.a), B=cpName(e.b), d=e.det||{}, t=e.t?c3Yr(e):null; return `${A} menjabat ${d['Jabatan']?'sebagai '+c3Jab(d['Jabatan'])+' ':''}${opt.noObj?'':'di '+B}${t?` (${t})`:', dengan periode jabatan belum diketahui'}`; } return prev(e,opt); }; })(c3Clause);
+c3Finding = function(p, run){
+  const CX=p._cx, es=p.edges, vendor=CX&&/vendor|pengadaan|mitra/i.test(CX.text), purpose=vendor?'penilaian vendor':'analisis ini';
+  const cites=[...new Set(es.flatMap(e=>e.src.concat(e.alt?[e.alt[1]]:[])))], sh=p.shared?cpYr(p.shared):null;
+  const f={title:'',body:'',sig:'',theme:'',long:'',tnote:'',cites}; let core=[];
+  const roles=es.filter(e=>e.k==='role'), cases=es.filter(e=>e.k==='case'), c=es.find(e=>e.k==='contract'), m=es.find(e=>e.k==='money'), o=es.find(e=>e.k==='own'), ov=es.find(e=>e.k==='over'), ex=es.find(e=>e.k==='exec');
+  const tn = () => p.tc==='overlap'?`beririsan (${sh})`:p.tc==='non'?'fase berbeda':'waktu belum dapat dipastikan';
+  if(o&&p.claim){ core=[o]; f.title=`Dugaan kepemilikan saham ${cpName(o.a)} di ${cpName(o.b)}${o.alt?', telah dibantah':''}`;
+    f.body=`${c3Clause(o)}.${o.alt?` ${o.alt[0].replace(/\.$/,'')} (diberitakan ${c3Pub(o.alt[1])}).`:''} Persentase dan periode kepemilikan belum diketahui.`;
+    f.sig=`Untuk ${purpose}, status kepemilikan ini perlu diverifikasi; belum merupakan kepemilikan yang terbukti.`; f.theme='dugaan kepemilikan saham'; f.long=f.theme+' yang dibantah'; f.tnote='klaim belum terverifikasi'; }
+  else if(cases.length===2){ core=cases; const [e1,e2]=cases, role=e=>c3Jab((e.det&&e.det['Peran / status'])||'pihak'), K=cpName(e1.b);
+    f.title=`Peran ${role(e2)} dan ${role(e1)} dalam perkara yang sama`;
+    f.body=`Dalam ${K}, ${c3Clause(e2,{noObj:true})}, sedangkan ${c3Clause(e1,{noObj:true})}. Ini menunjukkan peran berbeda dalam perkara yang sama, bukan bukti kesalahan bersama; tahun yang sama tidak berarti terjadi bersamaan.`;
+    f.sig=`${CX&&CX.covs.has('Proses Hukum & Penyelesaian Sengketa')?'Untuk '+purpose+', k':'K'}onteks perkara dan perkembangan terakhirnya layak diperiksa.`; f.theme='perkara hukum'; f.long=`peran berbeda dalam ${K}`; f.tnote='peristiwa perkara diberitakan pada 2024'; }
+  else if(c&&roles.find(r=>r.b===c.a||r.b===c.b)){ const r=roles.find(r=>r.b===c.a||r.b===c.b); core=[r,c]; const P=cpName(r.a), X=cpName(r.b), jab=c3Jab((r.det&&r.det['Jabatan'])||'pejabat'), ovl=r.t&&c.t&&r.t[1]>=c.t[0]&&r.t[0]<=c.t[1];
+    f.title = ovl ? `Kontrak berlangsung selama masa jabatan ${P}` : `Kontrak ${X} dan jabatan ${P} pada periode berbeda`;
+    f.body = `${c3Clause(c)}. ${ovl?`Masa kontrak beririsan dengan jabatan ${P} sebagai ${jab} ${X} (${c3Yr(r)}) pada resolusi tahun ${Math.max(r.t[0],c.t[0])}–${Math.min(r.t[1],c.t[1])}.`:`${P} menjabat sebagai ${jab} ${X} (${r.t?c3Yr(r):'periode tidak diketahui'}); periodenya tidak beririsan dengan kontrak.`}`;
+    f.sig = `Untuk ${purpose}, riwayat ini relevan untuk menelusuri afiliasi ${vendor?'pengadaan':'korporasi'} dan siapa yang berwenang menyetujui kontrak. Peran ${P} dalam keputusan kontrak belum diketahui.`;
+    const lk=c.det&&c.det['Lingkup / paket']; f.theme=`kontrak ${lk?c3Jab(lk):''}`.trim(); f.long=`kontrak ${lk?c3Jab(lk)+' ':''}dengan perusahaan tempat ${P} pernah menjabat`; f.tnote= ovl?`kontrak beririsan dengan masa jabatan`:'kontrak dan jabatan pada periode berbeda'; }
+  else if(ov&&ex&&ov.b===ex.b){ core=[ov,ex]; f.title='Pengawasan dan pelaksanaan pada program yang sama';
+    const s2=ov.t&&ex.t?[Math.max(ov.t[0],ex.t[0]),Math.min(ov.t[1],ex.t[1])]:null;
+    f.body=`${c3Clause(ov)}; ${c3Clause(ex)}.${s2&&s2[0]<=s2[1]?` Kedua peran tercatat pada ${s2[0]===s2[1]?s2[0]:s2[0]+'–'+s2[1]}.`:''}`;
+    f.sig='Memberi konteks hubungan institusional; kewenangan pengawasan langsung terhadap pelaksana belum diketahui.'; f.theme=c3Jab(cpName(ov.b)); f.long=`peran berbeda dalam ${cpName(ov.b)}`; f.tnote=s2&&s2[0]<=s2[1]?`kedua peran tercatat pada ${s2[0]===s2[1]?s2[0]:s2[0]+'–'+s2[1]}`:'periode berbeda'; }
+  else if(m&&roles.find(r=>r.b===m.b)){ const r=roles.find(r=>r.b===m.b); core=[r,m]; const P=cpName(r.a), X=cpName(r.b), F=cpName(m.a), jab=c3Jab((r.det&&r.det['Jabatan'])||'pejabat'), hib=/hibah/i.test((m.det&&m.det['Bentuk pendanaan'])||''), ovl=r.t&&m.t&&r.t[1]>=m.t[0]&&r.t[0]<=m.t[1];
+    f.title = hib ? `Hibah ${m.det['Nilai']||''} kepada ${/yayasan/i.test(X)?'yayasan':'organisasi'} yang berafiliasi dengan ${P}`.replace('  ',' ') : !r.t ? `${F} mendanai ${X}, tempat ${P} tercatat menjabat` : ovl ? `${F} mendanai ${X} saat ${P} menjabat` : (r.t[1]<m.t[0]?`Jabatan ${P} di ${X} mendahului pendanaan ${F}`:`Pendanaan ${F} mendahului jabatan ${P} di ${X}`);
+    f.body = `${c3Clause(m)}. ${P} tercatat sebagai ${jab} ${X}${r.t?` (${c3Yr(r)})`:'; periode jabatannya tidak disebutkan'}.${r.t&&!ovl?` Keduanya terhubung melalui ${X} pada fase berbeda.`:''}`;
+    f.sig = `Menghubungkan afiliasi ${P} dengan pendanaan kepada ${X}; keterlibatan ${P} dalam ${hib?'hibah':'pendanaan'} tersebut belum diketahui.`;
+    f.theme = hib?'hibah kepada yayasan':'pendanaan'; f.long = hib?`hibah kepada yayasan yang mencatat ${P} sebagai ${jab}`:`pendanaan ${F} kepada ${X}`; f.tnote = !r.t?'periode jabatan belum diketahui':ovl?'pendanaan saat masa jabatan':'jabatan dan pendanaan pada fase berbeda'; }
+  else if(roles.length>=2&&roles[0].b===roles[1].b&&p.hops===2){ core=roles.slice(0,2); const [e1,e2]=core, X=cpName(e1.b), ovl=e1.t&&e2.t&&e1.t[1]>=e2.t[0]&&e1.t[0]<=e2.t[1];
+    f.title = ovl ? `${cpName(e1.a)} dan ${cpName(e2.a)} sama-sama menjabat di ${X}` : `${cpName(e1.a)} dan ${cpName(e2.a)} menjabat di ${X} pada periode berbeda`;
+    f.body = `${c3Clause(e1)}; ${c3Clause(e2)}.${ovl?` Masa jabatan beririsan pada ${sh}.`:''}`; f.sig='Dapat menjadi jalur koordinasi atau rujukan; tidak membuktikan keduanya saling kenal atau bekerja bersama.'; f.theme='afiliasi jabatan'; f.long=`jabatan di ${X}`; f.tnote=ovl?'masa jabatan beririsan':'periode berbeda'; }
+  else if(m&&c&&m.b===c.a){ core=[m,c]; f.title=`${cpName(m.a)} membiayai ${cpName(m.b)}, yang juga mengontrak ${cpName(c.b)}`; f.body=`${c3Clause(m)}. ${c3Clause(c)}.`; f.sig=`Kedua transaksi terhubung melalui ${cpName(m.b)}; tidak menunjukkan dana tersebut dipakai untuk kontrak.`; f.theme='pendanaan dan kontrak'; f.long=`pendanaan dan kontrak melalui ${cpName(m.b)}`; f.tnote=tn(); }
+  else if(p.hops===1&&c){ core=[c]; f.title=`Kontrak langsung ${c3Jab((c.det&&c.det['Lingkup / paket'])||'')}`.trim(); f.body=`${c3Clause(c)}.`; f.sig='Hubungan kontraktual langsung yang terdokumentasi; tidak menunjukkan kepemilikan atau kendali.'; f.theme='kontrak langsung'; f.long=f.theme; f.tnote=cpYr(c.t); }
+  else { core=es; f.title=`Terhubung melalui ${p.mids.map(cpName).join(' dan ')||'hubungan langsung'}`; f.body=es.map(e=>c3Clause(e)).join('; ')+'.'; f.sig='Rangkaian ini menunjukkan keterhubungan; setiap segmen terdokumentasi terpisah.'+(p.claim?' Salah satu segmen berupa klaim yang belum terverifikasi.':''); f.theme='hubungan lain'; f.long=f.title.charAt(0).toLowerCase()+f.title.slice(1); f.tnote=tn(); }
+  const extra=es.filter(e=>!core.includes(e));
+  if(extra.length){ f.body=`${extra.map(e=>c3Clause(e)).join('; ')}. ${f.body}`; f.title+=` (melalui ${p.mids.map(cpName).join(' dan ')})`; if(extra.some(e=>e.st!=='fact')) f.sig+=' Salah satu segmen berupa klaim yang belum terverifikasi.'; }
+  return f; };
+
+/* Ringkasan lebih jelas + pola tambahan */
+c3Finding = (function(prev){ return function(p,run){
+  const es=p.edges, roles=es.filter(e=>e.k==='role'), c=es.find(e=>e.k==='contract'), m=es.find(e=>e.k==='money'), cites=[...new Set(es.flatMap(e=>e.src.concat(e.alt?[e.alt[1]]:[])))];
+  // orang yang sama menjabat di dua organisasi
+  if(p.hops===2&&roles.length===2&&roles[0].a===roles[1].a){ const P=cpName(roles[0].a), r1=roles.find(r=>r.b===run.a)||roles[0], r2=roles.find(r=>r!==r1), d=r=>`${c3Jab((r.det&&r.det['Jabatan'])||'pengurus')} ${cpName(r.b)} (${r.t?c3Yr(r):'periode tidak diketahui'})`;
+    const ovl=r1.t&&r2.t&&r1.t[1]>=r2.t[0]&&r1.t[0]<=r2.t[1];
+    return {title:`${P} tercatat di kedua organisasi`, body:`${P} menjabat sebagai ${d(r1)} dan ${d(r2)}.${!r1.t||!r2.t?' Karena salah satu periode tidak diketahui, belum dapat dipastikan apakah kedua jabatan berlangsung bersamaan.':ovl?' Kedua jabatan beririsan.':' Kedua jabatan berlangsung pada periode berbeda.'}`, sig:'Menjadi titik temu personal antara kedua organisasi; tidak menunjukkan hubungan kelembagaan langsung.', theme:'pengurus yang sama', short:'pengurus yang sama', long:`${P} yang tercatat di kedua organisasi`, tnote:!r1.t||!r2.t?'periode salah satu jabatan tidak diketahui':ovl?'jabatan beririsan':'periode berbeda', cites}; }
+  // pihak yang sama menjadi kontraktor A dan pemberi dana B
+  if(p.hops===2&&c&&m&&c.b===m.a){ const X=cpName(c.b);
+    return {title:`${X} terhubung ke keduanya lewat kontrak dan hibah`, body:`${c3Clause(c)}. ${c3Clause(m)}.`, sig:`Dua transaksi terpisah melalui ${X}; tidak menunjukkan dana kontrak dipakai untuk hibah.`, theme:'kontraktor yang sama', short:`transaksi ${X}`, long:`kontrak dan hibah ${X}`, tnote:p.tc==='overlap'?`keduanya tercatat pada ${cpYr(p.shared)}`:'periode berbeda', cites}; }
+  const f=prev(p,run);
+  f.short = ({'kontrak pekerjaan dermaga':'kontrak dermaga','perkara hukum':'perkara hukum','hibah kepada yayasan':'hibah yayasan','afiliasi jabatan':'jabatan di organisasi yang sama','pendanaan dan kontrak':'pendanaan dan kontrak','kontrak langsung':'kontrak langsung','dugaan kepemilikan saham':'dugaan saham','pendanaan':'pendanaan'})[f.theme] || (/program/i.test(f.theme)?f.theme.replace(/\s+tangguh$/i,''):f.theme);
+  return f; }; })(c3Finding);
+c3Overview = (function(prev){ return function(R,run){ let h=prev(R,run);
+  const A=cpName(run.a), B=cpName(run.b), fact=R.paths.filter(p=>!p.claim), claims=R.paths.filter(p=>p.claim), dDoc=fact.filter(p=>p.hops===1), ind=fact.filter(p=>p.hops>1);
+  const joinT=a=>a.length>1?a.slice(0,-1).join(', ')+' dan '+a[a.length-1]:a[0]||'';
+  const shorts=[...new Set(fact.map(p=>p.f.short).filter(Boolean))].slice(0,3);
+  const sh=fact.filter(p=>p.shared).map(p=>p.shared), per=sh.length?(()=>{ const a=Math.min(...sh.map(x=>x[0])), b=Math.max(...sh.map(x=>x[1])); return a===b?''+a:a+'–'+b; })():null;
+  const head = fact.length ? `${dDoc.length?'Terhubung langsung dan':'Terhubung'} lewat ${joinT(shorts)}` : claims.length ? 'Belum ada hubungan terdokumentasi; hanya dugaan' : '';
+  const lead = fact.length ? `${dDoc.length?`${A} dan ${B} memiliki ${dDoc.length} hubungan langsung yang terdokumentasi`:`Tidak ada hubungan langsung yang terdokumentasi`}${ind.length?`; keduanya terhubung lewat ${ind.length} jalur tidak langsung`:''}${per?`, terutama pada ${per}`:''}.` : `Tidak ditemukan hubungan terdokumentasi antara ${A} dan ${B}.`;
+  const list = fact.slice(0,3).map(p=>`<li><button class="c3-sl" data-a="c3-goto" data-id="${p.id}"><b>${p.f.title}</b><span class="xs muted">${p.hops===1?'Langsung':'Lewat '+p.mids.map(cpName).join(' → ')} · ${p.f.tnote}</span></button>${c3Cite(p.f.cites)}</li>`).join('');
+  const claimBox = claims.length ? (()=>{ const o=claims[0].edges.find(e=>e.st!=='fact'); const what = o.k==='own' ? `${cpName(o.a)} memiliki saham di ${cpName(o.b)}` : cpStep(o).replace('diduga ','');
+    return `<div class="c3-unv" role="note"><div class="row" style="gap:8px;align-items:center"><span class="c3-unvtag">Belum terverifikasi</span><b class="small">Dugaan yang dibantah</b></div><p class="small" style="margin:4px 0 0">Ada pemberitaan bahwa ${what} (sumber anonim, ${c3Pub(o.src[0])})${o.alt?`, lalu dibantah pada ${c3Pub(o.alt[1])}`:''}. ${c3Cite(o.src.concat(o.alt?[o.alt[1]]:[]))}</p><p class="xs muted" style="margin:2px 0 0">Tidak dihitung sebagai hubungan terdokumentasi.</p></div>`; })() : '';
+  const sec = `<section class="card c3-brief" style="margin-top:0"><div class="xs muted" style="font-weight:800;letter-spacing:.06em">CONNECTION SUMMARY ${aiIc()}</div><h3 class="c3-headline">${head}</h3><p class="c3-lead">${lead}</p>${list?`<div class="xs muted" style="font-weight:700;margin:10px 0 4px">Jalur utama</div><ul class="c3-sum">${list}</ul>`:''}${claimBox}</section>`;
+  return h.replace(/<section class="card c3-brief"[\s\S]*?<\/section>/, sec); }; })(c3Overview);
+
+
+/* =========================================================
+   RELATIONSHIP MAP — revisi feedback v1 (insight-first)
+   ========================================================= */
+/* catatan konteks yang bersumber langsung dari excerpt artikel */
+const RVNOTE = {e6:['untuk pembiayaan smelter tahap I','s4'], e9:['didaftarkan ke pengadilan negeri; sidang pertama belum dijadwalkan','s12'], e10:['mengambil sampel air di tiga titik; hasil uji laboratorium dijadwalkan keluar dalam dua pekan','s2'], e12:['meminta audit izin lingkungan setelah gugatan nelayan didaftarkan','s15'], e19:['dokumen uji internal 2023 mencatat kadar nikel terlarut di atas ambang pada satu titik','s7'], mx2:['berakhir Desember 2023 dan tidak diperpanjang','rmx3']};
+Object.assign(TIERL,{primary:'Hubungan utama', supporting:'Konteks terkait', other:'Hubungan lainnya'});
+const rvStart = e => (e.period||'').split('–')[0].trim() || (e.y0!=null?String(e.y0):'');
+const rvLow = x => (x||'').charAt(0).toLowerCase()+(x||'').slice(1);
+const rvSrc = e => [...new Set((e.src||[]).concat(RVNOTE[e.id]?[RVNOTE[e.id][1]]:[]))];
+const rvCite = ids => cpCite([...new Set(ids)].filter(s=>SRC[s]));
+const rvPer = e => e.period&&e.period!=='—' ? e.period : (e.y0!=null?(e.y0===e.y1?''+e.y0:e.y0+'–'+e.y1):'');
+/* kalimat fakta per relationship, dengan atribusi bila klaim */
+function rvSay(e,opt={}){ const A=NN[e.a].n, B=NN[e.b].n, L=e.rel==='works_for'?(/minister/i.test(e.label||'')?'menteri':(e.label||'').toLowerCase()):rvLow(e.label&&e.label!=='—'?e.label:''), P=opt.noPer?'':rvPer(e), note=RVNOTE[e.id]?' '+RVNOTE[e.id][0]:'', past=rmTS(e)==='hist';
+  switch(e.rel){
+    case 'works_for': return `${A} ${past?'pernah menjabat':'menjabat'} sebagai ${L||'pengurus'} ${B}${P?` (${P})`:''}`;
+    case 'shareholder_of': { const pct=(e.label||'').match(/±?\s?(\d+%)/); const hold=pct?`sekitar ${pct[1]} saham${/konversi kredit/i.test(e.label)?' melalui konversi sebagian kredit':''}`:'saham'; return RMCONFLICT[e.id] ? `dua sumber anonim menyebut ${A} memegang ${hold} ${B}${P?` (${P})`:''}, sedangkan ${B} menyatakan susunan pemegang saham belum berubah` : `${A} disebut sebagai ${L.replace(/\s*\(.*\)/,'')||'pemegang saham'} ${B} dalam pemberitaan${P?` ${P.replace(/^Diberitakan /,'')}`:''}${/tidak diungkap/i.test(e.label||'')?', tanpa persentase yang tersedia':''}`; }
+    case 'subsidiary_of': return `${A} tercatat sebagai anak usaha ${B}${P?` (${P})`:''}`;
+    case 'finances': return `${A} tercatat sebagai ${L||'pemberi dana'} bagi ${B}${note}${P?` (${P})`:''}`;
+    case 'contracts_with': return `${A} ${past?'pernah memiliki':'memiliki'} ${L||'kontrak'} dengan ${B}${P?` (${P})`:''}${note&&past?`; kerja sama ini${note}`:note&&!past?note:''}`;
+    case 'sues': return `${A} mengajukan gugatan perdata terhadap ${B}${P?` (${P})`:''}${note?`; ${RVNOTE[e.id][0]}`:''}`;
+    case 'filed': return `${A} mengajukan ${B}`;
+    case 'investigates': return `${A} ${L?rvLow(L):'memeriksa'} terkait ${B}${P?` (${P})`:''}${note?`; ${RVNOTE[e.id][0]}`:''}`;
+    case 'oversees': return `${A} ${RVNOTE[e.id]?RVNOTE[e.id][0]:L} terhadap ${B}${P?` (${P})`:''}`;
+    case 'subject_of': return `${A} disorot dalam isu ${B}${P?` (${P})`:''}${note?`; ${RVNOTE[e.id][0]}`:''}`;
+    case 'suspect_in': return `${A} ditetapkan tersangka dalam ${B}${P?` (${P})`:''}`;
+    case 'part_of': return `${A} merupakan ${L||'unit'} di bawah ${B}`;
+    case 'supports': return `${A} mendukung ${B}${L?`: ${L}`:''}${P?` (${P})`:''}`;
+    case 'claimed_close_to': return `${A} disebut dekat dengan ${B} menurut sumber yang belum terverifikasi`;
+    case 'located_in': return `${A} beroperasi di ${B}`;
+  } return rmSent(e); }
+const rvCap = s => s.charAt(0).toUpperCase()+s.slice(1);
+const rvJoin = a => a.length>1 ? a.slice(0,-1).join(', ')+' dan '+a[a.length-1] : (a[0]||'');
+/* tema per relationship terhadap entitas utama */
+function rvTheme(e,X){ const lead=/direktur utama|presiden direktur|ceo|ketua|menteri|minister|kepala|direktur jenderal/i.test(e.label||'');
+  return {works_for: e.b===X ? (lead?'lead':'officer') : 'career', shareholder_of:'own', subsidiary_of:'own', finances:'fund', contracts_with:'contract', sues:'legal', filed:'legal', suspect_in:'legal', investigates:'reg', oversees:'reg', subject_of:'issue', supports:'stance', part_of:'struct', claimed_close_to:'own', located_in:'loc'}[e.rel]||'other'; }
+const RVW = {overall:{lead:5,own:4.5,fund:4,legal:4.5,reg:4,contract:3.5,partnerlit:5,issue:3,stance:2.5,struct:3,career:5,caseind:4.5,orgctx:3.5},
+  own:{own:7,lead:6,career:6,fund:3.5,officer:4,contract:2,partnerlit:2.5,legal:2,reg:1.5,struct:4,caseind:2.5,orgctx:2},
+  biz:{fund:7,contract:6.5,partnerlit:6,own:4.5,lead:3,career:4,legal:2.5,reg:2,struct:2,caseind:2,orgctx:3},
+  gov:{reg:7,issue:6,legal:5,contract:3,struct:4,lead:2.5,career:3,own:2,fund:2,partnerlit:3,caseind:5,orgctx:4},
+  legal:{legal:7,caseind:7,partnerlit:6,reg:5.5,issue:4.5,lead:2.5,career:3,own:2,fund:2,struct:2,orgctx:5}};
+const RVCTX = [[/vendor|mitra|kemitraan|pengadaan|partner/i,['own','lead','contract','fund','partnerlit']],[/saham|pemilik|kepemilikan|pengendali/i,['own']],[/dana|pendanaan|kredit|pinjam|bank|investasi/i,['fund','own']],[/hukum|perkara|gugat|tersangka|sengketa|risiko hukum/i,['legal','caseind','partnerlit']],[/izin|regulator|lingkungan|limbah|audit|pemerintah/i,['reg','issue']],[/kontrak|logistik|pasok|operasional/i,['contract','partnerlit']],[/direksi|pengurus|pimpin|jabatan/i,['lead','career']]];
+/* generator temuan */
+function rvFindings(R,run){
+  const X=R.X, XN=NN[X].n, pk=run.sc.purpose, ctx=(run.sc.ctx||''), W=RVW[pk]||RVW.overall, F=[];
+  const ctxT=new Set(); RVCTX.forEach(([re,ts])=>{ if(re.test(ctx)) ts.forEach(t=>ctxT.add(t)); });
+  const vendor=/vendor|mitra|kemitraan|pengadaan/i.test(ctx);
+  const l1=[...R.info].filter(([i,v])=>v.lv===1), allE=l1.flatMap(([i,v])=>v.e);
+  const byT=t=>allE.filter(e=>rvTheme(e,X)===t);
+  const used=new Set(), add=f=>{ f.score=(W[f.theme]||2)+(ctxT.has(f.theme)?4:0)+(f.unc?-.3:0); f.ids.forEach(i=>used.add(i)); F.push(f); };
+  const pairOf=e=>({p:X, c:e.a===X?e.b:e.a});
+  // kepemimpinan (entitas utama organisasi)
+  const rank=e=>{ const l=(e.label||'').toLowerCase(); return /menteri|minister/.test(l)?6:/presiden direktur|direktur utama|ceo/.test(l)?5:/ketua/.test(l)?4:/kepala/.test(l)?3:/direktur jenderal/.test(l)?2:1; }; const leads=byT('lead').filter(e=>rmTS(e)!=='hist').sort((a,b)=>rank(b)-rank(a)), officers=byT('officer');
+  if(leads.length){ const e=leads[0], P=NN[e.a].n, prior=allE.filter(z=>z.a===e.a&&z.rel==='works_for'&&z!==e&&rmTS(z)==='hist'), others=allE.filter(z=>z.rel==='works_for'&&z.a!==e.a&&z.b===X);
+    add({theme:'lead', headline:`Dipimpin ${P} sebagai ${/minister/i.test(e.label)?'menteri':(e.label||'').toLowerCase()}${rvStart(e)?' sejak '+rvStart(e):''}`, finding:`${rvCap(rvSay(e))}${prior.length?`; sebelumnya ${prior.map(z=>`${(z.label||'').toLowerCase()} (${rvPer(z)})`).join(', ')}`:''}.${others.length?` Pengurus lain yang tercatat: ${others.map(z=>`${NN[z.a].n} (${z.label}, ${rvPer(z)}${rmTS(z)==='hist'?', sudah berakhir':''})`).join('; ')}.`:''}`,
+      why: pk==='own'||vendor ? `Menunjukkan pengambil keputusan tertinggi saat ini dan perubahan susunan pengurus yang relevan untuk ${vendor?'penilaian calon mitra':'memetakan afiliasi korporasi'}.` : `Menunjukkan siapa yang memimpin ${/^PT /.test(XN)?'perusahaan':'organisasi'} pada periode analisis.`,
+      consider: vendor?'Pastikan pihak yang berwenang menandatangani kerja sama sesuai susunan pengurus terkini.':'',
+      ids:[e,...prior,...others].map(z=>z.id), ents:[e.a,...others.map(z=>z.a)], src:[e,...prior,...others].flatMap(rvSrc), go:pairOf(e)}); }
+  // karier (entitas utama orang)
+  const car=byT('career'); if(NN[X].t==='Person'&&car.length){ const cur=car.find(e=>rmTS(e)!=='hist')||car[0], prior=car.filter(e=>e!==cur);
+    add({theme:'career', headline:`${rvCap((cur.label||'').toLowerCase())} ${NN[cur.b].n} sejak ${rvStart(cur)}`, finding:`${rvCap(rvSay(cur))}${prior.length?`; sebelumnya ${prior.map(z=>`${(z.label||'').toLowerCase()} di ${NN[z.b].n} (${rvPer(z)})`).join(', ')}`:''}.`, why:`Menjelaskan posisi ${XN} saat ini dan riwayat jabatannya di perusahaan yang sama.`, consider:'', ids:car.map(z=>z.id), ents:[cur.b], src:car.flatMap(rvSrc), go:pairOf(cur)});
+    // konteks organisasi (2 hop)
+    const org=cur.b, oe=rmEdges().filter(z=>(z.b===org||z.a===org)&&['sues','investigates','oversees'].includes(z.rel)&&R.info.has(z.a===org?z.b:z.a));
+    if(oe.length) add({theme:'orgctx', headline:`${NN[org].n} yang dipimpinnya sedang menghadapi ${rvJoin([...new Set(oe.map(z=>({sues:'gugatan perdata',investigates:'pemeriksaan regulator',oversees:'sorotan DPRD'})[z.rel]))])}`, finding:`${oe.map(z=>rvCap(rvSay(z))).join('. ')}.`, why:`Konteks perusahaan yang dipimpin ${XN}; tindakan tersebut ditujukan kepada perusahaan, bukan kepada ${XN} secara pribadi.`, consider:'', unc:'', ids:oe.map(z=>z.id), ents:[org], src:oe.flatMap(rvSrc), go:{p:X,c:org,node:true}}); }
+  // pembiayaan + klaim kepemilikan pada pasangan sama (sintesis lintas relationship)
+  const fund=byT('fund'), own=byT('own');
+  fund.forEach(f=>{ const oc=own.find(o=>o.a===f.a&&rmClaim(o)); if(oc){ const N=NN[f.a].n;
+    add({theme:'fund', cross:true, headline:`${N} berperan sebagai pemberi pembiayaan; statusnya sebagai pemegang saham masih diperselisihkan`, finding:`${rvCap(rvSay(f))}. Pada ${rvPer(oc)}, ${rvSay(oc,{noPer:true})}.`, why:`Untuk ${vendor?'memeriksa struktur kepemilikan calon mitra':'memahami struktur kepemilikan'}, catatan kredit tidak cukup untuk menyimpulkan adanya kepemilikan.`, consider:'Cocokkan perubahan susunan pemegang saham dengan sumber otoritatif sebelum menyimpulkan.', unc:`Kepemilikan ${N} hanya disebut sumber anonim dan dibantah perusahaan.`, ids:[f.id,oc.id], ents:[f.a], src:[...rvSrc(f),...rvSrc(oc)], go:pairOf(f)}); } else
+    add({theme:'fund', headline:`${NN[f.a].n} ${rvLow(f.label).replace(/ rp/i,' Rp')}`, finding:`${rvCap(rvSay(f))}.`, why:`Menunjukkan sumber pendanaan eksternal yang terdokumentasi.`, consider:'', ids:[f.id], ents:[f.a], src:rvSrc(f), go:pairOf(f)}); });
+  // kepemilikan (yang belum dipakai)
+  const ownLeft=own.filter(o=>!used.has(o.id)||!fund.some(f=>f.a===o.a));
+  const ownF=own.filter(o=>!fund.some(f=>f.a===o.a&&rmClaim(o)));
+  if(ownF.length){ const o=ownF[0];
+    add({theme:'own', headline: rmClaim(o)?`${NN[o.a].n} dilaporkan sebagai ${rvLow(o.label).replace(/ \(.*\)/,'')}`:`${NN[o.a].n} tercatat sebagai ${rvLow(o.label)}`, finding:`${rvCap(rvSay(o))}.${own.length>1?` Klaim kepemilikan lain: ${own.filter(z=>z!==o).map(z=>`${NN[z.a].n} (${rvPer(z)}, diperselisihkan)`).join('; ')}.`:''}`,
+      why: pk==='own'||vendor ? 'Menjawab siapa pemilik yang dilaporkan, informasi kunci untuk menilai afiliasi dan pengendalian.' : 'Memberi gambaran pemilik yang dilaporkan.', consider: rmClaim(o)?'Konfirmasi susunan pemegang saham terkini dari sumber otoritatif.':'', unc: rmClaim(o)?'Kepemilikan bersumber dari pemberitaan, bukan dokumen resmi; persentase tidak tersedia.':'', ids:ownF.map(z=>z.id), ents:ownF.map(z=>z.a), src:ownF.flatMap(rvSrc), go:pairOf(o)}); }
+  // mantan mitra yang kini menggugat
+  const sues=byT('legal').filter(e=>e.rel==='sues'), cons=byT('contract');
+  sues.forEach(s=>{ const pc=cons.find(c=>(c.a===s.a||c.b===s.a)&&rmTS(c)==='hist'); if(pc){ const N=NN[s.a].n;
+    add({theme:'partnerlit', cross:true, headline: s.a===X ? `Kini menggugat ${NN[s.b].n}, mantan mitra kerjanya` : `${N}: mantan mitra yang kini menggugat`, finding:`${rvCap(rvSay(pc))}. Pada ${rvPer(s)}, ${rvSay(s,{noPer:true})}.`, why:'Hubungan berubah dari kerja sama menjadi sengketa; relevan untuk menilai hubungan perusahaan dengan pihak di sekitarnya.', consider:'Periksa pokok gugatan; sumber belum menghubungkan gugatan dengan berakhirnya kemitraan.', ids:[pc.id,s.id], ents:[s.a], src:[...rvSrc(pc),...rvSrc(s)], go:pairOf(s)}); } });
+  // sorotan hukum & regulasi (gabungan)
+  const lr=allE.filter(e=>['sues','investigates','oversees','subject_of','suspect_in'].includes(e.rel)&&!(e.rel==='sues'&&F.some(f=>f.theme==='partnerlit'&&f.ids.includes(e.id))));
+  if(lr.length){ const kinds=[...new Set(lr.map(e=>({sues:'gugatan perdata',investigates:'pemeriksaan regulator',oversees:'pengawasan DPRD',subject_of:'sorotan isu lingkungan',suspect_in:'status tersangka'})[e.rel]))];
+    const yrs=[...new Set(lr.map(e=>rvPer(e)).filter(Boolean))];
+    add({theme: lr.some(e=>e.rel==='investigates'||e.rel==='oversees')?'reg':'legal', headline:`Menghadapi ${rvJoin(kinds)}${yrs.length===1?' pada '+yrs[0]:''}`, finding:`${lr.map(e=>rvCap(rvSay(e))).join('. ')}.`, why: pk==='gov'||pk==='legal' ? 'Inilah titik pengawasan dan proses hukum yang sedang berjalan terhadap entitas utama.' : 'Menunjukkan isu hukum dan regulasi yang sedang berjalan dan dapat memengaruhi operasional.', consider:'Pantau hasil uji laboratorium dan perkembangan gugatan sebelum mengambil kesimpulan.', unc: lr.some(e=>/menunggu|berlangsung/i.test(e.status||''))?'Proses masih berjalan; belum ada hasil uji atau putusan dalam sumber yang dianalisis.':'', ids:lr.map(e=>e.id), ents:lr.map(e=>e.a===X?e.b:e.a), src:lr.flatMap(rvSrc), go:pairOf(lr[0])}); }
+  // kontrak berjalan
+  cons.filter(c=>rmTS(c)!=='hist'&&!used.has(c.id)).forEach(c=>{ const Y=NN[c.a===X?c.b:c.a].n;
+    add({theme:'contract', headline:`Kontrak berjalan dengan ${Y}${(c.period||'').split('–')[1]?' hingga '+(c.period||'').split('–')[1].trim():''}`, finding:`${rvCap(rvSay(c))}.`, why:'Menunjukkan mitra operasional yang terikat kontrak pada periode analisis.', consider:'', ids:[c.id], ents:[c.a===X?c.b:c.a], src:rvSrc(c), go:pairOf(c)}); });
+  // struktur & pejabat (mis. kementerian)
+  const st=byT('struct'); if(st.length) add({theme:'struct', headline:`Membawahi ${rvJoin(st.map(e=>NN[e.a].n))}`, finding:`${st.map(e=>rvCap(rvSay(e))).join('. ')}.`, why:'Menjelaskan unit-unit di bawah entitas utama yang muncul dalam jaringan.', consider:'', ids:st.map(e=>e.id), ents:st.map(e=>e.a), src:st.flatMap(rvSrc), go:pairOf(st[0])});
+  // tersangka melalui pejabat (2 hop)
+  [...R.info].filter(([i,v])=>v.lv===2&&v.e.some(e=>e.rel==='suspect_in')).forEach(([i,v])=>{ const s=v.e.find(e=>e.rel==='suspect_in'), P=NN[s.a].n, r=rmEdges().find(e=>e.a===s.a&&e.b===X&&e.rel==='works_for');
+    add({theme:'caseind', headline:`${P}${r?` (${r.label})`:''} ditetapkan tersangka dalam ${NN[s.b].n}`, finding:`${r?rvCap(rvSay(r))+'. ':''}${rvCap(rvSay(s))}.`, why:`Status tersangka melekat pada individu; keterkaitan dengan ${XN} terjadi melalui jabatannya, bukan sebagai pihak perkara.`, consider:'Ikuti perkembangan perkara dan langkah institusi terhadap pejabat terkait.', unc:'', ids:[s.id,...(r?[r.id]:[])], ents:[s.a,s.b], src:[...rvSrc(s),...(r?rvSrc(r):[])], go:{p:s.a,c:i}}); });
+  // dukungan pihak lain
+  byT('stance').forEach(e=>add({theme:'stance', headline:`Didukung ${NN[e.a].n}`, finding:`${rvCap(rvSay(e))}.`, why:'Menunjukkan pihak yang mendukung posisi entitas utama di ruang publik.', consider:'', ids:[e.id], ents:[e.a], src:rvSrc(e), go:pairOf(e)}));
+  F.sort((a,b)=>b.score-a.score);
+  return {all:F, top:F.filter(f=>!f.cross||true).slice(0,5), cross:F.filter(f=>f.cross), ctxT}; }
+/* ringkasan eksekutif */
+function rvExec(R,run,FS){ const XN=NN[R.X].n, top=FS.all.slice(0,3), ctx=run.sc.ctx||'', vendor=/vendor|mitra|kemitraan|pengadaan/i.test(ctx);
+  if(!top.length) return {headline:`Belum ditemukan hubungan yang menonjol untuk ${XN}`, body:'Belum ditemukan hubungan yang material pada sumber dan periode yang dianalisis.', consider:''};
+  const tag={lead:'kepemimpinan',career:'jabatan',own:'kepemilikan yang dilaporkan',fund:'pembiayaan eksternal',partnerlit:'sengketa dengan mantan mitra',reg:'pengawasan regulator',legal:'proses hukum',contract:'kontrak operasional',struct:'struktur organisasi',caseind:'perkara yang melibatkan pejabatnya',orgctx:'sorotan terhadap perusahaannya',stance:'dukungan publik',issue:'isu publik'};
+  const tags=[...new Set(top.map(f=>tag[f.theme]).filter(Boolean))];
+  const seen=new Set(); const body = top.map(f=>f.finding.split('. ').map(x=>x.split('; ')[0].replace(/\.$/,'')).find(x=>!seen.has(x))).filter(x=>x&&(seen.add(x),true)).slice(0,3).map(x=>x+'.').join(' ');
+  const cons = top.find(f=>f.consider);
+  return {headline:`Jaringan ${XN} menunjukkan ${rvJoin(tags)}`, body, consider: cons ? (vendor?`Untuk penilaian calon mitra: ${rvLow(cons.consider)}`:cons.consider) : '', src:top.flatMap(f=>f.src)}; }
+function rvCard(f,i){ return `<li class="rv-f"><span class="c3-kn">${String(i+1).padStart(2,'0')}</span><div><b class="rv-h">${f.headline}</b><p class="small" style="margin:3px 0">${f.finding}</p><p class="small" style="margin:3px 0"><b>Mengapa penting:</b> ${f.why}</p>${f.unc?`<p class="small rv-unc">${f.unc}</p>`:''}${f.consider?`<p class="small" style="margin:3px 0"><b>Perlu ditinjau:</b> ${f.consider}</p>`:''}<div class="row" style="gap:8px;margin-top:4px;flex-wrap:wrap">${rvCite(f.src)}<button class="linkish small" data-a="rv-go" data-p="${f.go.p}" data-c="${f.go.c}" data-n="${f.go.node?1:''}">Lihat hubungan & sumber ›</button></div></div></li>`; }
+/* tab Ringkasan */
+rmOverview = function(R,run){ const FS=rvFindings(R,run), ex=rvExec(R,run,FS), all=[...R.info].filter(([i])=>i!==R.X), allE=all.flatMap(([i,v])=>v.e);
+  const claims=allE.filter(rmClaim), unk=allE.filter(e=>rmTS(e)==='unknown'), srcs=[...new Set(allE.flatMap(e=>e.src||[]))].filter(s=>SRC[s]);
+  const cnt={primary:0,supporting:0,other:0}; all.forEach(([i,v])=>cnt[v.tier]++); const dir=all.filter(([i,v])=>v.lv===1).length;
+  const conflict=claims.filter(e=>RMCONFLICT[e.id]);
+  return `<div class="rm-ov">
+    <section class="card c3-brief" style="margin-top:0"><div class="xs muted" style="font-weight:800;letter-spacing:.06em">RINGKASAN ${aiIc()}</div><h3 class="c3-headline">${ex.headline}</h3><p class="c3-lead">${ex.body} ${rvCite(ex.src||[])}</p>${ex.consider?`<p class="small rv-cons"><b>Perlu ditinjau:</b> ${ex.consider}</p>`:''}</section>
+    <section class="card"><div class="card-h"><h3>Temuan utama</h3><span class="xs muted">Diurutkan menurut tujuan analisis${run.sc.ctx?' dan konteks Anda':''}</span></div>${FS.top.length?`<ol class="c3-kf">${FS.top.map(rvCard).join('')}</ol>`:'<p class="small muted">Belum ditemukan hubungan yang material untuk tujuan ini.</p>'}</section>
+    ${FS.cross.length?`<section class="card"><div class="card-h"><h3>Analytical Highlights</h3>${aiIc()}</div><div class="grid" style="gap:8px">${FS.cross.map(f=>`<div class="rv-hl"><b>${f.headline}</b><p class="small" style="margin:3px 0">${f.finding} ${f.why} ${rvCite(f.src)}</p><button class="linkish small" data-a="rv-go" data-p="${f.go.p}" data-c="${f.go.c}">Lihat hubungan ›</button></div>`).join('')}</div></section>`:''}
+    <details class="card c3-det"><summary><b>Cakupan & Hal yang Perlu Diperhatikan</b><span class="xs muted">${srcs.length} sumber · cut-off ${RMCUT}</span></summary><div><ul class="sk-ul">
+      <li>${srcs.length} artikel dari arsip Tempo yang telah diproses, hingga ${RMCUT}; ${R.sc.all?'semua periode':'periode '+R.sc.y0+'–'+R.sc.y1}; hingga ${R.sc.depth} tingkat koneksi.</li>
+      ${conflict.length?`<li>Pernyataan yang bertentangan: ${conflict.map(e=>`${rvSay(e)}`).join('; ')}.</li>`:''}
+      ${claims.filter(e=>!RMCONFLICT[e.id]).length?`<li>Disebut dalam pemberitaan tanpa dokumen resmi: ${claims.filter(e=>!RMCONFLICT[e.id]).map(e=>`${NN[e.a].n} → ${NN[e.b].n}`).join('; ')}.</li>`:''}
+      ${unk.length?`<li>${unk.length} hubungan tercatat dalam sumber, tetapi masa berlakunya belum dapat dipastikan: ${unk.slice(0,3).map(e=>rmSent(e)).join('; ')}.</li>`:''}
+      ${R.co.length?`<li>${R.co.map(c=>`${NN[c.a].n} dan ${NN[c.b].n}`).join('; ')} hanya disebut bersama dalam artikel; tidak dihitung sebagai hubungan.</li>`:''}
+      <li>Belum ditemukan hubungan lain pada sumber dan periode yang dianalisis di luar yang ditampilkan.</li></ul></div></details>
+    <details class="card c3-det"><summary><b>Statistik jaringan</b><span class="xs muted">${R.total} entitas terhubung</span></summary><div class="c3-stats" style="margin-top:10px">${[['Entitas terhubung',R.total],['Langsung',dir],['Tidak langsung',R.total-dir],['Hubungan utama',cnt.primary],['Konteks & lainnya',cnt.supporting+cnt.other]].map(([l,v])=>`<div><b>${v}</b><span>${l}</span></div>`).join('')}</div></details></div>`; };
+/* strip insight di atas graph */
+rmGraphBlock = (function(prev){ return function(R,run){ let h=prev(R,run); const FS=rvFindings(R,run), ex=rvExec(R,run,FS);
+  const strip = `<div class="rv-strip"><div style="min-width:0"><b class="rv-sh">${ex.headline}</b><p class="small" style="margin:2px 0 0">${ex.body.split('. ')[0].replace(/\.?$/,'.')}</p></div><div class="rv-chips">${FS.top.slice(0,3).map(f=>`<button class="rv-chip" data-a="rv-go" data-p="${f.go.p}" data-c="${f.go.c}" data-n="${f.go.node?1:''}">${f.headline}</button>`).join('')}<button class="linkish small" data-a="rm-tab" data-t="summary">Semua temuan ›</button></div></div>`;
+  h = strip + h;
+  // label pengguna
+  h=h.replace('<span class="tb-l">Fokus</span>','<span class="tb-l">Sorot</span>').replace('<span class="tb-hint">Tier lain tetap tampil dalam abu-abu</span>','<span class="tb-hint">Yang tidak disorot tetap tampil abu-abu</span>');
+  h=h.replace(/>Tier difokuskan</,'>Disorot<').replace(/>Tier lain</,'>Konteks & hubungan lain<').replace(/>Waktu tidak diketahui</,'>Masa berlaku belum pasti<').replace(/>Klaim beratribusi</,'>Disebut sumber, belum terverifikasi<');
+  h=h.replace(/1 hop · langsung/g,'Langsung').replace(/2 hop · tidak langsung/g,'Melalui 1 perantara').replace(/3 hop · tidak langsung/g,'Melalui 2 perantara').replace(/FOCAL ENTITY · /g,'ENTITAS UTAMA · ');
+  return h; }; })(rmGraphBlock);
+rmFilters = (function(prev){ return function(R,V){ let h=prev(R,V);
+  h=h.replace(/>Coverage(\s|<)/,'>Kategori hubungan$1').replace(/>Hop(\s|<)/,'>Tingkat koneksi$1').replace(/'Hingga 1 hop'/g,"'Langsung'");
+  return h.replace(/Hingga 1 hop/g,'Langsung').replace(/Hingga 2 hop/g,'Hingga 1 perantara').replace(/Hingga 3 hop/g,'Hingga 2 perantara').replace(/Semua \(≤ (\d)\)/g,'Semua tingkat'); }; })(rmFilters);
+rmResult = (function(prev){ return function(){ let h=prev(); return h.replace('>Network Overview<','>Ringkasan<').replace(/Focal entity · /,'Entitas utama · ').replace(/🔗 (\d) hop</,(m,n)=>`🔗 Hingga ${n} tingkat koneksi<`).replace('>All available time<','>Semua periode<'); }; })(rmResult);
+/* Node Insight Panel: siapa → mengapa relevan → hubungan penting → sumber → detail */
+rmNodePanel2 = function(R,id,V){ const K=S.rm, run=K.runs.find(r=>r.id===K.cur), X=R.X, N=NN[id], isX=id===X, v=R.info.get(id), FS=rvFindings(R,run); if(!isX&&!v) return rmNodePanel2(R,X,V);
+  const meta = N.t==='Person' ? (()=>{ const ro=rmRoleOf(id); return ro?`${ro.txt} · ${ro.l==='Current role'?'saat ini':'terakhir tercatat'}, ${ro.per}`:''; })() : (RMIND[id]||'');
+  const rel = FS.all.filter(f=>f.ents.includes(id)||(isX&&true)).slice(0,isX?3:2);
+  let why='';
+  if(isX){ const ex=rvExec(R,run,FS); why = `${ex.headline}. ${FS.all.slice(0,2).map(f=>f.headline).join('; ')}.`; }
+  else if(rel.length) why = rel.map(f=>`${f.headline}. ${f.why}`).join(' ');
+  else { const e=v.t[0].e; why = v.lv===1 ? `${rvCap(rvSay(e))}.` : `Terhubung ke ${NN[X].n} melalui ${(()=>{ const ch=[]; let c=v.p; while(c&&c!==X){ ch.unshift(NN[c].n); c=R.info.get(c).p; } return ch.join(' dan '); })()}; belum ditemukan hubungan langsung dengan ${NN[X].n} dalam sumber yang dianalisis.`; }
+  const conns = isX ? [...R.info].filter(([i,x])=>x.lv===1).sort((a,b)=>rmScore(R,b[0])-rmScore(R,a[0])).slice(0,6) : [...R.info].filter(([i,x])=>i===v.p||x.p===id).map(([i,x])=>[i,x]);
+  const connRow = ([i,x]) => { const pr = i===v?.p ? {p:i,c:id} : {p:x.p,c:i}; const e=(i===v?.p?v:x).e[0]; return `<button class="nx-kr" data-a="rm-edge" data-p="${pr.p}" data-c="${pr.c}"><span style="flex:1;min-width:0"><b class="small">${NN[i].n}</b><span class="xs muted" style="display:block">${rvCap(rvSay(e))}</span></span><span class="rm-chev">›</span></button>`; };
+  const evIds = isX ? FS.all.slice(0,3).flatMap(f=>f.src) : [...new Set((v.e||[]).flatMap(rvSrc))];
+  const back = !isX?'<button class="btn sm ghost" data-a="rm-desel">← Entitas utama</button>':'';
+  return `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">${isX?'ENTITAS UTAMA':v.lv===1?'TERHUBUNG LANGSUNG':v.lv===2?'MELALUI 1 PERANTARA':'MELALUI 2 PERANTARA'}</div><h3>${N.n}</h3><div class="xs muted">${skTL(N.t)}${meta?' · '+meta:''}</div></div>
+    <div class="sk-sec"><div class="sk-sh">Mengapa relevan dalam analisis ini?</div><p class="small" style="margin:0">${why} ${rvCite(rel.flatMap(f=>f.src))}</p></div>
+    ${conns.length?`<div class="sk-sec"><div class="sk-sh">Hubungan penting</div>${conns.map(connRow).join('')}</div>`:''}
+    <div class="sk-sec"><div class="sk-sh">Sumber & bukti</div>${rmEv([...new Set(evIds)])||'<p class="small muted">—</p>'}</div>
+    <details class="c3-tech"><summary>Profil & detail data</summary>${cpRow('Nama kanonik',N.n)}${cpRow('Jenis entitas',skTL(N.t))}${N.al&&N.al.length?cpRow('Alias',N.al.join(', ')):''}${cpRow('Deskripsi',N.d||null)}${!isX?cpRow('Tingkat koneksi',v.lv===1?'Langsung':`Melalui ${v.lv-1} perantara`)+cpRow('Relevansi terhadap tujuan',TIERL[v.tier])+cpRow('Kategori hubungan',v.t.map(x=>x.cov).filter((a,i,s)=>s.indexOf(a)===i).join(', ')):''}</details>
+    <div class="row" style="gap:6px;margin-top:10px;flex-wrap:wrap">${!isX&&cpIsEndpointType(N.t)?`<button class="btn sm" data-a="rm-tocp" data-id="${id}">Analyze Connection Paths</button><button class="btn sm" data-a="rm-newobj" data-id="${id}">Buka Relationship Map</button>`:''}${['Program','Project','Issue','Case'].includes(N.t)?`<button class="btn sm" data-a="cp-totopic" data-id="${id}">Analyze Topic Network</button>`:''}</div>`; };
+/* Relationship Insight Panel: ringkasan pasangan + signifikansi → hubungan → sumber → detail data */
+const RVCAT = {works_for:'Jabatan',shareholder_of:'Kepemilikan saham',subsidiary_of:'Anak usaha',finances:'Pembiayaan',contracts_with:'Kontrak',sues:'Gugatan',filed:'Pengajuan perkara',investigates:'Pemeriksaan',oversees:'Pengawasan',subject_of:'Sorotan isu',suspect_in:'Status tersangka',part_of:'Struktur',supports:'Dukungan',claimed_close_to:'Kedekatan (dugaan)',located_in:'Lokasi'};
+rmRelPanel = function(R,sel){ const K=S.rm, run=K.runs.find(r=>r.id===K.cur), v=R.info.get(sel.c), A=sel.p, B=sel.c; if(!v) return '<p class="small muted">Hubungan tidak lagi dalam hasil.</p>';
+  const es=v.e, groups={}; es.forEach(e=>(groups[e.rel]=groups[e.rel]||[]).push(e)); const types=Object.keys(groups);
+  const cur = K.relType&&groups[K.relType] ? K.relType : types.find(k=>!groups[k].some(rmClaim))||types[0];
+  const FS=rvFindings(R,run), f=FS.all.find(x=>x.ids.some(i=>es.some(e=>e.id===i)));
+  const plain = k => groups[k].some(e=>RMCONFLICT[e.id]) ? 'disebut sumber anonim; dibantah' : groups[k].some(rmClaim) ? 'disebut dalam pemberitaan' : 'terdokumentasi';
+  const hp = k => groups[k].some(e=>RMCONFLICT[e.id]) ? 'masih diperselisihkan' : plain(k); const head = types.length>1 ? `${NN[A].n} dan ${NN[B].n}: ${types.map(k=>`${rvLow(RVCAT[k]||REL[k][0])} ${hp(k)}`).join(', ')}` : `${NN[A].n} dan ${NN[B].n}`;
+  const summary = es.map(e=>rvCap(rvSay(e))).join('. ')+'.';
+  const back = `<button class="btn sm ghost" data-a="rm-desel">← Entitas utama</button>`;
+  const recs=groups[cur], e0=recs[0], cf=RMCONFLICT[e0.id];
+  return `<div class="nxp-h">${back}<div class="xs muted" style="font-weight:700;margin-top:8px">HUBUNGAN</div><h3>${head}</h3></div>
+    <div class="sk-sec"><div class="sk-sh">Ringkasan</div><p class="small" style="margin:0">${summary}${types.length>1?' Setiap hubungan diperiksa terpisah.':''}</p>${f?`<p class="small" style="margin:6px 0 0"><b>Mengapa penting:</b> ${f.why}</p>`:''}${R.info.get(B).lv>1?`<p class="xs muted" style="margin:6px 0 0">${NN[B].n} terhubung ke ${NN[R.X].n} melalui ${NN[A].n}; belum ditemukan hubungan langsung dengan ${NN[R.X].n}.</p>`:''}</div>
+    ${types.length>1?`<div class="sk-sec"><div class="sk-sh">${types.length} hubungan yang dapat dibuka</div><div class="rm-rtabs" role="tablist">${types.map((k,i)=>{ const g=groups[k], on=k===cur; return `<button class="rm-rtab ${on?'on':''}" data-a="rm2-rtype" data-k="${k}" role="tab" aria-selected="${on}"><span class="rm-rn">${i+1}</span><span class="rm-rb"><b>${RVCAT[k]||REL[k][0]}</b><span class="xs muted">${g.map(z=>rvPer(z)).join(' / ')} · ${plain(k)}</span></span><span class="rm-chev">›</span></button>`; }).join('')}</div></div>`:''}
+    <div class="sk-sec"><div class="sk-sh">${types.length>1?'Detail: ':''}${RVCAT[cur]||REL[cur][0]}</div>${recs.map(e=>`<p class="small" style="margin:0 0 4px">${rvCap(rvSay(e))}.</p>`).join('')}${cpRow('Masa berlaku',recs.map(e=>e.y0==null?'Tercatat dalam sumber, masa berlakunya belum dapat dipastikan':`${rvPer(e)}${rmTS(e)==='current'?' (masih berlaku menurut sumber)':rmTS(e)==='hist'?' (sudah berakhir)':''}`).join('; '))}${cf?`<div class="sk-note" style="border-left:3px solid var(--ev-unverified);margin-top:6px"><b>Pernyataan yang bertentangan</b>${cf.map(a=>`<div class="small" style="margin-top:3px">${a.by}: “${a.p}” ${cpCite([a.src])}</div>`).join('')}</div>`:''}</div>
+    <div class="sk-sec"><div class="sk-sh">Sumber & bukti</div>${rmEv([...new Set(recs.flatMap(rvSrc))])}</div>
+    <details class="c3-tech"><summary>Detail data</summary>${recs.map(e=>{ const x=rmTier(e,R.pk); return `${cpRow('Arah',`${NN[e.a].n} → ${REL[e.rel][0]} → ${NN[e.b].n}`)}${cpRow('Jenis (taxonomy)',REL[e.rel][0])}${cpRow('Definisi',RMDEF[e.rel]||null)}${cpRow('Kategori hubungan',x.cov)}${cpRow('Konteks hubungan',x.cas)}${cpRow('Relevansi terhadap tujuan',TIERL[x.tier])}${cpRow('valid_from / valid_to',`${e.y0??'—'} / ${e.y1??'—'}`)}${cpRow('Dasar waktu',rmBasis(e))}${cpRow('Atribusi',(e.src||[]).map(s=>SRC[s]?SRC[s].o:'').join(', '))}${cpRow('Status klaim',rmClaim(e)?'Klaim beratribusi':'Terdokumentasi')}${cpRow('Record ID',e.id)}`; }).join('<hr style="border:0;border-top:1px solid var(--rule-2);margin:6px 0">')}</details>`; };
+ACT['rv-go']=(el,d)=>{ const K=S.rm; K.tab='graph'; K.relType=null; if(d.n){ K.sel={t:'n',id:d.c}; } else { K.sel={t:'e',p:d.p,c:d.c}; const a=RMPOS[d.p], b=RMPOS[d.c]; if(a&&b) K.zfocus={x:(a[0]+b[0])/2,y:(a[1]+b[1])/2}; } rerender(); };
+
+
+/* ===== Tab hasil konsisten: Insight Overview · Graph · Cakupan & Keterbatasan Data · Sumber ===== */
+const NXTABS4 = {cp:[['overview','Insight Overview'],['paths','Graph'],['coverage','Cakupan & Keterbatasan Data'],['sources','Sumber']], rm:[['summary','Insight Overview'],['graph','Graph'],['coverage','Cakupan & Keterbatasan Data'],['sources','Sumber']]};
+/* Connection Paths: cakupan keluar dari overview */
+c3Overview = (function(prev){ return function(R,run){ return prev(R,run).replace(/<details class="card c3-det"><summary><b>Cakupan & Keterbatasan Data<\/b>[\s\S]*?<\/details>/,''); }; })(c3Overview);
+c3Coverage = (function(prev){ return function(R,run){ return prev(R,run).replace('<h3>Cakupan & Keterbatasan Data</h3>','<h3>Cakupan & Keterbatasan Data</h3>'); }; })(c3Coverage);
+/* Relationship Map: cakupan jadi tab sendiri */
+function rvCoverage(R,run){ const all=[...R.info].filter(([i])=>i!==R.X), allE=all.flatMap(([i,v])=>v.e), claims=allE.filter(rmClaim), unk=allE.filter(e=>rmTS(e)==='unknown'), srcs=[...new Set(allE.flatMap(e=>e.src||[]))].filter(s=>SRC[s]), conflict=claims.filter(e=>RMCONFLICT[e.id]);
+  return `<div class="card" style="margin-top:0"><div class="card-h"><h3>Cakupan & Keterbatasan Data</h3><span class="xs muted">${srcs.length} sumber · cut-off ${RMCUT}</span></div><ul class="sk-ul">
+    <li>${srcs.length} artikel dari arsip Tempo yang telah diproses, hingga ${RMCUT}; ${R.sc.all?'semua periode':'periode '+R.sc.y0+'–'+R.sc.y1}; hingga ${R.sc.depth} tingkat koneksi.</li>
+    ${conflict.length?`<li>Pernyataan yang bertentangan: ${conflict.map(e=>rvSay(e)).join('; ')}.</li>`:''}
+    ${claims.filter(e=>!RMCONFLICT[e.id]).length?`<li>Disebut dalam pemberitaan tanpa dokumen resmi: ${claims.filter(e=>!RMCONFLICT[e.id]).map(e=>`${NN[e.a].n} → ${NN[e.b].n}`).join('; ')}.</li>`:''}
+    ${unk.length?`<li>${unk.length} hubungan tercatat dalam sumber, tetapi masa berlakunya belum dapat dipastikan: ${unk.slice(0,3).map(e=>rmSent(e)).join('; ')}.</li>`:''}
+    ${R.co.length?`<li>${R.co.map(c=>`${NN[c.a].n} dan ${NN[c.b].n}`).join('; ')} hanya disebut bersama dalam artikel; tidak dihitung sebagai hubungan.</li>`:''}
+    <li>Tanggal publikasi tidak dipakai sebagai waktu hubungan.</li>
+    <li>Belum ditemukan hubungan lain pada sumber dan periode yang dianalisis di luar yang ditampilkan.</li></ul></div>`; }
+rmOverview = (function(prev){ return function(R,run){ return prev(R,run).replace(/<details class="card c3-det"><summary><b>Cakupan & Hal yang Perlu Diperhatikan<\/b>[\s\S]*?<\/details>/,''); }; })(rmOverview);
+rmResult = (function(prev){ return function(){ const K=S.rm; if(!['summary','graph','coverage','sources'].includes(K.tab)) K.tab='summary';
+  const want=K.tab; if(want==='coverage') K.tab='sources';
+  let h=prev(); K.tab=want;
+  const i=h.indexOf('<div class="tabs"'); if(i<0) return h;
+  const j=h.indexOf('</div>',i)+6, head=h.slice(0,i), run=K.runs.find(r=>r.id===K.cur);
+  let body=h.slice(j);
+  if(want==='coverage') body=rvCoverage(rmAnalyse(run),run);
+  return head + nxTabs(want,'rm-tab',NXTABS4.rm) + body; }; })(rmResult);
+const _rmOpenT = rmOpen; rmOpen = function(id){ _rmOpenT(id); S.rm.tab='summary'; };
+
+
+/* nama section seragam di kedua Insight Overview */
+c3Overview = (function(prev){ return function(R,run){ return prev(R,run).replace('CONNECTION SUMMARY','RINGKASAN').replace('<h3>Key Findings</h3>','<h3>Temuan utama</h3>').replace('<h3>Relationship Development</h3>','<h3>Perkembangan hubungan</h3>').replace('<b>Connection Statistics</b>','<b>Statistik</b>'); }; })(c3Overview);
+rmOverview = (function(prev){ return function(R,run){ return prev(R,run).replace('<h3>Analytical Highlights</h3>','<h3>Sorotan analitis</h3>').replace('<b>Statistik jaringan</b>','<b>Statistik</b>'); }; })(rmOverview);
+
+
+/* RM: tanpa strip insight di tab Graph (sudah ada di Insight Overview) */
+rmGraphBlock = (function(prev){ return function(R,run){ return prev(R,run).replace(/<div class="rv-strip">[\s\S]*?<div class="rv-chips">[\s\S]*?<\/div><\/div>/,''); }; })(rmGraphBlock);
+/* CP: tanpa filter di tab Graph */
+c3PathsTab = (function(prev){ return function(R,run){ S.cp.f=c3NewF(); return prev(R,run).replace(/<details class="c3-adv"[\s\S]*?<\/details>/,''); }; })(c3PathsTab);
 
 render();
 </script>
